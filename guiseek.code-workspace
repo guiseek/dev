@@ -4,5 +4,18 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+    "workbench.colorCustomizations": {
+      "sideBar.background": "#111A20",
+      "editorRuler.foreground": "#111A20",
+      "titleBar.border": "#3A3647",
+      "titleBar.activeForeground": "#82F9A1",
+      "statusBar.background": "#243B4A",
+      "statusBar.foreground": "#82F9A1",
+      "activityBar.foreground": "#82F9A1",
+      "activityBarBadge.background": "#00000070",
+      "activityBarBadge.foreground": "#6dc083"
+    },
+    "editor.tabCompletion": "on",
+  }
 }
