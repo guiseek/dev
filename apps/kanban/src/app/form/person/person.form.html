@@ -1,0 +1,27 @@
+<form [formGroup]="form">
+  <div>
+    <label for="name">Nome</label>
+    <input
+      id="name"
+      type="text"
+      formControlName="name"
+      autofocus
+      cdkFocusInitial
+    />
+    <span
+      role="button"
+      tabindex="0"
+      (click)="withSpan()"
+      (blur)="onBlur()"
+      class="selectable"
+    >
+      Fechar
+    </span>
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input id="email" type="search" formControlName="email" />
+    <button (click)="withButton()" class="unselectable">Fechar</button>
+  </div>
+</form>

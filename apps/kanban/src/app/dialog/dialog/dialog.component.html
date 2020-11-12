@@ -1,0 +1,31 @@
+<div
+  cdkDrag
+  cdkDragRootElement=".cdk-overlay-pane"
+  [cdkDragDisabled]="!config.draggable"
+>
+  <ng-container *ngIf="header">
+    <div
+      class="dialog-header"
+      cdkDragHandle
+      [ngClass]="{ 'dialog-draggable': config.draggable }"
+    >
+      <header class="title">
+        <span>{{ header.title }}</span>
+        <button
+          *ngIf="!config.disableClose"
+          class="dialog-close-button"
+          mat-icon-button
+          (click)="ref.close()"
+        >
+          <i class="material-icons">close</i>
+        </button>
+      </header>
+      <footer *ngIf="header.subtitle" class="subtitle">
+        <span>{{ header.subtitle }}</span>
+      </footer>
+    </div>
+  </ng-container>
+  <div class="dialog-content" cdkTrapFocus>
+    <ng-container cdkPortalOutlet></ng-container>
+  </div>
+</div>

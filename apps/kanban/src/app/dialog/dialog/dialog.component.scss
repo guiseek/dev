@@ -1,0 +1,42 @@
+:host {
+  display: block;
+  width: 100%;
+  background: white;
+  border-radius: 6px;
+  padding: 0px;
+  overflow: hidden;
+  .mat-toolbar.dialog-header {
+    &.mat-toolbar-multiple-rows {
+      min-height: unset;
+    }
+    .mat-toolbar-row {
+      &.title {
+        justify-content: space-between;
+        height: 48px;
+      }
+      &.subtitle {
+        height: 28px;
+        padding-bottom: 8px;
+        & > span {
+          font-size: 16px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  .dialog-draggable {
+    cursor: move;
+  }
+  .dialog-close-button {
+    margin-top: -12px;
+    margin-right: -18px;
+    opacity: 0.4;
+    transition: opacity 200ms ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .dialog-content {
+    padding: 14px;
+  }
+}

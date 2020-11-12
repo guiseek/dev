@@ -1,0 +1,130 @@
+@import '~@angular/material/theming';
+@import '~@angular/cdk/overlay';
+@include cdk-overlay();
+
+$mmws-dialog-padding: 24px !default;
+$mmws-dialog-border-radius: 4px !default;
+$mmws-dialog-max-width: 65vh !default;
+$mmws-dialog-max-height: 65vh !default;
+$mmws-dialog-button-margin: 8px !default;
+
+@mixin dialog-base {
+  .mmws-dialog-container {
+    position: relative;
+    display: block;
+    padding: $mmws-dialog-padding;
+    border-radius: $mmws-dialog-border-radius;
+    box-sizing: border-box;
+    overflow: auto;
+    outline: 0;
+
+    width: 100%;
+    height: 100%;
+
+    .arrow {
+      border-radius: 5px;
+    }
+    .mmws-dialog-content {
+      display: block;
+      margin: 0 $mmws-dialog-padding * -1;
+      padding: 0 $mmws-dialog-padding;
+      // max-width: $mmws-dialog-max-width;
+      // max-height: $mmws-dialog-max-height;
+      max-height: 100%;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .mmws-dialog-close {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+    }
+    .mmws-dialog-title {
+      margin: 0 0 10px;
+      display: block;
+    }
+
+    .mmws-dialog-actions {
+      margin: 0;
+      padding: 16px 0 8px 0;
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 50px;
+      align-items: center;
+
+      // Pull the actions down to avoid their padding stacking with the dialog's padding.
+      margin-bottom: -$mmws-dialog-padding;
+
+      &[align='end'] {
+        justify-content: flex-end;
+      }
+
+      &[align='center'] {
+        justify-content: center;
+      }
+
+      &[align='end'] {
+        justify-content: flex-end;
+      }
+
+      &[align='space-between'] {
+        justify-content: space-between;
+      }
+      .mat-button + .mat-button,
+      .mat-raised-button + .mat-raised-button,
+      .mat-button + .mat-raised-button,
+      .mat-raised-button + .mat-button {
+        margin-left: $mmws-dialog-button-margin;
+
+        [dir='rtl'] & {
+          margin-left: 0;
+          margin-right: $mmws-dialog-button-margin;
+        }
+      }
+    }
+  }
+}
+@mixin dialog-theme($theme) {
+  // $primary: map-get($theme, primary);
+
+  $background: map-get($theme, background);
+  $background-color: map-get($background, background);
+
+  $primary: map-get($theme, primary);
+  @include dialog-base();
+  .mmws-dialog-container {
+    // max-width: $mmws-dialog-max-width;
+    // max-height: $mmws-dialog-max-height;
+
+    background-color: $background-color;
+    // background: mat-color($primary, dark);
+    color: mat-color($primary, '50-contrast');
+  }
+}
+.warn {
+  @include dialog-base();
+  .mmws-dialog-container {
+    background: mat-color($mat-red, 600);
+    color: mat-color($mat-red, 50);
+  }
+}
+.info {
+  @include dialog-base();
+  .mmws-dialog-container .mmws-dialog-title {
+    $pad: $mmws-dialog-padding;
+    margin: $pad * -1 $pad * -1 10px;
+    display: block;
+    padding: $pad;
+    font-size: $pad;
+    background-color: mat-color($mat-blue, 400);
+    color: mat-color($mat-blue, 50);
+  }
+}
+.no-padding {
+  @include dialog-base();
+  .mmws-dialog-container {
+    padding: 0;
+    border-radius: 4px;
+  }
+}
