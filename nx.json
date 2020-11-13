@@ -35,6 +35,12 @@
     },
     "peer-server": {
       "tags": ["side:server"]
+    },
+    "peer-ng-client": {
+      "tags": []
+    },
+    "peer-client": {
+      "tags": []
     }
   }
 }

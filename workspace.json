@@ -196,10 +196,80 @@
             "tsConfig": "libs/peer/server/tsconfig.lib.json",
             "packageJson": "libs/peer/server/package.json",
             "main": "libs/peer/server/index.ts",
-            "assets": [
-              "libs/peer/server/*.md",
-              "libs/peer/server/LICENSE"
-            ]
+            "assets": ["libs/peer/server/*.md", "libs/peer/server/LICENSE"]
+          }
+        }
+      }
+    },
+    "peer-ng-client": {
+      "projectType": "library",
+      "root": "libs/peer/ng-client",
+      "sourceRoot": "libs/peer/ng-client/src",
+      "prefix": "peer",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/peer/ng-client/tsconfig.lib.json",
+            "project": "libs/peer/ng-client/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/peer/ng-client/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/peer/ng-client/tsconfig.lib.json",
+              "libs/peer/ng-client/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/peer/ng-client/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/peer/ng-client/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "peer-client": {
+      "root": "libs/peer/client",
+      "sourceRoot": "libs/peer/client/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/peer/client/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/peer/client/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/peer/client",
+            "tsConfig": "libs/peer/client/tsconfig.lib.json",
+            "packageJson": "libs/peer/client/package.json",
+            "main": "libs/peer/client/src/index.ts",
+            "assets": ["libs/peer/client/*.md"]
           }
         }
       }

@@ -1,5 +1,5 @@
 {
-  "name": "PeerJS Server",
-  "description": "A server side element to broker connections between PeerJS clients.",
+  "name": "NxPeer Server",
+  "description": "A server side element to broker connections between NxPeer clients.",
   "website": "http://peerjs.com/"
 }

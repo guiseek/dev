@@ -16,7 +16,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-peer/server": ["libs/peer/server/src/index.ts"]
+      "@nx-peer/server": ["libs/peer/server/src/index.ts"],
+      "@nx-peer/ng-client": ["libs/peer/ng-client/src/index.ts"],
+      "@nx-peer/client": ["libs/peer/client/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
