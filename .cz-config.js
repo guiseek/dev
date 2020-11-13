@@ -46,6 +46,7 @@ module.exports = {
 
   scopes: [
     { name: 'nx-peer', description: 'anything nx-peer specific (e.g., server, client, ng-client)' },
+    { name: 'apps', description: 'some client side application (e.g., kanban)' },
     {
       name: 'testing',
       description: 'anything testing specific (e.g., jest or cypress)',

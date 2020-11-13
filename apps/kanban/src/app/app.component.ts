@@ -1,3 +1,4 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { DialogService } from './dialog/dialog.service'
 import { Component } from '@angular/core'
 import { PersonForm } from './form/person/person.form'
@@ -14,10 +15,14 @@ export class AppComponent {
   form = new FormGroup({
     accept: new FormControl()
   })
-  constructor(private dialog: DialogService) {}
+  constructor(
+    private dialog: DialogService,
+    private afa: AngularFireAuth,
+  ) {}
 
   open() {
-    const dialog$ = this.dialog.open(PersonForm)
-    dialog$.afterClosed().subscribe(console.log)
+    this.afa.signInAnonymously().then(u => console.log(u))
+    // const dialog$ = this.dialog.open(PersonForm)
+    // dialog$.afterClosed().subscribe(console.log)
   }
 }

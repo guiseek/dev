@@ -30,10 +30,13 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^10.1.0",
+    "@angular/cdk": "10.2.7",
     "@angular/common": "^10.1.0",
     "@angular/compiler": "^10.1.0",
     "@angular/core": "^10.1.0",
+    "@angular/fire": "^6.0.5",
     "@angular/forms": "^10.1.0",
+    "@angular/material": "10.2.7",
     "@angular/platform-browser": "^10.1.0",
     "@angular/platform-browser-dynamic": "^10.1.0",
     "@angular/router": "^10.1.0",
@@ -48,11 +51,13 @@
     "webrtc-adapter": "^7.7.0",
     "ws": "^7.4.0",
     "yargs": "^16.1.0",
-    "zone.js": "^0.10.2"
+    "zone.js": "^0.10.2",
+    "firebase": "^7.0.0 || ^8.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.3",
     "@angular/cdk": "^10.2.7",
+    "@angular/cli": "^10.0.1",
     "@angular/compiler-cli": "^10.1.0",
     "@angular/language-service": "^10.1.0",
     "@commitlint/cli": "^11.0.0",
@@ -104,7 +109,13 @@
     "ts-jest": "26.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
-    "typescript": "~4.0.3"
+    "typescript": "~4.0.3",
+    "@angular-devkit/architect": ">= 0.900 < 0.1100",
+    "firebase-tools": "^8.0.0",
+    "fuzzy": "^0.1.3",
+    "inquirer": "^6.2.2",
+    "inquirer-autocomplete-prompt": "^1.0.1",
+    "open": "^7.0.3"
   },
   "config": {
     "commitizen": {

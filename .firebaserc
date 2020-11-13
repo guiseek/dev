@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gui-seek-staging": {
+      "hosting": {
+        "kanban": [
+          "gui-seek-staging"
+        ]
+      }
+    }
+  }
+}
