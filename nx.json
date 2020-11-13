@@ -29,6 +29,12 @@
     "kanban-e2e": {
       "tags": [],
       "implicitDependencies": ["kanban"]
+    },
+    "p2p-server": {
+      "tags": ["side:server"]
+    },
+    "peer-server": {
+      "tags": ["side:server"]
     }
   }
 }

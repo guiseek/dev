@@ -1,0 +1,11 @@
+{
+  "name": "@nx-peer/server",
+  "version": "0.0.1",
+  "bin": {
+    "nx-peer": "./bin/nx-peer"
+  },
+  "files": [
+    "bin/",
+    "index.d.ts"
+  ]
+}

@@ -119,6 +119,90 @@
           }
         }
       }
+    },
+    "p2p-server": {
+      "root": "apps/p2p/server",
+      "sourceRoot": "apps/p2p/server/src",
+      "projectType": "application",
+      "prefix": "p2p-server",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/p2p/server",
+            "main": "apps/p2p/server/src/main.ts",
+            "tsConfig": "apps/p2p/server/tsconfig.app.json",
+            "assets": ["apps/p2p/server/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/p2p/server/src/environments/environment.ts",
+                  "with": "apps/p2p/server/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "p2p-server:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/p2p/server/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/p2p/server/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "peer-server": {
+      "root": "libs/peer/server",
+      "sourceRoot": "libs/peer/server",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/peer/server/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/peer/server/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/peer/server",
+            "tsConfig": "libs/peer/server/tsconfig.lib.json",
+            "packageJson": "libs/peer/server/package.json",
+            "main": "libs/peer/server/index.ts",
+            "assets": [
+              "libs/peer/server/*.md",
+              "libs/peer/server/LICENSE"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
