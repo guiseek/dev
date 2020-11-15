@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <mat-icon>local_fire_department</mat-icon>
+  <span>{{ title }}</span>
+
+  <span class="spacer"></span>
+
+  <mat-slide-toggle [checked]="isDark" (change)="toggle()">
+    {{ (isDark$ | async) ? 'Dark' : 'Light' }}
+  </mat-slide-toggle>
+
+  <button type="button" mat-stroked-button color="accent">
+    Button
+  </button>
+</mat-toolbar>

@@ -25,7 +25,9 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "commit": "npx git-cz",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
+    "scully": "scully --project gui-seek",
+    "scully:serve": "scully serve --project gui-seek"
   },
   "private": true,
   "dependencies": {
@@ -40,10 +42,14 @@
     "@angular/platform-browser": "^10.1.0",
     "@angular/platform-browser-dynamic": "^10.1.0",
     "@angular/router": "^10.1.0",
+    "@scullyio/init": "^1.0.1",
+    "@scullyio/ng-lib": "^1.0.0",
+    "@scullyio/scully": "^1.0.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "eventemitter3": "^4.0.7",
     "express": "4.17.1",
+    "firebase": "^7.0.0 || ^8.0.0",
     "peerjs-js-binarypack": "^1.0.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
@@ -51,10 +57,10 @@
     "webrtc-adapter": "^7.7.0",
     "ws": "^7.4.0",
     "yargs": "^16.1.0",
-    "zone.js": "^0.10.2",
-    "firebase": "^7.0.0 || ^8.0.0"
+    "zone.js": "^0.10.2"
   },
   "devDependencies": {
+    "@angular-devkit/architect": ">= 0.900 < 0.1100",
     "@angular-devkit/build-angular": "~0.1001.3",
     "@angular/cdk": "^10.2.7",
     "@angular/cli": "^10.0.1",
@@ -95,7 +101,11 @@
     "dotenv": "6.2.0",
     "eslint": "7.10.0",
     "eslint-config-prettier": "6.0.0",
+    "firebase-tools": "^8.0.0",
+    "fuzzy": "^0.1.3",
     "husky": "^4.3.0",
+    "inquirer": "^6.2.2",
+    "inquirer-autocomplete-prompt": "^1.0.1",
     "jest": "26.2.2",
     "jest-environment-jsdom": "^26.6.2",
     "jest-environment-jsdom-global": "^2.0.4",
@@ -104,18 +114,13 @@
     "jsom": "^1.0.0",
     "mock-socket": "^9.0.3",
     "ng-packagr": "^10.1.0",
+    "open": "^7.0.3",
     "prettier": "2.0.4",
     "semantic-release": "^17.2.2",
     "ts-jest": "26.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
-    "typescript": "~4.0.3",
-    "@angular-devkit/architect": ">= 0.900 < 0.1100",
-    "firebase-tools": "^8.0.0",
-    "fuzzy": "^0.1.3",
-    "inquirer": "^6.2.2",
-    "inquirer-autocomplete-prompt": "^1.0.1",
-    "open": "^7.0.3"
+    "typescript": "~4.0.3"
   },
   "config": {
     "commitizen": {

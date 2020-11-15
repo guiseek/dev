@@ -20,17 +20,10 @@
             "main": "apps/kanban/src/main.ts",
             "polyfills": "apps/kanban/src/polyfills.ts",
             "tsConfig": "apps/kanban/tsconfig.app.json",
-            "allowedCommonJsDependencies": [
-              "@angular/fire/firestore"
-            ],
+            "allowedCommonJsDependencies": ["@angular/fire/firestore"],
             "aot": true,
-            "assets": [
-              "apps/kanban/src/favicon.ico",
-              "apps/kanban/src/assets"
-            ],
-            "styles": [
-              "apps/kanban/src/styles.scss"
-            ],
+            "assets": ["apps/kanban/src/favicon.ico", "apps/kanban/src/assets"],
+            "styles": ["apps/kanban/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -89,10 +82,7 @@
               "apps/kanban/tsconfig.spec.json",
               "apps/kanban/tsconfig.editor.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/kanban/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/kanban/**/*"]
           }
         },
         "test": {
@@ -136,13 +126,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/kanban-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/kanban-e2e/**/*"
-            ]
+            "tsConfig": ["apps/kanban-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/kanban-e2e/**/*"]
           }
         }
       }
@@ -160,9 +145,7 @@
             "outputPath": "dist/apps/p2p/server",
             "main": "apps/p2p/server/src/main.ts",
             "tsConfig": "apps/p2p/server/tsconfig.app.json",
-            "assets": [
-              "apps/p2p/server/src/assets"
-            ]
+            "assets": ["apps/p2p/server/src/assets"]
           },
           "configurations": {
             "production": {
@@ -187,9 +170,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/p2p/server/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/p2p/server/**/*.ts"]
           }
         },
         "test": {
@@ -210,9 +191,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/peer/server/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/peer/server/**/*.ts"]
           }
         },
         "test": {
@@ -229,10 +208,7 @@
             "tsConfig": "libs/peer/server/tsconfig.lib.json",
             "packageJson": "libs/peer/server/package.json",
             "main": "libs/peer/server/index.ts",
-            "assets": [
-              "libs/peer/server/*.md",
-              "libs/peer/server/LICENSE"
-            ]
+            "assets": ["libs/peer/server/*.md", "libs/peer/server/LICENSE"]
           }
         }
       }
@@ -262,10 +238,7 @@
               "libs/peer/ng-client/tsconfig.lib.json",
               "libs/peer/ng-client/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/peer/ng-client/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/peer/ng-client/**/*"]
           }
         },
         "test": {
@@ -291,9 +264,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/peer/client/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/peer/client/**/*.ts"]
           }
         },
         "test": {
@@ -310,9 +281,129 @@
             "tsConfig": "libs/peer/client/tsconfig.lib.json",
             "packageJson": "libs/peer/client/package.json",
             "main": "libs/peer/client/src/index.ts",
+            "assets": ["libs/peer/client/*.md"]
+          }
+        }
+      }
+    },
+    "gui-seek": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/gui/seek",
+      "sourceRoot": "apps/gui/seek/src",
+      "prefix": "seek",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/gui/seek",
+            "index": "apps/gui/seek/src/index.html",
+            "main": "apps/gui/seek/src/main.ts",
+            "polyfills": "apps/gui/seek/src/polyfills.ts",
+            "tsConfig": "apps/gui/seek/tsconfig.app.json",
+            "aot": true,
             "assets": [
-              "libs/peer/client/*.md"
-            ]
+              "apps/gui/seek/src/favicon.ico",
+              "apps/gui/seek/src/assets"
+            ],
+            "styles": ["apps/gui/seek/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/gui/seek/src/environments/environment.ts",
+                  "with": "apps/gui/seek/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "gui-seek:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "gui-seek:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "gui-seek:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/gui/seek/tsconfig.app.json",
+              "apps/gui/seek/tsconfig.spec.json",
+              "apps/gui/seek/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/gui/seek/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/gui/seek/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "gui-seek-e2e": {
+      "root": "apps/gui/seek-e2e",
+      "sourceRoot": "apps/gui/seek-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/gui/seek-e2e/cypress.json",
+            "tsConfig": "apps/gui/seek-e2e/tsconfig.e2e.json",
+            "devServerTarget": "gui-seek:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "gui-seek:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/gui/seek-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/gui/seek-e2e/**/*"]
           }
         }
       }
@@ -331,5 +422,5 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "kanban"
+  "defaultProject": "gui-seek"
 }

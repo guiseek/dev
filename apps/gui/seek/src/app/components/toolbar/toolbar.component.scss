@@ -1,0 +1,14 @@
+:host {
+  .mat-toolbar {
+    .mat-icon {
+      color: orange;
+      margin-right: 12px;
+      border-radius: 50%;
+    }
+    font-family: 'Fira Code', monospace;
+
+    .mat-slide-toggle {
+      width: 160px;
+    }
+  }
+}

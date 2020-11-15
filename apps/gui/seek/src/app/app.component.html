@@ -1,0 +1,10 @@
+<seek-toolbar #toolbar [title]="title"></seek-toolbar>
+
+<seek-search [formControl]="searchControl"></seek-search>
+<main>
+  <ul>
+    <li *ngFor="let note of notes$ | async">
+      <a [routerLink]="note.route">{{ note.title }}</a>
+    </li>
+  </ul>
+</main>

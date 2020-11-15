@@ -1,0 +1,21 @@
+@import '~@angular/material/theming';
+@import './app-typography.scss';
+
+@mixin app-theme-core() {
+  @include mat-ripple();
+  @include cdk-a11y();
+  @include cdk-overlay();
+  @include cdk-text-field();
+
+  @include app-typography();
+}
+
+@mixin app-theme($theme-or-config) {
+  @include mat-core-theme($theme-or-config);
+  @include mat-toolbar-theme($theme-or-config);
+  @include mat-button-theme($theme-or-config);
+  @include mat-autocomplete-theme($theme-or-config);
+  @include mat-slide-toggle-theme($theme-or-config);
+  @include mat-form-field-theme($theme-or-config);
+  @include mat-input-theme($theme-or-config);
+}

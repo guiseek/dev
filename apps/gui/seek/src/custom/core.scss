@@ -1,0 +1,13 @@
+@import './typography.scss';
+
+@mixin app-theme-core() {
+  @include mat-core();
+
+  @include mat-ripple();
+  @include cdk-a11y();
+  @include cdk-overlay();
+  @include cdk-text-field();
+
+  @include app-typography();
+}
+

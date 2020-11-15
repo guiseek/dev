@@ -41,6 +41,13 @@
     },
     "peer-client": {
       "tags": []
+    },
+    "gui-seek": {
+      "tags": []
+    },
+    "gui-seek-e2e": {
+      "tags": [],
+      "implicitDependencies": ["gui-seek"]
     }
   }
 }

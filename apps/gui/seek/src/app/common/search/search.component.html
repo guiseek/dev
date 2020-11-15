@@ -1,0 +1,30 @@
+<!-- <mat-form-field></mat-form-field> -->
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input
+      matInput
+      placeholder="State"
+      aria-label="State"
+      [matAutocomplete]="auto"
+      (change)="onChange($event.target.value)"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let note of notes$ | async" [value]="note.name">
+        <!-- <img class="example-option-img" aria-hidden [src]="note.flag" height="25"> -->
+        <span>{{ note.title }}</span> |
+        <small>Population: {{ note.published }}</small>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <br />
+
+  <!-- <mat-slide-toggle
+    [checked]="stateCtrl.disabled"
+    (change)="stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()">
+    Disable Input?
+  </mat-slide-toggle> -->
+</form>
+
+<pre>{{ notes$ | async | json }}</pre>
