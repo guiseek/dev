@@ -18,7 +18,8 @@
     "paths": {
       "@nx-peer/server": ["libs/peer/server/src/index.ts"],
       "@nx-peer/ng-client": ["libs/peer/ng-client/src/index.ts"],
-      "@nx-peer/client": ["libs/peer/client/src/index.ts"]
+      "@nx-peer/client": ["libs/peer/client/src/index.ts"],
+      "@ngsx/video-player": ["libs/ngsx/video-player/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

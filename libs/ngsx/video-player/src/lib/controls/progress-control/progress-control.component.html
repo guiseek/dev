@@ -1,0 +1,8 @@
+<ngsx-slider-control
+  [color]="color"
+  mode="buffer"
+  step="0.01"
+  [value]="curTimePercent"
+  [bufferValue]="bufTimePercent"
+  (input)="seekVideo($event.value)"
+></ngsx-slider-control>

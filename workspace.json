@@ -427,9 +427,7 @@
             "main": "apps/gui/meet/src/main.ts",
             "polyfills": "apps/gui/meet/src/polyfills.ts",
             "tsConfig": "apps/gui/meet/tsconfig.app.json",
-            "allowedCommonJsDependencies": [
-              "@angular/fire/firestore"
-            ],
+            "allowedCommonJsDependencies": ["@angular/fire/firestore"],
             "aot": true,
             "assets": [
               "apps/gui/meet/src/favicon.ico",
@@ -530,6 +528,44 @@
             "tsConfig": ["apps/gui/meet-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/gui/meet-e2e/**/*"]
           }
+        }
+      }
+    },
+    "ngsx-video-player": {
+      "projectType": "library",
+      "root": "libs/ngsx/video-player",
+      "sourceRoot": "libs/ngsx/video-player/src",
+      "prefix": "ngsx",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/ngsx/video-player/tsconfig.lib.json",
+            "project": "libs/ngsx/video-player/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ngsx/video-player/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ngsx/video-player/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ngsx/video-player/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
         }
       }
     }

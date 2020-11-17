@@ -1,0 +1,89 @@
+<div
+  #player
+  class="videoplayer"
+  [ngClass]="getOverlayClass('show-mouse', 'hide-mouse')"
+>
+  <div
+    class="header"
+    *ngIf="title"
+    [ngClass]="getOverlayClass('visible', 'hidden')"
+  >
+    {{ title }}
+  </div>
+
+  <video
+    #video
+    class="video"
+    [attr.src]="src ? src : null"
+    [attr.autoplay]="autoplay ? true : null"
+    [preload]="preload ? 'auto' : 'metadata'"
+    [attr.poster]="poster ? poster : null"
+    [attr.loop]="loop ? loop : null"
+  >
+    <ng-content select="source"></ng-content>
+    <ng-content select="track"></ng-content>
+    This browser does not support HTML5 video.
+  </video>
+
+  <div
+    class="controls"
+    *ngIf="videoLoaded"
+    [ngClass]="getOverlayClass('visible', 'hidden')"
+  >
+    <div class="progress">
+      <ngsx-progress-control
+        [color]="color"
+        [video]="video"
+      ></ngsx-progress-control>
+    </div>
+
+    <div class="menu">
+      <div class="left">
+        <ngsx-play-button
+          (playChanged)="playing = $event"
+          [video]="video"
+          [keyboard]="keyboard"
+        >
+        </ngsx-play-button>
+
+        <ngsx-frame-control
+          *ngIf="showFrameByFrame"
+          [video]="video"
+          [fps]="fps"
+        ></ngsx-frame-control>
+
+        <ngsx-volume-control
+          [muted]="muted"
+          (mutedChanged)="muted = $event; mutedChange.emit(muted)"
+          [color]="color"
+          [video]="video"
+          [keyboard]="keyboard"
+        >
+        </ngsx-volume-control>
+
+        <ngsx-time-control [video]="video"></ngsx-time-control>
+      </div>
+
+      <div class="right">
+        <ngsx-quality-control
+          *ngIf="quality"
+          [video]="video"
+        ></ngsx-quality-control>
+
+        <!-- <ngsx-download-button
+          *ngIf="download"
+          [title]="title"
+          [video]="video"
+        ></ngsx-download-button> -->
+
+        <ngsx-fullscreen-button
+          *ngIf="fullscreen"
+          (fullscreenChanged)="isFullscreen = $event"
+          [player]="player"
+          [keyboard]="keyboard"
+        ></ngsx-fullscreen-button>
+      </div>
+    </div>
+  </div>
+  <!-- <ngsx-video-spinner [spinner]="spinner" [video]="video"></ngsx-video-spinner> -->
+</div>

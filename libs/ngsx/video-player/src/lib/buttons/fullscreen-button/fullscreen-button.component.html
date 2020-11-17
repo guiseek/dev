@@ -1,0 +1,8 @@
+<button
+  mat-icon-button
+  [disabled]="!canFullscreen"
+  (click)="toggleFullscreen()"
+>
+  <i class="material-icons" *ngIf="!fullscreen">fullscreen</i>
+  <i class="material-icons" *ngIf="fullscreen">fullscreen_exit</i>
+</button>

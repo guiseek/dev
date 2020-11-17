@@ -1,4 +1,5 @@
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { NgsxVideoPlayerModule } from '@ngsx/video-player';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core'
@@ -20,6 +21,7 @@ import { VideoCardComponent } from './video-card/video-card.component'
     MatDialogModule,
     MatSelectModule,
     MatButtonToggleModule,
+    NgsxVideoPlayerModule,
     ReactiveFormsModule,
     MeetingRoutingModule,
   ],

@@ -1,3 +1,4 @@
+import { NgsxVideoPlayerModule } from '@ngsx/video-player';
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
@@ -24,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     SharedModule,
     BrowserModule,
     AppRoutingModule,
+    NgsxVideoPlayerModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
