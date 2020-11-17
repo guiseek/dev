@@ -13,7 +13,6 @@ export function uuidv4(): string {
   return S4() + S4()
 }
 
-
 export interface IRealm {
   getClientsIds(): string[]
 

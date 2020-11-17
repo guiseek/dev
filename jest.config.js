@@ -6,5 +6,6 @@ module.exports = {
     '<rootDir>/libs/peer/ng-client',
     '<rootDir>/libs/peer/client',
     '<rootDir>/apps/gui/seek',
+    '<rootDir>/apps/gui/meet',
   ],
 }

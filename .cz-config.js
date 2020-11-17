@@ -45,8 +45,15 @@ module.exports = {
   ],
 
   scopes: [
-    { name: 'nx-peer', description: 'anything nx-peer specific (e.g., server, client, ng-client)' },
-    { name: 'apps', description: 'some client side application (e.g., kanban)' },
+    {
+      name: 'nx-peer',
+      description:
+        'anything nx-peer specific (e.g., server, client, ng-client)',
+    },
+    {
+      name: 'apps',
+      description: 'some client side application (e.g., kanban)',
+    },
     {
       name: 'testing',
       description: 'anything testing specific (e.g., jest or cypress)',
@@ -100,4 +107,4 @@ module.exports = {
   // breaklineChar: '|', // It is supported for fields body and footer.
   // footerPrefix : 'ISSUES CLOSED:'
   // askForBreakingChangeFirst : true, // default is false
-};
+}

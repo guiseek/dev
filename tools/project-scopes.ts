@@ -13,7 +13,7 @@ export const projectScopes = [
   'nx-arch',
   'nx-state',
   'nx-plugin',
-];
+]
 
 // 'devarch',
 // 'nxrx',

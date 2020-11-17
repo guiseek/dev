@@ -6,7 +6,6 @@ $app-primary: mat-palette($mat-deep-purple);
 $app-accent: mat-palette($mat-cyan);
 $app-warn: mat-palette($mat-red);
 
-
 $app-dark-primary: mat-palette($mat-indigo);
 $app-dark-accent: mat-palette($mat-yellow);
 $app-dark-warn: mat-palette($mat-red);
@@ -17,7 +16,11 @@ $app-dark-warn: mat-palette($mat-red);
 // );
 
 $mat-light-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
-$mat-dark-theme: mat-dark-theme($app-dark-primary, $app-dark-accent, $app-dark-warn);
+$mat-dark-theme: mat-dark-theme(
+  $app-dark-primary,
+  $app-dark-accent,
+  $app-dark-warn
+);
 
 @include app-theme-core();
 
@@ -40,4 +43,3 @@ body {
 .light-theme {
   @include app-theme($mat-light-theme);
 }
-

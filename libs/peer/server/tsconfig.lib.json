@@ -7,5 +7,5 @@
     "types": ["node"]
   },
   "exclude": ["**/*.spec.ts"],
-  "include": ["bin/nx-peer.ts","**/*.ts"]
+  "include": ["bin/nx-peer.ts", "**/*.ts"]
 }

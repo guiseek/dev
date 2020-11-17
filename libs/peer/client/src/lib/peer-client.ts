@@ -11,12 +11,9 @@ export default Peer
 /** @deprecated Should use peerjs namespace */
 ;(<any>window).Peer = Peer
 
-
-
 // export function peerClient(): string {
 //   return 'peer-client'
 // }
-
 
 // export * from './adapter';
 // export * from './api';
@@ -34,4 +31,3 @@ export default Peer
 // export * from './socket';
 // export * from './supports';
 // export * from './util';
-
