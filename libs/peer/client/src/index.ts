@@ -1,1 +1,1 @@
-export * from './lib/peer-client';
+export * from './lib/peer-client'

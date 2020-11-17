@@ -1,0 +1,65 @@
+@mixin app-theme($theme-or-config) {
+  @include mat-core-theme($theme-or-config);
+  @include mat-autocomplete-theme($theme-or-config);
+  @include mat-slide-toggle-theme($theme-or-config);
+  @include mat-button-toggle-theme($theme-or-config);
+  @include mat-sidenav-theme($theme-or-config);
+  @include mat-form-field-theme($theme-or-config);
+  @include mat-toolbar-theme($theme-or-config);
+  @include mat-button-theme($theme-or-config);
+  @include mat-select-theme($theme-or-config);
+  @include mat-card-theme($theme-or-config);
+  @include mat-input-theme($theme-or-config);
+  @include mat-dialog-theme($theme-or-config);
+}
+
+// @mixin gui-seek-material-theme($theme-or-color-config, $name) {
+//   @include _mat-check-duplicate-theme-styles($theme-or-color-config, $name) {
+//     @include mat-core-theme($theme-or-color-config);
+//     @include mat-autocomplete-theme($theme-or-color-config);
+//     // @include mat-badge-theme($theme-or-color-config);
+//     // @include mat-bottom-sheet-theme($theme-or-color-config);
+//     @include mat-button-theme($theme-or-color-config);
+//     // @include mat-button-toggle-theme($theme-or-color-config);
+//     // @include mat-card-theme($theme-or-color-config);
+//     // @include mat-checkbox-theme($theme-or-color-config);
+//     // @include mat-chips-theme($theme-or-color-config);
+//     // @include mat-table-theme($theme-or-color-config);
+//     // @include mat-datepicker-theme($theme-or-color-config);
+//     // @include mat-dialog-theme($theme-or-color-config);
+//     // @include mat-divider-theme($theme-or-color-config);
+//     // @include mat-expansion-panel-theme($theme-or-color-config);
+//     // @include mat-form-field-theme($theme-or-color-config);
+//     // @include mat-grid-list-theme($theme-or-color-config);
+//     // @include mat-icon-theme($theme-or-color-config);
+//     @include mat-input-theme($theme-or-color-config);
+//     // @include mat-list-theme($theme-or-color-config);
+//     // @include mat-menu-theme($theme-or-color-config);
+//     // @include mat-paginator-theme($theme-or-color-config);
+//     // @include mat-progress-bar-theme($theme-or-color-config);
+//     // @include mat-progress-spinner-theme($theme-or-color-config);
+//     // @include mat-radio-theme($theme-or-color-config);
+//     // @include mat-select-theme($theme-or-color-config);
+//     // @include mat-sidenav-theme($theme-or-color-config);
+//     @include mat-slide-toggle-theme($theme-or-color-config);
+//     // @include mat-slider-theme($theme-or-color-config);
+//     // @include mat-stepper-theme($theme-or-color-config);
+//     // @include mat-sort-theme($theme-or-color-config);
+//     // @include mat-tabs-theme($theme-or-color-config);
+//     @include mat-toolbar-theme($theme-or-color-config);
+//     // @include mat-tooltip-theme($theme-or-color-config);
+//     // @include mat-tree-theme($theme-or-color-config);
+//     // @include mat-snack-bar-theme($theme-or-color-config);
+//   }
+// }
+
+// body.light-theme {
+//   @include gui-seek-material-theme($gui-seek-theme, 'gui-seek-material-theme');
+// }
+
+// body.dark-theme {
+//   @include gui-seek-material-theme(
+//     $gui-seek-dark-theme,
+//     'gui-seek-material-dark-theme'
+//   );
+// }

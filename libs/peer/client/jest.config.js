@@ -11,5 +11,5 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../../coverage/libs/peer/client',
-  testEnvironment: "jest-environment-jsdom-global"
+  testEnvironment: 'jest-environment-jsdom-global',
 }

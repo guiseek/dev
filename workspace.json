@@ -407,6 +407,131 @@
           }
         }
       }
+    },
+    "gui-meet": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/gui/meet",
+      "sourceRoot": "apps/gui/meet/src",
+      "prefix": "meet",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/gui/meet",
+            "index": "apps/gui/meet/src/index.html",
+            "main": "apps/gui/meet/src/main.ts",
+            "polyfills": "apps/gui/meet/src/polyfills.ts",
+            "tsConfig": "apps/gui/meet/tsconfig.app.json",
+            "allowedCommonJsDependencies": [
+              "@angular/fire/firestore"
+            ],
+            "aot": true,
+            "assets": [
+              "apps/gui/meet/src/favicon.ico",
+              "apps/gui/meet/src/assets"
+            ],
+            "styles": ["apps/gui/meet/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/gui/meet/src/environments/environment.ts",
+                  "with": "apps/gui/meet/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "gui-meet:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "gui-meet:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "gui-meet:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/gui/meet/tsconfig.app.json",
+              "apps/gui/meet/tsconfig.spec.json",
+              "apps/gui/meet/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/gui/meet/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/gui/meet/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "gui-meet-e2e": {
+      "root": "apps/gui/meet-e2e",
+      "sourceRoot": "apps/gui/meet-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/gui/meet-e2e/cypress.json",
+            "tsConfig": "apps/gui/meet-e2e/tsconfig.e2e.json",
+            "devServerTarget": "gui-meet:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "gui-meet:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/gui/meet-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/gui/meet-e2e/**/*"]
+          }
+        }
+      }
     }
   },
   "cli": {

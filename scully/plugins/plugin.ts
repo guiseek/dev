@@ -1,12 +1,11 @@
+import { registerPlugin, getPluginConfig } from '@scullyio/scully'
 
-import { registerPlugin, getPluginConfig } from '@scullyio/scully';
-
-export const myPlugin = 'myPlugin';
+export const myPlugin = 'myPlugin'
 
 const myFunctionPlugin = async (html: string): Promise<string> => {
-  return html;
-};
+  return html
+}
 
-const validator = async () => [];
+const validator = async () => []
 
-registerPlugin('render', myPlugin, myFunctionPlugin, validator);
+registerPlugin('render', myPlugin, myFunctionPlugin, validator)

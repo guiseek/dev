@@ -48,6 +48,13 @@
     "gui-seek-e2e": {
       "tags": [],
       "implicitDependencies": ["gui-seek"]
+    },
+    "gui-meet": {
+      "tags": []
+    },
+    "gui-meet-e2e": {
+      "tags": [],
+      "implicitDependencies": ["gui-meet"]
     }
   }
 }

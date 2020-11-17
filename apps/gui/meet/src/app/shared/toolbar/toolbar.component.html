@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <!-- <mat-icon>local_fire_department</mat-icon>
+  <span>{{ title }}</span> -->
+  <span class="logo" routerLink="/">🔥 Gui Meet</span>
+
+  <span class="spacer"></span>
+
+  <div *ngIf="!(isHandset$ | async)">
+    <a mat-stroked-button routerLink="/kanban">Kanban</a>
+    <a mat-stroked-button routerLink="/board">Board</a>
+    <a mat-stroked-button routerLink="/meeting">Meeting</a>
+  </div>
+
+  <mat-slide-toggle [checked]="isDark" (change)="toggle()"></mat-slide-toggle>
+
+  <ng-container *ngIf="user$ | async as user; else loginLink">
+    <button type="button" mat-icon-button color="accent">
+      <img [src]="user?.photoURL" class="user-button" alt="" />
+      {{ user.email }}
+    </button>
+  </ng-container>
+  <ng-template #loginLink>
+    <a mat-stroked-button routerLink="/login">
+      Login
+    </a>
+  </ng-template>
+</mat-toolbar>

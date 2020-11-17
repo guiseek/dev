@@ -1,1 +1,1 @@
-import './bin/nx-peer';
+import './bin/nx-peer'

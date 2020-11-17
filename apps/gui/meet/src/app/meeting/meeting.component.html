@@ -1,0 +1,35 @@
+<div class="videos">
+  <meet-video-card>
+    <video #localVideo playsinline autoplay muted></video>
+  </meet-video-card>
+
+  <meet-video-card>
+    <video #remoteVideo playsinline autoplay></video>
+  </meet-video-card>
+</div>
+
+<mat-toolbar color="primary">
+  <button mat-stroked-button #startButton (click)="start()">Start</button>
+  <button mat-stroked-button color="accent" #callButton (click)="call()">Call</button>
+  <button mat-stroked-button color="warn" #hangupButton (click)="hangup()">Hang Up</button>
+
+  <form [formGroup]="form">
+    <mat-button-toggle-group
+      appearance="legacy"
+      formControlName="sdpSemantics"
+      aria-label="SDP Semantics"
+    >
+      <ng-container *ngFor="let opt of sdpSemantics">
+        <mat-button-toggle [value]="opt.key">{{ opt.value }}</mat-button-toggle>
+      </ng-container>
+    </mat-button-toggle-group>
+
+    <!-- <mat-form-field appearance="fill" floatLabel="auto">
+      <mat-select formControlName="sdpSemantics" placeholder="SDP Semantics">
+        <ng-container *ngFor="let opt of sdpSemantics">
+          <mat-option [value]="opt.key">{{ opt.value }}</mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field> -->
+  </form>
+</mat-toolbar>
