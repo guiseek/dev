@@ -8,6 +8,10 @@
 .inner-card {
   margin: 5px 0;
   cursor: pointer;
+
+  .mat-card {
+    word-break: break-word;
+  }
 }
 
 .cdk-drag-animating {
