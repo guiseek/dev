@@ -3,12 +3,12 @@
 @import 'custom/theme.scss';
 
 $app-primary: mat-palette($mat-deep-purple);
-$app-accent: mat-palette($mat-orange);
-$app-warn: mat-palette($mat-yellow);
+$app-accent: mat-palette($mat-yellow);
+$app-warn: mat-palette($mat-orange);
 
 $app-dark-primary: mat-palette($mat-indigo);
 $app-dark-accent: mat-palette($mat-yellow);
-$app-dark-warn: mat-palette($mat-yellow);
+$app-dark-warn: mat-palette($mat-red);
 // $color: (
 //   primary: $app-primary,
 //   accent: $app-accent,

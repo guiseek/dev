@@ -1,3 +1,14 @@
 header {
   text-align: center;
+
+  p {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 18px;
+  }
+}
+button {
+  img {
+    width: 1.25em;
+  }
 }

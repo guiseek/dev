@@ -75,7 +75,7 @@ export class EmailLoginComponent implements OnInit {
       }
       if (this.isPasswordReset) {
         await this.afAuth.sendPasswordResetEmail(email)
-        this.serverMessage = 'Check your email'
+        this.serverMessage = 'Olhe sua caixa de email'
       }
     } catch (err) {
       this.serverMessage = err

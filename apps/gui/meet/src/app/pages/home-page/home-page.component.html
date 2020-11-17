@@ -2,29 +2,26 @@
   <h1>Gui Seek</h1>
 
   <iframe
-    src="https://player.vimeo.com/video/358113133?color=ff9933&title=0&byline=0&portrait=0"
-    width="640"
-    height="361"
+    width="1180"
+    height="630"
+    src="https://www.youtube.com/embed/Y1mx7cx6ckI"
     frameborder="0"
-    [attr.allowfullscreen]
-    allow="autoplay; fullscreen"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
   ></iframe>
 
-  <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/OWy0e231eMI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
   <p>
-    <a
-      mat-raised-button
-      color="primary"
-      style="margin-right: 10px;"
-      href="https://fireship.io/courses"
-      target="blank"
-      >Build this App</a
-    >
-    <a
-      mat-raised-button
-      href="https://github.com/codediodeio/angular-firestarter"
-      target="blank"
-      >Source</a
-    >
+    <button mat-raised-button meetGoogleSignin>
+      <img src="/assets/google-logo.svg" /> Login com Google
+    </button>
+
+    <a mat-raised-button color="primary" routerLink="/board">Usar o board</a>
+
+    <a mat-raised-button color="accent" routerLink="/kanban">Usar o kanban</a>
+
+    <a mat-raised-button routerLink="/login">
+      <mat-icon>alternate_email</mat-icon>
+      Login com email
+    </a>
   </p>
 </header>

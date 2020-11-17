@@ -28,6 +28,9 @@ export class ToolbarComponent {
     this.isDark.next(!this.isDark.value)
   }
 
+  logout() {
+    this.service.signOut()
+  }
   constructor(
     private breakpointObserver: BreakpointObserver,
     private service: UserService

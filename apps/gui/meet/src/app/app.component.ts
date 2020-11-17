@@ -25,9 +25,6 @@ export class AppComponent implements AfterViewInit {
   ) {}
 
   ngAfterViewInit() {
-    setTimeout(() => {
-      console.log(this.toolbar)
-    })
     this.toolbar.isDark$.subscribe((mode) => {
       const theme = mode ? 'dark-theme' : 'light-theme'
       this.renderer.setAttribute(this.document.body, 'class', theme)
