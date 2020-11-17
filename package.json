@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "nx": "nx",
+    "dev": "nx serve gui-meet",
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
