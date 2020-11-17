@@ -5,6 +5,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatTooltipModule } from '@angular/material/tooltip'
 import { MatButtonModule } from '@angular/material/button'
 import { ShellComponent } from './shell/shell.component'
 import { MatInputModule } from '@angular/material/input'
@@ -33,6 +34,7 @@ const modules = [
   MatSidenavModule,
   MatToolbarModule,
   MatSnackBarModule,
+  MatTooltipModule,
   MatFormFieldModule,
   MatSlideToggleModule,
 ]
