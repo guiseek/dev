@@ -55,6 +55,9 @@
     "gui-meet-e2e": {
       "tags": [],
       "implicitDependencies": ["gui-meet"]
+    },
+    "ngsx-video-player": {
+      "tags": ["type:lib", "side:client"]
     }
   }
 }

@@ -51,6 +51,11 @@ module.exports = {
         'anything nx-peer specific (e.g., server, client, ng-client)',
     },
     {
+      name: 'ngsx',
+      description:
+        'anything ngsx specific (e.g., video-player)',
+    },
+    {
       name: 'apps',
       description: 'some client side application (e.g., kanban)',
     },
