@@ -1,3 +1,4 @@
+import { EventEmitter } from './../util/event-emitter'
 import { Component, OnInit } from '@angular/core'
 import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop'
 import { Task } from './task/task'
@@ -26,14 +27,24 @@ const getObservable = <T = any>(collection: AngularFirestoreCollection<T>) => {
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss'],
 })
-export class BoardComponent implements OnInit {
+export class BoardComponent extends EventEmitter implements OnInit {
   todo = getObservable<Task>(this.store.collection('todo'))
   inProgress = getObservable<Task>(this.store.collection('inProgress'))
   done = getObservable<Task>(this.store.collection('done'))
 
-  constructor(private dialog: MatDialog, private store: AngularFirestore) {}
+  constructor(private dialog: MatDialog, private store: AngularFirestore) {
+    super()
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.addEvent('gol', (deQuem?) => {
+      console.log('goooool do ', deQuem);
+    })
+
+    setTimeout(() => {
+      this.emit('gol', 'pelé')
+    }, 2000)
+  }
 
   drop(event: CdkDragDrop<Task[] | any[]>): void {
     if (event.previousContainer === event.container) {

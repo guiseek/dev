@@ -78,7 +78,7 @@ export class MeetingComponent implements OnInit, AfterViewInit {
     // const sdpSemanticsSelect = document.querySelector('#sdpSemantics');
     // const option = sdpSemanticsSelect.options[sdpSemanticsSelect.selectedIndex];
     // return option.value === '' ? {} : {sdpSemantics: option.value};
-    return this.form.value
+    return this.form.valid ? this.form.value : {}
   }
 
   async call() {

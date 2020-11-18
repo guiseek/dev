@@ -1,1 +1,1 @@
-export * from './lib/ngsx-video-player.module'
+export * from './lib'

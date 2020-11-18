@@ -39,3 +39,4 @@ testem.log
 Thumbs.db
 .env
 /apps/gui/meet/src/assets/videos
+apps/gui/meet/src/environments/environment.prod.ts
