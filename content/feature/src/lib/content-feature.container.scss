@@ -3,9 +3,11 @@
   display: flex;
   flex-direction: column;
 
+  .cdk-column-actions {
+    width: 130px;
+  }
   .cdk-column-createdAt,
   .cdk-column-updatedAt {
-    max-width: 200px;
     width: 200px;
   }
 
@@ -17,6 +19,7 @@
   }
 
   main {
+    flex: 1;
     display: flex;
     flex-direction: column;
     padding: 24px;
@@ -24,16 +27,10 @@
 
     header {
       flex: 1;
-      margin: 8px;
+      gap: 16px;
+      margin: 16px;
       display: flex;
       justify-content: space-between;
-    }
-
-    form {
-      gap: 8px;
-      padding: 8px;
-      display: flex;
-      flex-direction: column;
     }
   }
 }

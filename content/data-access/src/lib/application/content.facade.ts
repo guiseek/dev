@@ -31,12 +31,12 @@ export class ContentFacade extends Store<ContentState> {
   }
 
   find(params?: FindParams<Content>) {
-    const find$ = this.service.find(params)
+    const find$ = this.service.find(params).pipe(take(1))
     find$.subscribe((response) => this.setState(response))
   }
 
   filter(params: FindParams<Content>) {
-    const find$ = this.service.filter(params)
+    const find$ = this.service.filter(params).pipe(take(1))
     find$.subscribe((response) => this.setState(response))
   }
 
@@ -55,11 +55,17 @@ export class ContentFacade extends Store<ContentState> {
 
   update(updateContent: UpdateContent) {
     const update$ = this.service.update(updateContent).pipe(take(1))
-    update$.subscribe((selected) => this.setState({selected}))
+    update$.subscribe((selected) => {
+      this.setState({selected})
+      this.find()
+    })
   }
 
   remove(id: string) {
     const remove$ = this.service.remove(id).pipe(take(1))
-    remove$.subscribe((selected) => this.setState({selected}))
+    remove$.subscribe((selected) => {
+      this.setState({selected})
+      this.find()
+    })
   }
 }

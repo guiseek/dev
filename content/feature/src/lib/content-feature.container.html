@@ -4,42 +4,25 @@
 
 <main>
   <mat-card>
-    <form [formGroup]="form" (submit)="onSubmit()">
-      <mat-form-field>
-        <mat-label> Título </mat-label>
-        <input matInput formControlName="title" />
-        <mat-error> Obrigatório </mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label> Caminho </mat-label>
-        <input matInput formControlName="path" />
-        <mat-error> Obrigatório </mat-error>
-      </mat-form-field>
-
-      <button mat-button color="primary">Enviar</button>
-    </form>
-  </mat-card>
-
-  <mat-card>
 
     <header>
       <mat-form-field>
         <mat-icon matPrefix>search</mat-icon>
         <mat-label> Busca </mat-label>
-        <input matInput [formControl]="searchControl" />
+        <input matInput [formControl]="service.search" />
         <mat-error> </mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Campos visíveis</mat-label>
-        <mat-select [formControl]="columnsControl" multiple>
+        <mat-select [formControl]="service.columns" multiple>
 
-          <mat-option *ngFor="let column of columns" [value]="column.value">{{column.text}}</mat-option>
+          <mat-option *ngFor="let column of service.columnList" [value]="column.value">{{column.text}}</mat-option>
         </mat-select>
       </mat-form-field>
     </header>
 
-    <table mat-table [dataSource]="dataSource" matSort matSortActive="createdAt" matSortDirection="desc">
+    <table mat-table [dataSource]="service.dataSource" matSort matSortActive="createdAt" matSortDirection="desc">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>#</th>
         <td mat-cell *matCellDef="let row">{{row.id}}</td>
@@ -64,13 +47,29 @@
         </th>
         <td mat-cell *matCellDef="let row">{{row.updatedAt | date}}</td>
       </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>
+          Ações
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <button type="button" mat-icon-button (click)="service.updateContent(row)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button type="button" mat-icon-button (click)="service.remove(row.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="columnsControl.value"></tr>
-      <tr mat-row *matRowDef="let row; columns: columnsControl.value;"></tr>
+      <tr mat-header-row *matHeaderRowDef="service.columns.value"></tr>
+      <tr mat-row *matRowDef="let row; columns: service.columns.value;"></tr>
     </table>
 
-    <mat-paginator hidePageSize [length]="(facade.meta$ | async)?.itemCount"
-      [pageSize]="(facade.meta$ | async)?.take"></mat-paginator>
+    <mat-paginator hidePageSize [length]="(service.meta$ | async)?.itemCount"
+      [pageSize]="(service.meta$ | async)?.take"></mat-paginator>
   </mat-card>
-
 </main>
+
+<button type="button" class="fixed b20 r20" mat-fab (click)="service.createContent()">
+  <mat-icon>add</mat-icon>
+</button>

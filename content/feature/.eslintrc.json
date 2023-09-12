@@ -30,7 +30,8 @@
           {
             "suffixes": [
               "Container",
-              "Component"
+              "Component",
+              "Dialog"
             ]
           }
         ]

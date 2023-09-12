@@ -1,3 +1,4 @@
+@import '@angular/cdk/overlay-prebuilt.css';
 @import './scss/theme';
 
 /* You can add global styles to this file, and also import other style files */
@@ -9,4 +10,20 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+
+  .fixed {
+    position: fixed;
+  }
+
+  .b20 {
+    bottom: 20px;
+  }
+
+  .r20 {
+    right: 20px;
+  }
+
+  .mat-mdc-form-field {
+    width: 100%;
+  }
 }
