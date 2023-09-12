@@ -1,6 +1,7 @@
 import {DataSource, EntityTarget} from 'typeorm'
 import {DataConfig, RepoOf} from './types'
 import {Facade, token} from '@dev/shared-util-data'
+import {MockRepository} from './infrastructure'
 
 const DATA_CONFIG_TOKEN = token('data-config')
 

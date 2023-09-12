@@ -1,5 +1,3 @@
-import {Fn} from './fn'
-
-export interface Type<T = any> extends Fn<T> {
+export interface Type<T = any> {
   new (...params: any[]): T
 }

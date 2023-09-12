@@ -8,6 +8,7 @@ describe('ContentFeatureContainer', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ContentFeatureContainer],
+      providers: [],
     }).compileComponents()
 
     fixture = TestBed.createComponent(ContentFeatureContainer)

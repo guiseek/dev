@@ -18,7 +18,9 @@ import {
 
 @Controller('content')
 export class ContentResourceController {
-  constructor(private readonly contentFacade: ContentFacade) {}
+  constructor(private readonly contentFacade: ContentFacade) {
+    console.log(contentFacade)
+  }
 
   @Get()
   find(@Query() options: PageOptionsDto) {

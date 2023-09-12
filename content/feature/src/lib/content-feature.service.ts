@@ -1,3 +1,4 @@
+import {CreateContentDialog, UpdateContentDialog} from './components'
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop'
 import {MatTableDataSource} from '@angular/material/table'
 import {MatPaginator} from '@angular/material/paginator'
@@ -12,7 +13,6 @@ import {
   CreateContent,
   UpdateContent,
 } from '@dev/content-data-access'
-import {CreateContentDialog, UpdateContentDialog} from './components'
 import {debounceTime} from 'rxjs'
 
 const columns = ['id', 'title', 'path', 'createdAt', 'updatedAt', 'actions']
@@ -42,35 +42,6 @@ export class ContentFeatureService {
     private readonly dialog: MatDialog,
     private readonly facade: ContentFacade
   ) {}
-
-  openCreateDialog() {
-    return this.dialog.open<CreateContentDialog, void, CreateContent>(
-      CreateContentDialog
-    )
-  }
-
-  createContent() {
-    const ref = this.openCreateDialog()
-
-    ref.afterClosed().subscribe((value) => {
-      if (value) this.facade.create(value)
-    })
-  }
-
-  openUpdateDialog(data: Content) {
-    return this.dialog.open<UpdateContentDialog, Content, UpdateContent>(
-      UpdateContentDialog,
-      {data}
-    )
-  }
-
-  updateContent(data: Content) {
-    const ref = this.openUpdateDialog(data)
-
-    ref.afterClosed().subscribe((value) => {
-      if (value) this.facade.update(value)
-    })
-  }
 
   initialize(paginator: MatPaginator, sort: MatSort, destroyRef: DestroyRef) {
     const pagination$ = paginator.page.pipe(takeUntilDestroyed(destroyRef))
@@ -103,6 +74,35 @@ export class ContentFeatureService {
     search$.subscribe((value) => this.facade.filter({where: {title: value}}))
 
     this.facade.find()
+  }
+
+  openCreateDialog() {
+    return this.dialog.open<CreateContentDialog, void, CreateContent>(
+      CreateContentDialog
+    )
+  }
+
+  createContent() {
+    const ref = this.openCreateDialog()
+
+    ref.afterClosed().subscribe((value) => {
+      if (value) this.facade.create(value)
+    })
+  }
+
+  openUpdateDialog(data: Content) {
+    return this.dialog.open<UpdateContentDialog, Content, UpdateContent>(
+      UpdateContentDialog,
+      {data}
+    )
+  }
+
+  updateContent(data: Content) {
+    const ref = this.openUpdateDialog(data)
+
+    ref.afterClosed().subscribe((value) => {
+      if (value) this.facade.update(value)
+    })
   }
 
   getContent(sort: string, order: Order, page: number) {

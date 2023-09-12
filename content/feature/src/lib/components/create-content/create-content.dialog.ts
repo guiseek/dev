@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core'
 import {MatDialogRef} from '@angular/material/dialog'
-import {ContentForm} from '../../forms'
+import {CreateContentForm} from '../../forms'
 
 @Component({
   selector: 'dev-create-content',
@@ -9,7 +9,7 @@ import {ContentForm} from '../../forms'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CreateContentDialog {
-  form = new ContentForm()
+  form = new CreateContentForm()
 
   constructor(readonly ref: MatDialogRef<CreateContentDialog>) {}
 
