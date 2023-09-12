@@ -1,0 +1,21 @@
+@use '@angular/material' as mat;
+@use './palette' as gui;
+
+@include mat.core();
+
+$app-primary: mat.define-palette(gui.$primary-palette);
+$app-accent: mat.define-palette(gui.$accent-palette);
+
+$app-warn: mat.define-palette(gui.$warn-palette);
+
+$app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $app-primary,
+      accent: $app-accent,
+      warn: $app-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($app-theme);

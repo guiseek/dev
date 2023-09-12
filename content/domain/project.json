@@ -1,0 +1,43 @@
+{
+  "name": "content-domain",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "content/domain/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/content/domain",
+        "main": "content/domain/src/index.ts",
+        "tsConfig": "content/domain/tsconfig.lib.json",
+        "assets": ["content/domain/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "content/domain/**/*.ts",
+          "content/domain/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "content/domain/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": ["type:domain", "scope:content", "side:both"]
+}

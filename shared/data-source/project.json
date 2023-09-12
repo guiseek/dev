@@ -1,0 +1,43 @@
+{
+  "name": "shared-data-source",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "shared/data-source/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/shared/data-source",
+        "main": "shared/data-source/src/index.ts",
+        "tsConfig": "shared/data-source/tsconfig.lib.json",
+        "assets": ["shared/data-source/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "shared/data-source/**/*.ts",
+          "shared/data-source/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "shared/data-source/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": ["type:data-source", "scope:shared", "side:server"]
+}

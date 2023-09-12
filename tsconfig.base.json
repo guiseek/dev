@@ -1,0 +1,32 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@dev/content-data-access": ["content/data-access/src/index.ts"],
+      "@dev/content-data-source": ["content/data-source/src/index.ts"],
+      "@dev/content-domain": ["content/domain/src/index.ts"],
+      "@dev/content-feature": ["content/feature/src/index.ts"],
+      "@dev/content-resource": ["content/resource/src/index.ts"],
+      "@dev/shared-data-access": ["shared/data-access/src/index.ts"],
+      "@dev/shared-data-source": ["shared/data-source/src/index.ts"],
+      "@dev/shared-resource": ["shared/resource/src/index.ts"],
+      "@dev/shared-ui-forms": ["shared/ui-forms/src/index.ts"],
+      "@dev/shared-util-data": ["shared/util-data/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

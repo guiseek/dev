@@ -1,0 +1,76 @@
+<mat-toolbar color="primary">
+  <h2>Conteúdo</h2>
+</mat-toolbar>
+
+<main>
+  <mat-card>
+    <form [formGroup]="form" (submit)="onSubmit()">
+      <mat-form-field>
+        <mat-label> Título </mat-label>
+        <input matInput formControlName="title" />
+        <mat-error> Obrigatório </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label> Caminho </mat-label>
+        <input matInput formControlName="path" />
+        <mat-error> Obrigatório </mat-error>
+      </mat-form-field>
+
+      <button mat-button color="primary">Enviar</button>
+    </form>
+  </mat-card>
+
+  <mat-card>
+
+    <header>
+      <mat-form-field>
+        <mat-icon matPrefix>search</mat-icon>
+        <mat-label> Busca </mat-label>
+        <input matInput [formControl]="searchControl" />
+        <mat-error> </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Campos visíveis</mat-label>
+        <mat-select [formControl]="columnsControl" multiple>
+
+          <mat-option *ngFor="let column of columns" [value]="column.value">{{column.text}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </header>
+
+    <table mat-table [dataSource]="dataSource" matSort matSortActive="createdAt" matSortDirection="desc">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>#</th>
+        <td mat-cell *matCellDef="let row">{{row.id}}</td>
+      </ng-container>
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Título</th>
+        <td mat-cell *matCellDef="let row">{{row.title}}</td>
+      </ng-container>
+      <ng-container matColumnDef="path">
+        <th mat-header-cell *matHeaderCellDef>Caminho</th>
+        <td mat-cell *matCellDef="let row">{{row.path}}</td>
+      </ng-container>
+      <ng-container matColumnDef="createdAt">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+          Criado em
+        </th>
+        <td mat-cell *matCellDef="let row">{{row.createdAt | date}}</td>
+      </ng-container>
+      <ng-container matColumnDef="updatedAt">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+          Alterado em
+        </th>
+        <td mat-cell *matCellDef="let row">{{row.updatedAt | date}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnsControl.value"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnsControl.value;"></tr>
+    </table>
+
+    <mat-paginator hidePageSize [length]="(facade.meta$ | async)?.itemCount"
+      [pageSize]="(facade.meta$ | async)?.take"></mat-paginator>
+  </mat-card>
+
+</main>
