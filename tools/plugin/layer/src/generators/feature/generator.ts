@@ -37,7 +37,7 @@ export async function featureGenerator(
   const eslintPath = join(project.sourceRoot, '.eslintrc.json')
   if (existsSync(eslintPath)) {
     const eslint = readJsonFile(eslintPath)
-    
+
     if ('overrides' in eslint) {
       eslint.overrides[0].rules['@angular-eslint/component-class-suffix'] = [
         'error',

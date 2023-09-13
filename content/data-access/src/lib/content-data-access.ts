@@ -6,7 +6,9 @@ import {ContentFacade} from './application'
 export function provideContentService() {
   return {
     provide: ContentService,
-    useClass: ContentServiceImpl,
+    useFactory(http: Http) {
+      return new ContentServiceImpl(http, '/api/content')
+    },
     deps: [Http],
   }
 }

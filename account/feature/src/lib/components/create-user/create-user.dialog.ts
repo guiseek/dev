@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core'
-import {MatDialogRef} from '@angular/material/dialog'
+import {CreateUser} from '@dev/account-data-access'
 import {CreateUserForm} from '../../forms'
-import {of} from 'rxjs'
+import {FormDialog} from '@dev/ui-base'
 
 @Component({
   selector: 'dev-create-user',
@@ -9,18 +9,6 @@ import {of} from 'rxjs'
   styleUrls: ['./create-user.dialog.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CreateUserDialog {
+export class CreateUserDialog extends FormDialog<CreateUser> {
   form = new CreateUserForm()
-
-  message$ = of<string | null>(null)
-
-  constructor(readonly ref: MatDialogRef<CreateUserDialog>) {}
-
-  onSubmit() {
-    if (this.form.valid) {
-      this.ref.close(this.form.value)
-    } else {
-      this.form.markAllAsTouched()
-    }
-  }
 }

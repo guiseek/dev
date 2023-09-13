@@ -1,4 +1,5 @@
 export * from './lib/di'
+export * from './lib/base'
 export * from './lib/types'
 export * from './lib/sort'
 export * from './lib/interfaces'

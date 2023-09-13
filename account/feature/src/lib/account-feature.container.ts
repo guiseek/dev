@@ -6,33 +6,58 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
 } from '@angular/core'
-import {AccountFeatureService} from './account-feature.service'
 import {MatPaginator} from '@angular/material/paginator'
 import {FilterFieldsForm} from '@dev/shared-ui-forms'
 import {MatSort} from '@angular/material/sort'
-import {User} from '@dev/account-data-access'
+import {UpdateUser, User, UserFacade} from '@dev/account-data-access'
+import {FeatureContainer} from '@dev/ui-base'
+import {FormControl} from '@angular/forms'
+import {MatDialog} from '@angular/material/dialog'
+import {CreateUserDialog, UpdateUserDialog} from './components'
+
+const columns = ['select', 'name', 'createdAt', 'updatedAt']
 
 @Component({
   selector: 'dev-account-feature',
   templateUrl: './account-feature.container.html',
   styleUrls: ['./account-feature.container.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [AccountFeatureService],
 })
-export class AccountFeatureContainer implements AfterViewInit {
+export class AccountFeatureContainer
+  extends FeatureContainer<User>
+  implements AfterViewInit
+{
+  columnList = [
+    {text: 'nome', value: 'name'},
+    {text: 'criado em', value: 'createdAt'},
+    {text: 'alterado em', value: 'updatedAt'},
+  ]
+
+  readonly columns = new FormControl(columns)
+
+  readonly destroyRef = inject(DestroyRef)
+  readonly facade = inject(UserFacade)
+  readonly dialog = inject(MatDialog)
+
   @ViewChild(MatPaginator)
   paginator: MatPaginator
 
   @ViewChild(MatSort)
   sort: MatSort
 
-  destroyRef = inject(DestroyRef)
-
-  readonly service = inject(AccountFeatureService)
-
   filterForm = new FilterFieldsForm<User>(['name'])
 
   ngAfterViewInit() {
-    this.service.initialize(this.paginator, this.sort, this.destroyRef)
+    this.initialize(this.paginator, this.sort, this.destroyRef)
+  }
+
+  openCreateDialog() {
+    return this.dialog.open<CreateUserDialog>(CreateUserDialog)
+  }
+
+  openUpdateDialog(data: User) {
+    return this.dialog.open<UpdateUserDialog, UpdateUser>(UpdateUserDialog, {
+      data,
+    })
   }
 }

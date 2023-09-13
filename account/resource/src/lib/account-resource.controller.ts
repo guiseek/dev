@@ -1,4 +1,4 @@
-import {PageOptionsDto} from '@dev/shared-data-source'
+import {PageOptionsDto, PagedDto} from '@dev/shared-data-source'
 import {ApiPagedResponse} from '@dev/shared-resource'
 import {
   UserDto,
@@ -16,18 +16,28 @@ import {
   Query,
   Delete,
   Controller,
+  NotFoundException,
 } from '@nestjs/common'
+import { ApiTags } from '@nestjs/swagger'
 
+@ApiTags('account')
 @Controller('account')
 export class AccountResourceController {
-  constructor(private readonly userFacade: UserFacade) {
-    console.log(userFacade)
-  }
+  constructor(private readonly userFacade: UserFacade) {}
 
   @Get()
   @ApiPagedResponse(UserDto)
   find(@Query() options: PageOptionsDto) {
     return this.userFacade.find({options})
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id: string) {
+    try {
+      return await this.userFacade.findOne(id)
+    } catch {
+      throw new NotFoundException('Usuário não encontrado')
+    }
   }
 
   @Post('filter')

@@ -38,6 +38,5 @@
       flex: 1;
       min-width: #{$size * $i}px;
     }
-    @debug 'grid col: #{$i} #{($size * $i)}px';
   }
 }

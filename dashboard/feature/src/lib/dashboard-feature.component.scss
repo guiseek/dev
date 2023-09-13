@@ -1,0 +1,30 @@
+:host {
+  header {
+    margin: 16px 16px 0;
+    h1 {
+      margin: 0;
+    }
+  }
+
+  .dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+
+    h2 {
+      font-size: 400%;
+    }
+  }
+
+  .more-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+
+  .dashboard-card-content {
+    text-align: center;
+  }
+}

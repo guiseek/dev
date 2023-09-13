@@ -1,7 +1,7 @@
 import {DataConfig} from '@dev/shared-data-source'
 import {Type} from '@dev/shared-util-data'
 
-export const env = (...entities: Type<unknown>[]): DataConfig => ({
+export const env = (entities: Type<unknown>[] = []): DataConfig => ({
   type: 'postgres',
   port: +(process.env.DB_PORT ?? '5432'),
   host: process.env.DB_HOST,

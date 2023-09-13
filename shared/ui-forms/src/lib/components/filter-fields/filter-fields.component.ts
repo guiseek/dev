@@ -33,7 +33,7 @@ export class FilterFieldsComponent<T extends object> implements OnInit {
 
   ngOnInit() {
     this.form.valueChanges
-      .pipe(debounceTime(600), takeUntilDestroyed(this.destroyRef))
+      .pipe(debounceTime(400), takeUntilDestroyed(this.destroyRef))
       .subscribe(({fields, search = ''}) => {
         this.filterChange.emit(makeFilter(fields, search))
       })

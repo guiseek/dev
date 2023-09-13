@@ -28,7 +28,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
     httpAdapter.reply(
       ctx.getResponse(),
       {statusCode, message: exception.message, timestamp, path},
-      statusCode,
+      statusCode
     )
   }
 }

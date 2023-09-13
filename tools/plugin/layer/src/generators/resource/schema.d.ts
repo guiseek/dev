@@ -2,7 +2,7 @@ import {LibraryGeneratorOptions} from '@nx/nest/src/generators/library/schema'
 
 export interface ResourceGeneratorSchema
   extends Pick<
-  LibraryGeneratorOptions,
+    LibraryGeneratorOptions,
     | 'name'
     | 'directory'
     | 'projectNameAndRootFormat'
@@ -14,4 +14,3 @@ export interface ResourceGeneratorSchema
   entity: string
   dataSource: string
 }
-

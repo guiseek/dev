@@ -6,7 +6,9 @@ import {UserFacade} from './application'
 export function provideUserService() {
   return {
     provide: UserService,
-    useClass: UserServiceImpl,
+    useFactory(http: Http) {
+      return new UserServiceImpl(http, '/api/account')
+    },
     deps: [Http],
   }
 }

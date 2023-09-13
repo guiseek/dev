@@ -1,48 +1,40 @@
-import {CreateUserDialog, UpdateUserDialog} from './components'
+import {SelectionModel} from '@angular/cdk/collections'
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop'
+import {MatDialog, MatDialogRef} from '@angular/material/dialog'
+import {Facade, Order, Where} from '@dev/shared-util-data'
 import {MatTableDataSource} from '@angular/material/table'
 import {MatPaginator} from '@angular/material/paginator'
-import {DestroyRef, Injectable} from '@angular/core'
-import {MatDialog} from '@angular/material/dialog'
+import {FilterFieldsForm} from '@dev/shared-ui-forms'
+import {DestroyRef, Directive} from '@angular/core'
 import {MatSort} from '@angular/material/sort'
-import {Order} from '@dev/shared-util-data'
 import {FormControl} from '@angular/forms'
-import {
-  User,
-  UserFacade,
-  CreateUser,
-  UpdateUser,
-} from '@dev/account-data-access'
-import {debounceTime} from 'rxjs'
-import {SelectionModel} from '@angular/cdk/collections'
+import {FormDialog} from './form-dialog'
 
-const columns = ['id', 'name', 'createdAt', 'updatedAt']
+interface FieldOption {
+  text: string
+  value: string
+}
 
-@Injectable()
-export class AccountFeatureService {
-  readonly search = new FormControl()
+interface Entity {
+  id: string
+}
 
-  readonly columns = new FormControl(columns)
+@Directive()
+export abstract class FeatureContainer<T extends Entity> {
+  abstract readonly columns: FormControl
 
-  readonly columnList = [
-    {text: 'id', value: 'id'},
-    {text: 'nome', value: 'name'},
-    {text: 'criado em', value: 'createdAt'},
-    {text: 'alterado em', value: 'updatedAt'},
-  ]
+  abstract readonly columnList: FieldOption[]
+  abstract readonly filterForm: FilterFieldsForm<T>
+  abstract readonly dialog: MatDialog
+  abstract readonly facade: Facade<T>
 
-  readonly dataSource = new MatTableDataSource<User>()
+  readonly dataSource = new MatTableDataSource<T>()
 
   get meta$() {
     return this.facade.meta$
   }
 
-  selection = new SelectionModel<User>(true, [])
-
-  constructor(
-    private readonly dialog: MatDialog,
-    private readonly facade: UserFacade
-  ) {}
+  selection = new SelectionModel<T>(true, [])
 
   initialize(paginator: MatPaginator, sort: MatSort, destroyRef: DestroyRef) {
     const pagination$ = paginator.page.pipe(takeUntilDestroyed(destroyRef))
@@ -53,12 +45,12 @@ export class AccountFeatureService {
 
     pagination$.subscribe((value) => {
       const order = sort.direction ? Order.ASC : Order.DESC
-      this.getUser(sort.active, order, value.pageIndex)
+      this.update(sort.active, order, value.pageIndex)
     })
 
     sorted$.subscribe((value) => {
       const order = value.direction ? Order.ASC : Order.DESC
-      this.getUser(value.active, order, paginator.pageIndex)
+      this.update(value.active, order, paginator.pageIndex)
     })
 
     items$.subscribe((data) => {
@@ -85,13 +77,10 @@ export class AccountFeatureService {
     this.selection.select(...this.dataSource.data)
   }
 
-  openCreateDialog() {
-    return this.dialog.open<CreateUserDialog, void, CreateUser>(
-      CreateUserDialog
-    )
-  }
+  abstract openCreateDialog(): MatDialogRef<FormDialog<any>>
+  abstract openUpdateDialog(data: T): MatDialogRef<FormDialog<any>>
 
-  createUser() {
+  onCreate() {
     const ref = this.openCreateDialog()
     ref.componentInstance.message$ = this.facade.warning$
     ref.componentInstance.form.submitted$.subscribe((value) => {
@@ -102,14 +91,7 @@ export class AccountFeatureService {
     })
   }
 
-  openUpdateDialog(data: User) {
-    return this.dialog.open<UpdateUserDialog, User, UpdateUser>(
-      UpdateUserDialog,
-      {data}
-    )
-  }
-
-  updateUser(data: User) {
+  onUpdate(data: T) {
     const ref = this.openUpdateDialog(data)
     ref.componentInstance.message$ = this.facade.warning$
     ref.componentInstance.form.submitted$.subscribe((value) => {
@@ -120,11 +102,11 @@ export class AccountFeatureService {
     })
   }
 
-  filterUser(where: Record<string, string>) {
+  filter(where: Where<T>) {
     this.facade.filter({where})
   }
 
-  getUser(sort: string, order: Order, page: number) {
+  update(sort: string, order: Order, page: number) {
     this.facade.find({options: {page: page + 1, sort, order}})
   }
 
