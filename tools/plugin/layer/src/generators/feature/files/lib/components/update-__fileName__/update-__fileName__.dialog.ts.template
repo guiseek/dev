@@ -1,0 +1,32 @@
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog'
+import {ChangeDetectionStrategy, Component, Inject} from '@angular/core'
+import {<%=className%>} from '<%= dataAccess %>'
+import {Update<%=className%>Form} from '../../forms'
+import {of} from 'rxjs'
+
+@Component({
+  selector: 'dev-update-<%-fileName%>',
+  templateUrl: './update-<%-fileName%>.dialog.html',
+  styleUrls: ['./update-<%-fileName%>.dialog.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class Update<%=className%>Dialog {
+  form: Update<%=className%>Form
+
+  message$ = of<string | null>(null)
+
+  constructor(
+    readonly ref: MatDialogRef<Update<%=className%>Dialog>,
+    @Inject(MAT_DIALOG_DATA) readonly data: <%=className%>
+  ) {
+    this.form = new Update<%=className%>Form(data)
+  }
+
+  onSubmit() {
+    if (this.form.valid) {
+      this.ref.close(this.form.value)
+    } else {
+      this.form.markAllAsTouched()
+    }
+  }
+}

@@ -1,0 +1,2 @@
+export * from './create-<%=fileName%>/create-<%=fileName%>.dialog'
+export * from './update-<%=fileName%>/update-<%=fileName%>.dialog'

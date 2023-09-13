@@ -1,0 +1,51 @@
+import {
+  <%=className%>,
+  Create<%=className%>,
+  Update<%=className%>,
+  <%=className%>Repository,
+} from '<%=domain%>'
+import {PageMetaDto, PagedDto, findLike} from '@dev/shared-data-source'
+import {FindParams} from '@dev/shared-util-data'
+import {Repository} from 'typeorm'
+
+export class <%=className%>RepositoryImpl implements <%=className%>Repository {
+  constructor(private readonly repository: Repository<<%=className%>>) {}
+
+  async find({where, options = {}}: FindParams<<%=className%>>) {
+    const {skip, take, sort, order} = options
+
+    const query = this.repository.createQueryBuilder('<%=fileName%>')
+
+    query
+      .orderBy(`<%=fileName%>.${sort ?? 'createdAt'}`, order)
+      .skip(skip)
+      .take(take)
+
+    if (where) {
+      query.where(findLike(where))
+    }
+
+    const [entities, itemCount] = await query.getManyAndCount()
+
+    const meta = new PageMetaDto({itemCount, options})
+    return new PagedDto(entities, meta)
+  }
+
+  create(value: Create<%=className%>) {
+    return this.repository.save(value)
+  }
+
+  update(value: Update<%=className%>) {
+    return this.repository.save(value)
+  }
+
+  async remove(id: string) {
+    const <%=propertyName%> = await this.findOne('id', id)
+    if (<%=propertyName%>) return this.repository.remove(<%=propertyName%>)
+    else throw new Error(`${id} not found`)
+  }
+
+  findOne<K extends keyof <%=className%>>(key: K, value: <%=className%>[K]) {
+    return this.repository.findOneBy({[key]: value})
+  }
+}

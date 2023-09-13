@@ -1,0 +1,44 @@
+import {NgModule} from '@angular/core'
+import {CommonModule} from '@angular/common'
+import {RouterModule} from '@angular/router'
+import {UiFormsModule} from '@dev/shared-ui-forms'
+import {MatButtonModule} from '@angular/material/button'
+import {MatTableModule} from '@angular/material/table'
+import {MatToolbarModule} from '@angular/material/toolbar'
+import {MatIconModule} from '@angular/material/icon'
+import {MatDialogModule} from '@angular/material/dialog'
+import {MatCardModule} from '@angular/material/card'
+import {MatSortModule} from '@angular/material/sort'
+import {MatPaginatorModule} from '@angular/material/paginator'
+import {ReactiveFormsModule} from '@angular/forms'
+import {<%=featureProp%>Routes} from './<%=feature%>.routes'
+import {<%=featureName%>Container} from './<%=feature%>.container'
+import {Create<%=className%>Dialog, Update<%=className%>Dialog} from './components'
+import {
+  provide<%=className%>Facade,
+  provide<%=className%>Service,
+} from '<%= dataAccess %>'
+
+@NgModule({
+  imports: [
+    CommonModule,
+    UiFormsModule,
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatDialogModule,
+    MatTableModule,
+    MatCardModule,
+    MatSortModule,
+    MatPaginatorModule,
+    ReactiveFormsModule,
+    RouterModule.forChild(<%=featureProp%>Routes),
+  ],
+  declarations: [
+    <%=featureName%>Container,
+    Create<%=className%>Dialog,
+    Update<%=className%>Dialog,
+  ],
+  providers: [provide<%=className%>Service(), provide<%=className%>Facade()],
+})
+export class <%=featureName%>Module {}

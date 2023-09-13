@@ -5,8 +5,8 @@ import {
   UpdateContent,
 } from '@dev/content-domain'
 import {FindParams, Paged} from '@dev/shared-util-data'
-import {Store} from '@dev/shared-data-access'
 import {Observable, catchError, take} from 'rxjs'
+import {Store} from '@dev/shared-data-access'
 
 interface ContentState extends Paged<Content> {
   selected: Content | null
@@ -77,6 +77,11 @@ export class ContentFacade extends Store<ContentState> {
       this.setState({selected})
       this.find()
     })
+  }
+
+  removeBulk(ids: string[]) {
+    const remove$ = this.service.removeBulk(...ids).pipe(take(1))
+    remove$.subscribe(() => this.find())
   }
 
   handleError = (err: {error: Error}, caught: Observable<Content>) => {

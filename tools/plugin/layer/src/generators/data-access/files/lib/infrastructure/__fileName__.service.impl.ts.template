@@ -1,0 +1,43 @@
+import {
+  <%=className%>,
+  <%=className%>Service,
+  Create<%=className%>,
+  Update<%=className%>,
+} from '<%= domain %>'
+import {FindParams, Paged, Where} from '@dev/shared-util-data'
+import {Http} from '@dev/shared-data-access'
+import {Observable} from 'rxjs'
+
+export class <%=className%>ServiceImpl implements <%=className%>Service {
+  constructor(private readonly http: Http) {}
+
+  find({options}: FindParams<<%=className%>> = {options: {}}) {
+    return this.http.get<Paged<<%=className%>>>('/api/<%= scope %>', {params: options})
+  }
+
+  filter(
+    {where = {}, options}: FindParams<<%=className%>> = {where: {}, options: {}}
+  ) {
+    return this.http.post<Paged<<%=className%>>, Where<<%=className%>>>(
+      '/api/<%= scope %>/filter',
+      where,
+      {params: options}
+    )
+  }
+
+  create(value: Create<%=className%>) {
+    return this.http.post<<%=className%>, Create<%=className%>>('/api/<%= scope %>', value)
+  }
+
+  update(value: Update<%=className%>) {
+    return this.http.put<<%=className%>, Update<%=className%>>('/api/<%= scope %>', value)
+  }
+
+  remove(id: string) {
+    return this.http.delete<<%=className%>>(`/api/<%= scope %>/${id}`)
+  }
+
+  findOne(value: string): Observable<<%=className%> | null> {
+    return this.http.delete<<%=className%>>(`/api/<%= scope %>/${value}`)
+  }
+}

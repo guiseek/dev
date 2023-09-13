@@ -1,3 +1,4 @@
+@use './scss/grid' as grid;
 @import '@angular/cdk/overlay-prebuilt.css';
 @import './scss/theme';
 
@@ -10,6 +11,16 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+
+  @include grid.colSizes(16);
+  
+  a:link {
+    text-decoration: none;
+  }
+
+  .spacer {
+    flex: 1 0 auto;
+  }
 
   .fixed {
     position: fixed;
@@ -25,5 +36,15 @@ body {
 
   .mat-mdc-form-field {
     width: 100%;
+  }
+
+  .cdk-overlay-container {
+    .mat-mdc-menu-content {
+      padding: 0;
+    }
+    .mat-mdc-menu-panel {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+    }
   }
 }

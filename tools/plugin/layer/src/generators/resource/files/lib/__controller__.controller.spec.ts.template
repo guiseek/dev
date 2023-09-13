@@ -1,0 +1,42 @@
+import {Test} from '@nestjs/testing'
+import {<%= controllerName %>Controller} from './<%= controller %>.controller'
+import {
+  provide<%=className%>Facade,
+  provide<%=className%>RepositoryMock,
+} from '<%= dataSource %>'
+
+const CASES = {
+  empty: {
+    data: [],
+    meta: {
+      hasNextPage: false,
+      hasPreviousPage: false,
+      itemCount: 0,
+      page: 1,
+      pageCount: 0,
+      take: 10,
+    },
+  },
+}
+
+describe('<%= controllerName %>Controller', () => {
+  let controller: <%= controllerName %>Controller
+
+  beforeEach(async () => {
+    const module = await Test.createTestingModule({
+      providers: [provide<%=className%>RepositoryMock(), provide<%=className%>Facade()],
+      controllers: [<%= controllerName %>Controller],
+    }).compile()
+
+    controller = module.get(<%= controllerName %>Controller)
+  })
+
+  it('should be defined', () => {
+    expect(controller).toBeTruthy()
+  })
+
+  it('should be return <%=propertyName%> collection', async () => {
+    const <%=propertyName%>s = await controller.find({page: 1, take: 10, skip: 0})
+    expect(<%=propertyName%>s).toEqual(CASES.empty)
+  })
+})

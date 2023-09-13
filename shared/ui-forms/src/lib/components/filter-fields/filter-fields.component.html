@@ -1,0 +1,16 @@
+<form class="row" [formGroup]="$any(form)">
+  <mat-form-field class="col-2">
+    <mat-label>Buscar em</mat-label>
+    <mat-select formControlName="fields" multiple>
+      <mat-option *ngFor="let field of fields" [value]="field.value">
+        {{field.text}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="col-8">
+    <mat-icon matPrefix>search</mat-icon>
+    <mat-label> Busca </mat-label>
+    <input matInput formControlName="search" />
+    <mat-error> </mat-error>
+  </mat-form-field>
+</form>

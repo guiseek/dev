@@ -1,0 +1,43 @@
+@use 'sass:math' as math;
+
+@mixin row($gap: 16, $bottom: 8px) {
+  display: flex;
+  flex-flow: row #{$wrap};
+  margin-bottom: #{$bottom};
+  gap: #{$gap};
+}
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 8px;
+  gap: 16px;
+}
+
+.col {
+  flex: 1;
+}
+.col:last-child {
+  margin-right: 0;
+}
+
+@mixin colSize($width: 100px) {
+  flex: 1;
+  min-width: #{width};
+}
+
+@function getColSize($n) {
+  @return math.div(1200, $n);
+}
+
+@mixin colSizes($n) {
+  $size: getColSize($n);
+
+  @for $i from 1 through $n {
+    .col-#{$i} {
+      flex: 1;
+      min-width: #{$size * $i}px;
+    }
+    @debug 'grid col: #{$i} #{($size * $i)}px';
+  }
+}

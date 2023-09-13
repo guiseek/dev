@@ -1,5 +1,5 @@
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog'
 import {ChangeDetectionStrategy, Component, Inject} from '@angular/core'
+import {MAT_DIALOG_DATA} from '@angular/material/dialog'
 import {Content} from '@dev/content-data-access'
 import {UpdateContentForm} from '../../forms'
 import {of} from 'rxjs'
@@ -15,18 +15,7 @@ export class UpdateContentDialog {
 
   message$ = of<string | null>(null)
 
-  constructor(
-    readonly ref: MatDialogRef<UpdateContentDialog>,
-    @Inject(MAT_DIALOG_DATA) readonly data: Content
-  ) {
+  constructor(@Inject(MAT_DIALOG_DATA) readonly data: Content) {
     this.form = new UpdateContentForm(data)
-  }
-
-  onSubmit() {
-    if (this.form.valid) {
-      this.ref.close(this.form.value)
-    } else {
-      this.form.markAllAsTouched()
-    }
   }
 }

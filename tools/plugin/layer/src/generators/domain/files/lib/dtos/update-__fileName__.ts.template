@@ -1,0 +1,5 @@
+import {Create<%= className %>} from './create-<%= fileName %>'
+
+export interface Update<%= className %> extends Partial<Create<%= className %>> {
+  id: string
+}

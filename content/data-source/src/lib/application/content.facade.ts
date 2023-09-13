@@ -24,4 +24,8 @@ export class ContentFacade {
   remove(id: string) {
     return this.repository.remove(id)
   }
+
+  removeBulk(ids: string[]) {
+    return this.repository.removeBulk(...ids)
+  }
 }
