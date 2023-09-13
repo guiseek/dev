@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Conteúdo</h2>
+<h2 mat-dialog-title>Editar conteúdo</h2>
 
 <form mat-dialog-content [formGroup]="form" (submit)="onSubmit()">
   <mat-form-field>
@@ -16,6 +16,8 @@
     <input matInput formControlName="path" />
     <mat-error> Obrigatório </mat-error>
   </mat-form-field>
+
+  <p>{{message$ | async}}</p>
 
   <footer>
     <button type="button" mat-button mat-dialog-close>Cancelar</button>

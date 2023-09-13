@@ -6,28 +6,38 @@ import {
 } from '@dev/content-domain'
 import {FindParams, Paged} from '@dev/shared-util-data'
 import {Store} from '@dev/shared-data-access'
-import {take} from 'rxjs'
+import {Observable, catchError, take} from 'rxjs'
 
 interface ContentState extends Paged<Content> {
   selected: Content | null
+  warning: string | null
+  loading: boolean
 }
 
-const meta = {
-  hasNextPage: false,
-  hasPreviousPage: false,
-  itemCount: 0,
-  page: 1,
-  pageCount: 0,
-  take: 10,
+const initialState: ContentState = {
+  data: [],
+  meta: {
+    hasNextPage: false,
+    hasPreviousPage: false,
+    itemCount: 0,
+    page: 1,
+    pageCount: 0,
+    take: 10,
+  },
+  loading: false,
+  selected: null,
+  warning: null,
 }
 
 export class ContentFacade extends Store<ContentState> {
   selected$ = this.select((state) => state.selected)
+  loading$ = this.select((state) => state.loading)
+  warning$ = this.select((state) => state.warning)
   data$ = this.select((state) => state.data)
   meta$ = this.select((state) => state.meta)
 
   constructor(private readonly service: ContentService) {
-    super({data: [], meta, selected: null})
+    super(initialState)
   }
 
   find(params?: FindParams<Content>) {
@@ -47,7 +57,7 @@ export class ContentFacade extends Store<ContentState> {
 
   create(createContent: CreateContent) {
     const create$ = this.service.create(createContent).pipe(take(1))
-    create$.subscribe((selected) => {
+    create$.pipe(catchError(this.handleError)).subscribe((selected) => {
       this.setState({selected})
       this.find()
     })
@@ -55,7 +65,7 @@ export class ContentFacade extends Store<ContentState> {
 
   update(updateContent: UpdateContent) {
     const update$ = this.service.update(updateContent).pipe(take(1))
-    update$.subscribe((selected) => {
+    update$.pipe(catchError(this.handleError)).subscribe((selected) => {
       this.setState({selected})
       this.find()
     })
@@ -67,5 +77,13 @@ export class ContentFacade extends Store<ContentState> {
       this.setState({selected})
       this.find()
     })
+  }
+
+  handleError = (err: {error: Error}, caught: Observable<Content>) => {
+    if (err) {
+      this.setState({warning: err.error.message})
+      throw err.error.message
+    }
+    return caught
   }
 }

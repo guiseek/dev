@@ -1,4 +1,5 @@
-import {PageOptionsDto} from '@dev/shared-data-source'
+import {ContentDto, PageOptionsDto} from '@dev/shared-data-source'
+import {ApiPagedResponse} from '@dev/shared-resource'
 import {
   ContentFacade,
   CreateContentDto,
@@ -23,6 +24,7 @@ export class ContentResourceController {
   }
 
   @Get()
+  @ApiPagedResponse(ContentDto)
   find(@Query() options: PageOptionsDto) {
     return this.contentFacade.find({options})
   }

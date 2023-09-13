@@ -1,2 +1,2 @@
-export * from './clean-up';
-export * from './find-like';
+export * from './clean-up'
+export * from './find-like'

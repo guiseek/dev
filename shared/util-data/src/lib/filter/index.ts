@@ -1,1 +1,1 @@
-export * from './by';
+export * from './by'

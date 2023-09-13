@@ -4,7 +4,6 @@
 
 <main>
   <mat-card>
-
     <header>
       <mat-form-field>
         <mat-icon matPrefix>search</mat-icon>
@@ -16,13 +15,22 @@
       <mat-form-field>
         <mat-label>Campos visíveis</mat-label>
         <mat-select [formControl]="service.columns" multiple>
-
-          <mat-option *ngFor="let column of service.columnList" [value]="column.value">{{column.text}}</mat-option>
+          <mat-option
+            *ngFor="let column of service.columnList"
+            [value]="column.value"
+            >{{column.text}}</mat-option
+          >
         </mat-select>
       </mat-form-field>
     </header>
 
-    <table mat-table [dataSource]="service.dataSource" matSort matSortActive="createdAt" matSortDirection="desc">
+    <table
+      mat-table
+      [dataSource]="service.dataSource"
+      matSort
+      matSortActive="createdAt"
+      matSortDirection="desc"
+    >
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>#</th>
         <td mat-cell *matCellDef="let row">{{row.id}}</td>
@@ -48,14 +56,20 @@
         <td mat-cell *matCellDef="let row">{{row.updatedAt | date}}</td>
       </ng-container>
       <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef>
-          Ações
-        </th>
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
         <td mat-cell *matCellDef="let row">
-          <button type="button" mat-icon-button (click)="service.updateContent(row)">
+          <button
+            type="button"
+            mat-icon-button
+            (click)="service.updateContent(row)"
+          >
             <mat-icon>edit</mat-icon>
           </button>
-          <button type="button" mat-icon-button (click)="service.remove(row.id)">
+          <button
+            type="button"
+            mat-icon-button
+            (click)="service.remove(row.id)"
+          >
             <mat-icon>delete</mat-icon>
           </button>
         </td>
@@ -65,11 +79,19 @@
       <tr mat-row *matRowDef="let row; columns: service.columns.value;"></tr>
     </table>
 
-    <mat-paginator hidePageSize [length]="(service.meta$ | async)?.itemCount"
-      [pageSize]="(service.meta$ | async)?.take"></mat-paginator>
+    <mat-paginator
+      hidePageSize
+      [length]="(service.meta$ | async)?.itemCount"
+      [pageSize]="(service.meta$ | async)?.take"
+    ></mat-paginator>
   </mat-card>
 </main>
 
-<button type="button" class="fixed b20 r20" mat-fab (click)="service.createContent()">
+<button
+  type="button"
+  class="fixed b20 r20"
+  mat-fab
+  (click)="service.createContent()"
+>
   <mat-icon>add</mat-icon>
 </button>

@@ -22,7 +22,10 @@
         "development": {},
         "production": {
           "fileReplacements": [
-            { "replace": "api/src/envs/env.ts", "with": "api/src/envs/env.prod.ts" }
+            {
+              "replace": "api/src/envs/env.ts",
+              "with": "api/src/envs/env.prod.ts"
+            }
           ]
         }
       }

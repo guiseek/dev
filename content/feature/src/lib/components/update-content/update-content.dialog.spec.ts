@@ -1,8 +1,8 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing'
 import {UpdateContentDialog} from './update-content.dialog'
-import { MatDialogModule } from '@angular/material/dialog'
-import { ReactiveFormsModule } from '@angular/forms'
-import { UiFormsModule } from '@dev/shared-ui-forms'
+import {MatDialogModule} from '@angular/material/dialog'
+import {ReactiveFormsModule} from '@angular/forms'
+import {UiFormsModule} from '@dev/shared-ui-forms'
 
 describe('UpdateContentDialog', () => {
   let component: UpdateContentDialog

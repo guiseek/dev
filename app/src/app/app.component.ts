@@ -1,8 +1,15 @@
-import {Component} from '@angular/core'
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core'
+import {Loader} from '@dev/shared-data-access'
 
 @Component({
   selector: 'dev-root',
-  template: `<router-outlet />`,
+  template: `
+    <router-outlet />
+    <dev-loader *ngIf="loader.active$ | async" />
+  `,
   styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {}
+export class AppComponent {
+  loader = inject(Loader)
+}

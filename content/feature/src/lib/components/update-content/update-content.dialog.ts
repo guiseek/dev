@@ -2,6 +2,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog'
 import {ChangeDetectionStrategy, Component, Inject} from '@angular/core'
 import {Content} from '@dev/content-data-access'
 import {UpdateContentForm} from '../../forms'
+import {of} from 'rxjs'
 
 @Component({
   selector: 'dev-update-content',
@@ -11,6 +12,8 @@ import {UpdateContentForm} from '../../forms'
 })
 export class UpdateContentDialog {
   form: UpdateContentForm
+
+  message$ = of<string | null>(null)
 
   constructor(
     readonly ref: MatDialogRef<UpdateContentDialog>,

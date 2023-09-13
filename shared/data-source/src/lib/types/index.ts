@@ -1,2 +1,2 @@
-export * from './data-config';
-export * from './repo-of';
+export * from './data-config'
+export * from './repo-of'

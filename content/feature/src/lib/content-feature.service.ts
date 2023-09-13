@@ -84,9 +84,12 @@ export class ContentFeatureService {
 
   createContent() {
     const ref = this.openCreateDialog()
-
-    ref.afterClosed().subscribe((value) => {
-      if (value) this.facade.create(value)
+    ref.componentInstance.message$ = this.facade.warning$
+    ref.componentInstance.form.submitted$.subscribe((value) => {
+      if (value) {
+        this.facade.create(value)
+        ref.close()
+      }
     })
   }
 
@@ -99,14 +102,17 @@ export class ContentFeatureService {
 
   updateContent(data: Content) {
     const ref = this.openUpdateDialog(data)
-
-    ref.afterClosed().subscribe((value) => {
-      if (value) this.facade.update(value)
+    ref.componentInstance.message$ = this.facade.warning$
+    ref.componentInstance.form.submitted$.subscribe((value) => {
+      if (value) {
+        this.facade.update(value)
+        ref.close()
+      }
     })
   }
 
   getContent(sort: string, order: Order, page: number) {
-    this.facade.find({options: {page, sort, order}})
+    this.facade.find({options: {page: page + 1, sort, order}})
   }
 
   remove(id: string) {

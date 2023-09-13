@@ -1,1 +1,1 @@
-export * from './content.impl';
+export * from './content.impl'

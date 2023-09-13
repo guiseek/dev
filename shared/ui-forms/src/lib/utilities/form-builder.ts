@@ -1,7 +1,10 @@
 import {FormArray, FormControl, FormGroup} from '@angular/forms'
 import {TypedFormModel, TypedFormValidator} from '../types'
 
-export function formBuilder<T extends object>(value: T, options: Partial<TypedFormValidator<T>> = {}) {
+export function formBuilder<T extends object>(
+  value: T,
+  options: Partial<TypedFormValidator<T>> = {}
+) {
   const group = new FormGroup({})
 
   for (const [key, val] of Object.entries(value)) {

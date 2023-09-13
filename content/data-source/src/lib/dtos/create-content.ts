@@ -1,13 +1,15 @@
 import {CreateContent} from '@dev/content-domain'
 import {ApiProperty} from '@nestjs/swagger'
-import {IsString} from 'class-validator'
+import {IsNotEmpty, IsString} from 'class-validator'
 
 export class CreateContentDto implements CreateContent {
   @ApiProperty()
-  @IsString()
+  @IsString({message: 'o tíulo deve ser uma string'})
+  @IsNotEmpty({message: 'por favor, preencha o título'})
   title: string
 
   @ApiProperty()
-  @IsString()
+  @IsString({message: 'o caminho deve ser uma string'})
+  @IsNotEmpty({message: 'por favor, preencha o caminho'})
   path: string
 }
