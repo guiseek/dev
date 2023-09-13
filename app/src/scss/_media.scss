@@ -1,0 +1,29 @@
+$screen-small: 'only screen and (max-width : 480px)';
+$screen-medium: 'only screen and (max-width : 767px)';
+$screen-normal: 'only screen and (max-width: 991px)';
+$screen-large: 'only screen and (max-width: 1200px)';
+$screen-xlarge: 'only screen and (max-width: 1349px)';
+
+@mixin media($size) {
+  @if $size == small {
+    @media #{$screen-small} {
+      @content;
+    }
+  } @else if $size == medium {
+    @media #{$screen-medium} {
+      @content;
+    }
+  } @else if $size == normal {
+    @media #{$screen-normal} {
+      @content;
+    }
+  } @else if $size == large {
+    @media #{$screen-large} {
+      @content;
+    }
+  } @else if $size == xlarge {
+    @media #{$screen-xlarge} {
+      @content;
+    }
+  }
+}

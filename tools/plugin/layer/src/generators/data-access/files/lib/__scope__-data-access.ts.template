@@ -1,0 +1,19 @@
+import {<%=className%>Service} from '<%= domain %>'
+import {<%=className%>ServiceImpl} from './infrastructure'
+import {Http} from '@dev/shared-data-access'
+import {<%=className%>Facade} from './application'
+
+export function provide<%=className%>Service() {
+  return {
+    provide: <%=className%>Service,
+    useClass: <%=className%>ServiceImpl,
+    deps: [Http],
+  }
+}
+
+export function provide<%=className%>Facade() {
+  return {
+    provide: <%=className%>Facade,
+    deps: [<%=className%>Service],
+  }
+}

@@ -24,7 +24,7 @@ export class ContentRepositoryImpl implements ContentRepository {
       .take(take)
 
     if (where) {
-      query.where(findLike(where))
+      query.orWhere(findLike(where))
     }
 
     const [entities, itemCount] = await query.getManyAndCount()
@@ -47,7 +47,11 @@ export class ContentRepositoryImpl implements ContentRepository {
     else throw new Error(`${id} not found`)
   }
 
+  removeBulk(...ids: string[]) {
+    return this.repository.delete(ids)
+  }
+
   findOne<K extends keyof Content>(key: K, value: Content[K]) {
-    return this.repository.findOneBy({[key]: value})
+    return this.repository.findOneByOrFail({[key]: value})
   }
 }

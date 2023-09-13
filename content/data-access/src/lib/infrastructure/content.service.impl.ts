@@ -4,7 +4,7 @@ import {
   CreateContent,
   UpdateContent,
 } from '@dev/content-domain'
-import {FindParams, Paged, Where} from '@dev/shared-util-data'
+import {BulkResult, FindParams, Paged, Where} from '@dev/shared-util-data'
 import {Http} from '@dev/shared-data-access'
 import {Observable} from 'rxjs'
 
@@ -35,6 +35,10 @@ export class ContentServiceImpl implements ContentService {
 
   remove(id: string) {
     return this.http.delete<Content>(`/api/content/${id}`)
+  }
+
+  removeBulk(...ids: string[]) {
+    return this.http.delete<BulkResult>(`/api/content/bulk`, {params: {ids}})
   }
 
   findOne(value: string): Observable<Content | null> {

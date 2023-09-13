@@ -1,0 +1,4 @@
+import {<%=className%>} from '<%=domain%>'
+import {Where} from '@dev/shared-util-data'
+
+export class Where<%=className%>Dto implements Where<<%=className%>> {}

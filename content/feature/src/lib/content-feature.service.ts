@@ -2,6 +2,7 @@ import {CreateContentDialog, UpdateContentDialog} from './components'
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop'
 import {MatTableDataSource} from '@angular/material/table'
 import {MatPaginator} from '@angular/material/paginator'
+import {SelectionModel} from '@angular/cdk/collections'
 import {DestroyRef, Injectable} from '@angular/core'
 import {MatDialog} from '@angular/material/dialog'
 import {MatSort} from '@angular/material/sort'
@@ -13,23 +14,19 @@ import {
   CreateContent,
   UpdateContent,
 } from '@dev/content-data-access'
-import {debounceTime} from 'rxjs'
 
-const columns = ['id', 'title', 'path', 'createdAt', 'updatedAt', 'actions']
+const columns = ['select', 'title', 'path', 'createdAt', 'actions']
 
 @Injectable()
 export class ContentFeatureService {
-  readonly search = new FormControl()
-
   readonly columns = new FormControl(columns)
 
   readonly columnList = [
-    {text: 'Id', value: 'id'},
-    {text: 'Título', value: 'title'},
-    {text: 'Caminho', value: 'path'},
-    {text: 'Criado em', value: 'createdAt'},
-    {text: 'Alterado em', value: 'updatedAt'},
-    {text: 'Ações', value: 'actions'},
+    {text: 'id', value: 'id'},
+    {text: 'título', value: 'title'},
+    {text: 'caminho', value: 'path'},
+    {text: 'criado em', value: 'createdAt'},
+    {text: 'alterado em', value: 'updatedAt'},
   ]
 
   readonly dataSource = new MatTableDataSource<Content>()
@@ -37,6 +34,8 @@ export class ContentFeatureService {
   get meta$() {
     return this.facade.meta$
   }
+
+  selection = new SelectionModel<Content>(true, [])
 
   constructor(
     private readonly dialog: MatDialog,
@@ -49,11 +48,6 @@ export class ContentFeatureService {
     const sorted$ = sort.sortChange.pipe(takeUntilDestroyed(destroyRef))
 
     const items$ = this.facade.data$.pipe(takeUntilDestroyed(destroyRef))
-
-    const search$ = this.search.valueChanges.pipe(
-      debounceTime(600),
-      takeUntilDestroyed(destroyRef)
-    )
 
     pagination$.subscribe((value) => {
       const order = sort.direction ? Order.ASC : Order.DESC
@@ -71,9 +65,22 @@ export class ContentFeatureService {
       this.dataSource.data = data
     })
 
-    search$.subscribe((value) => this.facade.filter({where: {title: value}}))
-
     this.facade.find()
+  }
+
+  isAllSelected() {
+    const numSelected = this.selection.selected.length
+    const numRows = this.dataSource.data.length
+    return numSelected === numRows
+  }
+
+  toggleAllRows() {
+    if (this.isAllSelected()) {
+      this.selection.clear()
+      return
+    }
+
+    this.selection.select(...this.dataSource.data)
   }
 
   openCreateDialog() {
@@ -111,11 +118,23 @@ export class ContentFeatureService {
     })
   }
 
+  filterContent(where: Record<string, string>) {
+    this.facade.filter({where})
+  }
+
   getContent(sort: string, order: Order, page: number) {
     this.facade.find({options: {page: page + 1, sort, order}})
   }
 
   remove(id: string) {
     this.facade.remove(id)
+  }
+
+  removeBulk() {
+    if (this.selection.hasValue()) {
+      const ids = this.selection.selected.map(({id}) => id)
+      this.facade.removeBulk(ids)
+      this.selection.clear()
+    }
   }
 }

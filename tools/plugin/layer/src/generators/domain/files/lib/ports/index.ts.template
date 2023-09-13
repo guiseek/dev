@@ -1,0 +1,2 @@
+export * from './<%= fileName %>.repository'
+export * from './<%= fileName %>.service'

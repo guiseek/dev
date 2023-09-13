@@ -1,0 +1,29 @@
+{
+  "generators": {
+    "domain": {
+      "factory": "./src/generators/domain/generator",
+      "schema": "./src/generators/domain/schema.json",
+      "description": "domain generator"
+    },
+    "data-source": {
+      "factory": "./src/generators/data-source/generator",
+      "schema": "./src/generators/data-source/schema.json",
+      "description": "data-source generator"
+    },
+    "data-access": {
+      "factory": "./src/generators/data-access/generator",
+      "schema": "./src/generators/data-access/schema.json",
+      "description": "data-access generator"
+    },
+    "resource": {
+      "factory": "./src/generators/resource/generator",
+      "schema": "./src/generators/resource/schema.json",
+      "description": "resource generator"
+    },
+    "feature": {
+      "factory": "./src/generators/feature/generator",
+      "schema": "./src/generators/feature/schema.json",
+      "description": "feature generator"
+    }
+  }
+}

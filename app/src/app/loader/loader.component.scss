@@ -35,12 +35,12 @@
     background: linear-gradient(90deg, #0000, #fff);
     transform-origin: right;
     transform: rotate(-20deg) translate(-20px);
-    animation: sky 2s infinite;
+    animation: sky 1s infinite;
   }
 
   .sky:after {
     inset: 100% auto auto -5px;
-    animation-delay: 0.75s;
+    // animation-delay: 0.75s;
   }
 }
 @keyframes sky {

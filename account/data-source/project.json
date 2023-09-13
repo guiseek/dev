@@ -1,0 +1,43 @@
+{
+  "name": "account-data-source",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "account/data-source/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/account/data-source",
+        "main": "account/data-source/src/index.ts",
+        "tsConfig": "account/data-source/tsconfig.lib.json",
+        "assets": ["account/data-source/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "account/data-source/**/*.ts",
+          "account/data-source/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "account/data-source/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": ["scope:account", "side:server", "type:data-source"]
+}

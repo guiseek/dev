@@ -1,0 +1,9 @@
+import {Route} from '@angular/router'
+import {<%= featureName %>Container} from './<%= feature %>.container'
+
+export const <%= featureProp %>Routes: Route[] = [
+  {
+    path: '',
+    component: <%= featureName %>Container,
+  },
+]

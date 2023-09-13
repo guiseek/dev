@@ -4,14 +4,18 @@ type GetTypedForm<T> =
   // Caso T seja um array
   T extends Array<infer U>
     ? // retorne U
-      FormArray<
-        // e U seja um objeto
-        U extends object
-          ? // inicie a verificacao para U
-            FormGroup<TypedFormModel<U>>
-          : // ou retorne U
-            FormControl<U>
-      >
+      U extends string
+      ? FormControl<string>
+      : U extends number
+      ? FormControl<number>
+      : FormArray<
+          // e U seja um objeto
+          U extends object
+            ? // inicie a verificacao para U
+              FormGroup<TypedFormModel<U>>
+            : // ou retorne U
+              FormControl<U>
+        >
     : // caso seja objeto
     T extends object
     ? // inicie a verificação para T

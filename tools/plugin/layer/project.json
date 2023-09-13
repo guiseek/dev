@@ -1,0 +1,66 @@
+{
+  "name": "plugin-layer",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "tools/plugin/layer/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools/plugin/layer",
+        "main": "tools/plugin/layer/src/index.ts",
+        "tsConfig": "tools/plugin/layer/tsconfig.lib.json",
+        "assets": [
+          "tools/plugin/layer/*.md",
+          {
+            "input": "./tools/plugin/layer/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/plugin/layer/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/plugin/layer",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./tools/plugin/layer",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "tools/plugin/layer/**/*.ts",
+          "tools/plugin/layer/package.json",
+          "tools/plugin/layer/generators.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "tools/plugin/layer/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": ["type:plugin", "scope:tools", "side:server"]
+}

@@ -1,0 +1,19 @@
+import {DynamicModule, Module} from '@nestjs/common'
+import {<%=controllerName%>Controller} from './<%= controller %>.controller'
+import {
+  provide<%=className%>Facade,
+  provide<%=className%>Repository,
+} from '<%= dataSource %>'
+
+@Module({
+  controllers: [<%=controllerName%>Controller],
+})
+export class <%=controllerName%>Module {
+  static register(): DynamicModule {
+    return {
+      module: <%=controllerName%>Module,
+      providers: [provide<%=className%>Repository(), provide<%=className%>Facade()],
+      exports: [provide<%=className%>Facade()],
+    }
+  }
+}

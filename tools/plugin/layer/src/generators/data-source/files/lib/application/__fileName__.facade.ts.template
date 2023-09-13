@@ -1,0 +1,27 @@
+import {<%=className%>, <%=className%>Repository} from '<%=domain%>'
+import {Create<%=className%>Dto, Update<%=className%>Dto} from '../dtos'
+import {FindParams} from '@dev/shared-util-data'
+
+export class <%=className%>Facade {
+  constructor(private readonly repository: <%=className%>Repository) {}
+
+  create(value: Create<%=className%>Dto) {
+    return this.repository.create(value)
+  }
+
+  find(value: FindParams<<%=className%>>) {
+    return this.repository.find(value)
+  }
+
+  findOne(id: string) {
+    return this.repository.findOne('id', id)
+  }
+
+  update(value: Update<%=className%>Dto) {
+    return this.repository.update(value)
+  }
+
+  remove(id: string) {
+    return this.repository.remove(id)
+  }
+}

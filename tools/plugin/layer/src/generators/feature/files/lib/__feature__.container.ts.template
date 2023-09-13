@@ -1,0 +1,34 @@
+import {
+  inject,
+  Component,
+  ViewChild,
+  DestroyRef,
+  AfterViewInit,
+  ChangeDetectionStrategy,
+} from '@angular/core'
+import {<%=featureName%>Service} from './<%=feature%>.service'
+import {MatPaginator} from '@angular/material/paginator'
+import {MatSort} from '@angular/material/sort'
+
+@Component({
+  selector: 'dev-<%=feature%>',
+  templateUrl: './<%=feature%>.container.html',
+  styleUrls: ['./<%=feature%>.container.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [<%=featureName%>Service],
+})
+export class <%=featureName%>Container implements AfterViewInit {
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator
+
+  @ViewChild(MatSort)
+  sort: MatSort
+
+  destroyRef = inject(DestroyRef)
+
+  readonly service = inject(<%=featureName%>Service)
+
+  ngAfterViewInit() {
+    this.service.initialize(this.paginator, this.sort, this.destroyRef)
+  }
+}

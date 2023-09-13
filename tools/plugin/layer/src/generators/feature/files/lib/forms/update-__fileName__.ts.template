@@ -1,0 +1,16 @@
+import {FormControl, Validators} from '@angular/forms'
+import {<%=className%>, Update<%=className%>} from '<%= dataAccess %>'
+import {TypedFormGroup} from '@dev/shared-ui-forms'
+
+export class Update<%=className%>Form extends TypedFormGroup<Update<%=className%>> {
+  constructor(value: <%=className%>) {
+    super({
+      id: new FormControl('', {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+      name: new FormControl(),
+    })
+    this.patchValue(value)
+  }
+}

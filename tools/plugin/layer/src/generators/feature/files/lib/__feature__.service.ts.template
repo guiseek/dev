@@ -1,0 +1,120 @@
+import {Create<%=className%>Dialog, Update<%=className%>Dialog} from './components'
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop'
+import {MatTableDataSource} from '@angular/material/table'
+import {MatPaginator} from '@angular/material/paginator'
+import {DestroyRef, Injectable} from '@angular/core'
+import {MatDialog} from '@angular/material/dialog'
+import {MatSort} from '@angular/material/sort'
+import {FormControl} from '@angular/forms'
+import {Order} from '@dev/shared-util-data'
+import {
+  <%=className%>,
+  <%=className%>Facade,
+  Create<%=className%>,
+  Update<%=className%>,
+} from '<%= dataAccess %>'
+import {debounceTime} from 'rxjs'
+
+const columns = ['id', 'name', 'createdAt', 'updatedAt', 'actions']
+
+@Injectable()
+export class <%=featureName%>Service {
+  readonly search = new FormControl()
+
+  readonly columns = new FormControl(columns)
+
+  readonly columnList = [
+    {text: 'Id', value: 'id'},
+    {text: 'Nome', value: 'name'},
+    {text: 'Criado em', value: 'createdAt'},
+    {text: 'Alterado em', value: 'updatedAt'},
+    {text: 'Ações', value: 'actions'},
+  ]
+
+  readonly dataSource = new MatTableDataSource<<%=className%>>()
+
+  get meta$() {
+    return this.facade.meta$
+  }
+
+  constructor(
+    private readonly dialog: MatDialog,
+    private readonly facade: <%=className%>Facade
+  ) {}
+
+  initialize(paginator: MatPaginator, sort: MatSort, destroyRef: DestroyRef) {
+    const pagination$ = paginator.page.pipe(takeUntilDestroyed(destroyRef))
+
+    const sorted$ = sort.sortChange.pipe(takeUntilDestroyed(destroyRef))
+
+    const items$ = this.facade.data$.pipe(takeUntilDestroyed(destroyRef))
+
+    const search$ = this.search.valueChanges.pipe(
+      debounceTime(600),
+      takeUntilDestroyed(destroyRef)
+    )
+
+    pagination$.subscribe((value) => {
+      const order = sort.direction ? Order.ASC : Order.DESC
+      this.get<%=className%>(sort.active, order, value.pageIndex)
+    })
+
+    sorted$.subscribe((value) => {
+      const order = value.direction ? Order.ASC : Order.DESC
+      this.get<%=className%>(value.active, order, paginator.pageIndex)
+    })
+
+    items$.subscribe((data) => {
+      this.dataSource.paginator = paginator
+      this.dataSource.sort = sort
+      this.dataSource.data = data
+    })
+
+    search$.subscribe((value) => this.facade.filter({where: {name: value}}))
+
+    this.facade.find()
+  }
+
+  openCreateDialog() {
+    return this.dialog.open<Create<%=className%>Dialog, void, Create<%=className%>>(
+      Create<%=className%>Dialog
+    )
+  }
+
+  create<%=className%>() {
+    const ref = this.openCreateDialog()
+    ref.componentInstance.message$ = this.facade.warning$
+    ref.componentInstance.form.submitted$.subscribe((value) => {
+      if (value) {
+        this.facade.create(value)
+        ref.close()
+      }
+    })
+  }
+
+  openUpdateDialog(data: <%=className%>) {
+    return this.dialog.open<Update<%=className%>Dialog, <%=className%>, Update<%=className%>>(
+      Update<%=className%>Dialog,
+      {data}
+    )
+  }
+
+  update<%=className%>(data: <%=className%>) {
+    const ref = this.openUpdateDialog(data)
+    ref.componentInstance.message$ = this.facade.warning$
+    ref.componentInstance.form.submitted$.subscribe((value) => {
+      if (value) {
+        this.facade.update(value)
+        ref.close()
+      }
+    })
+  }
+
+  get<%=className%>(sort: string, order: Order, page: number) {
+    this.facade.find({options: {page: page + 1, sort, order}})
+  }
+
+  remove(id: string) {
+    this.facade.remove(id)
+  }
+}

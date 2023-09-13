@@ -1,0 +1,2 @@
+export * from './lib/<%= controller %>.controller'
+export * from './lib/<%= controller %>.module'

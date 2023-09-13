@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "DataSource",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Library name.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use for the library?",
+      "pattern": "(?:^@[a-zA-Z0-9-*~][a-zA-Z0-9-*._~]*\\/[a-zA-Z0-9-~][a-zA-Z0-9-._~]*|^[a-zA-Z][^:]*)$"
+    },
+    "entity": {
+      "type": "string",
+      "description": "The name of a domain entity.",
+      "x-priority": "important"
+    },
+    "domain": {
+      "type": "string",
+      "description": "The domain related to the project.",
+      "$default": {
+        "$source": "projectName"
+      },
+      "x-dropdown": "projects"
+    },
+    "directory": {
+      "type": "string",
+      "description": "A directory where the lib is placed.",
+      "x-priority": "important"
+    },
+    "projectNameAndRootFormat": {
+      "description": "Whether to generate the project name and root directory as provided (`as-provided`) or generate them composing their values and taking the configured layout into account (`derived`).",
+      "type": "string",
+      "enum": ["as-provided", "derived"]
+    },
+    "tags": {
+      "type": "string",
+      "description": "Add tags to the library (type:data-source will be automatically added) (used for linting)."
+    },
+    "testEnvironment": {
+      "type": "string",
+      "enum": ["jsdom", "node"],
+      "description": "The test environment to use if unitTestRunner is set to jest or vitest.",
+      "default": "node"
+    },
+    "buildable": {
+      "type": "boolean",
+      "default": true,
+      "description": "Generate a buildable library.",
+      "x-deprecated": "Use the `bundler` option for greater control (swc, tsc, rollup, vite, esbuild, none)."
+    },
+    "bundler": {
+      "description": "The bundler to use. Choosing 'none' means this library is not buildable.",
+      "type": "string",
+      "enum": ["swc", "tsc", "rollup", "vite", "esbuild", "none"],
+      "default": "tsc",
+      "x-prompt": "Which bundler would you like to use to build the library? Choose 'none' to skip build setup.",
+      "x-priority": "important"
+    },
+    "minimal": {
+      "type": "boolean",
+      "description": "Generate a library with a minimal setup. No README.md generated.",
+      "default": false
+    }
+  },
+  "required": ["name", "entity", "domain"]
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "Resource",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Library name.",
+      "type": "string",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use for the library?",
+      "pattern": "(?:^@[a-zA-Z0-9-*~][a-zA-Z0-9-*._~]*\\/[a-zA-Z0-9-~][a-zA-Z0-9-._~]*|^[a-zA-Z][^:]*)$"
+    },
+    "entity": {
+      "type": "string",
+      "description": "The name of a domain entity.",
+      "x-priority": "important"
+    },
+    "dataSource": {
+      "type": "string",
+      "description": "The data-source related to the project.",
+      "$default": {
+        "$source": "projectName"
+      },
+      "x-dropdown": "projects"
+    },
+    "directory": {
+      "description": "A directory where the library is placed.",
+      "type": "string",
+      "alias": "dir"
+    },
+    "projectNameAndRootFormat": {
+      "description": "Whether to generate the project name and root directory as provided (`as-provided`) or generate them composing their values and taking the configured layout into account (`derived`).",
+      "type": "string",
+      "enum": ["as-provided", "derived"]
+    },
+    "tags": {
+      "type": "string",
+      "description": "Add tags to the library (type:resource will be automatically added) (used for linting).",
+      "alias": "t"
+    },
+    "buildable": {
+      "description": "Generate a buildable library.",
+      "type": "boolean",
+      "default": false,
+      "x-priority": "important"
+    },
+    "global": {
+      "description": "Add the Global decorator to the generated module.",
+      "type": "boolean",
+      "default": false
+    },
+    "target": {
+      "description": "The ES target, Nest suggest using es2021 or higher.",
+      "type": "string",
+      "default": "es2021",
+      "enum": [
+        "es5",
+        "es6",
+        "esnext",
+        "es2015",
+        "es2016",
+        "es2017",
+        "es2018",
+        "es2019",
+        "es2020",
+        "es2021"
+      ]
+    }
+  },
+  "required": ["name", "entity", "dataSource"]
+}

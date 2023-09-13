@@ -5,13 +5,12 @@ import {
   DestroyRef,
   AfterViewInit,
   ChangeDetectionStrategy,
-  ViewChildren,
 } from '@angular/core'
 import {ContentFeatureService} from './content-feature.service'
 import {MatPaginator} from '@angular/material/paginator'
+import {FilterFieldsForm} from '@dev/shared-ui-forms'
 import {MatSort} from '@angular/material/sort'
-import {BehaviorSubject} from 'rxjs'
-import {CdkOverlayOrigin} from '@angular/cdk/overlay'
+import {Content} from '@dev/content-data-access'
 
 @Component({
   selector: 'dev-content-feature',
@@ -27,15 +26,11 @@ export class ContentFeatureContainer implements AfterViewInit {
   @ViewChild(MatSort)
   sort: MatSort
 
-  @ViewChildren(CdkOverlayOrigin)
-  trigger: CdkOverlayOrigin
-
   destroyRef = inject(DestroyRef)
 
   readonly service = inject(ContentFeatureService)
 
-  #formOpened = new BehaviorSubject(false)
-  formOpened$ = this.#formOpened.asObservable()
+  filterForm = new FilterFieldsForm<Content>(['title'])
 
   ngAfterViewInit() {
     this.service.initialize(this.paginator, this.sort, this.destroyRef)

@@ -1,0 +1,13 @@
+import {Paged, FindParams, Service} from '@dev/shared-util-data'
+import {Create<%= className %>, Update<%= className %>} from '../dtos'
+import {<%= className %>} from '../entities'
+import {Observable} from 'rxjs'
+
+export abstract class <%= className %>Service implements Service<<%= className %>> {
+  abstract find(params?: FindParams<<%= className %>>): Observable<Paged<<%= className %>>>
+  abstract filter(params: FindParams<<%= className %>>): Observable<Paged<<%= className %>>>
+  abstract create(value: Create<%= className %>): Observable<<%= className %>>
+  abstract update(value: Update<%= className %>): Observable<<%= className %>>
+  abstract remove(id: string): Observable<<%= className %>>
+  abstract findOne(value: <%= className %>[keyof <%= className %>]): Observable<<%= className %> | null>
+}
