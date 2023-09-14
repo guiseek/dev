@@ -3,7 +3,7 @@
     <mat-label>Buscar em</mat-label>
     <mat-select formControlName="fields" multiple>
       <mat-option *ngFor="let field of fields" [value]="field.value">
-        {{field.text}}
+        {{ field.text }}
       </mat-option>
     </mat-select>
   </mat-form-field>

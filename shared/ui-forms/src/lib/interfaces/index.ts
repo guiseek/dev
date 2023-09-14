@@ -1,1 +1,1 @@
-export * from './field-option';
+export * from './field-option'

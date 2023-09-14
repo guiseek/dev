@@ -35,8 +35,7 @@ export async function resourceGenerator(
   const entity = names(normalized.entity)
   const scope = normalized.directory.split('/').shift() ?? entity.fileName
   const template = {...entity, scope, controller, controllerName, dataSource}
-  console.log(template);
-  
+  console.log(template)
 
   generateFiles(tree, join(__dirname, 'files'), project.sourceRoot, template)
 

@@ -26,7 +26,9 @@ export async function dataAccessGenerator(
   await libraryGenerator(tree, normalized)
 
   const project = readProjectConfiguration(tree, normalized.name)
-  const domain = getProjectImportPath(readProjectConfiguration(tree, normalized.domain))
+  const domain = getProjectImportPath(
+    readProjectConfiguration(tree, normalized.domain)
+  )
   const entity = names(normalized.entity)
   const scope = normalized.directory.split('/').shift() ?? entity.fileName
   const template = {...entity, scope, domain}

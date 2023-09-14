@@ -1,40 +1,39 @@
 <mat-card>
   <header class="row">
     <section class="row col-11">
-      <dev-filter-fields [form]="filterForm" [fields]="service.columnList"
-        (filterChange)="service.filterContent($event)"></dev-filter-fields>
+      <dev-filter-fields [form]="filterForm" [fields]="columnList" (filterChange)="filter($event)"></dev-filter-fields>
     </section>
 
     <section class="col-5">
-      <dev-visible-fields [formControl]="service.columns" [fields]="service.columnList"
+      <dev-visible-fields [formControl]="columns" [fields]="columnList"
         [extra]="['select', 'actions']"></dev-visible-fields>
     </section>
   </header>
 
-  <mat-card-content *ngIf="service.columns.value?.includes('select')">
-    <button mat-stroked-button [disabled]="service.selection.selected.length < 2" [matMenuTriggerFor]="menu">
+  <mat-card-content *ngIf="columns.value?.includes('select')">
+    <button mat-stroked-button [disabled]="selection.selected.length < 2" [matMenuTriggerFor]="menu">
       <mat-icon>checklist</mat-icon>
       <span>Com selecionados</span>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="service.removeBulk()">
+      <button mat-menu-item (click)="removeBulk()">
         <mat-icon>delete_sweep</mat-icon>
-        <span>Remover <strong>{{service.selection.selected.length}}</strong> itens</span>
+        <span>Remover
+          <strong>{{selection.selected.length}}</strong> itens</span>
       </button>
     </mat-menu>
   </mat-card-content>
 
-  <table mat-table [dataSource]="service.dataSource" matSort matSortActive="createdAt" matSortDirection="desc">
+  <table mat-table [dataSource]="dataSource" matSort matSortActive="createdAt" matSortDirection="desc">
     <ng-container matColumnDef="select">
       <th mat-header-cell *matHeaderCellDef>
-        <mat-checkbox (change)="$event ? service.toggleAllRows() : null"
-          [checked]="service.selection.hasValue() && service.isAllSelected()"
-          [indeterminate]="service.selection.hasValue() && !service.isAllSelected()">
+        <mat-checkbox (change)="$event ? toggleAllRows() : null" [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()">
         </mat-checkbox>
       </th>
       <td mat-cell *matCellDef="let row">
-        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? service.selection.toggle(row) : null"
-          [checked]="service.selection.isSelected(row)">
+        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)">
         </mat-checkbox>
       </td>
     </ng-container>
@@ -65,23 +64,22 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Ações</th>
       <td mat-cell *matCellDef="let row">
-        <button type="button" mat-icon-button (click)="service.updateContent(row)">
+        <button type="button" mat-icon-button (click)="onUpdate(row)">
           <mat-icon>edit</mat-icon>
         </button>
-        <button type="button" mat-icon-button (click)="service.remove(row.id)">
+        <button type="button" mat-icon-button (click)="remove(row.id)">
           <mat-icon>delete</mat-icon>
         </button>
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="service.columns.value"></tr>
-    <tr mat-row *matRowDef="let row; columns: service.columns.value;"></tr>
+    <tr mat-header-row *matHeaderRowDef="columns.value"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns.value;"></tr>
   </table>
 
-  <mat-paginator hidePageSize [length]="(service.meta$ | async)?.itemCount"
-    [pageSize]="(service.meta$ | async)?.take"></mat-paginator>
+  <mat-paginator hidePageSize [length]="(meta$ | async)?.itemCount" [pageSize]="(meta$ | async)?.take"></mat-paginator>
 </mat-card>
 
-<button type="button" class="fixed b20 r20" mat-fab (click)="service.createContent()">
+<button type="button" class="fixed b20 r20" mat-fab (click)="onCreate()">
   <mat-icon>add</mat-icon>
 </button>

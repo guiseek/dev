@@ -1,2 +1,2 @@
-export * from './name';
-export * from './ts-config-base';
+export * from './name'
+export * from './ts-config-base'

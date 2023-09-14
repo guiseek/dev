@@ -1,6 +1,7 @@
 @use './scss/grid' as grid;
 @import '@angular/cdk/overlay-prebuilt.css';
 @import './scss/theme';
+@import './scss/fonts';
 
 /* You can add global styles to this file, and also import other style files */
 
@@ -13,7 +14,7 @@ body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 
   @include grid.colSizes(16);
-  
+
   a:link {
     text-decoration: none;
   }

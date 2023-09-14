@@ -1,4 +1,5 @@
 import {
+  addEntity,
   provideFacade,
   provideRepository,
   provideRepositoryMock,
@@ -7,6 +8,8 @@ import {ContentRepository} from '@dev/content-domain'
 import {ContentRepositoryImpl, ContentRepositoryMock} from './infrastructure'
 import {ContentFacade} from './application'
 import {ContentImpl} from './entities'
+
+addEntity(ContentImpl)
 
 export function provideContentRepository() {
   return provideRepository(

@@ -18,10 +18,11 @@ import {
         <a routerLink="/">
           <img src="./assets/logo.svg" alt="Quero Ser Dev" />
         </a>
-        <h1 class="app-app-name">dôb</h1>
+        <h1 class="app-app-name">Quero Ser Dev</h1>
         <span class="spacer"></span>
 
         <a routerLink="/" mat-button>Home</a>
+        <a routerLink="/content" mat-button>Conteúdo</a>
         <a routerLink="/account" mat-button>Conta</a>
 
         <button mat-icon-button [matMenuTriggerFor]="beforeMenu">

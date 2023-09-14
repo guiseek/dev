@@ -1,4 +1,5 @@
 import {
+  addEntity,
   provideFacade,
   provideRepository,
   provideRepositoryMock,
@@ -7,6 +8,8 @@ import {UserRepository} from '@dev/account-domain'
 import {UserRepositoryImpl, UserRepositoryMock} from './infrastructure'
 import {UserFacade} from './application'
 import {UserImpl} from './entities'
+
+addEntity(UserImpl)
 
 export function provideUserRepository() {
   return provideRepository(UserImpl, UserRepository, UserRepositoryImpl)

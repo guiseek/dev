@@ -1,7 +1,13 @@
 import {DataSource, EntityTarget} from 'typeorm'
 import {DataConfig, RepoOf} from './types'
-import {Facade, token} from '@dev/shared-util-data'
-import {MockRepository} from './infrastructure'
+import {Type, create, token} from '@dev/shared-util-data'
+
+export const {
+  container,
+  add: addEntity,
+  token: entitiesToken,
+  getAll: getAllEntities,
+} = create('entitiesToken')
 
 const DATA_CONFIG_TOKEN = token('data-config')
 
@@ -50,7 +56,7 @@ export function provideFacade<F, T>(provide: F, ...inject: T[]) {
   return {
     provide,
     useFactory(repo: T) {
-      return new (provide as Facade<T>)(repo)
+      return new (provide as Type<T>)(repo)
     },
     inject,
   }

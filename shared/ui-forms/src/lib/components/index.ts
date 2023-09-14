@@ -1,2 +1,2 @@
-export * from './filter-fields/filter-fields.component';
-export * from './filter-fields/filter-fields.form';
+export * from './filter-fields/filter-fields.component'
+export * from './filter-fields/filter-fields.form'

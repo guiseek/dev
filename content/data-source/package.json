@@ -2,7 +2,13 @@
   "name": "@dev/content-data-source",
   "version": "0.0.1",
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "@dev/content-domain": "*",
+    "@dev/shared-util-data": "*",
+    "@dev/shared-data-source": "*",
+    "@nestjs/swagger": "^7.1.11",
+    "class-validator": "^0.14.0",
+    "typeorm": "^0.3.17"
   },
   "type": "commonjs",
   "main": "./src/index.js",

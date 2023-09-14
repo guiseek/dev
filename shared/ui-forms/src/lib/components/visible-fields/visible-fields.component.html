@@ -3,7 +3,7 @@
   <mat-select [formControl]="control" multiple>
     <mat-option *ngIf="showSelectOption" value="select">seleção</mat-option>
     <mat-option *ngFor="let field of fields" [value]="field.value">
-      {{field.text}}
+      {{ field.text }}
     </mat-option>
     <mat-option *ngIf="showActionsOption" value="actions">ações</mat-option>
   </mat-select>
