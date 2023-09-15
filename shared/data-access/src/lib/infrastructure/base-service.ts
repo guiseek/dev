@@ -8,10 +8,14 @@ import {
 import {Http} from '../ports'
 
 export abstract class BaseService<T extends object> implements Service<T> {
-  constructor(private readonly http: Http, readonly url: string) {}
+  constructor(private readonly http: Http<T>, readonly url: string) {}
 
   find({options}: FindParams<T> = {options: {}}) {
     return this.http.get<Paged<T>>(this.url, {params: options})
+  }
+
+  count(where: Where<T> = {}) {
+    return this.http.post<number>(`${this.url}/count`, where)
   }
 
   filter({where = {}, options}: FindParams<T> = {where: {}, options: {}}) {

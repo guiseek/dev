@@ -1,4 +1,4 @@
-import {PageOptionsDto, PagedDto} from '@dev/shared-data-source'
+import {PageOptionsDto} from '@dev/shared-data-source'
 import {ApiPagedResponse} from '@dev/shared-resource'
 import {
   UserDto,

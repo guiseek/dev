@@ -16,18 +16,32 @@ import {
   Query,
   Delete,
   Controller,
+  NotFoundException,
 } from '@nestjs/common'
 
+@ApiTags('<%= scope %>')
 @Controller('<%= scope %>')
 export class <%= controllerName %>Controller {
-  constructor(private readonly <%=propertyName%>Facade: <%=className%>Facade) {
-    console.log(<%=propertyName%>Facade)
-  }
+  constructor(private readonly <%=propertyName%>Facade: <%=className%>Facade) { }
 
   @Get()
   @ApiPagedResponse(<%=className%>Dto)
   find(@Query() options: PageOptionsDto) {
     return this.<%=propertyName%>Facade.find({options})
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id: string) {
+    try {
+      return await this.<%=propertyName%>Facade.findOne(id)
+    } catch {
+      throw new NotFoundException('Conteúdo não existe')
+    }
+  }
+
+  @Post('count')
+  count(@Body() where: Where<%=className%>Dto) {
+    return this.<%=propertyName%>Facade.count(where)
   }
 
   @Post('filter')
@@ -43,6 +57,11 @@ export class <%= controllerName %>Controller {
   @Put()
   update(@Body() update<%=className%>Dto: Update<%=className%>Dto) {
     return this.<%=propertyName%>Facade.update(update<%=className%>Dto)
+  }
+
+  @Delete('bulk')
+  removeBulk(@Query('ids') ids: string[]) {
+    return this.<%=propertyName%>Facade.removeBulk(ids)
   }
 
   @Delete(':id')

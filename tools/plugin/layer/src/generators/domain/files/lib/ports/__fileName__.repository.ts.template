@@ -1,16 +1,8 @@
-import {Paged, FindParams, Repository} from '@dev/shared-util-data'
 import {Create<%= className %>, Update<%= className %>} from '../dtos'
+import {Repository} from '@dev/shared-util-data'
 import {<%= className %>} from '../entities'
 
 export abstract class <%= className %>Repository implements Repository<<%= className %>> {
-  abstract find(
-    params?: FindParams<<%= className %>> | undefined
-  ): Promise<Paged<<%= className %>>>
-  abstract create(value: Create<%= className %>): Promise<<%= className %>>
-  abstract update(value: Update<%= className %>): Promise<<%= className %>>
-  abstract remove(id: string): Promise<<%= className %>>
-  abstract findOne<K extends keyof <%= className %>>(
-    key: K,
-    value: <%= className %>[K]
-  ): Promise<<%= className %> | null>
+  abstract override create(value: Create<%= className %>): Promise<<%= className %>>
+  abstract override update(value: Update<%= className %>): Promise<<%= className %>>
 }

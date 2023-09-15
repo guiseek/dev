@@ -1,0 +1,19 @@
+body {
+  .cdk-column-select {
+    width: 60px;
+  }
+
+  .cdk-column-actions {
+    width: 130px;
+  }
+  
+  .cdk-column-createdAt,
+  .cdk-column-updatedAt {
+    width: 200px;
+  }
+
+  .cdk-column-id {
+    max-width: 120px;
+    white-space: nowrap;
+  }
+}

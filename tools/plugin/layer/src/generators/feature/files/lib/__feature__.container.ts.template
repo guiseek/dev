@@ -6,29 +6,58 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
 } from '@angular/core'
-import {<%=featureName%>Service} from './<%=feature%>.service'
+import {Create<%=className%>Dialog, Update<%=className%>Dialog} from './components'
+import {<%=className%>, <%=className%>Facade, Update<%=className%>} from '<%=dataAccess%>'
+import {Columns, FeatureContainer} from '@dev/shared-ui-base'
+import {FilterByFieldOption} from '@dev/shared-ui-forms'
 import {MatPaginator} from '@angular/material/paginator'
+import {MatDialog} from '@angular/material/dialog'
 import {MatSort} from '@angular/material/sort'
+import {FormControl} from '@angular/forms'
 
 @Component({
   selector: 'dev-<%=feature%>',
   templateUrl: './<%=feature%>.container.html',
   styleUrls: ['./<%=feature%>.container.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [<%=featureName%>Service],
 })
-export class <%=featureName%>Container implements AfterViewInit {
+export class <%=featureName%>Container
+  extends FeatureContainer<<%=className%>>
+  implements AfterViewInit
+{
+  columns = new FormControl<Columns<<%=className%>>>([
+    'select',
+    'name',
+    'createdAt',
+    'actions',
+  ])
+
+  columnList: FilterByFieldOption[] = [
+    {text: 'Nome', value: 'name', type: 'text'},
+  ]
+
+  readonly destroyRef = inject(DestroyRef)
+  readonly facade = inject(<%=className%>Facade)
+  readonly dialog = inject(MatDialog)
+
   @ViewChild(MatPaginator)
   paginator: MatPaginator
 
   @ViewChild(MatSort)
   sort: MatSort
 
-  destroyRef = inject(DestroyRef)
-
-  readonly service = inject(<%=featureName%>Service)
-
   ngAfterViewInit() {
-    this.service.initialize(this.paginator, this.sort, this.destroyRef)
+    this.initialize()
+  }
+
+  openCreateDialog() {
+    return this.dialog.open<Create<%=className%>Dialog>(Create<%=className%>Dialog)
+  }
+
+  openUpdateDialog(data: <%=className%>) {
+    return this.dialog.open<Update<%=className%>Dialog, Update<%=className%>>(
+      Update<%=className%>Dialog,
+      {data}
+    )
   }
 }

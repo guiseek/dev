@@ -1,4 +1,4 @@
-import {PageOptionsDto, PagedDto} from '@dev/shared-data-source'
+import {PageOptionsDto} from '@dev/shared-data-source'
 import {ApiPagedResponse} from '@dev/shared-resource'
 import {
   ContentDto,
@@ -18,7 +18,7 @@ import {
   Controller,
   NotFoundException,
 } from '@nestjs/common'
-import { ApiTags } from '@nestjs/swagger'
+import {ApiTags} from '@nestjs/swagger'
 
 @ApiTags('content')
 @Controller('content')
@@ -38,6 +38,11 @@ export class ContentResourceController {
     } catch {
       throw new NotFoundException('Conteúdo não existe')
     }
+  }
+
+  @Post('count')
+  count(@Body() where: WhereContentDto) {
+    return this.contentFacade.count(where)
   }
 
   @Post('filter')

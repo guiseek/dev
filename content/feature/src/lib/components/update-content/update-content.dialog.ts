@@ -15,7 +15,7 @@ export class UpdateContentDialog {
 
   message$ = of<string | null>(null)
 
-  constructor(@Inject(MAT_DIALOG_DATA) readonly data: Content) {
+  constructor(@Inject(MAT_DIALOG_DATA) data: Content) {
     this.form = new UpdateContentForm(data)
   }
 }

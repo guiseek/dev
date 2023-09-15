@@ -1,6 +1,6 @@
 <h2 mat-dialog-title>Editar <%=fileName%></h2>
 
-<form mat-dialog-content [formGroup]="form" (submit)="onSubmit()">
+<form mat-dialog-content [formGroup]="form" (submit)="form.submit()">
   <mat-form-field>
     <mat-label> Id </mat-label>
     <input matInput formControlName="id" readonly tabindex="-1" />

@@ -1,32 +1,33 @@
-import {SelectionModel} from '@angular/cdk/collections'
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop'
 import {MatDialog, MatDialogRef} from '@angular/material/dialog'
-import {Facade, Order, Where} from '@dev/shared-util-data'
+import {Entity, Facade, Order, Where} from '@dev/shared-util-data'
 import {MatTableDataSource} from '@angular/material/table'
 import {MatPaginator} from '@angular/material/paginator'
-import {FilterFieldsForm} from '@dev/shared-ui-forms'
 import {DestroyRef, Directive} from '@angular/core'
 import {MatSort} from '@angular/material/sort'
 import {FormControl} from '@angular/forms'
 import {FormDialog} from './form-dialog'
+import {SelectionMenu} from '../components'
 
 interface FieldOption {
   text: string
   value: string
 }
 
-interface Entity {
-  id: string
-}
+export type Columns<T extends object> = ('select' | 'actions' | keyof T)[]
 
 @Directive()
 export abstract class FeatureContainer<T extends Entity> {
-  abstract readonly columns: FormControl
+  abstract readonly columns: FormControl<Columns<T> | null>
 
   abstract readonly columnList: FieldOption[]
-  abstract readonly filterForm: FilterFieldsForm<T>
+
   abstract readonly dialog: MatDialog
   abstract readonly facade: Facade<T>
+
+  abstract readonly destroyRef: DestroyRef
+  abstract readonly paginator: MatPaginator
+  abstract readonly sort: MatSort
 
   readonly dataSource = new MatTableDataSource<T>()
 
@@ -34,32 +35,42 @@ export abstract class FeatureContainer<T extends Entity> {
     return this.facade.meta$
   }
 
-  selection = new SelectionModel<T>(true, [])
+  selection = new SelectionMenu<T>(true, [])
 
-  initialize(paginator: MatPaginator, sort: MatSort, destroyRef: DestroyRef) {
-    const pagination$ = paginator.page.pipe(takeUntilDestroyed(destroyRef))
+  initialize() {
+    const pagination$ = this.paginator.page.pipe(
+      takeUntilDestroyed(this.destroyRef)
+    )
 
-    const sorted$ = sort.sortChange.pipe(takeUntilDestroyed(destroyRef))
+    const sorted$ = this.sort.sortChange.pipe(
+      takeUntilDestroyed(this.destroyRef)
+    )
 
-    const items$ = this.facade.data$.pipe(takeUntilDestroyed(destroyRef))
+    const items$ = this.facade.data$.pipe(takeUntilDestroyed(this.destroyRef))
 
     pagination$.subscribe((value) => {
-      const order = sort.direction ? Order.ASC : Order.DESC
-      this.update(sort.active, order, value.pageIndex)
+      const order = this.sort.direction ? Order.ASC : Order.DESC
+      this.update(this.sort.active, order, value.pageIndex)
     })
 
     sorted$.subscribe((value) => {
       const order = value.direction ? Order.ASC : Order.DESC
-      this.update(value.active, order, paginator.pageIndex)
+      this.update(value.active, order, this.paginator.pageIndex)
     })
 
     items$.subscribe((data) => {
-      this.dataSource.paginator = paginator
-      this.dataSource.sort = sort
+      this.dataSource.paginator = this.paginator
+      this.dataSource.sort = this.sort
       this.dataSource.data = data
     })
 
     this.facade.find()
+    this.selection.hasValue()
+  }
+
+  get columnsHasSelect() {
+    const columns = this.columns.value ?? []
+    return columns.includes('select')
   }
 
   isAllSelected() {

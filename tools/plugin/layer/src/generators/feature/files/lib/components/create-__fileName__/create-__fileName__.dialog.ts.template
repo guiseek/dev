@@ -1,26 +1,14 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core'
 import {MatDialogRef} from '@angular/material/dialog'
 import {Create<%=className%>Form} from '../../forms'
-import {of} from 'rxjs'
+import {FormDialog} from '@dev/shared-ui-base'
 
 @Component({
-  selector: 'dev-create-<%-fileName%>',
-  templateUrl: './create-<%-fileName%>.dialog.html',
-  styleUrls: ['./create-<%-fileName%>.dialog.scss'],
+  selector: 'dev-create-<%=fileName%>',
+  templateUrl: './create-<%=fileName%>.dialog.html',
+  styleUrls: ['./create-<%=fileName%>.dialog.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Create<%=className%>Dialog {
+export class Create<%=className%>Dialog extends FormDialog<Create<%=className%>>{
   form = new Create<%=className%>Form()
-
-  message$ = of<string | null>(null)
-
-  constructor(readonly ref: MatDialogRef<Create<%=className%>Dialog>) {}
-
-  onSubmit() {
-    if (this.form.valid) {
-      this.ref.close(this.form.value)
-    } else {
-      this.form.markAllAsTouched()
-    }
-  }
 }

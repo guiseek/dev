@@ -1,5 +1,5 @@
 {
-  "name": "ui-base",
+  "name": "shared-ui-base",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "shared/ui-base/src",
   "prefix": "dev",

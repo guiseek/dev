@@ -5,6 +5,11 @@
   padding: 16px;
   gap: 16px;
 
+  form {
+    display: flex;
+    gap: 8px;
+  }
+
   .cdk-column-actions {
     width: 130px;
   }

@@ -6,7 +6,16 @@ services:
     environment:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASS}
-      - POSTGRES_DB=${DB_NAME} #optional (specify default database instead of $POSTGRES_DB)
+      - POSTGRES_DB=${DB_NAME}
     ports:
       - '5432:5432'
+    restart: always
+  mongodb:
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${DB_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${DB_PASS}
+      - MONGO_INITDB_DATABASE=${DB_NAME}
+    ports:
+      - 27017:27017
     restart: always

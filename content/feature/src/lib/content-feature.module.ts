@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core'
 import {CommonModule} from '@angular/common'
 import {RouterModule} from '@angular/router'
+import {UiBaseModule} from '@dev/shared-ui-base'
 import {UiFormsModule} from '@dev/shared-ui-forms'
 import {MatButtonModule} from '@angular/material/button'
 import {MatTableModule} from '@angular/material/table'
@@ -15,14 +16,11 @@ import {ReactiveFormsModule} from '@angular/forms'
 import {contentFeatureRoutes} from './content-feature.routes'
 import {ContentFeatureContainer} from './content-feature.container'
 import {CreateContentDialog, UpdateContentDialog} from './components'
-import {
-  provideContentFacade,
-  provideContentService,
-} from '@dev/content-data-access'
 
 @NgModule({
   imports: [
     CommonModule,
+    UiBaseModule,
     UiFormsModule,
     MatIconModule,
     MatMenuModule,
@@ -41,6 +39,5 @@ import {
     CreateContentDialog,
     UpdateContentDialog,
   ],
-  providers: [provideContentService(), provideContentFacade()],
 })
 export class ContentFeatureModule {}

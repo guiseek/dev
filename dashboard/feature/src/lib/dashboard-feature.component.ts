@@ -1,6 +1,7 @@
 import {Component, inject, ChangeDetectionStrategy} from '@angular/core'
 import {BreakpointObserver} from '@angular/cdk/layout'
 import {BehaviorSubject} from 'rxjs'
+import {ContentFacade} from '@dev/content-data-access'
 
 @Component({
   selector: 'dev-dashboard-feature',
@@ -12,44 +13,48 @@ export class DashboardFeatureComponent {
   private breakpointObserver = inject(BreakpointObserver)
 
   #cards = new BehaviorSubject([
-    {
-      title: 'Card 1',
-      value: (Math.random() * 999).toFixed(),
-      cols: 1,
-      rows: 1,
-    },
+    // {
+    //   title: 'Conteúdo',
+    //   value: this.contentFacade.count$,
+    //   cols: 1,
+    //   rows: 1,
+    // },
     {
       title: 'Card 2',
       value: (Math.random() * 99).toFixed(),
       cols: 1,
       rows: 1,
     },
-    {
-      title: 'Card 3',
-      value: (Math.random() * 999).toFixed(),
-      cols: 1,
-      rows: 1,
-    },
-    {
-      title: 'Card 4',
-      value: (Math.random() * 999).toFixed(),
-      cols: 1,
-      rows: 1,
-    },
-    {
-      title: 'Card 5',
-      value: (Math.random() * 9999).toFixed(),
-      cols: 1,
-      rows: 1,
-    },
-    {
-      title: 'Card 6',
-      value: (Math.random() * 999).toFixed(),
-      cols: 1,
-      rows: 1,
-    },
+    // {
+    //   title: 'Card 3',
+    //   value: (Math.random() * 999).toFixed(),
+    //   cols: 1,
+    //   rows: 1,
+    // },
+    // {
+    //   title: 'Card 4',
+    //   value: (Math.random() * 999).toFixed(),
+    //   cols: 1,
+    //   rows: 1,
+    // },
+    // {
+    //   title: 'Card 5',
+    //   value: (Math.random() * 9999).toFixed(),
+    //   cols: 1,
+    //   rows: 1,
+    // },
+    // {
+    //   title: 'Card 6',
+    //   value: (Math.random() * 999).toFixed(),
+    //   cols: 1,
+    //   rows: 1,
+    // },
   ])
   cards$ = this.#cards.asObservable()
+
+  constructor(readonly contentFacade: ContentFacade) {
+    this.contentFacade.count({})
+  }
 
   /** Based on the screen size, switch from standard to one column per row */
   // cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(

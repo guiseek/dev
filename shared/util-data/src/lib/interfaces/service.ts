@@ -2,9 +2,11 @@ import {FindParams} from './find-params'
 import {BulkResult} from './bulk-result'
 import {Observable} from 'rxjs'
 import {Paged} from './paged'
+import {Where} from '../types'
 
 export abstract class Service<T extends object> {
   abstract find(params?: FindParams<T>): Observable<Paged<T>>
+  abstract count(where?: Where<T>): Observable<number>
   abstract filter(params: FindParams<T>): Observable<Paged<T>>
   abstract create(value: Partial<T>): Observable<T>
   abstract update(value: Partial<T>): Observable<T>

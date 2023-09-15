@@ -10,32 +10,11 @@
     gap: 8px;
   }
 
-  .cdk-column-select {
-    width: 60px;
-  }
-
-  .cdk-column-actions {
-    width: 130px;
-  }
   .cdk-column-path {
     max-width: 300px;
   }
-  .cdk-column-createdAt,
-  .cdk-column-updatedAt {
-    width: 200px;
-  }
-
-  .cdk-column-id {
-    max-width: 120px;
-    white-space: nowrap;
-  }
-
-  .visible-fields {
-    width: 400px;
-  }
 
   header {
-    // flex: 1;
     gap: 16px;
     margin: 16px;
     display: flex;

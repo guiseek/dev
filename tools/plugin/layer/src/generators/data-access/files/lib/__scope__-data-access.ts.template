@@ -6,7 +6,9 @@ import {<%=className%>Facade} from './application'
 export function provide<%=className%>Service() {
   return {
     provide: <%=className%>Service,
-    useClass: <%=className%>ServiceImpl,
+    useFactory(http: Http) {
+      return new ContentServiceImpl(http, '/api/<%=scope%>')
+    },
     deps: [Http],
   }
 }

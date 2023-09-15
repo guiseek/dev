@@ -1,4 +1,5 @@
 import {
+  addEntity,
   provideFacade,
   provideRepository,
   provideRepositoryMock,
@@ -7,6 +8,8 @@ import {<%=className%>Repository} from '<%=domain%>'
 import {<%=className%>RepositoryImpl, <%=className%>RepositoryMock} from './infrastructure'
 import {<%=className%>Facade} from './application'
 import {<%=className%>Impl} from './entities'
+
+addEntity(ContentImpl)
 
 export function provide<%=className%>Repository() {
   return provideRepository(

@@ -4,7 +4,7 @@ $screen-normal: 'only screen and (max-width: 991px)';
 $screen-large: 'only screen and (max-width: 1200px)';
 $screen-xlarge: 'only screen and (max-width: 1349px)';
 
-@mixin media($size) {
+@mixin query($size) {
   @if $size == small {
     @media #{$screen-small} {
       @content;

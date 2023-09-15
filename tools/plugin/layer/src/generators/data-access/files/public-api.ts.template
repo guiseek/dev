@@ -1,3 +1,5 @@
+export {<%=className%>, Create<%=className%>, Update<%=className%>} from '<%= domain %>'
+
 export * from './lib/<%= scope %>-data-access'
 export * from './lib/infrastructure'
 export * from './lib/application'

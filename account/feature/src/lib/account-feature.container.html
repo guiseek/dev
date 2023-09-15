@@ -1,9 +1,9 @@
 <mat-card>
   <header class="row">
-    <section class="col-12">
-      <dev-filter-fields [form]="filterForm" [fields]="columnList" (filterChange)="filter($event)"></dev-filter-fields>
+    <section class="col-11">
+      <dev-filter-by [fields]="columnList" (filterByChange)="filter($event)"></dev-filter-by>
     </section>
-    <section class="col-4">
+    <section class="col-5">
       <dev-visible-fields [formControl]="columns" [fields]="columnList"
         [extra]="['select', 'actions']"></dev-visible-fields>
     </section>

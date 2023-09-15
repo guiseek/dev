@@ -1,4 +1,4 @@
-import {Entity, FindParams} from '@dev/shared-util-data'
+import {Entity, FindParams, Where} from '@dev/shared-util-data'
 import {FindOptionsWhere, Repository} from 'typeorm'
 import {PageMetaDto, PagedDto} from '../dtos'
 import {findLike} from '../utilities'
@@ -26,6 +26,13 @@ export abstract class BaseRepository<T extends Entity> {
 
     const meta = new PageMetaDto({itemCount, options})
     return new PagedDto(entities, meta)
+  }
+
+  async count(where?: Where<T>) {
+    const query = this.repository.createQueryBuilder(this.name)
+    if (where) query.where(where)
+    const affected = await query.getCount()
+    return {affected}
   }
 
   create(value: T) {

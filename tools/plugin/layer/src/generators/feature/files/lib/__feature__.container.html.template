@@ -1,93 +1,75 @@
-<mat-toolbar color="primary">
-  <h2><%=fileName%></h2>
-</mat-toolbar>
+<mat-card>
+  <header class="row">
+    <dev-filter-by class="col-12" [fields]="columnList" (filterByChange)="filter($event)"></dev-filter-by>
 
-<main>
-  <mat-card>
-    <header>
-      <mat-form-field>
-        <mat-icon matPrefix>search</mat-icon>
-        <mat-label> Busca </mat-label>
-        <input matInput [formControl]="service.search" />
-        <mat-error> </mat-error>
-      </mat-form-field>
+    <dev-visible-fields class="col-4" [formControl]="columns" [fields]="columnList"
+      [extra]="['select', 'actions']"></dev-visible-fields>
+  </header>
 
-      <mat-form-field>
-        <mat-label>Campos visíveis</mat-label>
-        <mat-select [formControl]="service.columns" multiple>
-          <mat-option
-            *ngFor="let column of service.columnList"
-            [value]="column.value"
-            >{{column.text}}</mat-option
-          >
-        </mat-select>
-      </mat-form-field>
-    </header>
+  <mat-card-content *ngIf="columns.value?.includes('select')">
+    <dev-selection-menu [selection]="selection">
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="removeBulk()">
+          <mat-icon>delete_sweep</mat-icon>
+          <span>Remover
+            <strong>{{selection.selected.length}}</strong> itens</span>
+        </button>
+      </mat-menu>
+    </dev-selection-menu>
+  </mat-card-content>
 
-    <table
-      mat-table
-      [dataSource]="service.dataSource"
-      matSort
-      matSortActive="createdAt"
-      matSortDirection="desc"
-    >
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>#</th>
-        <td mat-cell *matCellDef="let row">{{row.id}}</td>
-      </ng-container>
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Nome</th>
-        <td mat-cell *matCellDef="let row">{{row.name}}</td>
-      </ng-container>
-      <ng-container matColumnDef="createdAt">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-          Criado em
-        </th>
-        <td mat-cell *matCellDef="let row">{{row.createdAt | date}}</td>
-      </ng-container>
-      <ng-container matColumnDef="updatedAt">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-          Alterado em
-        </th>
-        <td mat-cell *matCellDef="let row">{{row.updatedAt | date}}</td>
-      </ng-container>
-      <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef>Ações</th>
-        <td mat-cell *matCellDef="let row">
-          <button
-            type="button"
-            mat-icon-button
-            (click)="service.update<%=className%>(row)"
-          >
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button
-            type="button"
-            mat-icon-button
-            (click)="service.remove(row.id)"
-          >
-            <mat-icon>delete</mat-icon>
-          </button>
-        </td>
-      </ng-container>
+  <table mat-table [dataSource]="dataSource" matSort matSortActive="createdAt" matSortDirection="desc">
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? toggleAllRows() : null" [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>#</th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+    <ng-container matColumnDef="createdAt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+        Criado em
+      </th>
+      <td mat-cell *matCellDef="let row">{{row.createdAt | date}}</td>
+    </ng-container>
+    <ng-container matColumnDef="updatedAt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+        Alterado em
+      </th>
+      <td mat-cell *matCellDef="let row">{{row.updatedAt | date}}</td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let row">
+        <button type="button" mat-icon-button (click)="onUpdate(row)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button type="button" mat-icon-button (click)="remove(row.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="service.columns.value"></tr>
-      <tr mat-row *matRowDef="let row; columns: service.columns.value;"></tr>
-    </table>
+    <tr mat-header-row *matHeaderRowDef="columns.value"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns.value;"></tr>
+  </table>
 
-    <mat-paginator
-      hidePageSize
-      [length]="(service.meta$ | async)?.itemCount"
-      [pageSize]="(service.meta$ | async)?.take"
-    ></mat-paginator>
-  </mat-card>
-</main>
+  <mat-paginator hidePageSize [length]="(meta$ | async)?.itemCount" [pageSize]="(meta$ | async)?.take"></mat-paginator>
+</mat-card>
 
-<button
-  type="button"
-  class="fixed b20 r20"
-  mat-fab
-  (click)="service.create<%=className%>()"
->
+<button type="button" class="fixed b20 r20" mat-fab (click)="onCreate()">
   <mat-icon>add</mat-icon>
 </button>

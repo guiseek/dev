@@ -1,17 +1,20 @@
 import {FindParams, Paged, Service} from '../interfaces'
 import {Observable, catchError, take} from 'rxjs'
 import {Store} from './store'
+import {Where} from '../types'
 
 interface FacadeState<T> extends Paged<T> {
   selected: T | null
   warning: string | null
   loading: boolean
+  count: number
 }
 
 export abstract class Facade<T extends object> extends Store<FacadeState<T>> {
   selected$ = this.select((state) => state.selected)
   loading$ = this.select((state) => state.loading)
   warning$ = this.select((state) => state.warning)
+  count$ = this.select((state) => state.count)
   data$ = this.select((state) => state.data)
   meta$ = this.select((state) => state.meta)
 
@@ -29,12 +32,18 @@ export abstract class Facade<T extends object> extends Store<FacadeState<T>> {
       loading: false,
       selected: null,
       warning: null,
+      count: 0,
     })
   }
 
   find(params?: FindParams<T>) {
     const find$ = this.service.find(params).pipe(take(1))
     find$.subscribe((response) => this.setState(response))
+  }
+
+  count(where?: Where<T>) {
+    const find$ = this.service.count(where).pipe(take(1))
+    find$.subscribe((count) => this.setState({count}))
   }
 
   filter(params: FindParams<T>) {

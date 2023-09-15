@@ -6,16 +6,14 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
 } from '@angular/core'
-import {MatPaginator} from '@angular/material/paginator'
-import {FilterFieldsForm} from '@dev/shared-ui-forms'
-import {MatSort} from '@angular/material/sort'
-import {UpdateUser, User, UserFacade} from '@dev/account-data-access'
-import {FeatureContainer} from '@dev/ui-base'
 import {FormControl} from '@angular/forms'
+import {MatSort} from '@angular/material/sort'
 import {MatDialog} from '@angular/material/dialog'
+import {MatPaginator} from '@angular/material/paginator'
+import {UpdateUser, User, UserFacade} from '@dev/account-data-access'
+import {FilterByFieldOption} from '@dev/shared-ui-forms'
+import {Columns, FeatureContainer} from '@dev/shared-ui-base'
 import {CreateUserDialog, UpdateUserDialog} from './components'
-
-const columns = ['select', 'name', 'createdAt', 'updatedAt']
 
 @Component({
   selector: 'dev-account-feature',
@@ -27,13 +25,16 @@ export class AccountFeatureContainer
   extends FeatureContainer<User>
   implements AfterViewInit
 {
-  columnList = [
-    {text: 'nome', value: 'name'},
-    {text: 'criado em', value: 'createdAt'},
-    {text: 'alterado em', value: 'updatedAt'},
+  columnList: FilterByFieldOption[] = [
+    {text: 'Nome', value: 'name', type: 'text'},
   ]
 
-  readonly columns = new FormControl(columns)
+  readonly columns = new FormControl<Columns<User>>([
+    'select',
+    'name',
+    'createdAt',
+    'updatedAt',
+  ])
 
   readonly destroyRef = inject(DestroyRef)
   readonly facade = inject(UserFacade)
@@ -45,10 +46,8 @@ export class AccountFeatureContainer
   @ViewChild(MatSort)
   sort: MatSort
 
-  filterForm = new FilterFieldsForm<User>(['name'])
-
   ngAfterViewInit() {
-    this.initialize(this.paginator, this.sort, this.destroyRef)
+    this.initialize()
   }
 
   openCreateDialog() {

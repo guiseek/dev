@@ -1,5 +1,6 @@
 @use './scss/grid' as grid;
 @import '@angular/cdk/overlay-prebuilt.css';
+@import './scss/override';
 @import './scss/theme';
 @import './scss/fonts';
 
