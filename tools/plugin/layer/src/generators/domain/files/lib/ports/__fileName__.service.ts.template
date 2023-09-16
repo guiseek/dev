@@ -3,7 +3,7 @@ import {Service} from '@dev/shared-util-data'
 import {<%= className %>} from '../entities'
 import {Observable} from 'rxjs'
 
-export abstract class <%= className %>Service implements Service<<%= className %>> {
+export abstract class <%= className %>Service extends Service<<%= className %>> {
   abstract override create(value: Create<%= className %>): Observable<<%= className %>>
   abstract override update(value: Update<%= className %>): Observable<<%= className %>>
 }

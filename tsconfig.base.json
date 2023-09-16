@@ -28,6 +28,7 @@
       "@dev/content-resource": ["content/resource/src/index.ts"],
       "@dev/dashboard-feature": ["dashboard/feature/src/index.ts"],
       "@dev/dashboard-resource": ["dashboard/resource/src/index.ts"],
+      "@dev/learning-domain": ["learning/domain/src/index.ts"],
       "@dev/plugin-layer": ["tools/plugin/layer/src/index.ts"],
       "@dev/shared-data-access": ["shared/data-access/src/index.ts"],
       "@dev/shared-data-source": ["shared/data-source/src/index.ts"],
