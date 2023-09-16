@@ -1,5 +1,6 @@
 import {Module} from '@nestjs/common'
 
+import {LearningResourceModule} from '@dev/learning-resource'
 import {ContentResourceModule} from '@dev/content-resource'
 import {AccountResourceModule} from '@dev/account-resource'
 import {SharedResourceModule} from '@dev/shared-resource'
@@ -11,6 +12,7 @@ import {env} from './envs/env'
     SharedResourceModule.forRoot(env(getAllEntities())),
     ContentResourceModule.register(),
     AccountResourceModule.register(),
+    LearningResourceModule.register(),
   ],
 })
 export class AppModule {}
