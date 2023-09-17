@@ -13,6 +13,7 @@ import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatButtonModule} from '@angular/material/button'
 import {MatIconModule, MatIconRegistry} from '@angular/material/icon'
 import {LayoutModule} from '@angular/cdk/layout'
+import {UiBaseModule} from '@dev/shared-ui-base'
 import {
   HttpClient,
   HttpClientModule,
@@ -41,6 +42,7 @@ registerLocaleData(pt, 'pt-BR', BR)
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    UiBaseModule.forRoot(),
     RouterModule.forRoot(appRoutes, {initialNavigation: 'enabledBlocking'}),
     BrowserAnimationsModule,
   ],

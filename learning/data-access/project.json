@@ -39,5 +39,5 @@
       }
     }
   },
-  "tags": ["scope:learning", "side:client", "type:data-source"]
+  "tags": ["", "type:data-access", "scope:learning", "side:client"]
 }

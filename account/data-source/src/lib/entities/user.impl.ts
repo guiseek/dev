@@ -15,6 +15,11 @@ export class UserImpl implements User {
   @Column()
   name: string
 
+  @Column({
+    default: ''
+  })
+  lastName: string
+
   @CreateDateColumn()
   createdAt: Date
 

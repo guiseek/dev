@@ -6,11 +6,19 @@
     <input matInput formControlName="id" readonly tabindex="-1" />
     <mat-error> Obrigatório </mat-error>
   </mat-form-field>
-  <mat-form-field>
-    <mat-label> Nome </mat-label>
-    <input matInput formControlName="name" autofocus />
-    <mat-error> Obrigatório </mat-error>
-  </mat-form-field>
+  
+  <section class="row">
+    <mat-form-field class="col">
+      <mat-label> Primeiro nome </mat-label>
+      <input matInput formControlName="name" autofocus />
+      <mat-error> Obrigatório </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col">
+      <mat-label> Último nome </mat-label>
+      <input matInput formControlName="lastName" />
+      <mat-error> Obrigatório </mat-error>
+    </mat-form-field>
+  </section>
 
   <p>{{message$ | async}}</p>
 

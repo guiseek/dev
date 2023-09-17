@@ -29,7 +29,9 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nx/typescript"],
-      "rules": {}
+      "rules": {
+        "no-prototype-builtins": "off"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],

@@ -8,6 +8,7 @@ import {MatSort} from '@angular/material/sort'
 import {FormControl} from '@angular/forms'
 import {FormDialog} from './form-dialog'
 import {SelectionMenu} from '../components'
+import 'reflect-metadata'
 
 interface FieldOption {
   text: string
@@ -16,8 +17,28 @@ interface FieldOption {
 
 export type Columns<T extends object> = ('select' | 'actions' | keyof T)[]
 
+function store(confirm: boolean) {
+  return function <T>(
+    target: T,
+    property: PropertyKey,
+    descriptor: PropertyDescriptor
+  ) {
+    console.log(target, property, descriptor)
+    const method = descriptor.value
+    descriptor.value = function (...params: unknown[]) {
+      console.log(params);
+      
+      method.apply(this, params)
+    }
+
+    return descriptor
+  }
+}
+
 @Directive()
 export abstract class FeatureContainer<T extends Entity> {
+  abstract readonly name: string
+
   abstract readonly columns: FormControl<Columns<T> | null>
 
   abstract readonly columnList: FieldOption[]
@@ -26,6 +47,7 @@ export abstract class FeatureContainer<T extends Entity> {
   abstract readonly facade: Facade<T>
 
   abstract readonly destroyRef: DestroyRef
+
   abstract readonly paginator: MatPaginator
   abstract readonly sort: MatSort
 
@@ -49,13 +71,14 @@ export abstract class FeatureContainer<T extends Entity> {
     const items$ = this.facade.data$.pipe(takeUntilDestroyed(this.destroyRef))
 
     pagination$.subscribe((value) => {
-      const order = this.sort.direction ? Order.ASC : Order.DESC
-      this.update(this.sort.active, order, value.pageIndex)
+      const order = this.sort.direction.toUpperCase() as Order
+      this.update(this.sort.active, order, value.pageIndex, value.pageSize)
     })
 
     sorted$.subscribe((value) => {
-      const order = value.direction ? Order.ASC : Order.DESC
-      this.update(value.active, order, this.paginator.pageIndex)
+      const {pageIndex, pageSize} = this.paginator
+      const order = value.direction.toUpperCase() as Order
+      this.update(value.active, order, pageIndex, pageSize)
     })
 
     items$.subscribe((data) => {
@@ -113,12 +136,14 @@ export abstract class FeatureContainer<T extends Entity> {
     })
   }
 
+  @store(true)
   filter(where: Where<T>) {
     this.facade.filter({where})
+    this.selection.clear()
   }
 
-  update(sort: string, order: Order, page: number) {
-    this.facade.find({options: {page: page + 1, sort, order}})
+  update(sort: string, order: Order, page: number, take = 10) {
+    this.facade.find({options: {page: page + 1, take, sort, order}})
   }
 
   remove(id: string) {

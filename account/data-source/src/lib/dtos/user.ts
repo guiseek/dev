@@ -9,6 +9,9 @@ export class UserDto implements User {
   name: string
 
   @ApiProperty()
+  lastName: string
+
+  @ApiProperty()
   createdAt: Date
 
   @ApiProperty()

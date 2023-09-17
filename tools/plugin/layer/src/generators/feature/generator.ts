@@ -1,42 +1,51 @@
 import {
   Tree,
-  names,
   formatFiles,
   generateFiles,
   readProjectConfiguration,
-  readJsonFile,
-  writeJsonFile,
 } from '@nx/devkit'
+import {join} from 'node:path'
 import {libraryGenerator} from '@nx/angular/generators'
 import {FeatureGeneratorSchema} from './schema'
-import {getProjectImportPath} from '../../utilities'
-import {join} from 'node:path'
-import {ESLint} from 'eslint'
-import {existsSync} from 'node:fs'
-
-function normalizeSchema(schema: FeatureGeneratorSchema) {
-  const tags = (schema.tags ?? '').split(',').map((t) => t.trim())
-  if (!tags.includes('type:feature')) {
-    tags.push('type:feature')
-  }
-  return {...schema, tags: tags.join(',')}
-}
+import {
+  getProjectImportPath,
+  getTemplateExtras,
+  normalizeSchema,
+} from '../../utilities'
 
 export async function featureGenerator(
   tree: Tree,
   options: FeatureGeneratorSchema
 ) {
-  const normalized = normalizeSchema(options)
+  const normalized = normalizeSchema(options, 'feature', 'client')
   await libraryGenerator(tree, normalized)
 
   const project = readProjectConfiguration(tree, normalized.name)
+
+  const extras = getTemplateExtras(options, 'feature')
+
   const dataAccess = getProjectImportPath(
     readProjectConfiguration(tree, normalized.dataAccess)
   )
 
-  const eslintPath = join(project.sourceRoot, '.eslintrc.json')
-  if (existsSync(eslintPath)) {
-    const eslint = readJsonFile(eslintPath)
+  const template = {...normalized, ...extras, dataAccess}
+
+  generateFiles(tree, join(__dirname, 'files'), project.sourceRoot, template)
+
+  tree.delete(join(project.sourceRoot, 'lib', 'lib.routes.ts'))
+
+  const indexPath = join(project.sourceRoot, 'index.ts')
+  const indexContent = tree.read(indexPath, 'utf8')
+
+  if (indexContent) {
+    const indexFile = indexContent.split('\n')
+    tree.write(indexPath, indexFile[0])
+  }
+
+  const eslintPath = join(project.root, '.eslintrc.json')
+
+  if (tree.exists(eslintPath)) {
+    const eslint = JSON.parse(tree.read(eslintPath, 'utf8'))
 
     if ('overrides' in eslint) {
       eslint.overrides[0].rules['@angular-eslint/component-class-suffix'] = [
@@ -47,27 +56,9 @@ export async function featureGenerator(
       ]
     }
 
-    writeJsonFile(eslintPath, eslint)
+    tree.write(eslintPath, JSON.stringify(eslint))
   }
 
-  const name = names(normalized.name)
-  const feature = name.fileName
-  const featureName = name.className
-  const featureProp = name.propertyName
-  const entity = names(normalized.entity)
-  const scope = normalized.directory.split('/').shift() ?? entity.fileName
-  const template = {
-    ...entity,
-    scope,
-    featureProp,
-    feature,
-    featureName,
-    dataAccess,
-  }
-
-  console.log(template)
-
-  generateFiles(tree, join(__dirname, 'files'), project.sourceRoot, template)
   await formatFiles(tree)
 }
 

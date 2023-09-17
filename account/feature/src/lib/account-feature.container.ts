@@ -25,8 +25,10 @@ export class AccountFeatureContainer
   extends FeatureContainer<User>
   implements AfterViewInit
 {
+  readonly name = 'account-feature'
+
   columnList: FilterByFieldOption[] = [
-    {text: 'Nome', value: 'name', type: 'text'},
+    {text: 'nome', value: 'name', type: 'text'},
   ]
 
   readonly columns = new FormControl<Columns<User>>([

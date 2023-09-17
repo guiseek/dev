@@ -25,6 +25,8 @@ export class ContentFeatureContainer
   extends FeatureContainer<Content>
   implements AfterViewInit
 {
+  readonly name = 'content-feature'
+
   columns = new FormControl<Columns<Content>>([
     'select',
     'title',

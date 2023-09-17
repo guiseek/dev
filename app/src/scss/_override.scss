@@ -6,7 +6,7 @@ body {
   .cdk-column-actions {
     width: 130px;
   }
-  
+
   .cdk-column-createdAt,
   .cdk-column-updatedAt {
     width: 200px;
@@ -15,5 +15,9 @@ body {
   .cdk-column-id {
     max-width: 120px;
     white-space: nowrap;
+  }
+
+  .mat-mdc-form-field:not(.mat-mdc-paginator-page-size-select) {
+    width: 100%;
   }
 }

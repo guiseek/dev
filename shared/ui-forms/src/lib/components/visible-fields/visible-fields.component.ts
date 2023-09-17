@@ -18,13 +18,6 @@ type ExtraVisibleFields = 'select' | 'actions'
   selector: 'dev-visible-fields',
   templateUrl: './visible-fields.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-    `,
-  ],
 })
 export class VisibleFieldsComponent extends SelectControlValueAccessor {
   @Input({required: true})

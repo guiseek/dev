@@ -9,6 +9,10 @@ export class CreateUserForm extends TypedFormGroup<CreateUser> {
         nonNullable: true,
         validators: [Validators.required],
       }),
+      lastName: new FormControl('', {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
     })
   }
 }

@@ -7,4 +7,9 @@ export class CreateUserDto implements CreateUser {
   @IsString({message: 'o nome deve ser uma string'})
   @IsNotEmpty({message: 'por favor, preencha o nome'})
   name: string
+
+  @ApiProperty()
+  @IsString({message: 'o sobrenome deve ser uma string'})
+  @IsNotEmpty({message: 'por favor, preencha o sobrenome'})
+  lastName: string
 }

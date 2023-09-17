@@ -72,7 +72,7 @@
     <tr mat-row *matRowDef="let row; columns: columns.value;"></tr>
   </table>
 
-  <mat-paginator hidePageSize [length]="(meta$ | async)?.itemCount" [pageSize]="(meta$ | async)?.take"></mat-paginator>
+  <mat-paginator [length]="(meta$ | async)?.itemCount" [pageSize]="(meta$ | async)?.take"></mat-paginator>
 </mat-card>
 
 <button type="button" class="fixed b20 r20" mat-fab (click)="onCreate()">

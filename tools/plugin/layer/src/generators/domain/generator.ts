@@ -2,33 +2,24 @@ import {
   Tree,
   formatFiles,
   generateFiles,
-  names,
   readProjectConfiguration,
 } from '@nx/devkit'
 import {libraryGenerator} from '@nx/js/src/generators/library/library'
-import {join} from 'node:path'
+import {normalizeSchema} from '../../utilities'
 import {DomainGeneratorSchema} from './schema'
-
-function normalizeSchema(schema: DomainGeneratorSchema) {
-  const tags = (schema.tags ?? '').split(',').map((t) => t.trim())
-  if (!tags.includes('type:domain')) {
-    tags.push('type:domain')
-  }
-  return {...schema, tags: tags.join(',')}
-}
+import {join} from 'node:path'
 
 export async function domainGenerator(
   tree: Tree,
   options: DomainGeneratorSchema
 ) {
-  const normalized = normalizeSchema(options)
+  const normalized = normalizeSchema(options, 'domain', 'both')
+
   await libraryGenerator(tree, normalized)
 
   const {sourceRoot} = readProjectConfiguration(tree, normalized.name)
 
-  const entity = names(normalized.entity)
-
-  generateFiles(tree, join(__dirname, 'files'), sourceRoot, entity)
+  generateFiles(tree, join(__dirname, 'files'), sourceRoot, normalized)
 
   await formatFiles(tree)
 }

@@ -31,6 +31,7 @@
       "@dev/learning-data-access": ["learning/data-access/src/index.ts"],
       "@dev/learning-data-source": ["learning/data-source/src/index.ts"],
       "@dev/learning-domain": ["learning/domain/src/index.ts"],
+      "@dev/learning-feature": ["learning/feature/src/index.ts"],
       "@dev/learning-resource": ["learning/resource/src/index.ts"],
       "@dev/plugin-layer": ["tools/plugin/layer/src/index.ts"],
       "@dev/shared-data-access": ["shared/data-access/src/index.ts"],

@@ -1,6 +1,5 @@
 import {PageOptionsDto} from '@dev/shared-data-source'
 import {ApiPagedResponse} from '@dev/shared-resource'
-import {ApiTags} from '@nestjs/swagger'
 import {
   RailDto,
   RailFacade,
@@ -8,6 +7,7 @@ import {
   UpdateRailDto,
   WhereRailDto,
 } from '@dev/learning-data-source'
+import {ApiTags, getSchemaPath} from '@nestjs/swagger'
 import {
   Get,
   Put,
@@ -23,7 +23,10 @@ import {
 @ApiTags('learning')
 @Controller('learning')
 export class LearningResourceController {
-  constructor(private readonly railFacade: RailFacade) {}
+  constructor(private readonly railFacade: RailFacade) {
+    console.log(getSchemaPath(RailFacade));
+    
+  }
 
   @Get()
   @ApiPagedResponse(RailDto)

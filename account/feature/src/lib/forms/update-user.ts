@@ -10,6 +10,7 @@ export class UpdateUserForm extends TypedFormGroup<UpdateUser> {
         validators: [Validators.required],
       }),
       name: new FormControl(),
+      lastName: new FormControl(),
     })
     this.patchValue(value)
   }

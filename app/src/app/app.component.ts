@@ -24,6 +24,7 @@ import {
         <a routerLink="/" mat-button>Home</a>
         <a routerLink="/content" mat-button>Conteúdo</a>
         <a routerLink="/account" mat-button>Conta</a>
+        <a routerLink="/learning" mat-button>Learning</a>
 
         <button mat-icon-button [matMenuTriggerFor]="beforeMenu">
           <mat-icon>account_circle</mat-icon>
