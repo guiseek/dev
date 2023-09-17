@@ -1,2 +1,3 @@
-export * from './name'
-export * from './ts-config-base'
+export * from './ts-config-base';
+export * from './layer-schema';
+export * from './name';

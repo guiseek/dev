@@ -8,6 +8,7 @@ import {MatSort} from '@angular/material/sort'
 import {FormControl} from '@angular/forms'
 import {FormDialog} from './form-dialog'
 import {SelectionMenu} from '../components'
+import {ListSelectable} from './list-selectable'
 
 interface FieldOption {
   text: string
@@ -29,6 +30,8 @@ export abstract class FeatureContainer<T extends Entity> {
   abstract readonly paginator: MatPaginator
   abstract readonly sort: MatSort
 
+  list?: ListSelectable<T>
+
   readonly dataSource = new MatTableDataSource<T>()
 
   get meta$() {
@@ -38,11 +41,11 @@ export abstract class FeatureContainer<T extends Entity> {
   selection = new SelectionMenu<T>(true, [])
 
   initialize() {
-    const pagination$ = this.paginator.page.pipe(
-      takeUntilDestroyed(this.destroyRef)
-    )
+    const pagination$ = (
+      this.list ? this.list.paginator : this.paginator
+    ).page.pipe(takeUntilDestroyed(this.destroyRef))
 
-    const sorted$ = this.sort.sortChange.pipe(
+    const sorted$ = (this.list ? this.list.sort : this.sort).sortChange.pipe(
       takeUntilDestroyed(this.destroyRef)
     )
 
@@ -59,13 +62,13 @@ export abstract class FeatureContainer<T extends Entity> {
     })
 
     items$.subscribe((data) => {
+      this.selection.clear()
       this.dataSource.paginator = this.paginator
       this.dataSource.sort = this.sort
       this.dataSource.data = data
     })
 
     this.facade.find()
-    this.selection.hasValue()
   }
 
   get columnsHasSelect() {

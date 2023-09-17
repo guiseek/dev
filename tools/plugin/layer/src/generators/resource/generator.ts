@@ -1,41 +1,35 @@
 import {
   Tree,
-  names,
   formatFiles,
   generateFiles,
   readProjectConfiguration,
 } from '@nx/devkit'
 import {libraryGenerator} from '@nx/nest/src/generators/library/library'
+import {
+  getProjectImportPath,
+  getTemplateExtras,
+  normalizeSchema,
+} from '../../utilities'
 import {ResourceGeneratorSchema} from './schema'
-import {getProjectImportPath} from '../../utilities'
 import {join} from 'node:path'
-
-function normalizeSchema(schema: ResourceGeneratorSchema) {
-  const tags = (schema.tags ?? '').split(',').map((t) => t.trim())
-  if (!tags.includes('type:resource')) {
-    tags.push('type:resource')
-  }
-  return {...schema, controller: false, tags: tags.join(',')}
-}
 
 export async function resourceGenerator(
   tree: Tree,
   options: ResourceGeneratorSchema
 ) {
-  const normalized = normalizeSchema(options)
+  const normalized = normalizeSchema(options, 'resource', 'server')
+
   await libraryGenerator(tree, normalized)
 
   const project = readProjectConfiguration(tree, normalized.name)
+
+  const extras = getTemplateExtras(options, 'controller')
+
   const dataSource = getProjectImportPath(
     readProjectConfiguration(tree, normalized.dataSource)
   )
-  const name = names(normalized.name)
-  const controller = name.fileName
-  const controllerName = name.className
-  const entity = names(normalized.entity)
-  const scope = normalized.directory.split('/').shift() ?? entity.fileName
-  const template = {...entity, scope, controller, controllerName, dataSource}
-  console.log(template)
+
+  const template = {...normalized, ...extras, dataSource}
 
   generateFiles(tree, join(__dirname, 'files'), project.sourceRoot, template)
 

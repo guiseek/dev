@@ -7,7 +7,7 @@ export function provide<%=className%>Service() {
   return {
     provide: <%=className%>Service,
     useFactory(http: Http) {
-      return new ContentServiceImpl(http, '/api/<%=scope%>')
+      return new <%=className%>ServiceImpl(http, '/api/<%=scope%>')
     },
     deps: [Http],
   }

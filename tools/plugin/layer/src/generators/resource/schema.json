@@ -71,5 +71,5 @@
       ]
     }
   },
-  "required": ["name", "entity", "dataSource"]
+  "required": ["name", "entity", "dataSource", "directory"]
 }

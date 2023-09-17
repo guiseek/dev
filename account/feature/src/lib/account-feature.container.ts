@@ -26,7 +26,7 @@ export class AccountFeatureContainer
   implements AfterViewInit
 {
   columnList: FilterByFieldOption[] = [
-    {text: 'Nome', value: 'name', type: 'text'},
+    {text: 'nome', value: 'name', type: 'text'},
   ]
 
   readonly columns = new FormControl<Columns<User>>([

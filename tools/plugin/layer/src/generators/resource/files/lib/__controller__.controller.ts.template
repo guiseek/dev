@@ -7,6 +7,7 @@ import {
   Update<%=className%>Dto,
   Where<%=className%>Dto,
 } from '<%= dataSource %>'
+import {ApiTags} from '@nestjs/swagger'
 import {
   Get,
   Put,

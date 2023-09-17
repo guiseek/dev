@@ -21,9 +21,20 @@ import {
         <h1 class="app-app-name">Quero Ser Dev</h1>
         <span class="spacer"></span>
 
-        <a routerLink="/" mat-button>Home</a>
-        <a routerLink="/content" mat-button>Conteúdo</a>
-        <a routerLink="/account" mat-button>Conta</a>
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}"
+          mat-button
+          >Home</a
+        >
+        <a routerLink="/content" routerLinkActive="active" mat-button
+          >Conteúdo</a
+        >
+        <a routerLink="/account" routerLinkActive="active" mat-button>Conta</a>
+        <a routerLink="/learning" routerLinkActive="active" mat-button
+          >Aprender</a
+        >
 
         <button mat-icon-button [matMenuTriggerFor]="beforeMenu">
           <mat-icon>account_circle</mat-icon>

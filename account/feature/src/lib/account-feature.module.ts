@@ -16,11 +16,13 @@ import {accountFeatureRoutes} from './account-feature.routes'
 import {AccountFeatureContainer} from './account-feature.container'
 import {CreateUserDialog, UpdateUserDialog} from './components'
 import {provideUserFacade, provideUserService} from '@dev/account-data-access'
+import { UiBaseModule } from '@dev/shared-ui-base'
 
 @NgModule({
   imports: [
     CommonModule,
     UiFormsModule,
+    UiBaseModule,
     MatIconModule,
     MatMenuModule,
     MatButtonModule,

@@ -34,8 +34,8 @@ export class ContentFeatureContainer
   ])
 
   columnList: FilterByFieldOption[] = [
-    {text: 'Título', value: 'title', type: 'text'},
-    {text: 'Caminho', value: 'path', type: 'text'},
+    {text: 'título', value: 'title', type: 'text'},
+    {text: 'caminho', value: 'path', type: 'text'},
   ]
 
   readonly destroyRef = inject(DestroyRef)

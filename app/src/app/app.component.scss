@@ -1,3 +1,6 @@
+@use '../scss/palette' as gui;
+@use 'sass:map' as map;
+
 :host {
   height: 100%;
   display: flex;
@@ -13,7 +16,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      
+      transition: color 150ms ease-in-out;
+
+      &.active {
+        color: map.get(gui.$accent-palette, 500);
+      }
+
       &:not(.mat-mdc-icon-button) {
         padding: 0 16px;
       }

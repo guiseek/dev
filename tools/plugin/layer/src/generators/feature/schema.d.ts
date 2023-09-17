@@ -1,20 +1,19 @@
 import {Schema} from '@nx/angular/src/generators/library/schema'
+import {LayerSchema} from '../../interfaces'
 
 export interface FeatureGeneratorSchema
-  extends Pick<
-    Schema,
-    | 'name'
-    | 'directory'
-    | 'projectNameAndRootFormat'
-    | 'tags'
-    | 'prefix'
-    | 'routing'
-    | 'lazy'
-    | 'parent'
-    | 'buildable'
-    | 'changeDetection'
-    | 'style'
-  > {
-  entity: string
+  extends LayerSchema,
+    Pick<
+      Schema,
+      | 'name'
+      | 'projectNameAndRootFormat'
+      | 'prefix'
+      | 'routing'
+      | 'lazy'
+      | 'parent'
+      | 'buildable'
+      | 'changeDetection'
+      | 'style'
+    > {
   dataAccess: string
 }

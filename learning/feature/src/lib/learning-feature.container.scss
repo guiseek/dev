@@ -1,0 +1,14 @@
+:host {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+
+  header {
+    gap: 16px;
+    margin: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+}

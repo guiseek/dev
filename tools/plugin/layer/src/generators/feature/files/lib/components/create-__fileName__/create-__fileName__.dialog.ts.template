@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core'
-import {MatDialogRef} from '@angular/material/dialog'
 import {Create<%=className%>Form} from '../../forms'
+import {Create<%=className%>} from '<%=dataAccess%>'
 import {FormDialog} from '@dev/shared-ui-base'
 
 @Component({

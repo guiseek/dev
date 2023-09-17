@@ -1,26 +1,30 @@
 <mat-card>
   <header class="row">
-    <section class="col-11">
-      <dev-filter-by [fields]="columnList" (filterByChange)="filter($event)"></dev-filter-by>
-    </section>
-    <section class="col-5">
-      <dev-visible-fields [formControl]="columns" [fields]="columnList"
-        [extra]="['select', 'actions']"></dev-visible-fields>
-    </section>
+    <dev-filter-by
+      class="col-12"
+      [fields]="columnList"
+      (filterByChange)="filter($event)"
+    ></dev-filter-by>
+
+    <dev-visible-fields
+      class="col-4"
+      [formControl]="columns"
+      [fields]="columnList"
+      [extra]="['select', 'actions']"
+    ></dev-visible-fields>
   </header>
 
-  <mat-card-content *ngIf="columns.value?.includes('select')">
-    <button mat-stroked-button [disabled]="selection.selected.length < 2" [matMenuTriggerFor]="menu">
-      <mat-icon>checklist</mat-icon>
-      <span>Com selecionados</span>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="removeBulk()">
-        <mat-icon>delete_sweep</mat-icon>
-        <span>Remover
-          <strong>{{selection.selected.length}}</strong> itens</span>
-      </button>
-    </mat-menu>
+  <mat-card-content *ngIf="columnsHasSelect">
+    <dev-selection-menu [selection]="selection">
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="removeBulk()">
+          <mat-icon>delete_sweep</mat-icon>
+          <span
+            >Remover <strong>{{selection.selected.length}}</strong> itens</span
+          >
+        </button>
+      </mat-menu>
+    </dev-selection-menu>
   </mat-card-content>
 
   <table mat-table [dataSource]="dataSource" matSort matSortActive="createdAt" matSortDirection="desc">
