@@ -1,0 +1,4 @@
+import {<%=className%>} from '<%=domain%>'
+import {MockRepository} from '@dev/shared-data-source'
+
+export class <%=className%>RepositoryMock extends MockRepository<<%=className%>> {}

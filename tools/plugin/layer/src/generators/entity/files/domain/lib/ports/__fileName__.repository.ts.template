@@ -1,0 +1,8 @@
+import {Create<%= className %>, Update<%= className %>} from '../dtos'
+import {Repository} from '@dev/shared-util-data'
+import {<%= className %>} from '../entities'
+
+export abstract class <%= className %>Repository extends Repository<<%= className %>> {
+  abstract override create(value: Create<%= className %>): Promise<<%= className %>>
+  abstract override update(value: Update<%= className %>): Promise<<%= className %>>
+}

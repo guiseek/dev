@@ -41,6 +41,7 @@ import {
   ],
   declarations: [
     <%=featureName%>Container,
+    <%=pluralClass%>Container,
     Create<%=className%>Dialog,
     Update<%=className%>Dialog,
   ],

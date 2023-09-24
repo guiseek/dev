@@ -1,0 +1,4 @@
+import {Facade} from '@dev/shared-util-data'
+import {<%=className%>} from '<%= domain %>'
+
+export class <%=className%>Facade extends Facade<<%=className%>> {}

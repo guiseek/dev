@@ -1,5 +1,5 @@
-export * from './lib/learning-data-source'
 export * from './lib/infrastructure'
 export * from './lib/application'
+export * from './lib/providers'
 export * from './lib/entities'
 export * from './lib/dtos'

@@ -1,0 +1,6 @@
+import {<%=className%>, <%=className%>Service} from '<%= domain %>'
+import {BaseService} from '@dev/shared-data-access'
+
+export class <%=className%>ServiceImpl
+  extends BaseService<<%=className%>>
+  implements <%=className%>Service {}

@@ -11,6 +11,8 @@ import {
   getProjectImportPath,
   getTemplateExtras,
   normalizeSchema,
+  getExtrasTo,
+  pluralize,
 } from '../../utilities'
 
 export async function featureGenerator(
@@ -22,7 +24,10 @@ export async function featureGenerator(
 
   const project = readProjectConfiguration(tree, normalized.name)
 
-  const extras = getTemplateExtras(options, 'feature')
+  const extras = {
+    ...getTemplateExtras(options, 'feature'),
+    ...getExtrasTo(pluralize(options.entity, 2), 'plural'),
+  }
 
   const dataAccess = getProjectImportPath(
     readProjectConfiguration(tree, normalized.dataAccess)

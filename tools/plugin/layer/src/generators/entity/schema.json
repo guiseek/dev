@@ -12,7 +12,47 @@
         "index": 0
       },
       "x-prompt": "What name would you like to use?"
+    },
+    "domain": {
+      "type": "string",
+      "description": "The domain related to the project.",
+      "$default": {
+        "$source": "projectName"
+      },
+      "x-dropdown": "projects"
+    },
+    "dataSource": {
+      "type": "string",
+      "description": "The data-source related to the project.",
+      "$default": {
+        "$source": "projectName"
+      },
+      "x-dropdown": "projects"
+    },
+    "dataAccess": {
+      "type": "string",
+      "description": "The data-access related to the project.",
+      "$default": {
+        "$source": "projectName"
+      },
+      "x-dropdown": "projects"
+    },
+    "resource": {
+      "type": "string",
+      "description": "The resource related to the project.",
+      "$default": {
+        "$source": "projectName"
+      },
+      "x-dropdown": "projects"
+    },
+    "feature": {
+      "type": "string",
+      "description": "The feature related to the project.",
+      "$default": {
+        "$source": "projectName"
+      },
+      "x-dropdown": "projects"
     }
   },
-  "required": ["name"]
+  "required": ["name", "domain", "dataSource", "dataAccess", "resource", "feature"]
 }

@@ -1,8 +1,7 @@
 import {NgModule} from '@angular/core'
 import {CommonModule} from '@angular/common'
 import {RouterModule} from '@angular/router'
-import {UiBaseModule} from '@dev/shared-ui-base'
-import {UiFormsModule} from '@dev/shared-ui-forms'
+import {ReactiveFormsModule} from '@angular/forms'
 import {MatButtonModule} from '@angular/material/button'
 import {MatTableModule} from '@angular/material/table'
 import {MatToolbarModule} from '@angular/material/toolbar'
@@ -12,11 +11,13 @@ import {MatDialogModule} from '@angular/material/dialog'
 import {MatCardModule} from '@angular/material/card'
 import {MatSortModule} from '@angular/material/sort'
 import {MatPaginatorModule} from '@angular/material/paginator'
-import {ReactiveFormsModule} from '@angular/forms'
+import {provideRailFacade, provideRailService} from '@dev/learning-data-access'
+import {UiBaseModule} from '@dev/shared-ui-base'
+import {UiFormsModule} from '@dev/shared-ui-forms'
 import {learningFeatureRoutes} from './learning-feature.routes'
 import {LearningFeatureContainer} from './learning-feature.container'
 import {CreateRailDialog, UpdateRailDialog} from './components'
-import {provideRailFacade, provideRailService} from '@dev/learning-data-access'
+import {RailsContainer} from './containers'
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import {provideRailFacade, provideRailService} from '@dev/learning-data-access'
   ],
   declarations: [
     LearningFeatureContainer,
+    RailsContainer,
     CreateRailDialog,
     UpdateRailDialog,
   ],

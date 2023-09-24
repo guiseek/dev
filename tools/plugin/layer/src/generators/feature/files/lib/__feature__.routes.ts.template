@@ -1,9 +1,16 @@
 import {Route} from '@angular/router'
 import {<%= featureName %>Container} from './<%= feature %>.container'
+import {<%= pluralClass %>Container} from './containers'
 
 export const <%= featureProp %>Routes: Route[] = [
   {
     path: '',
     component: <%= featureName %>Container,
+    children: [
+      {
+        path: '',
+        component: <%=pluralClass%>Container
+      }
+    ]
   },
 ]

@@ -1,0 +1,63 @@
+import {
+  inject,
+  Component,
+  ViewChild,
+  DestroyRef,
+  AfterViewInit,
+  ChangeDetectionStrategy,
+} from '@angular/core'
+import {<%=className%>, <%=className%>Facade, Update<%=className%>} from '<%=dataAccess%>'
+import {Create<%=className%>Dialog, Update<%=className%>Dialog} from '../../components'
+import {Columns, FeatureContainer} from '@dev/shared-ui-base'
+import {FilterByFieldOption} from '@dev/shared-ui-forms'
+import {MatPaginator} from '@angular/material/paginator'
+import {MatDialog} from '@angular/material/dialog'
+import {MatSort} from '@angular/material/sort'
+import {FormControl} from '@angular/forms'
+
+@Component({
+  selector: 'dev-<%=plural%>',
+  templateUrl: './<%=plural%>.container.html',
+  styleUrls: ['./<%=plural%>.container.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class <%=pluralClass%>Container
+  extends FeatureContainer<<%=className%>>
+  implements AfterViewInit
+{
+  columns = new FormControl<Columns<<%=className%>>>([
+    'select',
+    'name',
+    'createdAt',
+    'actions',
+  ])
+
+  columnList: FilterByFieldOption[] = [
+    {text: 'Nome', value: 'name', type: 'text'},
+  ]
+
+  readonly destroyRef = inject(DestroyRef)
+  readonly facade = inject(<%=className%>Facade)
+  readonly dialog = inject(MatDialog)
+
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator
+
+  @ViewChild(MatSort)
+  sort: MatSort
+
+  ngAfterViewInit() {
+    this.initialize()
+  }
+
+  openCreateDialog() {
+    return this.dialog.open<Create<%=className%>Dialog>(Create<%=className%>Dialog)
+  }
+
+  openUpdateDialog(data: <%=className%>) {
+    return this.dialog.open<Update<%=className%>Dialog, Update<%=className%>>(
+      Update<%=className%>Dialog,
+      {data}
+    )
+  }
+}

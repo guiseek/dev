@@ -16,6 +16,7 @@ import {ReactiveFormsModule} from '@angular/forms'
 import {contentFeatureRoutes} from './content-feature.routes'
 import {ContentFeatureContainer} from './content-feature.container'
 import {CreateContentDialog, UpdateContentDialog} from './components'
+import {ContentsContainer} from './containers'
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import {CreateContentDialog, UpdateContentDialog} from './components'
   ],
   declarations: [
     ContentFeatureContainer,
+    ContentsContainer,
     CreateContentDialog,
     UpdateContentDialog,
   ],

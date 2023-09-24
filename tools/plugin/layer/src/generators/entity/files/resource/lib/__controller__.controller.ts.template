@@ -1,0 +1,72 @@
+import {PageOptionsDto} from '@dev/shared-data-source'
+import {ApiPagedResponse} from '@dev/shared-resource'
+import {
+  <%=className%>Dto,
+  <%=className%>Facade,
+  Create<%=className%>Dto,
+  Update<%=className%>Dto,
+  Where<%=className%>Dto,
+} from '<%= dataSource %>'
+import {ApiTags} from '@nestjs/swagger'
+import {
+  Get,
+  Put,
+  Body,
+  Post,
+  Param,
+  Query,
+  Delete,
+  Controller,
+  NotFoundException,
+} from '@nestjs/common'
+
+@ApiTags('<%= scope %>')
+@Controller('<%= scope %>')
+export class <%= controllerClass %>Controller {
+  constructor(private readonly <%=propertyName%>Facade: <%=className%>Facade) { }
+
+  @Get()
+  @ApiPagedResponse(<%=className%>Dto)
+  find(@Query() options: PageOptionsDto) {
+    return this.<%=propertyName%>Facade.find({options})
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id: string) {
+    try {
+      return await this.<%=propertyName%>Facade.findOne(id)
+    } catch {
+      throw new NotFoundException('Conteúdo não existe')
+    }
+  }
+
+  @Post('count')
+  count(@Body() where: Where<%=className%>Dto) {
+    return this.<%=propertyName%>Facade.count(where)
+  }
+
+  @Post('filter')
+  filter(@Body() where: Where<%=className%>Dto, @Query() options: PageOptionsDto) {
+    return this.<%=propertyName%>Facade.find({where, options})
+  }
+
+  @Post()
+  create(@Body() create<%=className%>Dto: Create<%=className%>Dto) {
+    return this.<%=propertyName%>Facade.create(create<%=className%>Dto)
+  }
+
+  @Put()
+  update(@Body() update<%=className%>Dto: Update<%=className%>Dto) {
+    return this.<%=propertyName%>Facade.update(update<%=className%>Dto)
+  }
+
+  @Delete('bulk')
+  removeBulk(@Query('ids') ids: string[]) {
+    return this.<%=propertyName%>Facade.removeBulk(ids)
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.<%=propertyName%>Facade.remove(id)
+  }
+}

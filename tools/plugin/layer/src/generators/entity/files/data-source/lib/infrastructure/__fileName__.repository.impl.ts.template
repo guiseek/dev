@@ -1,0 +1,9 @@
+import {<%=className%>, <%=className%>Repository} from '<%=domain%>'
+import {BaseRepository} from '@dev/shared-data-source'
+
+export class <%=className%>RepositoryImpl
+  extends BaseRepository<<%=className%>>
+  implements <%=className%>Repository
+{
+  name = '<%=fileName%>'
+}

@@ -17,11 +17,13 @@ export async function domainGenerator(
 
   await libraryGenerator(tree, normalized)
 
-  const {sourceRoot} = readProjectConfiguration(tree, normalized.name)
+  const project = readProjectConfiguration(tree, normalized.name)
 
-  generateFiles(tree, join(__dirname, 'files'), sourceRoot, normalized)
+  generateFiles(tree, join(__dirname, 'files'), project.sourceRoot, normalized)
 
   await formatFiles(tree)
+
+  return project
 }
 
 export default domainGenerator

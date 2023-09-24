@@ -1,0 +1,23 @@
+import {<%=className%>} from '<%=domain%>'
+import {
+  Column,
+  Entity,
+  CreateDateColumn,
+  UpdateDateColumn,
+  PrimaryGeneratedColumn,
+} from 'typeorm'
+
+@Entity({name: '<%=fileName%>'})
+export class <%=className%>Impl implements <%=className%> {
+  @PrimaryGeneratedColumn('uuid')
+  id: string
+
+  @Column()
+  name: string
+
+  @CreateDateColumn()
+  createdAt: Date
+
+  @UpdateDateColumn()
+  updatedAt: Date
+}
