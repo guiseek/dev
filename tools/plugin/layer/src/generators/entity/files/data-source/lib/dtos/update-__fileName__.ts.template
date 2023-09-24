@@ -1,0 +1,9 @@
+import {ApiProperty, PartialType} from '@nestjs/swagger'
+import {Create<%=className%>Dto} from './create-<%=fileName%>'
+import {IsUUID} from 'class-validator'
+
+export class Update<%=className%>Dto extends PartialType(Create<%=className%>Dto) {
+  @ApiProperty()
+  @IsUUID()
+  id: string
+}

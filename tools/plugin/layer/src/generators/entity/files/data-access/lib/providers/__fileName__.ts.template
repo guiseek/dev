@@ -1,0 +1,21 @@
+import {<%=className%>Service} from '<%= domain %>'
+import {<%=className%>ServiceImpl} from '../infrastructure'
+import {<%=className%>Facade} from '../application'
+import {Http} from '@dev/shared-data-access'
+
+export function provide<%=className%>Service() {
+  return {
+    provide: <%=className%>Service,
+    useFactory(http: Http) {
+      return new <%=className%>ServiceImpl(http, '/api/<%=scope%>')
+    },
+    deps: [Http],
+  }
+}
+
+export function provide<%=className%>Facade() {
+  return {
+    provide: <%=className%>Facade,
+    deps: [<%=className%>Service],
+  }
+}

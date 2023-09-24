@@ -1,3 +1,6 @@
+export * from './add-export';
+export * from './first-file-by-suffix';
+export * from './get-extras-to';
 export * from './get-project-import-path';
 export * from './get-template-extras';
 export * from './normalize-schema';

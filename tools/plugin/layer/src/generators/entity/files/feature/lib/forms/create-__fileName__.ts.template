@@ -1,0 +1,14 @@
+import {FormControl, Validators} from '@angular/forms'
+import {Create<%=className%>} from '<%= dataAccess %>'
+import {TypedFormGroup} from '@dev/shared-ui-forms'
+
+export class Create<%=className%>Form extends TypedFormGroup<Create<%=className%>> {
+  constructor() {
+    super({
+      name: new FormControl('', {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+    })
+  }
+}

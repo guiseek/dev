@@ -1,0 +1,14 @@
+import {ChangeDetectionStrategy, Component} from '@angular/core'
+import {Create<%=className%>Form} from '../../forms'
+import {Create<%=className%>} from '<%=dataAccess%>'
+import {FormDialog} from '@dev/shared-ui-base'
+
+@Component({
+  selector: 'dev-create-<%=fileName%>',
+  templateUrl: './create-<%=fileName%>.dialog.html',
+  styleUrls: ['./create-<%=fileName%>.dialog.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class Create<%=className%>Dialog extends FormDialog<Create<%=className%>>{
+  form = new Create<%=className%>Form()
+}

@@ -1,0 +1,28 @@
+import {
+  addEntity,
+  provideFacade,
+  provideRepository,
+  provideRepositoryMock,
+} from '@dev/shared-data-source'
+import {<%=className%>Repository} from '<%=domain%>'
+import {<%=className%>RepositoryImpl, <%=className%>RepositoryMock} from '../infrastructure'
+import {<%=className%>Facade} from '../application'
+import {<%=className%>Impl} from '../entities'
+
+addEntity(<%=className%>Impl)
+
+export function provide<%=className%>Repository() {
+  return provideRepository(
+    <%=className%>Impl,
+    <%=className%>Repository,
+    <%=className%>RepositoryImpl
+  )
+}
+
+export function provide<%=className%>RepositoryMock() {
+  return provideRepositoryMock(<%=className%>Repository, <%=className%>RepositoryMock, [])
+}
+
+export function provide<%=className%>Facade() {
+  return provideFacade(<%=className%>Facade, <%=className%>Repository)
+}

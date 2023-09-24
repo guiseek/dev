@@ -16,7 +16,8 @@ import {accountFeatureRoutes} from './account-feature.routes'
 import {AccountFeatureContainer} from './account-feature.container'
 import {CreateUserDialog, UpdateUserDialog} from './components'
 import {provideUserFacade, provideUserService} from '@dev/account-data-access'
-import { UiBaseModule } from '@dev/shared-ui-base'
+import {UiBaseModule} from '@dev/shared-ui-base'
+import {UsersContainer} from './containers'
 
 @NgModule({
   imports: [
@@ -35,7 +36,12 @@ import { UiBaseModule } from '@dev/shared-ui-base'
     ReactiveFormsModule,
     RouterModule.forChild(accountFeatureRoutes),
   ],
-  declarations: [AccountFeatureContainer, CreateUserDialog, UpdateUserDialog],
+  declarations: [
+    AccountFeatureContainer,
+    UsersContainer,
+    CreateUserDialog,
+    UpdateUserDialog,
+  ],
   providers: [provideUserService(), provideUserFacade()],
 })
 export class AccountFeatureModule {}

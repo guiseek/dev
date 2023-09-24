@@ -1,0 +1,17 @@
+import {<%=className%>, <%=className%>Repository} from '<%=domain%>'
+import {DataSourceFacade} from '@dev/shared-data-source'
+import {Create<%=className%>Dto, Update<%=className%>Dto} from '../dtos'
+
+export class <%=className%>Facade extends DataSourceFacade<<%=className%>> {
+  constructor(repository: <%=className%>Repository) {
+    super(repository)
+  }
+
+  create(value: Create<%=className%>Dto) {
+    return this.repository.create(value)
+  }
+
+  update(value: Update<%=className%>Dto) {
+    return this.repository.update(value)
+  }
+}

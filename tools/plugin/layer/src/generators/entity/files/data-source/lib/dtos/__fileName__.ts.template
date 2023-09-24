@@ -1,0 +1,16 @@
+import {<%= className %>} from '<%= domain %>'
+import {ApiProperty} from '@nestjs/swagger'
+
+export class <%= className %>Dto implements <%= className %> {
+  @ApiProperty()
+  id: string
+
+  @ApiProperty()
+  name: string
+
+  @ApiProperty()
+  createdAt: Date
+
+  @ApiProperty()
+  updatedAt: Date
+}

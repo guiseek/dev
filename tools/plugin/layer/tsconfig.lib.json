@@ -5,6 +5,6 @@
     "declaration": true,
     "types": ["node"]
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/generators/data-access/files/lib/dtos/__fileName__.ts.template"],
   "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"]
 }
