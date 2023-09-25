@@ -15,6 +15,7 @@ import {MatPaginatorModule} from '@angular/material/paginator'
 import {ReactiveFormsModule} from '@angular/forms'
 import {<%=featureProp%>Routes} from './<%=feature%>.routes'
 import {<%=featureName%>Container} from './<%=feature%>.container'
+import {<%=pluralClass%>Container} from './containers'
 import {Create<%=className%>Dialog, Update<%=className%>Dialog} from './components'
 import {
   provide<%=className%>Facade,
