@@ -33,7 +33,7 @@ export class <%=pluralClass%>Container
   ])
 
   columnList: FilterByFieldOption[] = [
-    {text: 'Nome', value: 'name', type: 'text'},
+    {text: 'nome', value: 'name', type: 'text'},
   ]
 
   readonly destroyRef = inject(DestroyRef)

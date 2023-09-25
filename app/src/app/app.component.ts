@@ -12,29 +12,67 @@ import {
   template: `
     <div class="app-container" [class.app-is-mobile]="mobileQuery.matches">
       <mat-toolbar color="primary" class="app-toolbar">
-        <button mat-icon-button (click)="snav.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
+        <!--  -->
+
         <a routerLink="/">
           <img src="./assets/logo.svg" alt="Quero Ser Dev" />
         </a>
-        <h1 class="app-app-name">Quero Ser Dev</h1>
+        <a class="app-name" routerLink="/">
+          <h1>Quero Ser Dev</h1>
+        </a>
+
+        <!--  -->
+
         <span class="spacer"></span>
 
+        <!--  -->
+
         <a
+          mat-button
           routerLink="/"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{exact: true}"
-          mat-button
           >Home</a
         >
-        <a routerLink="/content" routerLinkActive="active" mat-button
-          >Conteúdo</a
+
+        <!--  -->
+
+        <button
+          mat-button
+          routerLink="/content"
+          routerLinkActive="active"
+          [matMenuTriggerFor]="contentMenu"
         >
-        <a routerLink="/account" routerLinkActive="active" mat-button>Conta</a>
-        <a routerLink="/learning" routerLinkActive="active" mat-button
-          >Aprender</a
-        >
+          Conteúdo
+        </button>
+        <mat-menu #contentMenu="matMenu" xPosition="before">
+          <a mat-menu-item routerLink="/content">
+            <mat-icon>sticky_note_2</mat-icon>
+            <span>Anotações</span>
+          </a>
+          <a mat-menu-item routerLink="/content/books">
+            <mat-icon>menu_book</mat-icon>
+            <span>Livros</span>
+          </a>
+          <button mat-menu-item disabled>
+            <mat-icon>article</mat-icon>
+            <span>Artigos</span>
+          </button>
+        </mat-menu>
+
+        <!--  -->
+
+        <a routerLink="/learning" routerLinkActive="active" mat-button>
+          Aprendizado
+        </a>
+
+        <!--  -->
+
+        <a routerLink="/account" routerLinkActive="active" mat-button>
+          Contas
+        </a>
+
+        <!--  -->
 
         <button mat-icon-button [matMenuTriggerFor]="beforeMenu">
           <mat-icon>account_circle</mat-icon>
@@ -66,14 +104,6 @@ import {
         class="app-sidenav-container"
         [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
       >
-        <mat-sidenav
-          #snav
-          [mode]="mobileQuery.matches ? 'over' : 'side'"
-          [fixedInViewport]="mobileQuery.matches"
-          fixedTopGap="56"
-        >
-        </mat-sidenav>
-
         <mat-sidenav-content>
           <router-outlet />
           <dev-loader *ngIf="loader.active$ | async" />

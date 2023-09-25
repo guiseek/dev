@@ -1,16 +1,20 @@
-import {<%=className%>Service} from '<%= domain %>'
-import {<%=className%>ServiceImpl} from '../infrastructure'
+import {<%=className%>ServiceImpl, <%=className%>ServiceMock} from '../infrastructure'
+import {Http, provideServiceMock} from '@dev/shared-data-access'
+import {<%=className%>, <%=className%>Service} from '<%= domain %>'
 import {<%=className%>Facade} from '../application'
-import {Http} from '@dev/shared-data-access'
 
-export function provide<%=className%>Service() {
+export function provide<%=className%>Service(api: string) {
   return {
     provide: <%=className%>Service,
     useFactory(http: Http) {
-      return new <%=className%>ServiceImpl(http, '/api/<%=scope%>')
+      return new <%=className%>ServiceImpl(http, api)
     },
     deps: [Http],
   }
+}
+
+export function provide<%=className%>ServiceMock(collection: <%=className%>[] = []) {
+  return provideServiceMock(<%=className%>Service, <%=className%>ServiceMock, collection)
 }
 
 export function provide<%=className%>Facade() {
@@ -18,4 +22,19 @@ export function provide<%=className%>Facade() {
     provide: <%=className%>Facade,
     deps: [<%=className%>Service],
   }
+}
+
+export function provide<%=className%>(
+  production = false,
+  api: string | <%=className%>[] = []
+) {
+  const providers = []
+  providers.push(
+    production
+      ? provide<%=className%>Service(api as string)
+      : provide<%=className%>ServiceMock(api as <%=className%>[])
+  )
+
+  providers.push(provide<%=className%>Facade())
+  return providers
 }

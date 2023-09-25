@@ -15,8 +15,13 @@ import {MatPaginatorModule} from '@angular/material/paginator'
 import {ReactiveFormsModule} from '@angular/forms'
 import {contentFeatureRoutes} from './content-feature.routes'
 import {ContentFeatureContainer} from './content-feature.container'
-import {CreateContentDialog, UpdateContentDialog} from './components'
-import {ContentsContainer} from './containers'
+import {BooksContainer, ContentsContainer} from './containers'
+import {
+  CreateContentDialog,
+  UpdateContentDialog,
+  CreateBookDialog,
+  UpdateBookDialog,
+} from './components'
 
 @NgModule({
   imports: [
@@ -40,6 +45,9 @@ import {ContentsContainer} from './containers'
     ContentsContainer,
     CreateContentDialog,
     UpdateContentDialog,
+    BooksContainer,
+    CreateBookDialog,
+    UpdateBookDialog,
   ],
 })
 export class ContentFeatureModule {}

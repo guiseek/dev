@@ -1,4 +1,5 @@
-import {addExport, getExtrasTo, pathShift, pluralize} from '../../../utilities'
+import {addExport, getExtrasTo, pluralize} from '../../../utilities'
+import {componentGenerator} from '@nx/angular/generators'
 import {Name} from '../../../interfaces'
 import {join} from 'path'
 import {
@@ -19,6 +20,30 @@ export async function generateFeatureFiles(
     ...getExtrasTo(pluralize(name.name, 2), 'plural'),
   }
   const sourceFolder = join(__dirname, '..', 'files', 'feature')
+
+  componentGenerator(tree, {
+    name: join('containers', extras.plural),
+    project: project.name,
+    type: 'container',
+    skipTests: true,
+    style: 'scss'
+  })
+
+  componentGenerator(tree, {
+    name: join('components', `create-${name.fileName}`),
+    project: project.name,
+    skipTests: true,
+    type: 'dialog',
+    style: 'scss'
+  })
+
+  componentGenerator(tree, {
+    name: join('components', `update-${name.fileName}`),
+    project: project.name,
+    skipTests: true,
+    type: 'dialog',
+    style: 'scss'
+  })
 
   generateFiles(tree, sourceFolder, project.sourceRoot, {
     ...name,

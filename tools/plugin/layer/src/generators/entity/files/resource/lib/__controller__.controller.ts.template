@@ -20,8 +20,8 @@ import {
   NotFoundException,
 } from '@nestjs/common'
 
-@ApiTags('<%= scope %>')
-@Controller('<%= scope %>')
+@ApiTags('<%= scope %>/<%=plural%>')
+@Controller('<%= scope %>/<%=plural%>')
 export class <%= controllerClass %>Controller {
   constructor(private readonly <%=propertyName%>Facade: <%=className%>Facade) { }
 
