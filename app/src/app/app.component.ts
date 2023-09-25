@@ -47,7 +47,7 @@ import {
           </button>
           <mat-divider></mat-divider>
           <a mat-menu-item routerLink="/account">
-            <mat-icon svgIcon="smb-share"></mat-icon>
+            <mat-icon>source</mat-icon>
             <span>Meu conteúdo</span>
           </a>
           <a mat-menu-item routerLink="/account">

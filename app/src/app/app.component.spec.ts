@@ -17,7 +17,6 @@ import {provideContent} from '@dev/content-data-access'
 import {AppInterceptor} from './app.interceptor'
 import {AppComponent} from './app.component'
 import {env} from '../envs/env'
-import {provideAppIcons} from './app.providers'
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -39,7 +38,6 @@ describe('AppComponent', () => {
         provideUser(env.production, env.api.account),
         provideRail(env.production, env.api.learning),
         provideContent(env.production, env.api.content),
-        provideAppIcons(),
         provideLoader(),
         {
           provide: LOCALE_ID,

@@ -23,7 +23,6 @@ import {provideRail} from '@dev/learning-data-access'
 import {provideContent} from '@dev/content-data-access'
 import {LoaderComponent} from './loader/loader.component'
 import {AppInterceptor} from './app.interceptor'
-import {provideAppIcons} from './app.providers'
 import {AppComponent} from './app.component'
 import {appRoutes} from './app.routes'
 import {env} from '../envs/env'
@@ -53,7 +52,6 @@ registerLocaleData(pt, 'pt-BR', BR)
     provideUser(env.production, env.api.account),
     provideRail(env.production, env.api.learning),
     provideContent(env.production, env.api.content),
-    provideAppIcons(),
     provideLoader(),
     {
       provide: LOCALE_ID,
