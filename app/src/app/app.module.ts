@@ -42,8 +42,11 @@ registerLocaleData(pt, 'pt-BR', BR)
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    RouterModule.forRoot(appRoutes, {initialNavigation: 'enabledBlocking'}),
     BrowserAnimationsModule,
+    RouterModule.forRoot(appRoutes, {
+      useHash: true,
+      initialNavigation: 'enabledBlocking',
+    }),
   ],
   providers: [
     provideHttp(HttpClient),

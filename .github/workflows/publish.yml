@@ -37,7 +37,7 @@ jobs:
       - run: npx nx format:check
       - run: npx nx affected -t lint --parallel=3
       - run: npx nx affected -t test --parallel=3 --configuration=testing
-      - run: npx nx affected -t build --parallel=3 --configuration=development
+      - run: npx nx affected -t build --parallel=3 --configuration=testing
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
