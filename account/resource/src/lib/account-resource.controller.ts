@@ -18,7 +18,7 @@ import {
   Controller,
   NotFoundException,
 } from '@nestjs/common'
-import { ApiTags } from '@nestjs/swagger'
+import {ApiTags} from '@nestjs/swagger'
 
 @ApiTags('account')
 @Controller('account')

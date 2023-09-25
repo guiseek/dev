@@ -1,7 +1,7 @@
 import {FindParams} from './find-params'
 import {BulkResult} from './bulk-result'
 import {Observable} from 'rxjs'
-import {Paged} from './paged'
+import {Paged} from '../base'
 import {Where} from '../types'
 
 export abstract class Service<T extends object> {

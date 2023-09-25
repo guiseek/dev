@@ -33,7 +33,34 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "fileReplacements": [
+            {
+              "replace": "app/src/envs/env.ts",
+              "with": "app/src/envs/env.prod.ts"
+            }
+          ]
+        },
+        "staging": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "fileReplacements": [
+            {
+              "replace": "app/src/envs/env.ts",
+              "with": "app/src/envs/env.staging.ts"
+            }
+          ]
         },
         "development": {
           "buildOptimizer": false,
@@ -42,6 +69,20 @@
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true
+        },
+        "testing": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true,
+          "fileReplacements": [
+            {
+              "replace": "app/src/envs/env.ts",
+              "with": "app/src/envs/env.testing.ts"
+            }
+          ]
         }
       },
       "defaultConfiguration": "production"
@@ -85,6 +126,14 @@
         "ci": {
           "ci": true,
           "codeCoverage": true
+        },
+        "defaultConfiguration": {
+          "fileReplacements": [
+            {
+              "replace": "app/src/envs/env.ts",
+              "with": "app/src/envs/env.testing.ts"
+            }
+          ]
         }
       }
     }

@@ -1,25 +1,22 @@
-import {FindParams, Paged, Service} from '@dev/shared-util-data'
-import {Observable} from 'rxjs'
+// function arrayBufferToBlob<B extends ArrayBuffer, T extends string>(
+//   buffer: B,
+//   type: T
+// ) {
+//   return new Blob([buffer], {type: type})
+// }
 
-function arrayBufferToBlob<B extends ArrayBuffer, T extends string>(
-  buffer: B,
-  type: T
-) {
-  return new Blob([buffer], {type: type})
-}
-
-function blobToArrayBuffer(blob: Blob) {
-  return new Promise<ArrayBuffer>((resolve, reject) => {
-    const reader = new FileReader()
-    reader.addEventListener('loadend', () => {
-      if (reader.result instanceof ArrayBuffer) {
-        resolve(reader.result)
-      }
-    })
-    reader.addEventListener('error', reject)
-    reader.readAsArrayBuffer(blob)
-  })
-}
+// function blobToArrayBuffer(blob: Blob) {
+//   return new Promise<ArrayBuffer>((resolve, reject) => {
+//     const reader = new FileReader()
+//     reader.addEventListener('loadend', () => {
+//       if (reader.result instanceof ArrayBuffer) {
+//         resolve(reader.result)
+//       }
+//     })
+//     reader.addEventListener('error', reject)
+//     reader.readAsArrayBuffer(blob)
+//   })
+// }
 
 class MissingStoresError extends Error {
   constructor(readonly db: IDBDatabase) {
@@ -38,7 +35,7 @@ export class IndexedDbService {
   #database: IDBDatabase | null
 
   readonly #pendingTransactions: IDBTransaction[] = []
-  
+
   constructor(database: IDBDatabase, private readonly name: string) {
     this.#database = database
   }
@@ -232,5 +229,5 @@ export class IndexedDbService {
   }
 }
 
-const db = IndexedDbService.create('db', undefined, ['store1'])
-console.log(db)
+// const db = IndexedDbService.create('db', undefined, ['store1'])
+// console.log(db)

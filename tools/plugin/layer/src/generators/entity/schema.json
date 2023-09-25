@@ -54,5 +54,12 @@
       "x-dropdown": "projects"
     }
   },
-  "required": ["name", "domain", "dataSource", "dataAccess", "resource", "feature"]
+  "required": [
+    "name",
+    "domain",
+    "dataSource",
+    "dataAccess",
+    "resource",
+    "feature"
+  ]
 }

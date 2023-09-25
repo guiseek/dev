@@ -23,7 +23,7 @@ export async function dataSourceGenerator(
   const template = {...normalized, domain}
 
   generateFiles(tree, join(__dirname, 'files'), project.sourceRoot, template)
-  
+
   await formatFiles(tree)
 }
 

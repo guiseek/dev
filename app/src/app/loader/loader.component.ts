@@ -4,6 +4,6 @@ import {ChangeDetectionStrategy, Component} from '@angular/core'
   selector: 'dev-loader',
   template: ` <div class="sky"></div> `,
   styleUrls: ['./loader.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoaderComponent {}

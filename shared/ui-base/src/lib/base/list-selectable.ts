@@ -6,7 +6,7 @@ import {MatSort} from '@angular/material/sort'
 export abstract class ListSelectable<T> {
   abstract selection: SelectionMenu<T>
   abstract dataSource: MatTableDataSource<T>
-  
+
   abstract paginator: MatPaginator
   abstract sort: MatSort
 

@@ -1,7 +1,8 @@
-import {FindParams, Paged, Service} from '../interfaces'
+import {FindParams, Service} from '../interfaces'
 import {Observable, catchError, take} from 'rxjs'
 import {Store} from './store'
 import {Where} from '../types'
+import {Paged} from './paged'
 
 interface FacadeState<T> extends Paged<T> {
   selected: T | null

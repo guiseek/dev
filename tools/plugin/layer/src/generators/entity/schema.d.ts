@@ -9,7 +9,12 @@ export interface EntityGeneratorSchema {
   feature: string
 }
 
-type LibraryType = 'domain' | 'dataSource' | 'dataAccess' | 'resource' | 'feature'
+type LibraryType =
+  | 'domain'
+  | 'dataSource'
+  | 'dataAccess'
+  | 'resource'
+  | 'feature'
 
 export interface NormalizedEntityGeneratorSchema {
   project: Record<LibraryType, ProjectConfiguration>

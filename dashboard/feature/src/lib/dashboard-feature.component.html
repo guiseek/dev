@@ -2,11 +2,15 @@
   <h1 class="mat-h1">Dashboard</h1>
 </header>
 <mat-grid-list cols="3" rowHeight="350px">
-  <mat-grid-tile *ngFor="let card of cards$ | async" [colspan]="card.cols" [rowspan]="card.rows">
+  <mat-grid-tile
+    *ngFor="let card of cards$ | async"
+    [colspan]="card.cols"
+    [rowspan]="card.rows"
+  >
     <mat-card class="dashboard-card">
       <mat-card-content class="dashboard-card-content">
-        <h2>{{card.value}}</h2>
-        <div>{{card.title}}</div>
+        <h2>{{ card.value }}</h2>
+        <div>{{ card.title }}</div>
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>

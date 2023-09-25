@@ -1,2 +1,2 @@
-export * from './lib-layer';
-export * from './lib-side';
+export * from './lib-layer'
+export * from './lib-side'

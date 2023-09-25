@@ -1,5 +1,8 @@
 import {DataConfig} from '@dev/shared-data-source'
 import {Type} from '@dev/shared-util-data'
+import {config} from 'dotenv'
+
+config()
 
 export const env = (...entities: Type<unknown>[]): DataConfig => ({
   type: 'postgres',
