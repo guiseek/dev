@@ -1,1 +1,1 @@
-export * from './svc-of';
+export * from './svc-of'

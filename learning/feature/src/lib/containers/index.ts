@@ -1,1 +1,1 @@
-export * from './rails/rails.container';
+export * from './rails/rails.container'

@@ -1,3 +1,4 @@
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {ComponentFixture, TestBed} from '@angular/core/testing'
 import {CreateContentDialog} from './create-content.dialog'
 import {MatDialogModule} from '@angular/material/dialog'
@@ -10,7 +11,12 @@ describe('CreateContentDialog', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UiFormsModule, MatDialogModule, ReactiveFormsModule],
+      imports: [
+        UiFormsModule,
+        MatDialogModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+      ],
       declarations: [CreateContentDialog],
     }).compileComponents()
 

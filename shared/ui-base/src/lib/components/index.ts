@@ -1,2 +1,2 @@
-export * from './selection-menu/selection-menu.component';
-export * from './selection-menu/selection-menu';
+export * from './selection-menu/selection-menu.component'
+export * from './selection-menu/selection-menu'

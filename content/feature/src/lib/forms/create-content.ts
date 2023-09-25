@@ -7,16 +7,12 @@ export class CreateContentForm extends TypedFormGroup<CreateContent> {
     super({
       title: new FormControl('', {
         nonNullable: true,
-        validators: [
-          Validators.required
-        ]
+        validators: [Validators.required],
       }),
       path: new FormControl('', {
         nonNullable: true,
-        validators: [
-          Validators.required
-        ]
-      })
+        validators: [Validators.required],
+      }),
     })
   }
 }

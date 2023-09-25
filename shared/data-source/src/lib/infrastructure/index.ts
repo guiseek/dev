@@ -1,2 +1,2 @@
-export * from './base-repository';
-export * from './mock.repository';
+export * from './base-repository'
+export * from './mock.repository'

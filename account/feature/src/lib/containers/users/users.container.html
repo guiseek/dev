@@ -27,16 +27,28 @@
     </dev-selection-menu>
   </mat-card-content>
 
-  <table mat-table [dataSource]="dataSource" matSort matSortActive="createdAt" matSortDirection="desc">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    matSortActive="createdAt"
+    matSortDirection="desc"
+  >
     <ng-container matColumnDef="select">
       <th mat-header-cell *matHeaderCellDef>
-        <mat-checkbox (change)="$event ? toggleAllRows() : null" [checked]="selection.hasValue() && isAllSelected()"
-          [indeterminate]="selection.hasValue() && !isAllSelected()">
+        <mat-checkbox
+          (change)="$event ? toggleAllRows() : null"
+          [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()"
+        >
         </mat-checkbox>
       </th>
       <td mat-cell *matCellDef="let row">
-        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
-          [checked]="selection.isSelected(row)">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)"
+        >
         </mat-checkbox>
       </td>
     </ng-container>
@@ -76,7 +88,11 @@
     <tr mat-row *matRowDef="let row; columns: columns.value;"></tr>
   </table>
 
-  <mat-paginator hidePageSize [length]="(meta$ | async)?.itemCount" [pageSize]="(meta$ | async)?.take"></mat-paginator>
+  <mat-paginator
+    hidePageSize
+    [length]="(meta$ | async)?.itemCount"
+    [pageSize]="(meta$ | async)?.take"
+  ></mat-paginator>
 </mat-card>
 
 <button type="button" class="fixed b20 r20" mat-fab (click)="onCreate()">

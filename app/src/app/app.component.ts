@@ -87,10 +87,14 @@ import {
 export class AppComponent {
   loader = inject(Loader)
 
+  media = inject(MediaMatcher)
+  changeDetectorRef = inject(ChangeDetectorRef)
+
   mobileQuery
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)')
-    const _mobileQueryListener = () => changeDetectorRef.detectChanges()
-    this.mobileQuery.addEventListener('change', _mobileQueryListener)
+
+  constructor() {
+    this.mobileQuery = this.media.matchMedia('(max-width: 600px)')
+    const _mobileQueryListener = () => this.changeDetectorRef.detectChanges()
+    this.mobileQuery.addListener(_mobileQueryListener)
   }
 }

@@ -1,11 +1,14 @@
 import {TestBed} from '@angular/core/testing'
 
 import {AppInterceptor} from './app.interceptor'
+import {HttpClientTestingModule} from '@angular/common/http/testing'
+import {provideLoader} from '@dev/shared-data-access'
 
 describe('AppInterceptor', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
-      providers: [AppInterceptor],
+      imports: [HttpClientTestingModule],
+      providers: [provideLoader(), AppInterceptor],
     })
   )
 

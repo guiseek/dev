@@ -6,7 +6,7 @@ import {configSwagger} from './docs/config'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
-    cors: true
+    cors: true,
   })
 
   const globalPrefix = 'api'

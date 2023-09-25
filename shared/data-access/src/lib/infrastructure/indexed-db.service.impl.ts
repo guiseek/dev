@@ -35,7 +35,7 @@ export class IndexedDbService {
   #database: IDBDatabase | null
 
   readonly #pendingTransactions: IDBTransaction[] = []
-  
+
   constructor(database: IDBDatabase, private readonly name: string) {
     this.#database = database
   }
@@ -229,5 +229,5 @@ export class IndexedDbService {
   }
 }
 
-const db = IndexedDbService.create('db', undefined, ['store1'])
-console.log(db)
+// const db = IndexedDbService.create('db', undefined, ['store1'])
+// console.log(db)

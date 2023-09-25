@@ -63,7 +63,7 @@ export class MockRepository<T extends Entity & object> extends Repository<T> {
   async count(params: Where<T> = {}): Promise<BulkResult> {
     const entities = this.collection.filter(where(params))
 
-    return { affected: entities.length }
+    return {affected: entities.length}
   }
 
   async create(value: Partial<T>) {
@@ -100,4 +100,3 @@ export class MockRepository<T extends Entity & object> extends Repository<T> {
     return this.collection.find((item) => item[key] === value) ?? null
   }
 }
- 
