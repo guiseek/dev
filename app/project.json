@@ -4,19 +4,31 @@
   "projectType": "application",
   "prefix": "dev",
   "sourceRoot": "app/src",
-  "tags": ["type:app", "side:client"],
+  "tags": [
+    "type:app",
+    "side:client"
+  ],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/app",
         "index": "app/src/index.html",
         "main": "app/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "app/tsconfig.app.json",
-        "assets": ["app/src/favicon.ico", "app/src/assets"],
-        "styles": ["app/src/styles.scss"],
+        "assets": [
+          "app/src/favicon.ico",
+          "app/src/assets"
+        ],
+        "styles": [
+          "app/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -33,7 +45,34 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "fileReplacements": [
+            {
+              "replace": "app/src/envs/env.ts",
+              "with": "app/src/envs/env.prod.ts"
+            }
+          ]
+        },
+        "staging": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "fileReplacements": [
+            {
+              "replace": "app/src/envs/env.ts",
+              "with": "app/src/envs/env.staging.ts"
+            }
+          ]
         },
         "development": {
           "buildOptimizer": false,
@@ -42,6 +81,20 @@
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true
+        },
+        "testing": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true,
+          "fileReplacements": [
+            {
+              "replace": "app/src/envs/env.ts",
+              "with": "app/src/envs/env.testing.ts"
+            }
+          ]
         }
       },
       "defaultConfiguration": "production"
@@ -69,14 +122,21 @@
     },
     "lint": {
       "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["app/**/*.ts", "app/**/*.html"]
+        "lintFilePatterns": [
+          "app/**/*.ts",
+          "app/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "app/jest.config.ts",
         "passWithNoTests": true

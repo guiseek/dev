@@ -64,6 +64,7 @@
     "@nestjs/swagger": "^7.1.11",
     "@nx/devkit": "16.8.1",
     "@swc/helpers": "~0.5.0",
+    "angular-in-memory-web-api": "^0.16.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "pg": "^8.11.3",

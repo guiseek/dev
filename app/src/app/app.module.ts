@@ -18,14 +18,14 @@ import {
   HttpClientModule,
   HTTP_INTERCEPTORS,
 } from '@angular/common/http'
-import {
-  provideContentFacade,
-  provideContentService,
-} from '@dev/content-data-access'
+import {provideUser} from '@dev/account-data-access'
+import {provideRail} from '@dev/learning-data-access'
+import {provideContent} from '@dev/content-data-access'
 import {LoaderComponent} from './loader/loader.component'
 import {AppInterceptor} from './app.interceptor'
 import {AppComponent} from './app.component'
 import {appRoutes} from './app.routes'
+import {env} from '../envs/env'
 
 registerLocaleData(pt, 'pt-BR', BR)
 
@@ -46,8 +46,9 @@ registerLocaleData(pt, 'pt-BR', BR)
   ],
   providers: [
     provideHttp(HttpClient),
-    provideContentService(),
-    provideContentFacade(),
+    provideUser(env.production, env.api.account),
+    provideRail(env.production, env.api.learning),
+    provideContent(env.production, env.api.content),
     provideLoader(),
     {
       provide: LOCALE_ID,

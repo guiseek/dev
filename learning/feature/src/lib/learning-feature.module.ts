@@ -11,7 +11,6 @@ import {MatDialogModule} from '@angular/material/dialog'
 import {MatCardModule} from '@angular/material/card'
 import {MatSortModule} from '@angular/material/sort'
 import {MatPaginatorModule} from '@angular/material/paginator'
-import {provideRailFacade, provideRailService} from '@dev/learning-data-access'
 import {UiBaseModule} from '@dev/shared-ui-base'
 import {UiFormsModule} from '@dev/shared-ui-forms'
 import {learningFeatureRoutes} from './learning-feature.routes'
@@ -42,6 +41,5 @@ import {RailsContainer} from './containers'
     CreateRailDialog,
     UpdateRailDialog,
   ],
-  providers: [provideRailService(), provideRailFacade()],
 })
 export class LearningFeatureModule {}
