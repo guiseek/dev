@@ -16,11 +16,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@dev/content-data-access": ["content/data-access/src/index.ts"],
-      "@dev/content-data-source": ["content/data-source/src/index.ts"],
-      "@dev/content-domain": ["content/domain/src/index.ts"],
-      "@dev/content-feature": ["content/feature/src/index.ts"],
-      "@dev/content-resource": ["content/resource/src/index.ts"],
       "@dev/dashboard-feature": ["dashboard/feature/src/index.ts"],
       "@dev/dashboard-resource": ["dashboard/resource/src/index.ts"],
       "@dev/plugin-layer": ["tools/plugin/layer/src/index.ts"],
