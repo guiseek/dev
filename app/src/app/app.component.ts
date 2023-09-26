@@ -39,8 +39,8 @@ import {
 
         <button
           mat-button
-          routerLink="/content"
-          routerLinkActive="active"
+          menuItemsLinkActive="active"
+          menuItemsBaseLink="/content"
           [matMenuTriggerFor]="contentMenu"
         >
           Conteúdo
@@ -68,13 +68,12 @@ import {
 
         <!--  -->
 
-        <a routerLink="/account" routerLinkActive="active" mat-button>
-          Contas
-        </a>
-
-        <!--  -->
-
-        <button mat-icon-button [matMenuTriggerFor]="beforeMenu">
+        <button
+          mat-icon-button
+          menuItemsLinkActive="active"
+          menuItemsBaseLink="/account"
+          [matMenuTriggerFor]="beforeMenu"
+        >
           <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #beforeMenu="matMenu" xPosition="before">

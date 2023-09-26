@@ -42,19 +42,12 @@
           ]
         },
         "staging": {
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
-            },
-            {
-              "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
-            }
-          ],
-          "outputHashing": "all",
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true,
           "fileReplacements": [
             {
               "replace": "app/src/envs/env.ts",
@@ -97,9 +90,12 @@
         },
         "development": {
           "browserTarget": "app:build:development"
+        },
+        "staging": {
+          "browserTarget": "app:build:staging"
         }
       },
-      "defaultConfiguration": "development",
+      "defaultConfiguration": "staging",
       "options": {
         "proxyConfig": "app/proxy.conf.json"
       }

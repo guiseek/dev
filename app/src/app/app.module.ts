@@ -26,15 +26,17 @@ import {AppInterceptor} from './app.interceptor'
 import {AppComponent} from './app.component'
 import {appRoutes} from './app.routes'
 import {env} from '../envs/env'
+import {UiBaseModule} from '@dev/shared-ui-base'
 
 registerLocaleData(pt, 'pt-BR', BR)
 
 @NgModule({
   declarations: [AppComponent, LoaderComponent],
   imports: [
+    UiBaseModule,
+    LayoutModule,
     BrowserModule,
     HttpClientModule,
-    LayoutModule,
     MatDividerModule,
     MatSidenavModule,
     MatMenuModule,
