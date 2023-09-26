@@ -26,7 +26,7 @@ export async function generateFeatureFiles(
     project: project.name,
     type: 'container',
     skipTests: true,
-    style: 'scss'
+    style: 'scss',
   })
 
   componentGenerator(tree, {
@@ -34,7 +34,7 @@ export async function generateFeatureFiles(
     project: project.name,
     skipTests: true,
     type: 'dialog',
-    style: 'scss'
+    style: 'scss',
   })
 
   componentGenerator(tree, {
@@ -42,7 +42,7 @@ export async function generateFeatureFiles(
     project: project.name,
     skipTests: true,
     type: 'dialog',
-    style: 'scss'
+    style: 'scss',
   })
 
   generateFiles(tree, sourceFolder, project.sourceRoot, {
