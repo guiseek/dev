@@ -4,5 +4,6 @@ export const env = {
     content: [],
     account: [],
     learning: [],
+    book: [],
   },
 }
