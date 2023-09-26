@@ -16,11 +16,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@dev/account-data-access": ["account/data-access/src/index.ts"],
-      "@dev/account-data-source": ["account/data-source/src/index.ts"],
-      "@dev/account-domain": ["account/domain/src/index.ts"],
-      "@dev/account-feature": ["account/feature/src/index.ts"],
-      "@dev/account-resource": ["account/resource/src/index.ts"],
       "@dev/content-data-access": ["content/data-access/src/index.ts"],
       "@dev/content-data-source": ["content/data-source/src/index.ts"],
       "@dev/content-domain": ["content/domain/src/index.ts"],
