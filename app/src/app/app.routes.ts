@@ -4,6 +4,6 @@ export const appRoutes: Route[] = [
   {
     path: '',
     loadChildren: () =>
-      import('@dev/dashboard-feature').then((m) => m.DashboardFeatureModule),
+      import('@dev/tools-feature').then((m) => m.ToolsFeatureModule),
   },
 ]

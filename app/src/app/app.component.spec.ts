@@ -7,7 +7,7 @@ import {RouterTestingModule} from '@angular/router/testing'
 import {LayoutModule} from '@angular/cdk/layout'
 import {AppInterceptor} from './app.interceptor'
 import {AppComponent} from './app.component'
-import { SharedMaterial } from './shared'
+import {SharedMaterial} from './shared'
 
 describe('AppComponent', () => {
   beforeEach(async () => {

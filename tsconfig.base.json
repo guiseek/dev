@@ -16,15 +16,16 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@dev/dashboard-feature": ["dashboard/feature/src/index.ts"],
-      "@dev/dashboard-resource": ["dashboard/resource/src/index.ts"],
       "@dev/plugin-layer": ["tools/plugin/layer/src/index.ts"],
       "@dev/shared-data-access": ["shared/data-access/src/index.ts"],
       "@dev/shared-data-source": ["shared/data-source/src/index.ts"],
       "@dev/shared-resource": ["shared/resource/src/index.ts"],
       "@dev/shared-ui-base": ["shared/ui-base/src/index.ts"],
       "@dev/shared-ui-forms": ["shared/ui-forms/src/index.ts"],
-      "@dev/shared-util-data": ["shared/util-data/src/index.ts"]
+      "@dev/shared-util-data": ["shared/util-data/src/index.ts"],
+      "@dev/tools-domain": ["tools/domain/src/index.ts"],
+      "@dev/tools-feature": ["tools/feature/src/index.ts"],
+      "@dev/tools-resource": ["tools/resource/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
