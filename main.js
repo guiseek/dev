@@ -1,408 +1,6 @@
 "use strict";
 (self["webpackChunkapp"] = self["webpackChunkapp"] || []).push([["main"],{
 
-/***/ 4233:
-/*!******************************************!*\
-  !*** ./account/data-access/src/index.ts ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UserFacade: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.UserFacade),
-/* harmony export */   UserServiceImpl: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.UserServiceImpl),
-/* harmony export */   UserServiceMock: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.UserServiceMock),
-/* harmony export */   provideUser: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.provideUser),
-/* harmony export */   provideUserFacade: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.provideUserFacade),
-/* harmony export */   provideUserService: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.provideUserService),
-/* harmony export */   provideUserServiceMock: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.provideUserServiceMock)
-/* harmony export */ });
-/* harmony import */ var _public_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./public-api */ 9156);
-
-
-/***/ }),
-
-/***/ 4713:
-/*!**********************************************************!*\
-  !*** ./account/data-access/src/lib/application/index.ts ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UserFacade: () => (/* reexport safe */ _user_facade__WEBPACK_IMPORTED_MODULE_0__.UserFacade)
-/* harmony export */ });
-/* harmony import */ var _user_facade__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user.facade */ 1312);
-
-
-/***/ }),
-
-/***/ 1312:
-/*!****************************************************************!*\
-  !*** ./account/data-access/src/lib/application/user.facade.ts ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UserFacade: () => (/* binding */ UserFacade)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-util-data */ 6866);
-
-class UserFacade extends _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__.Facade {}
-
-/***/ }),
-
-/***/ 3358:
-/*!*********************************************************!*\
-  !*** ./account/data-access/src/lib/dtos/create-user.ts ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 3847:
-/*!***************************************************!*\
-  !*** ./account/data-access/src/lib/dtos/index.ts ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user */ 5561);
-/* harmony import */ var _create_user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create-user */ 3358);
-/* harmony import */ var _update_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./update-user */ 9254);
-
-
-
-
-/***/ }),
-
-/***/ 9254:
-/*!*********************************************************!*\
-  !*** ./account/data-access/src/lib/dtos/update-user.ts ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 5561:
-/*!**************************************************!*\
-  !*** ./account/data-access/src/lib/dtos/user.ts ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 7144:
-/*!*************************************************************!*\
-  !*** ./account/data-access/src/lib/infrastructure/index.ts ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UserServiceImpl: () => (/* reexport safe */ _user_service_impl__WEBPACK_IMPORTED_MODULE_0__.UserServiceImpl),
-/* harmony export */   UserServiceMock: () => (/* reexport safe */ _user_service_mock__WEBPACK_IMPORTED_MODULE_1__.UserServiceMock)
-/* harmony export */ });
-/* harmony import */ var _user_service_impl__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user.service.impl */ 2152);
-/* harmony import */ var _user_service_mock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user.service.mock */ 8365);
-
-
-
-/***/ }),
-
-/***/ 2152:
-/*!*************************************************************************!*\
-  !*** ./account/data-access/src/lib/infrastructure/user.service.impl.ts ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UserServiceImpl: () => (/* binding */ UserServiceImpl)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-data-access */ 6231);
-
-class UserServiceImpl extends _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__.BaseService {}
-
-/***/ }),
-
-/***/ 8365:
-/*!*************************************************************************!*\
-  !*** ./account/data-access/src/lib/infrastructure/user.service.mock.ts ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UserServiceMock: () => (/* binding */ UserServiceMock)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-data-access */ 6231);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 5761);
-
-
-class UserServiceMock extends _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__.MockService {
-  create(value) {
-    const entity = {
-      ...value,
-      id: crypto.randomUUID(),
-      createdAt: new Date(),
-      updatedAt: new Date()
-    };
-    this.collection.push(entity);
-    return (0,rxjs__WEBPACK_IMPORTED_MODULE_1__.of)(entity);
-  }
-}
-
-/***/ }),
-
-/***/ 8388:
-/*!********************************************************!*\
-  !*** ./account/data-access/src/lib/providers/index.ts ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   provideUser: () => (/* reexport safe */ _user__WEBPACK_IMPORTED_MODULE_0__.provideUser),
-/* harmony export */   provideUserFacade: () => (/* reexport safe */ _user__WEBPACK_IMPORTED_MODULE_0__.provideUserFacade),
-/* harmony export */   provideUserService: () => (/* reexport safe */ _user__WEBPACK_IMPORTED_MODULE_0__.provideUserService),
-/* harmony export */   provideUserServiceMock: () => (/* reexport safe */ _user__WEBPACK_IMPORTED_MODULE_0__.provideUserServiceMock)
-/* harmony export */ });
-/* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user */ 7494);
-
-
-/***/ }),
-
-/***/ 7494:
-/*!*******************************************************!*\
-  !*** ./account/data-access/src/lib/providers/user.ts ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   provideUser: () => (/* binding */ provideUser),
-/* harmony export */   provideUserFacade: () => (/* binding */ provideUserFacade),
-/* harmony export */   provideUserService: () => (/* binding */ provideUserService),
-/* harmony export */   provideUserServiceMock: () => (/* binding */ provideUserServiceMock)
-/* harmony export */ });
-/* harmony import */ var _dev_account_domain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/account-domain */ 864);
-/* harmony import */ var _infrastructure__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../infrastructure */ 7144);
-/* harmony import */ var _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @dev/shared-data-access */ 6231);
-/* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../application */ 4713);
-
-
-
-
-function provideUserService(api) {
-  return {
-    provide: _dev_account_domain__WEBPACK_IMPORTED_MODULE_0__.UserService,
-    useFactory(http) {
-      return new _infrastructure__WEBPACK_IMPORTED_MODULE_1__.UserServiceImpl(http, api);
-    },
-    deps: [_dev_shared_data_access__WEBPACK_IMPORTED_MODULE_2__.Http]
-  };
-}
-function provideUserServiceMock(collection = []) {
-  return (0,_dev_shared_data_access__WEBPACK_IMPORTED_MODULE_2__.provideServiceMock)(_dev_account_domain__WEBPACK_IMPORTED_MODULE_0__.UserService, _infrastructure__WEBPACK_IMPORTED_MODULE_1__.UserServiceMock, collection);
-}
-function provideUserFacade() {
-  return {
-    provide: _application__WEBPACK_IMPORTED_MODULE_3__.UserFacade,
-    deps: [_dev_account_domain__WEBPACK_IMPORTED_MODULE_0__.UserService]
-  };
-}
-function provideUser(production = false, api = []) {
-  const providers = [];
-  providers.push(production ? provideUserService(api) : provideUserServiceMock(api));
-  providers.push(provideUserFacade());
-  return providers;
-}
-
-/***/ }),
-
-/***/ 9156:
-/*!***********************************************!*\
-  !*** ./account/data-access/src/public-api.ts ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UserFacade: () => (/* reexport safe */ _lib_application__WEBPACK_IMPORTED_MODULE_1__.UserFacade),
-/* harmony export */   UserServiceImpl: () => (/* reexport safe */ _lib_infrastructure__WEBPACK_IMPORTED_MODULE_0__.UserServiceImpl),
-/* harmony export */   UserServiceMock: () => (/* reexport safe */ _lib_infrastructure__WEBPACK_IMPORTED_MODULE_0__.UserServiceMock),
-/* harmony export */   provideUser: () => (/* reexport safe */ _lib_providers__WEBPACK_IMPORTED_MODULE_2__.provideUser),
-/* harmony export */   provideUserFacade: () => (/* reexport safe */ _lib_providers__WEBPACK_IMPORTED_MODULE_2__.provideUserFacade),
-/* harmony export */   provideUserService: () => (/* reexport safe */ _lib_providers__WEBPACK_IMPORTED_MODULE_2__.provideUserService),
-/* harmony export */   provideUserServiceMock: () => (/* reexport safe */ _lib_providers__WEBPACK_IMPORTED_MODULE_2__.provideUserServiceMock)
-/* harmony export */ });
-/* harmony import */ var _lib_infrastructure__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/infrastructure */ 7144);
-/* harmony import */ var _lib_application__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/application */ 4713);
-/* harmony import */ var _lib_providers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib/providers */ 8388);
-/* harmony import */ var _lib_dtos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lib/dtos */ 3847);
-
-
-
-
-
-/***/ }),
-
-/***/ 864:
-/*!*************************************!*\
-  !*** ./account/domain/src/index.ts ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UserRepository: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.UserRepository),
-/* harmony export */   UserService: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.UserService)
-/* harmony export */ });
-/* harmony import */ var _public_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./public-api */ 3780);
-
-
-/***/ }),
-
-/***/ 1394:
-/*!****************************************************!*\
-  !*** ./account/domain/src/lib/dtos/create-user.ts ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 6188:
-/*!**********************************************!*\
-  !*** ./account/domain/src/lib/dtos/index.ts ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _create_user__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create-user */ 1394);
-/* harmony import */ var _update_user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./update-user */ 9846);
-
-
-
-/***/ }),
-
-/***/ 9846:
-/*!****************************************************!*\
-  !*** ./account/domain/src/lib/dtos/update-user.ts ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 3139:
-/*!**************************************************!*\
-  !*** ./account/domain/src/lib/entities/index.ts ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user */ 630);
-
-
-/***/ }),
-
-/***/ 630:
-/*!*************************************************!*\
-  !*** ./account/domain/src/lib/entities/user.ts ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 3402:
-/*!***********************************************!*\
-  !*** ./account/domain/src/lib/ports/index.ts ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UserRepository: () => (/* reexport safe */ _user_repository__WEBPACK_IMPORTED_MODULE_0__.UserRepository),
-/* harmony export */   UserService: () => (/* reexport safe */ _user_service__WEBPACK_IMPORTED_MODULE_1__.UserService)
-/* harmony export */ });
-/* harmony import */ var _user_repository__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user.repository */ 7515);
-/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user.service */ 470);
-
-
-
-/***/ }),
-
-/***/ 7515:
-/*!*********************************************************!*\
-  !*** ./account/domain/src/lib/ports/user.repository.ts ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UserRepository: () => (/* binding */ UserRepository)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-util-data */ 6866);
-
-class UserRepository extends _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__.Repository {}
-
-/***/ }),
-
-/***/ 470:
-/*!******************************************************!*\
-  !*** ./account/domain/src/lib/ports/user.service.ts ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UserService: () => (/* binding */ UserService)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-util-data */ 6866);
-
-class UserService extends _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__.Service {}
-
-/***/ }),
-
-/***/ 3780:
-/*!******************************************!*\
-  !*** ./account/domain/src/public-api.ts ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UserRepository: () => (/* reexport safe */ _lib_ports__WEBPACK_IMPORTED_MODULE_1__.UserRepository),
-/* harmony export */   UserService: () => (/* reexport safe */ _lib_ports__WEBPACK_IMPORTED_MODULE_1__.UserService)
-/* harmony export */ });
-/* harmony import */ var _lib_dtos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/dtos */ 6188);
-/* harmony import */ var _lib_ports__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/ports */ 3402);
-/* harmony import */ var _lib_entities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib/entities */ 3139);
-
-
-
-
-/***/ }),
-
 /***/ 7470:
 /*!**************************************!*\
   !*** ./app/src/app/app.component.ts ***!
@@ -413,19 +11,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AppComponent: () => (/* binding */ AppComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/layout */ 4146);
+/* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/cdk/layout */ 4146);
 /* harmony import */ var _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-data-access */ 6231);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 9058);
-/* harmony import */ var _shared_ui_base_src_lib_directives_menu_items_link_active_directive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/ui-base/src/lib/directives/menu-items-link-active.directive */ 9151);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 4849);
-/* harmony import */ var _angular_material_divider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/divider */ 2599);
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/sidenav */ 1569);
-/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/menu */ 4818);
-/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/toolbar */ 4130);
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/button */ 8433);
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/icon */ 4313);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/router */ 2541);
-/* harmony import */ var _loader_loader_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./loader/loader.component */ 2036);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 9058);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ 4849);
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/sidenav */ 1569);
+/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/toolbar */ 4130);
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/button */ 8433);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ 2541);
+/* harmony import */ var _loader_loader_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./loader/loader.component */ 2036);
 var _class;
 
 
@@ -437,13 +31,9 @@ var _class;
 
 
 
-
-
-
-
-function AppComponent_dev_loader_61_Template(rf, ctx) {
+function AppComponent_dev_loader_13_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "dev-loader");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](0, "dev-loader");
   }
 }
 const _c0 = function () {
@@ -453,9 +43,9 @@ const _c0 = function () {
 };
 class AppComponent {
   constructor() {
-    this.loader = (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.inject)(_dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__.Loader);
-    this.media = (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.inject)(_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__.MediaMatcher);
-    this.changeDetectorRef = (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.inject)(_angular_core__WEBPACK_IMPORTED_MODULE_3__.ChangeDetectorRef);
+    this.loader = (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.inject)(_dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__.Loader);
+    this.media = (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.inject)(_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_3__.MediaMatcher);
+    this.changeDetectorRef = (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.inject)(_angular_core__WEBPACK_IMPORTED_MODULE_2__.ChangeDetectorRef);
     this.mobileQuery = this.media.matchMedia('(max-width: 600px)');
     const _mobileQueryListener = () => this.changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(_mobileQueryListener);
@@ -465,100 +55,41 @@ _class = AppComponent;
 _class.ɵfac = function AppComponent_Factory(t) {
   return new (t || _class)();
 };
-_class.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({
+_class.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({
   type: _class,
   selectors: [["dev-root"]],
-  decls: 63,
-  vars: 11,
-  consts: [[1, "app-container"], ["color", "primary", 1, "app-toolbar"], ["routerLink", "/"], ["src", "./assets/logo.svg", "alt", "Quero Ser Dev"], ["routerLink", "/", 1, "app-name"], [1, "spacer"], ["mat-button", "", "routerLink", "/", "routerLinkActive", "active", 3, "routerLinkActiveOptions"], ["mat-button", "", "menuItemsLinkActive", "active", "menuItemsBaseLink", "/content", 3, "matMenuTriggerFor"], ["xPosition", "before"], ["contentMenu", "matMenu"], ["mat-menu-item", "", "routerLink", "/content"], ["mat-menu-item", "", "routerLink", "/content/books"], ["mat-menu-item", "", "disabled", ""], ["routerLink", "/learning", "routerLinkActive", "active", "mat-button", ""], ["mat-icon-button", "", "menuItemsLinkActive", "active", "menuItemsBaseLink", "/account", 3, "matMenuTriggerFor"], ["beforeMenu", "matMenu"], ["mat-menu-item", "", "routerLink", "/account"], ["mat-menu-item", ""], [1, "app-sidenav-container"], [4, "ngIf"]],
+  decls: 15,
+  vars: 9,
+  consts: [[1, "app-container"], ["color", "primary", 1, "app-toolbar"], ["routerLink", "/"], ["src", "./assets/logo.svg", "alt", "Quero Ser Dev"], ["routerLink", "/", 1, "app-name"], [1, "spacer"], ["mat-button", "", "routerLink", "/", "routerLinkActive", "active", 3, "routerLinkActiveOptions"], [1, "app-sidenav-container"], [4, "ngIf"]],
   template: function AppComponent_Template(rf, ctx) {
     if (rf & 1) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0)(1, "mat-toolbar", 1)(2, "a", 2);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](3, "img", 3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](4, "a", 4)(5, "h1");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](6, "Quero Ser Dev");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](7, "span", 5);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](8, "a", 6);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](9, "Home");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](10, "button", 7);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](11, " Conte\u00FAdo ");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](12, "mat-menu", 8, 9)(14, "a", 10)(15, "mat-icon");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](16, "sticky_note_2");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](17, "span");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](18, "Anota\u00E7\u00F5es");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](19, "a", 11)(20, "mat-icon");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](21, "menu_book");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](22, "span");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](23, "Livros");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](24, "button", 12)(25, "mat-icon");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](26, "article");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](27, "span");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](28, "Artigos");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](29, "a", 13);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](30, " Aprendizado ");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](31, "button", 14)(32, "mat-icon");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](33, "account_circle");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](34, "mat-menu", 8, 15)(36, "button", 12)(37, "small");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](38, "logado como");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](39, "br");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](40, " email@guiseek.dev ");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](41, "mat-divider");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](42, "a", 16)(43, "mat-icon");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](44, "source");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](45, "span");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](46, "Meu conte\u00FAdo");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](47, "a", 16)(48, "mat-icon");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](49, "settings");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](50, "span");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](51, "Configura\u00E7\u00F5es");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](52, "mat-divider");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](53, "button", 17)(54, "mat-icon");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](55, "logout");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](56, "span");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](57, "Logout");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](58, "mat-sidenav-container", 18)(59, "mat-sidenav-content");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](60, "router-outlet");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](61, AppComponent_dev_loader_61_Template, 1, 0, "dev-loader", 19);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpipe"](62, "async");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0)(1, "mat-toolbar", 1)(2, "a", 2);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](3, "img", 3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "a", 4)(5, "h1");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](6, "Quero Ser Dev");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](7, "span", 5);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](8, "a", 6);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](9, "Home");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](10, "mat-sidenav-container", 7)(11, "mat-sidenav-content");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](12, "router-outlet");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](13, AppComponent_dev_loader_13_Template, 1, 0, "dev-loader", 8);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipe"](14, "async");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()()();
     }
     if (rf & 2) {
-      const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵreference"](13);
-      const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵreference"](35);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵclassProp"]("app-is-mobile", ctx.mobileQuery.matches);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](8);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("routerLinkActiveOptions", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpureFunction0"](10, _c0));
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("matMenuTriggerFor", _r0);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](21);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("matMenuTriggerFor", _r1);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](27);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵstyleProp"]("margin-top", ctx.mobileQuery.matches ? 56 : 0, "px");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpipeBind1"](62, 8, ctx.loader.active$));
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵclassProp"]("app-is-mobile", ctx.mobileQuery.matches);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](8);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("routerLinkActiveOptions", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpureFunction0"](8, _c0));
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵstyleProp"]("margin-top", ctx.mobileQuery.matches ? 56 : 0, "px");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind1"](14, 6, ctx.loader.active$));
     }
   },
-  dependencies: [_shared_ui_base_src_lib_directives_menu_items_link_active_directive__WEBPACK_IMPORTED_MODULE_1__.MenuItemsLinkActiveDirective, _angular_common__WEBPACK_IMPORTED_MODULE_5__.NgIf, _angular_material_divider__WEBPACK_IMPORTED_MODULE_6__.MatDivider, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_7__.MatSidenavContainer, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_7__.MatSidenavContent, _angular_material_menu__WEBPACK_IMPORTED_MODULE_8__.MatMenu, _angular_material_menu__WEBPACK_IMPORTED_MODULE_8__.MatMenuItem, _angular_material_menu__WEBPACK_IMPORTED_MODULE_8__.MatMenuTrigger, _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_9__.MatToolbar, _angular_material_button__WEBPACK_IMPORTED_MODULE_10__.MatAnchor, _angular_material_button__WEBPACK_IMPORTED_MODULE_10__.MatButton, _angular_material_button__WEBPACK_IMPORTED_MODULE_10__.MatIconButton, _angular_material_icon__WEBPACK_IMPORTED_MODULE_11__.MatIcon, _angular_router__WEBPACK_IMPORTED_MODULE_12__.RouterOutlet, _angular_router__WEBPACK_IMPORTED_MODULE_12__.RouterLink, _angular_router__WEBPACK_IMPORTED_MODULE_12__.RouterLinkActive, _loader_loader_component__WEBPACK_IMPORTED_MODULE_2__.LoaderComponent, _angular_common__WEBPACK_IMPORTED_MODULE_5__.AsyncPipe],
+  dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_4__.NgIf, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_5__.MatSidenavContainer, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_5__.MatSidenavContent, _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_6__.MatToolbar, _angular_material_button__WEBPACK_IMPORTED_MODULE_7__.MatAnchor, _angular_router__WEBPACK_IMPORTED_MODULE_8__.RouterOutlet, _angular_router__WEBPACK_IMPORTED_MODULE_8__.RouterLink, _angular_router__WEBPACK_IMPORTED_MODULE_8__.RouterLinkActive, _loader_loader_component__WEBPACK_IMPORTED_MODULE_1__.LoaderComponent, _angular_common__WEBPACK_IMPORTED_MODULE_4__.AsyncPipe],
   styles: ["[_nghost-%COMP%] {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n}\n[_nghost-%COMP%]   .mat-toolbar.mat-primary[_ngcontent-%COMP%] {\n  overflow: visible;\n  z-index: 10;\n}\n[_nghost-%COMP%]   .mat-toolbar[_ngcontent-%COMP%]   .mat-mdc-button-base[_ngcontent-%COMP%] {\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: color 150ms ease-in-out;\n}\n[_nghost-%COMP%]   .mat-toolbar[_ngcontent-%COMP%]   .mat-mdc-button-base.active[_ngcontent-%COMP%] {\n  color: #3df950;\n}\n[_nghost-%COMP%]   .mat-toolbar[_ngcontent-%COMP%]   .mat-mdc-button-base[_ngcontent-%COMP%]:not(.mat-mdc-icon-button) {\n  padding: 0 16px;\n}\n[_nghost-%COMP%]   .mat-toolbar[_ngcontent-%COMP%]   .mat-mdc-button-base.mat-mdc-icon-button[_ngcontent-%COMP%] {\n  width: 64px;\n}\n[_nghost-%COMP%]   .app-container[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n[_nghost-%COMP%]   .app-is-mobile[_ngcontent-%COMP%]   .app-toolbar[_ngcontent-%COMP%] {\n  position: fixed;\n  \n\n  z-index: 2;\n}\n[_nghost-%COMP%]   a.app-name[_ngcontent-%COMP%] {\n  margin-left: 8px;\n  color: rgba(255, 255, 255, 0.5215686275);\n  transition: color 300ms ease-in-out;\n}\n[_nghost-%COMP%]   a.app-name[_ngcontent-%COMP%]:hover {\n  color: #ffffff;\n}\n[_nghost-%COMP%]   .app-sidenav-container[_ngcontent-%COMP%] {\n  flex: 1;\n}\n[_nghost-%COMP%]   .app-is-mobile[_ngcontent-%COMP%]   .app-sidenav-container[_ngcontent-%COMP%] {\n  flex: 1 0 auto;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHQTtFQUNFLFlBQUE7RUFDQSxhQUFBO0VBQ0Esc0JBQUE7QUFGRjtBQUtJO0VBQ0UsaUJBQUE7RUFDQSxXQUFBO0FBSE47QUFLSTtFQUNFLFlBQUE7RUFDQSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSx1QkFBQTtFQUNBLG1DQUFBO0FBSE47QUFLTTtFQUNFLGNBQUE7QUFIUjtBQU1NO0VBQ0UsZUFBQTtBQUpSO0FBTU07RUFDRSxXQUFBO0FBSlI7QUFTRTtFQUNFLGFBQUE7RUFDQSxzQkFBQTtFQUNBLGtCQUFBO0VBQ0EsTUFBQTtFQUNBLFNBQUE7RUFDQSxPQUFBO0VBQ0EsUUFBQTtBQVBKO0FBVUU7RUFDRSxlQUFBO0VBQ0EsOEVBQUE7RUFDQSxVQUFBO0FBUko7QUFXRTtFQUNFLGdCQUFBO0VBQ0Esd0NBQUE7RUFDQSxtQ0FBQTtBQVRKO0FBVUk7RUFDRSxjQUFBO0FBUk47QUFZRTtFQUNFLE9BQUE7QUFWSjtBQWFFO0VBQ0UsY0FBQTtBQVhKIiwiZmlsZSI6ImFwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkB1c2UgJy4uL3Njc3MvcGFsZXR0ZScgYXMgZ3VpO1xuQHVzZSAnc2FzczptYXAnIGFzIG1hcDtcblxuOmhvc3Qge1xuICBoZWlnaHQ6IDEwMCU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG5cbiAgLm1hdC10b29sYmFyIHtcbiAgICAmLm1hdC1wcmltYXJ5IHtcbiAgICAgIG92ZXJmbG93OiB2aXNpYmxlO1xuICAgICAgei1pbmRleDogMTA7XG4gICAgfVxuICAgIC5tYXQtbWRjLWJ1dHRvbi1iYXNlIHtcbiAgICAgIGhlaWdodDogMTAwJTtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICB0cmFuc2l0aW9uOiBjb2xvciAxNTBtcyBlYXNlLWluLW91dDtcblxuICAgICAgJi5hY3RpdmUge1xuICAgICAgICBjb2xvcjogbWFwLmdldChndWkuJGFjY2VudC1wYWxldHRlLCA1MDApO1xuICAgICAgfVxuXG4gICAgICAmOm5vdCgubWF0LW1kYy1pY29uLWJ1dHRvbikge1xuICAgICAgICBwYWRkaW5nOiAwIDE2cHg7XG4gICAgICB9XG4gICAgICAmLm1hdC1tZGMtaWNvbi1idXR0b24ge1xuICAgICAgICB3aWR0aDogNjRweDtcbiAgICAgIH1cbiAgICB9XG4gIH1cblxuICAuYXBwLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0b3A6IDA7XG4gICAgYm90dG9tOiAwO1xuICAgIGxlZnQ6IDA7XG4gICAgcmlnaHQ6IDA7XG4gIH1cblxuICAuYXBwLWlzLW1vYmlsZSAuYXBwLXRvb2xiYXIge1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICAvKiBNYWtlIHN1cmUgdGhlIHRvb2xiYXIgd2lsbCBzdGF5IG9uIHRvcCBvZiB0aGUgY29udGVudCBhcyBpdCBzY3JvbGxzIHBhc3QuICovXG4gICAgei1pbmRleDogMjtcbiAgfVxuXG4gIGEuYXBwLW5hbWUge1xuICAgIG1hcmdpbi1sZWZ0OiA4cHg7XG4gICAgY29sb3I6ICNmZmZmZmY4NTtcbiAgICB0cmFuc2l0aW9uOiBjb2xvciAzMDBtcyBlYXNlLWluLW91dDtcbiAgICAmOmhvdmVyIHtcbiAgICAgIGNvbG9yOiAjZmZmZmZmO1xuICAgIH1cbiAgfVxuXG4gIC5hcHAtc2lkZW5hdi1jb250YWluZXIge1xuICAgIGZsZXg6IDE7XG4gIH1cblxuICAuYXBwLWlzLW1vYmlsZSAuYXBwLXNpZGVuYXYtY29udGFpbmVyIHtcbiAgICBmbGV4OiAxIDAgYXV0bztcbiAgfVxufVxuIl19 */\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL2FwcC9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHQTtFQUNFLFlBQUE7RUFDQSxhQUFBO0VBQ0Esc0JBQUE7QUFGRjtBQUtJO0VBQ0UsaUJBQUE7RUFDQSxXQUFBO0FBSE47QUFLSTtFQUNFLFlBQUE7RUFDQSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSx1QkFBQTtFQUNBLG1DQUFBO0FBSE47QUFLTTtFQUNFLGNBQUE7QUFIUjtBQU1NO0VBQ0UsZUFBQTtBQUpSO0FBTU07RUFDRSxXQUFBO0FBSlI7QUFTRTtFQUNFLGFBQUE7RUFDQSxzQkFBQTtFQUNBLGtCQUFBO0VBQ0EsTUFBQTtFQUNBLFNBQUE7RUFDQSxPQUFBO0VBQ0EsUUFBQTtBQVBKO0FBVUU7RUFDRSxlQUFBO0VBQ0EsOEVBQUE7RUFDQSxVQUFBO0FBUko7QUFXRTtFQUNFLGdCQUFBO0VBQ0Esd0NBQUE7RUFDQSxtQ0FBQTtBQVRKO0FBVUk7RUFDRSxjQUFBO0FBUk47QUFZRTtFQUNFLE9BQUE7QUFWSjtBQWFFO0VBQ0UsY0FBQTtBQVhKO0FBQ0EsNDJFQUE0MkUiLCJzb3VyY2VzQ29udGVudCI6WyJAdXNlICcuLi9zY3NzL3BhbGV0dGUnIGFzIGd1aTtcbkB1c2UgJ3Nhc3M6bWFwJyBhcyBtYXA7XG5cbjpob3N0IHtcbiAgaGVpZ2h0OiAxMDAlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuXG4gIC5tYXQtdG9vbGJhciB7XG4gICAgJi5tYXQtcHJpbWFyeSB7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIHotaW5kZXg6IDEwO1xuICAgIH1cbiAgICAubWF0LW1kYy1idXR0b24tYmFzZSB7XG4gICAgICBoZWlnaHQ6IDEwMCU7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgdHJhbnNpdGlvbjogY29sb3IgMTUwbXMgZWFzZS1pbi1vdXQ7XG5cbiAgICAgICYuYWN0aXZlIHtcbiAgICAgICAgY29sb3I6IG1hcC5nZXQoZ3VpLiRhY2NlbnQtcGFsZXR0ZSwgNTAwKTtcbiAgICAgIH1cblxuICAgICAgJjpub3QoLm1hdC1tZGMtaWNvbi1idXR0b24pIHtcbiAgICAgICAgcGFkZGluZzogMCAxNnB4O1xuICAgICAgfVxuICAgICAgJi5tYXQtbWRjLWljb24tYnV0dG9uIHtcbiAgICAgICAgd2lkdGg6IDY0cHg7XG4gICAgICB9XG4gICAgfVxuICB9XG5cbiAgLmFwcC1jb250YWluZXIge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgdG9wOiAwO1xuICAgIGJvdHRvbTogMDtcbiAgICBsZWZ0OiAwO1xuICAgIHJpZ2h0OiAwO1xuICB9XG5cbiAgLmFwcC1pcy1tb2JpbGUgLmFwcC10b29sYmFyIHtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgLyogTWFrZSBzdXJlIHRoZSB0b29sYmFyIHdpbGwgc3RheSBvbiB0b3Agb2YgdGhlIGNvbnRlbnQgYXMgaXQgc2Nyb2xscyBwYXN0LiAqL1xuICAgIHotaW5kZXg6IDI7XG4gIH1cblxuICBhLmFwcC1uYW1lIHtcbiAgICBtYXJnaW4tbGVmdDogOHB4O1xuICAgIGNvbG9yOiAjZmZmZmZmODU7XG4gICAgdHJhbnNpdGlvbjogY29sb3IgMzAwbXMgZWFzZS1pbi1vdXQ7XG4gICAgJjpob3ZlciB7XG4gICAgICBjb2xvcjogI2ZmZmZmZjtcbiAgICB9XG4gIH1cblxuICAuYXBwLXNpZGVuYXYtY29udGFpbmVyIHtcbiAgICBmbGV4OiAxO1xuICB9XG5cbiAgLmFwcC1pcy1tb2JpbGUgLmFwcC1zaWRlbmF2LWNvbnRhaW5lciB7XG4gICAgZmxleDogMSAwIGF1dG87XG4gIH1cbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */"],
   changeDetection: 0
 });
@@ -616,31 +147,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AppModule: () => (/* binding */ AppModule)
 /* harmony export */ });
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @angular/platform-browser/animations */ 6290);
 /* harmony import */ var _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-data-access */ 6231);
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/platform-browser */ 2454);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/common */ 4849);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/core */ 9058);
-/* harmony import */ var _angular_common_locales_extra_br__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/common/locales/extra/br */ 7042);
-/* harmony import */ var _angular_common_locales_pt__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/locales/pt */ 6307);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/router */ 2541);
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/sidenav */ 1569);
-/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/menu */ 4818);
-/* harmony import */ var _angular_material_divider__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/divider */ 2599);
-/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/toolbar */ 4130);
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/material/button */ 8433);
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/material/icon */ 4313);
+/* harmony import */ var _dev_shared_ui_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @dev/shared-ui-base */ 5070);
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/platform-browser/animations */ 6290);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/platform-browser */ 2454);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ 4849);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/core */ 9058);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/router */ 2541);
+/* harmony import */ var _angular_common_locales_extra_br__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common/locales/extra/br */ 7042);
+/* harmony import */ var _angular_common_locales_pt__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common/locales/pt */ 6307);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/http */ 7202);
+/* harmony import */ var _app_interceptor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.interceptor */ 9634);
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ 7470);
+/* harmony import */ var _loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./loader */ 8110);
+/* harmony import */ var _shared__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shared */ 3144);
+/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.routes */ 3565);
 /* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/cdk/layout */ 4146);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/common/http */ 7202);
-/* harmony import */ var _dev_account_data_access__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @dev/account-data-access */ 4233);
-/* harmony import */ var _dev_learning_data_access__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @dev/learning-data-access */ 3144);
-/* harmony import */ var _dev_content_data_access__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @dev/content-data-access */ 368);
-/* harmony import */ var _loader_loader_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./loader/loader.component */ 2036);
-/* harmony import */ var _app_interceptor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.interceptor */ 9634);
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ 7470);
-/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.routes */ 3565);
-/* harmony import */ var _envs_env__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../envs/env */ 934);
-/* harmony import */ var _dev_shared_ui_base__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @dev/shared-ui-base */ 5070);
+/* harmony import */ var _angular_material_divider__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/divider */ 2599);
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/sidenav */ 1569);
+/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/menu */ 4818);
+/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/toolbar */ 4130);
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/button */ 8433);
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/material/icon */ 4313);
 var _class;
 
 
@@ -666,37 +194,34 @@ var _class;
 
 
 
-
-
-
-(0,_angular_common__WEBPACK_IMPORTED_MODULE_10__.registerLocaleData)(_angular_common_locales_pt__WEBPACK_IMPORTED_MODULE_11__["default"], 'pt-BR', _angular_common_locales_extra_br__WEBPACK_IMPORTED_MODULE_12__["default"]);
+(0,_angular_common__WEBPACK_IMPORTED_MODULE_7__.registerLocaleData)(_angular_common_locales_pt__WEBPACK_IMPORTED_MODULE_8__["default"], 'pt-BR', _angular_common_locales_extra_br__WEBPACK_IMPORTED_MODULE_9__["default"]);
 class AppModule {}
 _class = AppModule;
 _class.ɵfac = function AppModule_Factory(t) {
   return new (t || _class)();
 };
-_class.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdefineNgModule"]({
+_class.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵdefineNgModule"]({
   type: _class,
-  bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__.AppComponent]
+  bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__.AppComponent]
 });
-_class.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdefineInjector"]({
-  providers: [(0,_dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__.provideHttp)(_angular_common_http__WEBPACK_IMPORTED_MODULE_14__.HttpClient), (0,_dev_account_data_access__WEBPACK_IMPORTED_MODULE_1__.provideUser)(_envs_env__WEBPACK_IMPORTED_MODULE_8__.env.production, _envs_env__WEBPACK_IMPORTED_MODULE_8__.env.api.account), (0,_dev_learning_data_access__WEBPACK_IMPORTED_MODULE_2__.provideRail)(_envs_env__WEBPACK_IMPORTED_MODULE_8__.env.production, _envs_env__WEBPACK_IMPORTED_MODULE_8__.env.api.learning), (0,_dev_content_data_access__WEBPACK_IMPORTED_MODULE_3__.provideContent)(_envs_env__WEBPACK_IMPORTED_MODULE_8__.env.production, _envs_env__WEBPACK_IMPORTED_MODULE_8__.env.api.content), (0,_dev_content_data_access__WEBPACK_IMPORTED_MODULE_3__.provideBook)(_envs_env__WEBPACK_IMPORTED_MODULE_8__.env.production, _envs_env__WEBPACK_IMPORTED_MODULE_8__.env.api.book), (0,_dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__.provideLoader)(), {
-    provide: _angular_core__WEBPACK_IMPORTED_MODULE_13__.LOCALE_ID,
+_class.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵdefineInjector"]({
+  providers: [(0,_dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__.provideHttp)(_angular_common_http__WEBPACK_IMPORTED_MODULE_11__.HttpClient), (0,_dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__.provideLoader)(), {
+    provide: _angular_core__WEBPACK_IMPORTED_MODULE_10__.LOCALE_ID,
     useValue: 'pt-BR'
   }, {
-    provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_14__.HTTP_INTERCEPTORS,
-    useClass: _app_interceptor__WEBPACK_IMPORTED_MODULE_5__.AppInterceptor,
+    provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_11__.HTTP_INTERCEPTORS,
+    useClass: _app_interceptor__WEBPACK_IMPORTED_MODULE_2__.AppInterceptor,
     multi: true
   }],
-  imports: [_dev_shared_ui_base__WEBPACK_IMPORTED_MODULE_9__.UiBaseModule, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_15__.LayoutModule, _angular_platform_browser__WEBPACK_IMPORTED_MODULE_16__.BrowserModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_14__.HttpClientModule, _angular_material_divider__WEBPACK_IMPORTED_MODULE_17__.MatDividerModule, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_18__.MatSidenavModule, _angular_material_menu__WEBPACK_IMPORTED_MODULE_19__.MatMenuModule, _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_20__.MatToolbarModule, _angular_material_button__WEBPACK_IMPORTED_MODULE_21__.MatButtonModule, _angular_material_icon__WEBPACK_IMPORTED_MODULE_22__.MatIconModule, _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_23__.BrowserAnimationsModule, _angular_router__WEBPACK_IMPORTED_MODULE_24__.RouterModule.forRoot(_app_routes__WEBPACK_IMPORTED_MODULE_7__.appRoutes, {
+  imports: [_dev_shared_ui_base__WEBPACK_IMPORTED_MODULE_1__.UiBaseModule, _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__.BrowserModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_11__.HttpClientModule, _shared__WEBPACK_IMPORTED_MODULE_5__.SharedMaterial.forApp(), _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_13__.BrowserAnimationsModule, _angular_router__WEBPACK_IMPORTED_MODULE_14__.RouterModule.forRoot(_app_routes__WEBPACK_IMPORTED_MODULE_6__.appRoutes, {
     useHash: true,
     initialNavigation: 'enabledBlocking'
   })]
 });
 (function () {
-  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵsetNgModuleScope"](AppModule, {
-    declarations: [_app_component__WEBPACK_IMPORTED_MODULE_6__.AppComponent, _loader_loader_component__WEBPACK_IMPORTED_MODULE_4__.LoaderComponent],
-    imports: [_dev_shared_ui_base__WEBPACK_IMPORTED_MODULE_9__.UiBaseModule, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_15__.LayoutModule, _angular_platform_browser__WEBPACK_IMPORTED_MODULE_16__.BrowserModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_14__.HttpClientModule, _angular_material_divider__WEBPACK_IMPORTED_MODULE_17__.MatDividerModule, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_18__.MatSidenavModule, _angular_material_menu__WEBPACK_IMPORTED_MODULE_19__.MatMenuModule, _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_20__.MatToolbarModule, _angular_material_button__WEBPACK_IMPORTED_MODULE_21__.MatButtonModule, _angular_material_icon__WEBPACK_IMPORTED_MODULE_22__.MatIconModule, _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_23__.BrowserAnimationsModule, _angular_router__WEBPACK_IMPORTED_MODULE_24__.RouterModule]
+  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵsetNgModuleScope"](AppModule, {
+    declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__.AppComponent, _loader__WEBPACK_IMPORTED_MODULE_4__.LoaderComponent],
+    imports: [_dev_shared_ui_base__WEBPACK_IMPORTED_MODULE_1__.UiBaseModule, _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__.BrowserModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_11__.HttpClientModule, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_15__.LayoutModule, _angular_material_divider__WEBPACK_IMPORTED_MODULE_16__.MatDividerModule, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_17__.MatSidenavModule, _angular_material_menu__WEBPACK_IMPORTED_MODULE_18__.MatMenuModule, _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_19__.MatToolbarModule, _angular_material_button__WEBPACK_IMPORTED_MODULE_20__.MatButtonModule, _angular_material_icon__WEBPACK_IMPORTED_MODULE_21__.MatIconModule, _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_13__.BrowserAnimationsModule, _angular_router__WEBPACK_IMPORTED_MODULE_14__.RouterModule]
   });
 })();
 
@@ -713,18 +238,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   appRoutes: () => (/* binding */ appRoutes)
 /* harmony export */ });
 const appRoutes = [{
-  path: 'learning',
-  loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_angular_material_fesm2022_card_mjs"), __webpack_require__.e("default-shared_ui-forms_src_index_ts-node_modules_angular_material_fesm2022_dialog_mjs-node_m-7d2108"), __webpack_require__.e("learning_feature_src_index_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! @dev/learning-feature */ 4321)).then(m => m.LearningFeatureModule)
-}, {
   path: '',
-  loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_angular_material_fesm2022_card_mjs"), __webpack_require__.e("dashboard_feature_src_index_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! @dev/dashboard-feature */ 7293)).then(m => m.DashboardFeatureModule)
-}, {
-  path: 'account',
-  loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_angular_material_fesm2022_card_mjs"), __webpack_require__.e("default-shared_ui-forms_src_index_ts-node_modules_angular_material_fesm2022_dialog_mjs-node_m-7d2108"), __webpack_require__.e("account_feature_src_index_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! @dev/account-feature */ 7043)).then(m => m.AccountFeatureModule)
-}, {
-  path: 'content',
-  loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_angular_material_fesm2022_card_mjs"), __webpack_require__.e("default-shared_ui-forms_src_index_ts-node_modules_angular_material_fesm2022_dialog_mjs-node_m-7d2108"), __webpack_require__.e("content_feature_src_index_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! @dev/content-feature */ 5877)).then(m => m.ContentFeatureModule)
+  loadChildren: () => __webpack_require__.e(/*! import() */ "tools_feature_src_index_ts").then(__webpack_require__.bind(__webpack_require__, /*! @dev/tools-feature */ 6455)).then(m => m.ToolsFeatureModule)
 }];
+
+/***/ }),
+
+/***/ 8110:
+/*!*************************************!*\
+  !*** ./app/src/app/loader/index.ts ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   LoaderComponent: () => (/* reexport safe */ _loader_component__WEBPACK_IMPORTED_MODULE_0__.LoaderComponent)
+/* harmony export */ });
+/* harmony import */ var _loader_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./loader.component */ 2036);
+
 
 /***/ }),
 
@@ -763,25 +294,50 @@ _class.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefi
 
 /***/ }),
 
-/***/ 934:
-/*!*****************************!*\
-  !*** ./app/src/envs/env.ts ***!
-  \*****************************/
+/***/ 3144:
+/*!*************************************!*\
+  !*** ./app/src/app/shared/index.ts ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   env: () => (/* binding */ env)
+/* harmony export */   SharedMaterial: () => (/* reexport safe */ _material__WEBPACK_IMPORTED_MODULE_0__.SharedMaterial)
 /* harmony export */ });
-const env = {
-  production: false,
-  api: {
-    content: [],
-    account: [],
-    learning: [],
-    book: []
+/* harmony import */ var _material__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./material */ 582);
+
+
+/***/ }),
+
+/***/ 582:
+/*!****************************************!*\
+  !*** ./app/src/app/shared/material.ts ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SharedMaterial: () => (/* binding */ SharedMaterial)
+/* harmony export */ });
+/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/menu */ 4818);
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/sidenav */ 1569);
+/* harmony import */ var _angular_material_divider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material/divider */ 2599);
+/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/toolbar */ 4130);
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/button */ 8433);
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/icon */ 4313);
+/* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/cdk/layout */ 4146);
+
+
+
+
+
+
+
+class SharedMaterial {
+  static forApp() {
+    return [_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_0__.LayoutModule, _angular_material_divider__WEBPACK_IMPORTED_MODULE_1__.MatDividerModule, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_2__.MatSidenavModule, _angular_material_menu__WEBPACK_IMPORTED_MODULE_3__.MatMenuModule, _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_4__.MatToolbarModule, _angular_material_button__WEBPACK_IMPORTED_MODULE_5__.MatButtonModule, _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__.MatIconModule];
   }
-};
+}
 
 /***/ }),
 
@@ -797,1068 +353,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__.platformBrowser().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_0__.AppModule).catch(err => console.error(err));
-
-/***/ }),
-
-/***/ 368:
-/*!******************************************!*\
-  !*** ./content/data-access/src/index.ts ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   BookFacade: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.BookFacade),
-/* harmony export */   BookServiceImpl: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.BookServiceImpl),
-/* harmony export */   BookServiceMock: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.BookServiceMock),
-/* harmony export */   ContentFacade: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.ContentFacade),
-/* harmony export */   ContentServiceImpl: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.ContentServiceImpl),
-/* harmony export */   ContentServiceMock: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.ContentServiceMock),
-/* harmony export */   provideBook: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.provideBook),
-/* harmony export */   provideBookFacade: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.provideBookFacade),
-/* harmony export */   provideBookService: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.provideBookService),
-/* harmony export */   provideBookServiceMock: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.provideBookServiceMock),
-/* harmony export */   provideContent: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.provideContent),
-/* harmony export */   provideContentFacade: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.provideContentFacade),
-/* harmony export */   provideContentService: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.provideContentService),
-/* harmony export */   provideContentServiceMock: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.provideContentServiceMock)
-/* harmony export */ });
-/* harmony import */ var _public_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./public-api */ 2079);
-
-
-/***/ }),
-
-/***/ 6039:
-/*!****************************************************************!*\
-  !*** ./content/data-access/src/lib/application/book.facade.ts ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   BookFacade: () => (/* binding */ BookFacade)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-util-data */ 6866);
-
-class BookFacade extends _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__.Facade {}
-
-/***/ }),
-
-/***/ 3164:
-/*!*******************************************************************!*\
-  !*** ./content/data-access/src/lib/application/content.facade.ts ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ContentFacade: () => (/* binding */ ContentFacade)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-util-data */ 6866);
-
-class ContentFacade extends _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__.Facade {}
-
-/***/ }),
-
-/***/ 2702:
-/*!**********************************************************!*\
-  !*** ./content/data-access/src/lib/application/index.ts ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   BookFacade: () => (/* reexport safe */ _book_facade__WEBPACK_IMPORTED_MODULE_1__.BookFacade),
-/* harmony export */   ContentFacade: () => (/* reexport safe */ _content_facade__WEBPACK_IMPORTED_MODULE_0__.ContentFacade)
-/* harmony export */ });
-/* harmony import */ var _content_facade__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./content.facade */ 3164);
-/* harmony import */ var _book_facade__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./book.facade */ 6039);
-
-
-
-/***/ }),
-
-/***/ 8191:
-/*!**************************************************!*\
-  !*** ./content/data-access/src/lib/dtos/book.ts ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 4471:
-/*!*****************************************************!*\
-  !*** ./content/data-access/src/lib/dtos/content.ts ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 5674:
-/*!*********************************************************!*\
-  !*** ./content/data-access/src/lib/dtos/create-book.ts ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 4403:
-/*!************************************************************!*\
-  !*** ./content/data-access/src/lib/dtos/create-content.ts ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 8009:
-/*!***************************************************!*\
-  !*** ./content/data-access/src/lib/dtos/index.ts ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _content__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./content */ 4471);
-/* harmony import */ var _create_content__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create-content */ 4403);
-/* harmony import */ var _update_content__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./update-content */ 2794);
-/* harmony import */ var _book__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./book */ 8191);
-/* harmony import */ var _create_book__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./create-book */ 5674);
-/* harmony import */ var _update_book__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./update-book */ 9417);
-
-
-
-
-
-
-
-/***/ }),
-
-/***/ 9417:
-/*!*********************************************************!*\
-  !*** ./content/data-access/src/lib/dtos/update-book.ts ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 2794:
-/*!************************************************************!*\
-  !*** ./content/data-access/src/lib/dtos/update-content.ts ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 3862:
-/*!*************************************************************************!*\
-  !*** ./content/data-access/src/lib/infrastructure/book.service.impl.ts ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   BookServiceImpl: () => (/* binding */ BookServiceImpl)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-data-access */ 6231);
-
-class BookServiceImpl extends _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__.BaseService {}
-
-/***/ }),
-
-/***/ 9924:
-/*!*************************************************************************!*\
-  !*** ./content/data-access/src/lib/infrastructure/book.service.mock.ts ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   BookServiceMock: () => (/* binding */ BookServiceMock)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-data-access */ 6231);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 5761);
-
-
-class BookServiceMock extends _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__.MockService {
-  create(value) {
-    const entity = {
-      ...value,
-      id: crypto.randomUUID(),
-      createdAt: new Date(),
-      updatedAt: new Date()
-    };
-    this.collection.push(entity);
-    return (0,rxjs__WEBPACK_IMPORTED_MODULE_1__.of)(entity);
-  }
-}
-
-/***/ }),
-
-/***/ 5770:
-/*!****************************************************************************!*\
-  !*** ./content/data-access/src/lib/infrastructure/content.service.impl.ts ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ContentServiceImpl: () => (/* binding */ ContentServiceImpl)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-data-access */ 6231);
-
-class ContentServiceImpl extends _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__.BaseService {}
-
-/***/ }),
-
-/***/ 8547:
-/*!****************************************************************************!*\
-  !*** ./content/data-access/src/lib/infrastructure/content.service.mock.ts ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ContentServiceMock: () => (/* binding */ ContentServiceMock)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-data-access */ 6231);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 5761);
-
-
-class ContentServiceMock extends _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__.MockService {
-  create(value) {
-    const entity = {
-      ...value,
-      id: crypto.randomUUID(),
-      createdAt: new Date(),
-      updatedAt: new Date()
-    };
-    this.collection.push(entity);
-    return (0,rxjs__WEBPACK_IMPORTED_MODULE_1__.of)(entity);
-  }
-}
-
-/***/ }),
-
-/***/ 5521:
-/*!*************************************************************!*\
-  !*** ./content/data-access/src/lib/infrastructure/index.ts ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   BookServiceImpl: () => (/* reexport safe */ _book_service_impl__WEBPACK_IMPORTED_MODULE_2__.BookServiceImpl),
-/* harmony export */   BookServiceMock: () => (/* reexport safe */ _book_service_mock__WEBPACK_IMPORTED_MODULE_3__.BookServiceMock),
-/* harmony export */   ContentServiceImpl: () => (/* reexport safe */ _content_service_impl__WEBPACK_IMPORTED_MODULE_0__.ContentServiceImpl),
-/* harmony export */   ContentServiceMock: () => (/* reexport safe */ _content_service_mock__WEBPACK_IMPORTED_MODULE_1__.ContentServiceMock)
-/* harmony export */ });
-/* harmony import */ var _content_service_impl__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./content.service.impl */ 5770);
-/* harmony import */ var _content_service_mock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./content.service.mock */ 8547);
-/* harmony import */ var _book_service_impl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./book.service.impl */ 3862);
-/* harmony import */ var _book_service_mock__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./book.service.mock */ 9924);
-
-
-
-
-
-/***/ }),
-
-/***/ 9372:
-/*!*******************************************************!*\
-  !*** ./content/data-access/src/lib/providers/book.ts ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   provideBook: () => (/* binding */ provideBook),
-/* harmony export */   provideBookFacade: () => (/* binding */ provideBookFacade),
-/* harmony export */   provideBookService: () => (/* binding */ provideBookService),
-/* harmony export */   provideBookServiceMock: () => (/* binding */ provideBookServiceMock)
-/* harmony export */ });
-/* harmony import */ var _infrastructure__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../infrastructure */ 5521);
-/* harmony import */ var _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @dev/shared-data-access */ 6231);
-/* harmony import */ var _dev_content_domain__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @dev/content-domain */ 4648);
-/* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../application */ 2702);
-
-
-
-
-function provideBookService(api) {
-  return {
-    provide: _dev_content_domain__WEBPACK_IMPORTED_MODULE_2__.BookService,
-    useFactory(http) {
-      return new _infrastructure__WEBPACK_IMPORTED_MODULE_0__.BookServiceImpl(http, api);
-    },
-    deps: [_dev_shared_data_access__WEBPACK_IMPORTED_MODULE_1__.Http]
-  };
-}
-function provideBookServiceMock(collection = []) {
-  return (0,_dev_shared_data_access__WEBPACK_IMPORTED_MODULE_1__.provideServiceMock)(_dev_content_domain__WEBPACK_IMPORTED_MODULE_2__.BookService, _infrastructure__WEBPACK_IMPORTED_MODULE_0__.BookServiceMock, collection);
-}
-function provideBookFacade() {
-  return {
-    provide: _application__WEBPACK_IMPORTED_MODULE_3__.BookFacade,
-    deps: [_dev_content_domain__WEBPACK_IMPORTED_MODULE_2__.BookService]
-  };
-}
-function provideBook(production = false, api = []) {
-  const providers = [];
-  providers.push(production ? provideBookService(api) : provideBookServiceMock(api));
-  providers.push(provideBookFacade());
-  return providers;
-}
-
-/***/ }),
-
-/***/ 8279:
-/*!**********************************************************!*\
-  !*** ./content/data-access/src/lib/providers/content.ts ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   provideContent: () => (/* binding */ provideContent),
-/* harmony export */   provideContentFacade: () => (/* binding */ provideContentFacade),
-/* harmony export */   provideContentService: () => (/* binding */ provideContentService),
-/* harmony export */   provideContentServiceMock: () => (/* binding */ provideContentServiceMock)
-/* harmony export */ });
-/* harmony import */ var _infrastructure__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../infrastructure */ 5521);
-/* harmony import */ var _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @dev/shared-data-access */ 6231);
-/* harmony import */ var _dev_content_domain__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @dev/content-domain */ 4648);
-/* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../application */ 2702);
-
-
-
-
-function provideContentService(api) {
-  return {
-    provide: _dev_content_domain__WEBPACK_IMPORTED_MODULE_2__.ContentService,
-    useFactory(http) {
-      return new _infrastructure__WEBPACK_IMPORTED_MODULE_0__.ContentServiceImpl(http, api);
-    },
-    deps: [_dev_shared_data_access__WEBPACK_IMPORTED_MODULE_1__.Http]
-  };
-}
-function provideContentServiceMock(collection = []) {
-  return (0,_dev_shared_data_access__WEBPACK_IMPORTED_MODULE_1__.provideServiceMock)(_dev_content_domain__WEBPACK_IMPORTED_MODULE_2__.ContentService, _infrastructure__WEBPACK_IMPORTED_MODULE_0__.ContentServiceMock, collection);
-}
-function provideContentFacade() {
-  return {
-    provide: _application__WEBPACK_IMPORTED_MODULE_3__.ContentFacade,
-    deps: [_dev_content_domain__WEBPACK_IMPORTED_MODULE_2__.ContentService]
-  };
-}
-function provideContent(production = false, api = []) {
-  const providers = [];
-  providers.push(production ? provideContentService(api) : provideContentServiceMock(api));
-  providers.push(provideContentFacade());
-  return providers;
-}
-
-/***/ }),
-
-/***/ 6955:
-/*!********************************************************!*\
-  !*** ./content/data-access/src/lib/providers/index.ts ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   provideBook: () => (/* reexport safe */ _book__WEBPACK_IMPORTED_MODULE_1__.provideBook),
-/* harmony export */   provideBookFacade: () => (/* reexport safe */ _book__WEBPACK_IMPORTED_MODULE_1__.provideBookFacade),
-/* harmony export */   provideBookService: () => (/* reexport safe */ _book__WEBPACK_IMPORTED_MODULE_1__.provideBookService),
-/* harmony export */   provideBookServiceMock: () => (/* reexport safe */ _book__WEBPACK_IMPORTED_MODULE_1__.provideBookServiceMock),
-/* harmony export */   provideContent: () => (/* reexport safe */ _content__WEBPACK_IMPORTED_MODULE_0__.provideContent),
-/* harmony export */   provideContentFacade: () => (/* reexport safe */ _content__WEBPACK_IMPORTED_MODULE_0__.provideContentFacade),
-/* harmony export */   provideContentService: () => (/* reexport safe */ _content__WEBPACK_IMPORTED_MODULE_0__.provideContentService),
-/* harmony export */   provideContentServiceMock: () => (/* reexport safe */ _content__WEBPACK_IMPORTED_MODULE_0__.provideContentServiceMock)
-/* harmony export */ });
-/* harmony import */ var _content__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./content */ 8279);
-/* harmony import */ var _book__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./book */ 9372);
-
-
-
-/***/ }),
-
-/***/ 2079:
-/*!***********************************************!*\
-  !*** ./content/data-access/src/public-api.ts ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   BookFacade: () => (/* reexport safe */ _lib_application__WEBPACK_IMPORTED_MODULE_1__.BookFacade),
-/* harmony export */   BookServiceImpl: () => (/* reexport safe */ _lib_infrastructure__WEBPACK_IMPORTED_MODULE_0__.BookServiceImpl),
-/* harmony export */   BookServiceMock: () => (/* reexport safe */ _lib_infrastructure__WEBPACK_IMPORTED_MODULE_0__.BookServiceMock),
-/* harmony export */   ContentFacade: () => (/* reexport safe */ _lib_application__WEBPACK_IMPORTED_MODULE_1__.ContentFacade),
-/* harmony export */   ContentServiceImpl: () => (/* reexport safe */ _lib_infrastructure__WEBPACK_IMPORTED_MODULE_0__.ContentServiceImpl),
-/* harmony export */   ContentServiceMock: () => (/* reexport safe */ _lib_infrastructure__WEBPACK_IMPORTED_MODULE_0__.ContentServiceMock),
-/* harmony export */   provideBook: () => (/* reexport safe */ _lib_providers__WEBPACK_IMPORTED_MODULE_2__.provideBook),
-/* harmony export */   provideBookFacade: () => (/* reexport safe */ _lib_providers__WEBPACK_IMPORTED_MODULE_2__.provideBookFacade),
-/* harmony export */   provideBookService: () => (/* reexport safe */ _lib_providers__WEBPACK_IMPORTED_MODULE_2__.provideBookService),
-/* harmony export */   provideBookServiceMock: () => (/* reexport safe */ _lib_providers__WEBPACK_IMPORTED_MODULE_2__.provideBookServiceMock),
-/* harmony export */   provideContent: () => (/* reexport safe */ _lib_providers__WEBPACK_IMPORTED_MODULE_2__.provideContent),
-/* harmony export */   provideContentFacade: () => (/* reexport safe */ _lib_providers__WEBPACK_IMPORTED_MODULE_2__.provideContentFacade),
-/* harmony export */   provideContentService: () => (/* reexport safe */ _lib_providers__WEBPACK_IMPORTED_MODULE_2__.provideContentService),
-/* harmony export */   provideContentServiceMock: () => (/* reexport safe */ _lib_providers__WEBPACK_IMPORTED_MODULE_2__.provideContentServiceMock)
-/* harmony export */ });
-/* harmony import */ var _lib_infrastructure__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/infrastructure */ 5521);
-/* harmony import */ var _lib_application__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/application */ 2702);
-/* harmony import */ var _lib_providers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib/providers */ 6955);
-/* harmony import */ var _lib_dtos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lib/dtos */ 8009);
-
-
-
-
-
-/***/ }),
-
-/***/ 4648:
-/*!*************************************!*\
-  !*** ./content/domain/src/index.ts ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   BookRepository: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.BookRepository),
-/* harmony export */   BookService: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.BookService),
-/* harmony export */   ContentRepository: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.ContentRepository),
-/* harmony export */   ContentService: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.ContentService)
-/* harmony export */ });
-/* harmony import */ var _public_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./public-api */ 9221);
-
-
-/***/ }),
-
-/***/ 5907:
-/*!****************************************************!*\
-  !*** ./content/domain/src/lib/dtos/create-book.ts ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 4275:
-/*!*******************************************************!*\
-  !*** ./content/domain/src/lib/dtos/create-content.ts ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 3824:
-/*!**********************************************!*\
-  !*** ./content/domain/src/lib/dtos/index.ts ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _create_content__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create-content */ 4275);
-/* harmony import */ var _update_content__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./update-content */ 6359);
-/* harmony import */ var _create_book__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./create-book */ 5907);
-/* harmony import */ var _update_book__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./update-book */ 8908);
-
-
-
-
-
-/***/ }),
-
-/***/ 8908:
-/*!****************************************************!*\
-  !*** ./content/domain/src/lib/dtos/update-book.ts ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 6359:
-/*!*******************************************************!*\
-  !*** ./content/domain/src/lib/dtos/update-content.ts ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 8830:
-/*!*************************************************!*\
-  !*** ./content/domain/src/lib/entities/book.ts ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 7653:
-/*!****************************************************!*\
-  !*** ./content/domain/src/lib/entities/content.ts ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 789:
-/*!**************************************************!*\
-  !*** ./content/domain/src/lib/entities/index.ts ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _content__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./content */ 7653);
-/* harmony import */ var _book__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./book */ 8830);
-
-
-
-/***/ }),
-
-/***/ 4722:
-/*!*********************************************************!*\
-  !*** ./content/domain/src/lib/ports/book.repository.ts ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   BookRepository: () => (/* binding */ BookRepository)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-util-data */ 6866);
-
-class BookRepository extends _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__.Repository {}
-
-/***/ }),
-
-/***/ 7865:
-/*!******************************************************!*\
-  !*** ./content/domain/src/lib/ports/book.service.ts ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   BookService: () => (/* binding */ BookService)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-util-data */ 6866);
-
-class BookService extends _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__.Service {}
-
-/***/ }),
-
-/***/ 5049:
-/*!************************************************************!*\
-  !*** ./content/domain/src/lib/ports/content.repository.ts ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ContentRepository: () => (/* binding */ ContentRepository)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-util-data */ 6866);
-
-class ContentRepository extends _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__.Repository {}
-
-/***/ }),
-
-/***/ 5119:
-/*!*********************************************************!*\
-  !*** ./content/domain/src/lib/ports/content.service.ts ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ContentService: () => (/* binding */ ContentService)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-util-data */ 6866);
-
-class ContentService extends _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__.Service {}
-
-/***/ }),
-
-/***/ 4173:
-/*!***********************************************!*\
-  !*** ./content/domain/src/lib/ports/index.ts ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   BookRepository: () => (/* reexport safe */ _book_repository__WEBPACK_IMPORTED_MODULE_2__.BookRepository),
-/* harmony export */   BookService: () => (/* reexport safe */ _book_service__WEBPACK_IMPORTED_MODULE_3__.BookService),
-/* harmony export */   ContentRepository: () => (/* reexport safe */ _content_repository__WEBPACK_IMPORTED_MODULE_0__.ContentRepository),
-/* harmony export */   ContentService: () => (/* reexport safe */ _content_service__WEBPACK_IMPORTED_MODULE_1__.ContentService)
-/* harmony export */ });
-/* harmony import */ var _content_repository__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./content.repository */ 5049);
-/* harmony import */ var _content_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./content.service */ 5119);
-/* harmony import */ var _book_repository__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./book.repository */ 4722);
-/* harmony import */ var _book_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./book.service */ 7865);
-
-
-
-
-
-/***/ }),
-
-/***/ 9221:
-/*!******************************************!*\
-  !*** ./content/domain/src/public-api.ts ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   BookRepository: () => (/* reexport safe */ _lib_ports__WEBPACK_IMPORTED_MODULE_1__.BookRepository),
-/* harmony export */   BookService: () => (/* reexport safe */ _lib_ports__WEBPACK_IMPORTED_MODULE_1__.BookService),
-/* harmony export */   ContentRepository: () => (/* reexport safe */ _lib_ports__WEBPACK_IMPORTED_MODULE_1__.ContentRepository),
-/* harmony export */   ContentService: () => (/* reexport safe */ _lib_ports__WEBPACK_IMPORTED_MODULE_1__.ContentService)
-/* harmony export */ });
-/* harmony import */ var _lib_dtos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/dtos */ 3824);
-/* harmony import */ var _lib_ports__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/ports */ 4173);
-/* harmony import */ var _lib_entities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib/entities */ 789);
-
-
-
-
-/***/ }),
-
-/***/ 3144:
-/*!*******************************************!*\
-  !*** ./learning/data-access/src/index.ts ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RailFacade: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.RailFacade),
-/* harmony export */   RailServiceImpl: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.RailServiceImpl),
-/* harmony export */   RailServiceMock: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.RailServiceMock),
-/* harmony export */   provideRail: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.provideRail),
-/* harmony export */   provideRailFacade: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.provideRailFacade),
-/* harmony export */   provideRailService: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.provideRailService),
-/* harmony export */   provideRailServiceMock: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.provideRailServiceMock)
-/* harmony export */ });
-/* harmony import */ var _public_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./public-api */ 9029);
-
-
-/***/ }),
-
-/***/ 7854:
-/*!***********************************************************!*\
-  !*** ./learning/data-access/src/lib/application/index.ts ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RailFacade: () => (/* reexport safe */ _rail_facade__WEBPACK_IMPORTED_MODULE_0__.RailFacade)
-/* harmony export */ });
-/* harmony import */ var _rail_facade__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./rail.facade */ 4476);
-
-
-/***/ }),
-
-/***/ 4476:
-/*!*****************************************************************!*\
-  !*** ./learning/data-access/src/lib/application/rail.facade.ts ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RailFacade: () => (/* binding */ RailFacade)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-util-data */ 6866);
-
-class RailFacade extends _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__.Facade {}
-
-/***/ }),
-
-/***/ 3625:
-/*!**********************************************************!*\
-  !*** ./learning/data-access/src/lib/dtos/create-rail.ts ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 1956:
-/*!****************************************************!*\
-  !*** ./learning/data-access/src/lib/dtos/index.ts ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _create_rail__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create-rail */ 3625);
-/* harmony import */ var _rail__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./rail */ 8366);
-/* harmony import */ var _update_rail__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./update-rail */ 4458);
-
-
-
-
-/***/ }),
-
-/***/ 8366:
-/*!***************************************************!*\
-  !*** ./learning/data-access/src/lib/dtos/rail.ts ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 4458:
-/*!**********************************************************!*\
-  !*** ./learning/data-access/src/lib/dtos/update-rail.ts ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 8631:
-/*!**************************************************************!*\
-  !*** ./learning/data-access/src/lib/infrastructure/index.ts ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RailServiceImpl: () => (/* reexport safe */ _rail_service_impl__WEBPACK_IMPORTED_MODULE_0__.RailServiceImpl),
-/* harmony export */   RailServiceMock: () => (/* reexport safe */ _rail_service_mock__WEBPACK_IMPORTED_MODULE_1__.RailServiceMock)
-/* harmony export */ });
-/* harmony import */ var _rail_service_impl__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./rail.service.impl */ 7579);
-/* harmony import */ var _rail_service_mock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./rail.service.mock */ 2431);
-
-
-
-/***/ }),
-
-/***/ 7579:
-/*!**************************************************************************!*\
-  !*** ./learning/data-access/src/lib/infrastructure/rail.service.impl.ts ***!
-  \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RailServiceImpl: () => (/* binding */ RailServiceImpl)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-data-access */ 6231);
-
-class RailServiceImpl extends _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__.BaseService {}
-
-/***/ }),
-
-/***/ 2431:
-/*!**************************************************************************!*\
-  !*** ./learning/data-access/src/lib/infrastructure/rail.service.mock.ts ***!
-  \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RailServiceMock: () => (/* binding */ RailServiceMock)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-data-access */ 6231);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 5761);
-
-
-class RailServiceMock extends _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_0__.MockService {
-  create(value) {
-    const entity = {
-      ...value,
-      id: crypto.randomUUID(),
-      createdAt: new Date(),
-      updatedAt: new Date()
-    };
-    this.collection.push(entity);
-    return (0,rxjs__WEBPACK_IMPORTED_MODULE_1__.of)(entity);
-  }
-}
-
-/***/ }),
-
-/***/ 389:
-/*!*********************************************************!*\
-  !*** ./learning/data-access/src/lib/providers/index.ts ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   provideRail: () => (/* reexport safe */ _rail__WEBPACK_IMPORTED_MODULE_0__.provideRail),
-/* harmony export */   provideRailFacade: () => (/* reexport safe */ _rail__WEBPACK_IMPORTED_MODULE_0__.provideRailFacade),
-/* harmony export */   provideRailService: () => (/* reexport safe */ _rail__WEBPACK_IMPORTED_MODULE_0__.provideRailService),
-/* harmony export */   provideRailServiceMock: () => (/* reexport safe */ _rail__WEBPACK_IMPORTED_MODULE_0__.provideRailServiceMock)
-/* harmony export */ });
-/* harmony import */ var _rail__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./rail */ 409);
-
-
-/***/ }),
-
-/***/ 409:
-/*!********************************************************!*\
-  !*** ./learning/data-access/src/lib/providers/rail.ts ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   provideRail: () => (/* binding */ provideRail),
-/* harmony export */   provideRailFacade: () => (/* binding */ provideRailFacade),
-/* harmony export */   provideRailService: () => (/* binding */ provideRailService),
-/* harmony export */   provideRailServiceMock: () => (/* binding */ provideRailServiceMock)
-/* harmony export */ });
-/* harmony import */ var _dev_learning_domain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/learning-domain */ 6884);
-/* harmony import */ var _infrastructure__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../infrastructure */ 8631);
-/* harmony import */ var _dev_shared_data_access__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @dev/shared-data-access */ 6231);
-/* harmony import */ var _application__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../application */ 7854);
-
-
-
-
-function provideRailService(api) {
-  return {
-    provide: _dev_learning_domain__WEBPACK_IMPORTED_MODULE_0__.RailService,
-    useFactory(http) {
-      return new _infrastructure__WEBPACK_IMPORTED_MODULE_1__.RailServiceImpl(http, api);
-    },
-    deps: [_dev_shared_data_access__WEBPACK_IMPORTED_MODULE_2__.Http]
-  };
-}
-function provideRailServiceMock(collection = []) {
-  return (0,_dev_shared_data_access__WEBPACK_IMPORTED_MODULE_2__.provideServiceMock)(_dev_learning_domain__WEBPACK_IMPORTED_MODULE_0__.RailService, _infrastructure__WEBPACK_IMPORTED_MODULE_1__.RailServiceMock, collection);
-}
-function provideRailFacade() {
-  return {
-    provide: _application__WEBPACK_IMPORTED_MODULE_3__.RailFacade,
-    deps: [_dev_learning_domain__WEBPACK_IMPORTED_MODULE_0__.RailService]
-  };
-}
-function provideRail(production = false, api = []) {
-  const providers = [];
-  providers.push(production ? provideRailService(api) : provideRailServiceMock(api));
-  providers.push(provideRailFacade());
-  return providers;
-}
-
-/***/ }),
-
-/***/ 9029:
-/*!************************************************!*\
-  !*** ./learning/data-access/src/public-api.ts ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RailFacade: () => (/* reexport safe */ _lib_application__WEBPACK_IMPORTED_MODULE_1__.RailFacade),
-/* harmony export */   RailServiceImpl: () => (/* reexport safe */ _lib_infrastructure__WEBPACK_IMPORTED_MODULE_0__.RailServiceImpl),
-/* harmony export */   RailServiceMock: () => (/* reexport safe */ _lib_infrastructure__WEBPACK_IMPORTED_MODULE_0__.RailServiceMock),
-/* harmony export */   provideRail: () => (/* reexport safe */ _lib_providers__WEBPACK_IMPORTED_MODULE_2__.provideRail),
-/* harmony export */   provideRailFacade: () => (/* reexport safe */ _lib_providers__WEBPACK_IMPORTED_MODULE_2__.provideRailFacade),
-/* harmony export */   provideRailService: () => (/* reexport safe */ _lib_providers__WEBPACK_IMPORTED_MODULE_2__.provideRailService),
-/* harmony export */   provideRailServiceMock: () => (/* reexport safe */ _lib_providers__WEBPACK_IMPORTED_MODULE_2__.provideRailServiceMock)
-/* harmony export */ });
-/* harmony import */ var _lib_infrastructure__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/infrastructure */ 8631);
-/* harmony import */ var _lib_application__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/application */ 7854);
-/* harmony import */ var _lib_providers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib/providers */ 389);
-/* harmony import */ var _lib_dtos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lib/dtos */ 1956);
-
-
-
-
-
-/***/ }),
-
-/***/ 6884:
-/*!**************************************!*\
-  !*** ./learning/domain/src/index.ts ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RailRepository: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.RailRepository),
-/* harmony export */   RailService: () => (/* reexport safe */ _public_api__WEBPACK_IMPORTED_MODULE_0__.RailService)
-/* harmony export */ });
-/* harmony import */ var _public_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./public-api */ 7697);
-
-
-/***/ }),
-
-/***/ 5771:
-/*!*****************************************************!*\
-  !*** ./learning/domain/src/lib/dtos/create-rail.ts ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 5947:
-/*!***********************************************!*\
-  !*** ./learning/domain/src/lib/dtos/index.ts ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _create_rail__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create-rail */ 5771);
-/* harmony import */ var _update_rail__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./update-rail */ 8693);
-
-
-
-/***/ }),
-
-/***/ 8693:
-/*!*****************************************************!*\
-  !*** ./learning/domain/src/lib/dtos/update-rail.ts ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 6166:
-/*!***************************************************!*\
-  !*** ./learning/domain/src/lib/entities/index.ts ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _rail__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./rail */ 5916);
-
-
-/***/ }),
-
-/***/ 5916:
-/*!**************************************************!*\
-  !*** ./learning/domain/src/lib/entities/rail.ts ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-
-
-/***/ }),
-
-/***/ 4928:
-/*!************************************************!*\
-  !*** ./learning/domain/src/lib/ports/index.ts ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RailRepository: () => (/* reexport safe */ _rail_repository__WEBPACK_IMPORTED_MODULE_0__.RailRepository),
-/* harmony export */   RailService: () => (/* reexport safe */ _rail_service__WEBPACK_IMPORTED_MODULE_1__.RailService)
-/* harmony export */ });
-/* harmony import */ var _rail_repository__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./rail.repository */ 1831);
-/* harmony import */ var _rail_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./rail.service */ 7170);
-
-
-
-/***/ }),
-
-/***/ 1831:
-/*!**********************************************************!*\
-  !*** ./learning/domain/src/lib/ports/rail.repository.ts ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RailRepository: () => (/* binding */ RailRepository)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-util-data */ 6866);
-
-class RailRepository extends _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__.Repository {}
-
-/***/ }),
-
-/***/ 7170:
-/*!*******************************************************!*\
-  !*** ./learning/domain/src/lib/ports/rail.service.ts ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RailService: () => (/* binding */ RailService)
-/* harmony export */ });
-/* harmony import */ var _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dev/shared-util-data */ 6866);
-
-class RailService extends _dev_shared_util_data__WEBPACK_IMPORTED_MODULE_0__.Service {}
-
-/***/ }),
-
-/***/ 7697:
-/*!*******************************************!*\
-  !*** ./learning/domain/src/public-api.ts ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RailRepository: () => (/* reexport safe */ _lib_ports__WEBPACK_IMPORTED_MODULE_1__.RailRepository),
-/* harmony export */   RailService: () => (/* reexport safe */ _lib_ports__WEBPACK_IMPORTED_MODULE_1__.RailService)
-/* harmony export */ });
-/* harmony import */ var _lib_dtos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/dtos */ 5947);
-/* harmony import */ var _lib_ports__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/ports */ 4928);
-/* harmony import */ var _lib_entities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib/entities */ 6166);
-
-
-
 
 /***/ }),
 

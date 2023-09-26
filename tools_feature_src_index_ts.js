@@ -1,29 +1,29 @@
 "use strict";
-(self["webpackChunkapp"] = self["webpackChunkapp"] || []).push([["dashboard_feature_src_index_ts"],{
+(self["webpackChunkapp"] = self["webpackChunkapp"] || []).push([["tools_feature_src_index_ts"],{
 
-/***/ 7293:
-/*!****************************************!*\
-  !*** ./dashboard/feature/src/index.ts ***!
-  \****************************************/
+/***/ 6455:
+/*!************************************!*\
+  !*** ./tools/feature/src/index.ts ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   DashboardFeatureModule: () => (/* reexport safe */ _lib_dashboard_feature_module__WEBPACK_IMPORTED_MODULE_0__.DashboardFeatureModule),
+/* harmony export */   ToolsFeatureModule: () => (/* reexport safe */ _lib_tools_feature_module__WEBPACK_IMPORTED_MODULE_0__.ToolsFeatureModule),
 /* harmony export */   dashboardFeatureRoutes: () => (/* reexport safe */ _lib_dashboard_feature_routes__WEBPACK_IMPORTED_MODULE_1__.dashboardFeatureRoutes)
 /* harmony export */ });
-/* harmony import */ var _lib_dashboard_feature_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/dashboard-feature.module */ 5698);
-/* harmony import */ var _lib_dashboard_feature_routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/dashboard-feature.routes */ 4812);
+/* harmony import */ var _lib_tools_feature_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/tools-feature.module */ 9257);
+/* harmony import */ var _lib_dashboard_feature_routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/dashboard-feature.routes */ 5694);
 
 
 
 
 /***/ }),
 
-/***/ 5758:
-/*!******************************************************************!*\
-  !*** ./dashboard/feature/src/lib/dashboard-feature.component.ts ***!
-  \******************************************************************/
+/***/ 8006:
+/*!**************************************************************!*\
+  !*** ./tools/feature/src/lib/dashboard-feature.component.ts ***!
+  \**************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -117,31 +117,50 @@ _class.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefi
     }
   },
   dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.NgForOf, _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_6__.MatGridList, _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_6__.MatGridTile, _angular_material_card__WEBPACK_IMPORTED_MODULE_7__.MatCard, _angular_material_card__WEBPACK_IMPORTED_MODULE_7__.MatCardContent, _angular_common__WEBPACK_IMPORTED_MODULE_5__.AsyncPipe],
-  styles: ["[_nghost-%COMP%]   header[_ngcontent-%COMP%] {\n  margin: 16px 16px 0;\n}\n[_nghost-%COMP%]   header[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  margin: 0;\n}\n[_nghost-%COMP%]   .dashboard-card[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 15px;\n  left: 15px;\n  right: 15px;\n  bottom: 15px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n[_nghost-%COMP%]   .dashboard-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin: 0 40px 20px;\n  font-size: 600%;\n}\n[_nghost-%COMP%]   .more-button[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 5px;\n  right: 10px;\n}\n[_nghost-%COMP%]   .dashboard-card-content[_ngcontent-%COMP%] {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRhc2hib2FyZC1mZWF0dXJlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNFO0VBQ0UsbUJBQUE7QUFBSjtBQUNJO0VBQ0UsU0FBQTtBQUNOO0FBR0U7RUFDRSxrQkFBQTtFQUNBLFNBQUE7RUFDQSxVQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSx1QkFBQTtBQURKO0FBR0k7RUFDRSxtQkFBQTtFQUNBLGVBQUE7QUFETjtBQUtFO0VBQ0Usa0JBQUE7RUFDQSxRQUFBO0VBQ0EsV0FBQTtBQUhKO0FBTUU7RUFDRSxrQkFBQTtBQUpKIiwiZmlsZSI6ImRhc2hib2FyZC1mZWF0dXJlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xuICBoZWFkZXIge1xuICAgIG1hcmdpbjogMTZweCAxNnB4IDA7XG4gICAgaDEge1xuICAgICAgbWFyZ2luOiAwO1xuICAgIH1cbiAgfVxuXG4gIC5kYXNoYm9hcmQtY2FyZCB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMTVweDtcbiAgICBsZWZ0OiAxNXB4O1xuICAgIHJpZ2h0OiAxNXB4O1xuICAgIGJvdHRvbTogMTVweDtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG5cbiAgICBoMiB7XG4gICAgICBtYXJnaW46IDAgNDBweCAyMHB4O1xuICAgICAgZm9udC1zaXplOiA2MDAlO1xuICAgIH1cbiAgfVxuXG4gIC5tb3JlLWJ1dHRvbiB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogNXB4O1xuICAgIHJpZ2h0OiAxMHB4O1xuICB9XG5cbiAgLmRhc2hib2FyZC1jYXJkLWNvbnRlbnQge1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgfVxufVxuIl19 */\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL2Rhc2hib2FyZC9mZWF0dXJlL3NyYy9saWIvZGFzaGJvYXJkLWZlYXR1cmUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0U7RUFDRSxtQkFBQTtBQUFKO0FBQ0k7RUFDRSxTQUFBO0FBQ047QUFHRTtFQUNFLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGFBQUE7RUFDQSxtQkFBQTtFQUNBLHVCQUFBO0FBREo7QUFHSTtFQUNFLG1CQUFBO0VBQ0EsZUFBQTtBQUROO0FBS0U7RUFDRSxrQkFBQTtFQUNBLFFBQUE7RUFDQSxXQUFBO0FBSEo7QUFNRTtFQUNFLGtCQUFBO0FBSko7QUFDQSx3c0NBQXdzQyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcbiAgaGVhZGVyIHtcbiAgICBtYXJnaW46IDE2cHggMTZweCAwO1xuICAgIGgxIHtcbiAgICAgIG1hcmdpbjogMDtcbiAgICB9XG4gIH1cblxuICAuZGFzaGJvYXJkLWNhcmQge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0b3A6IDE1cHg7XG4gICAgbGVmdDogMTVweDtcbiAgICByaWdodDogMTVweDtcbiAgICBib3R0b206IDE1cHg7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuXG4gICAgaDIge1xuICAgICAgbWFyZ2luOiAwIDQwcHggMjBweDtcbiAgICAgIGZvbnQtc2l6ZTogNjAwJTtcbiAgICB9XG4gIH1cblxuICAubW9yZS1idXR0b24ge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0b3A6IDVweDtcbiAgICByaWdodDogMTBweDtcbiAgfVxuXG4gIC5kYXNoYm9hcmQtY2FyZC1jb250ZW50IHtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIH1cbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */"],
+  styles: ["[_nghost-%COMP%]   header[_ngcontent-%COMP%] {\n  margin: 16px 16px 0;\n}\n[_nghost-%COMP%]   header[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  margin: 0;\n}\n[_nghost-%COMP%]   .dashboard-card[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 15px;\n  left: 15px;\n  right: 15px;\n  bottom: 15px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n[_nghost-%COMP%]   .dashboard-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin: 0 40px 20px;\n  font-size: 600%;\n}\n[_nghost-%COMP%]   .more-button[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 5px;\n  right: 10px;\n}\n[_nghost-%COMP%]   .dashboard-card-content[_ngcontent-%COMP%] {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRhc2hib2FyZC1mZWF0dXJlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNFO0VBQ0UsbUJBQUE7QUFBSjtBQUNJO0VBQ0UsU0FBQTtBQUNOO0FBR0U7RUFDRSxrQkFBQTtFQUNBLFNBQUE7RUFDQSxVQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSx1QkFBQTtBQURKO0FBR0k7RUFDRSxtQkFBQTtFQUNBLGVBQUE7QUFETjtBQUtFO0VBQ0Usa0JBQUE7RUFDQSxRQUFBO0VBQ0EsV0FBQTtBQUhKO0FBTUU7RUFDRSxrQkFBQTtBQUpKIiwiZmlsZSI6ImRhc2hib2FyZC1mZWF0dXJlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xuICBoZWFkZXIge1xuICAgIG1hcmdpbjogMTZweCAxNnB4IDA7XG4gICAgaDEge1xuICAgICAgbWFyZ2luOiAwO1xuICAgIH1cbiAgfVxuXG4gIC5kYXNoYm9hcmQtY2FyZCB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMTVweDtcbiAgICBsZWZ0OiAxNXB4O1xuICAgIHJpZ2h0OiAxNXB4O1xuICAgIGJvdHRvbTogMTVweDtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG5cbiAgICBoMiB7XG4gICAgICBtYXJnaW46IDAgNDBweCAyMHB4O1xuICAgICAgZm9udC1zaXplOiA2MDAlO1xuICAgIH1cbiAgfVxuXG4gIC5tb3JlLWJ1dHRvbiB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogNXB4O1xuICAgIHJpZ2h0OiAxMHB4O1xuICB9XG5cbiAgLmRhc2hib2FyZC1jYXJkLWNvbnRlbnQge1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgfVxufVxuIl19 */\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3Rvb2xzL2ZlYXR1cmUvc3JjL2xpYi9kYXNoYm9hcmQtZmVhdHVyZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDRTtFQUNFLG1CQUFBO0FBQUo7QUFDSTtFQUNFLFNBQUE7QUFDTjtBQUdFO0VBQ0Usa0JBQUE7RUFDQSxTQUFBO0VBQ0EsVUFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsdUJBQUE7QUFESjtBQUdJO0VBQ0UsbUJBQUE7RUFDQSxlQUFBO0FBRE47QUFLRTtFQUNFLGtCQUFBO0VBQ0EsUUFBQTtFQUNBLFdBQUE7QUFISjtBQU1FO0VBQ0Usa0JBQUE7QUFKSjtBQUNBLHdzQ0FBd3NDIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xuICBoZWFkZXIge1xuICAgIG1hcmdpbjogMTZweCAxNnB4IDA7XG4gICAgaDEge1xuICAgICAgbWFyZ2luOiAwO1xuICAgIH1cbiAgfVxuXG4gIC5kYXNoYm9hcmQtY2FyZCB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMTVweDtcbiAgICBsZWZ0OiAxNXB4O1xuICAgIHJpZ2h0OiAxNXB4O1xuICAgIGJvdHRvbTogMTVweDtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG5cbiAgICBoMiB7XG4gICAgICBtYXJnaW46IDAgNDBweCAyMHB4O1xuICAgICAgZm9udC1zaXplOiA2MDAlO1xuICAgIH1cbiAgfVxuXG4gIC5tb3JlLWJ1dHRvbiB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogNXB4O1xuICAgIHJpZ2h0OiAxMHB4O1xuICB9XG5cbiAgLmRhc2hib2FyZC1jYXJkLWNvbnRlbnQge1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgfVxufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */"],
   changeDetection: 0
 });
 
 /***/ }),
 
-/***/ 5698:
-/*!***************************************************************!*\
-  !*** ./dashboard/feature/src/lib/dashboard-feature.module.ts ***!
-  \***************************************************************/
+/***/ 5694:
+/*!***********************************************************!*\
+  !*** ./tools/feature/src/lib/dashboard-feature.routes.ts ***!
+  \***********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   DashboardFeatureModule: () => (/* binding */ DashboardFeatureModule)
+/* harmony export */   dashboardFeatureRoutes: () => (/* binding */ dashboardFeatureRoutes)
+/* harmony export */ });
+/* harmony import */ var _dashboard_feature_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dashboard-feature.component */ 8006);
+
+const dashboardFeatureRoutes = [{
+  path: '',
+  component: _dashboard_feature_component__WEBPACK_IMPORTED_MODULE_0__.DashboardFeatureComponent
+}];
+
+/***/ }),
+
+/***/ 9257:
+/*!*******************************************************!*\
+  !*** ./tools/feature/src/lib/tools-feature.module.ts ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ToolsFeatureModule: () => (/* binding */ ToolsFeatureModule)
 /* harmony export */ });
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 4849);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 2541);
-/* harmony import */ var _dashboard_feature_routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dashboard-feature.routes */ 4812);
+/* harmony import */ var _dashboard_feature_routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dashboard-feature.routes */ 5694);
 /* harmony import */ var _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/grid-list */ 1695);
 /* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/card */ 6318);
 /* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/menu */ 4818);
 /* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/icon */ 4313);
 /* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/button */ 8433);
-/* harmony import */ var _dashboard_feature_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboard-feature.component */ 5758);
+/* harmony import */ var _dashboard_feature_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboard-feature.component */ 8006);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 9058);
 var _class;
 
@@ -155,9 +174,9 @@ var _class;
 
 
 
-class DashboardFeatureModule {}
-_class = DashboardFeatureModule;
-_class.ɵfac = function DashboardFeatureModule_Factory(t) {
+class ToolsFeatureModule {}
+_class = ToolsFeatureModule;
+_class.ɵfac = function ToolsFeatureModule_Factory(t) {
   return new (t || _class)();
 };
 _class.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineNgModule"]({
@@ -167,7 +186,7 @@ _class.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefi
   imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.CommonModule, _angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterModule.forChild(_dashboard_feature_routes__WEBPACK_IMPORTED_MODULE_0__.dashboardFeatureRoutes), _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_5__.MatGridListModule, _angular_material_card__WEBPACK_IMPORTED_MODULE_6__.MatCardModule, _angular_material_menu__WEBPACK_IMPORTED_MODULE_7__.MatMenuModule, _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__.MatIconModule, _angular_material_button__WEBPACK_IMPORTED_MODULE_9__.MatButtonModule]
 });
 (function () {
-  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsetNgModuleScope"](DashboardFeatureModule, {
+  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsetNgModuleScope"](ToolsFeatureModule, {
     declarations: [_dashboard_feature_component__WEBPACK_IMPORTED_MODULE_1__.DashboardFeatureComponent],
     imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.CommonModule, _angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterModule, _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_5__.MatGridListModule, _angular_material_card__WEBPACK_IMPORTED_MODULE_6__.MatCardModule, _angular_material_menu__WEBPACK_IMPORTED_MODULE_7__.MatMenuModule, _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__.MatIconModule, _angular_material_button__WEBPACK_IMPORTED_MODULE_9__.MatButtonModule]
   });
@@ -175,22 +194,555 @@ _class.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefi
 
 /***/ }),
 
-/***/ 4812:
-/*!***************************************************************!*\
-  !*** ./dashboard/feature/src/lib/dashboard-feature.routes.ts ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ 6318:
+/*!**********************************************************!*\
+  !*** ./node_modules/@angular/material/fesm2022/card.mjs ***!
+  \**********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   dashboardFeatureRoutes: () => (/* binding */ dashboardFeatureRoutes)
+/* harmony export */   MAT_CARD_CONFIG: () => (/* binding */ MAT_CARD_CONFIG),
+/* harmony export */   MatCard: () => (/* binding */ MatCard),
+/* harmony export */   MatCardActions: () => (/* binding */ MatCardActions),
+/* harmony export */   MatCardAvatar: () => (/* binding */ MatCardAvatar),
+/* harmony export */   MatCardContent: () => (/* binding */ MatCardContent),
+/* harmony export */   MatCardFooter: () => (/* binding */ MatCardFooter),
+/* harmony export */   MatCardHeader: () => (/* binding */ MatCardHeader),
+/* harmony export */   MatCardImage: () => (/* binding */ MatCardImage),
+/* harmony export */   MatCardLgImage: () => (/* binding */ MatCardLgImage),
+/* harmony export */   MatCardMdImage: () => (/* binding */ MatCardMdImage),
+/* harmony export */   MatCardModule: () => (/* binding */ MatCardModule),
+/* harmony export */   MatCardSmImage: () => (/* binding */ MatCardSmImage),
+/* harmony export */   MatCardSubtitle: () => (/* binding */ MatCardSubtitle),
+/* harmony export */   MatCardTitle: () => (/* binding */ MatCardTitle),
+/* harmony export */   MatCardTitleGroup: () => (/* binding */ MatCardTitleGroup),
+/* harmony export */   MatCardXlImage: () => (/* binding */ MatCardXlImage)
 /* harmony export */ });
-/* harmony import */ var _dashboard_feature_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dashboard-feature.component */ 5758);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 9058);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 4849);
+/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material/core */ 3102);
+var _class, _class2, _class3, _class4, _class5, _class6, _class7, _class8, _class9, _class10, _class11, _class12, _class13, _class14, _class15;
 
-const dashboardFeatureRoutes = [{
-  path: '',
-  component: _dashboard_feature_component__WEBPACK_IMPORTED_MODULE_0__.DashboardFeatureComponent
-}];
+
+
+
+
+/** Injection token that can be used to provide the default options the card module. */
+const _c0 = ["*"];
+const _c1 = [[["mat-card-title"], ["mat-card-subtitle"], ["", "mat-card-title", ""], ["", "mat-card-subtitle", ""], ["", "matCardTitle", ""], ["", "matCardSubtitle", ""]], [["", "mat-card-image", ""], ["", "matCardImage", ""], ["", "mat-card-sm-image", ""], ["", "matCardImageSmall", ""], ["", "mat-card-md-image", ""], ["", "matCardImageMedium", ""], ["", "mat-card-lg-image", ""], ["", "matCardImageLarge", ""], ["", "mat-card-xl-image", ""], ["", "matCardImageXLarge", ""]], "*"];
+const _c2 = ["mat-card-title, mat-card-subtitle,\n      [mat-card-title], [mat-card-subtitle],\n      [matCardTitle], [matCardSubtitle]", "[mat-card-image], [matCardImage],\n                    [mat-card-sm-image], [matCardImageSmall],\n                    [mat-card-md-image], [matCardImageMedium],\n                    [mat-card-lg-image], [matCardImageLarge],\n                    [mat-card-xl-image], [matCardImageXLarge]", "*"];
+const _c3 = [[["", "mat-card-avatar", ""], ["", "matCardAvatar", ""]], [["mat-card-title"], ["mat-card-subtitle"], ["", "mat-card-title", ""], ["", "mat-card-subtitle", ""], ["", "matCardTitle", ""], ["", "matCardSubtitle", ""]], "*"];
+const _c4 = ["[mat-card-avatar], [matCardAvatar]", "mat-card-title, mat-card-subtitle,\n      [mat-card-title], [mat-card-subtitle],\n      [matCardTitle], [matCardSubtitle]", "*"];
+const MAT_CARD_CONFIG = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken('MAT_CARD_CONFIG');
+/**
+ * Material Design card component. Cards contain content and actions about a single subject.
+ * See https://material.io/design/components/cards.html
+ *
+ * MatCard provides no behaviors, instead serving as a purely visual treatment.
+ */
+class MatCard {
+  constructor(config) {
+    this.appearance = config?.appearance || 'raised';
+  }
+}
+_class = MatCard;
+_class.ɵfac = function _class_Factory(t) {
+  return new (t || _class)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](MAT_CARD_CONFIG, 8));
+};
+_class.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+  type: _class,
+  selectors: [["mat-card"]],
+  hostAttrs: [1, "mat-mdc-card", "mdc-card"],
+  hostVars: 4,
+  hostBindings: function _class_HostBindings(rf, ctx) {
+    if (rf & 2) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("mat-mdc-card-outlined", ctx.appearance === "outlined")("mdc-card--outlined", ctx.appearance === "outlined");
+    }
+  },
+  inputs: {
+    appearance: "appearance"
+  },
+  exportAs: ["matCard"],
+  ngContentSelectors: _c0,
+  decls: 1,
+  vars: 0,
+  template: function _class_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojectionDef"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](0);
+    }
+  },
+  styles: [".mdc-card{display:flex;flex-direction:column;box-sizing:border-box}.mdc-card::after{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:1px solid rgba(0,0,0,0);border-radius:inherit;content:\"\";pointer-events:none;pointer-events:none}@media screen and (forced-colors: active){.mdc-card::after{border-color:CanvasText}}.mdc-card--outlined::after{border:none}.mdc-card__content{border-radius:inherit;height:100%}.mdc-card__media{position:relative;box-sizing:border-box;background-repeat:no-repeat;background-position:center;background-size:cover}.mdc-card__media::before{display:block;content:\"\"}.mdc-card__media:first-child{border-top-left-radius:inherit;border-top-right-radius:inherit}.mdc-card__media:last-child{border-bottom-left-radius:inherit;border-bottom-right-radius:inherit}.mdc-card__media--square::before{margin-top:100%}.mdc-card__media--16-9::before{margin-top:56.25%}.mdc-card__media-content{position:absolute;top:0;right:0;bottom:0;left:0;box-sizing:border-box}.mdc-card__primary-action{display:flex;flex-direction:column;box-sizing:border-box;position:relative;outline:none;color:inherit;text-decoration:none;cursor:pointer;overflow:hidden}.mdc-card__primary-action:first-child{border-top-left-radius:inherit;border-top-right-radius:inherit}.mdc-card__primary-action:last-child{border-bottom-left-radius:inherit;border-bottom-right-radius:inherit}.mdc-card__actions{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;min-height:52px;padding:8px}.mdc-card__actions--full-bleed{padding:0}.mdc-card__action-buttons,.mdc-card__action-icons{display:flex;flex-direction:row;align-items:center;box-sizing:border-box}.mdc-card__action-icons{color:rgba(0, 0, 0, 0.6);flex-grow:1;justify-content:flex-end}.mdc-card__action-buttons+.mdc-card__action-icons{margin-left:16px;margin-right:0}[dir=rtl] .mdc-card__action-buttons+.mdc-card__action-icons,.mdc-card__action-buttons+.mdc-card__action-icons[dir=rtl]{margin-left:0;margin-right:16px}.mdc-card__action{display:inline-flex;flex-direction:row;align-items:center;box-sizing:border-box;justify-content:center;cursor:pointer;user-select:none}.mdc-card__action:focus{outline:none}.mdc-card__action--button{margin-left:0;margin-right:8px;padding:0 8px}[dir=rtl] .mdc-card__action--button,.mdc-card__action--button[dir=rtl]{margin-left:8px;margin-right:0}.mdc-card__action--button:last-child{margin-left:0;margin-right:0}[dir=rtl] .mdc-card__action--button:last-child,.mdc-card__action--button:last-child[dir=rtl]{margin-left:0;margin-right:0}.mdc-card__actions--full-bleed .mdc-card__action--button{justify-content:space-between;width:100%;height:auto;max-height:none;margin:0;padding:8px 16px;text-align:left}[dir=rtl] .mdc-card__actions--full-bleed .mdc-card__action--button,.mdc-card__actions--full-bleed .mdc-card__action--button[dir=rtl]{text-align:right}.mdc-card__action--icon{margin:-6px 0;padding:12px}.mdc-card__action--icon:not(:disabled){color:rgba(0, 0, 0, 0.6)}.mat-mdc-card{border-radius:var(--mdc-elevated-card-container-shape);background-color:var(--mdc-elevated-card-container-color);border-width:0;border-style:solid;border-color:var(--mdc-elevated-card-container-color);box-shadow:var(--mdc-elevated-card-container-elevation);--mdc-elevated-card-container-shape:4px;--mdc-outlined-card-container-shape:4px;--mdc-outlined-card-outline-width:1px}.mat-mdc-card .mdc-card::after{border-radius:var(--mdc-elevated-card-container-shape)}.mat-mdc-card-outlined{border-width:var(--mdc-outlined-card-outline-width);border-style:solid;border-color:var(--mdc-outlined-card-outline-color);border-radius:var(--mdc-outlined-card-container-shape);background-color:var(--mdc-outlined-card-container-color);box-shadow:var(--mdc-outlined-card-container-elevation)}.mat-mdc-card-outlined .mdc-card::after{border-radius:var(--mdc-outlined-card-container-shape)}.mat-mdc-card-title{font-family:var(--mat-card-title-text-font);line-height:var(--mat-card-title-text-line-height);font-size:var(--mat-card-title-text-size);letter-spacing:var(--mat-card-title-text-tracking);font-weight:var(--mat-card-title-text-weight)}.mat-mdc-card-subtitle{color:var(--mat-card-subtitle-text-color);font-family:var(--mat-card-subtitle-text-font);line-height:var(--mat-card-subtitle-text-line-height);font-size:var(--mat-card-subtitle-text-size);letter-spacing:var(--mat-card-subtitle-text-tracking);font-weight:var(--mat-card-subtitle-text-weight)}.mat-mdc-card{position:relative}.mat-mdc-card-title,.mat-mdc-card-subtitle{display:block;margin:0}.mat-mdc-card-avatar~.mat-mdc-card-header-text .mat-mdc-card-title,.mat-mdc-card-avatar~.mat-mdc-card-header-text .mat-mdc-card-subtitle{padding:16px 16px 0}.mat-mdc-card-header{display:flex;padding:16px 16px 0}.mat-mdc-card-content{display:block;padding:0 16px}.mat-mdc-card-content:first-child{padding-top:16px}.mat-mdc-card-content:last-child{padding-bottom:16px}.mat-mdc-card-title-group{display:flex;justify-content:space-between;width:100%}.mat-mdc-card-avatar{height:40px;width:40px;border-radius:50%;flex-shrink:0;margin-bottom:16px;object-fit:cover}.mat-mdc-card-avatar~.mat-mdc-card-header-text .mat-mdc-card-subtitle,.mat-mdc-card-avatar~.mat-mdc-card-header-text .mat-mdc-card-title{line-height:normal}.mat-mdc-card-sm-image{width:80px;height:80px}.mat-mdc-card-md-image{width:112px;height:112px}.mat-mdc-card-lg-image{width:152px;height:152px}.mat-mdc-card-xl-image{width:240px;height:240px}.mat-mdc-card-subtitle~.mat-mdc-card-title,.mat-mdc-card-title~.mat-mdc-card-subtitle,.mat-mdc-card-header .mat-mdc-card-header-text .mat-mdc-card-title,.mat-mdc-card-header .mat-mdc-card-header-text .mat-mdc-card-subtitle,.mat-mdc-card-title-group .mat-mdc-card-title,.mat-mdc-card-title-group .mat-mdc-card-subtitle{padding-top:0}.mat-mdc-card-content>:last-child:not(.mat-mdc-card-footer){margin-bottom:0}.mat-mdc-card-actions-align-end{justify-content:flex-end}"],
+  encapsulation: 2,
+  changeDetection: 0
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCard, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
+    args: [{
+      selector: 'mat-card',
+      host: {
+        'class': 'mat-mdc-card mdc-card',
+        '[class.mat-mdc-card-outlined]': 'appearance === "outlined"',
+        '[class.mdc-card--outlined]': 'appearance === "outlined"'
+      },
+      exportAs: 'matCard',
+      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
+      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
+      template: "<ng-content></ng-content>\n",
+      styles: [".mdc-card{display:flex;flex-direction:column;box-sizing:border-box}.mdc-card::after{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:1px solid rgba(0,0,0,0);border-radius:inherit;content:\"\";pointer-events:none;pointer-events:none}@media screen and (forced-colors: active){.mdc-card::after{border-color:CanvasText}}.mdc-card--outlined::after{border:none}.mdc-card__content{border-radius:inherit;height:100%}.mdc-card__media{position:relative;box-sizing:border-box;background-repeat:no-repeat;background-position:center;background-size:cover}.mdc-card__media::before{display:block;content:\"\"}.mdc-card__media:first-child{border-top-left-radius:inherit;border-top-right-radius:inherit}.mdc-card__media:last-child{border-bottom-left-radius:inherit;border-bottom-right-radius:inherit}.mdc-card__media--square::before{margin-top:100%}.mdc-card__media--16-9::before{margin-top:56.25%}.mdc-card__media-content{position:absolute;top:0;right:0;bottom:0;left:0;box-sizing:border-box}.mdc-card__primary-action{display:flex;flex-direction:column;box-sizing:border-box;position:relative;outline:none;color:inherit;text-decoration:none;cursor:pointer;overflow:hidden}.mdc-card__primary-action:first-child{border-top-left-radius:inherit;border-top-right-radius:inherit}.mdc-card__primary-action:last-child{border-bottom-left-radius:inherit;border-bottom-right-radius:inherit}.mdc-card__actions{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;min-height:52px;padding:8px}.mdc-card__actions--full-bleed{padding:0}.mdc-card__action-buttons,.mdc-card__action-icons{display:flex;flex-direction:row;align-items:center;box-sizing:border-box}.mdc-card__action-icons{color:rgba(0, 0, 0, 0.6);flex-grow:1;justify-content:flex-end}.mdc-card__action-buttons+.mdc-card__action-icons{margin-left:16px;margin-right:0}[dir=rtl] .mdc-card__action-buttons+.mdc-card__action-icons,.mdc-card__action-buttons+.mdc-card__action-icons[dir=rtl]{margin-left:0;margin-right:16px}.mdc-card__action{display:inline-flex;flex-direction:row;align-items:center;box-sizing:border-box;justify-content:center;cursor:pointer;user-select:none}.mdc-card__action:focus{outline:none}.mdc-card__action--button{margin-left:0;margin-right:8px;padding:0 8px}[dir=rtl] .mdc-card__action--button,.mdc-card__action--button[dir=rtl]{margin-left:8px;margin-right:0}.mdc-card__action--button:last-child{margin-left:0;margin-right:0}[dir=rtl] .mdc-card__action--button:last-child,.mdc-card__action--button:last-child[dir=rtl]{margin-left:0;margin-right:0}.mdc-card__actions--full-bleed .mdc-card__action--button{justify-content:space-between;width:100%;height:auto;max-height:none;margin:0;padding:8px 16px;text-align:left}[dir=rtl] .mdc-card__actions--full-bleed .mdc-card__action--button,.mdc-card__actions--full-bleed .mdc-card__action--button[dir=rtl]{text-align:right}.mdc-card__action--icon{margin:-6px 0;padding:12px}.mdc-card__action--icon:not(:disabled){color:rgba(0, 0, 0, 0.6)}.mat-mdc-card{border-radius:var(--mdc-elevated-card-container-shape);background-color:var(--mdc-elevated-card-container-color);border-width:0;border-style:solid;border-color:var(--mdc-elevated-card-container-color);box-shadow:var(--mdc-elevated-card-container-elevation);--mdc-elevated-card-container-shape:4px;--mdc-outlined-card-container-shape:4px;--mdc-outlined-card-outline-width:1px}.mat-mdc-card .mdc-card::after{border-radius:var(--mdc-elevated-card-container-shape)}.mat-mdc-card-outlined{border-width:var(--mdc-outlined-card-outline-width);border-style:solid;border-color:var(--mdc-outlined-card-outline-color);border-radius:var(--mdc-outlined-card-container-shape);background-color:var(--mdc-outlined-card-container-color);box-shadow:var(--mdc-outlined-card-container-elevation)}.mat-mdc-card-outlined .mdc-card::after{border-radius:var(--mdc-outlined-card-container-shape)}.mat-mdc-card-title{font-family:var(--mat-card-title-text-font);line-height:var(--mat-card-title-text-line-height);font-size:var(--mat-card-title-text-size);letter-spacing:var(--mat-card-title-text-tracking);font-weight:var(--mat-card-title-text-weight)}.mat-mdc-card-subtitle{color:var(--mat-card-subtitle-text-color);font-family:var(--mat-card-subtitle-text-font);line-height:var(--mat-card-subtitle-text-line-height);font-size:var(--mat-card-subtitle-text-size);letter-spacing:var(--mat-card-subtitle-text-tracking);font-weight:var(--mat-card-subtitle-text-weight)}.mat-mdc-card{position:relative}.mat-mdc-card-title,.mat-mdc-card-subtitle{display:block;margin:0}.mat-mdc-card-avatar~.mat-mdc-card-header-text .mat-mdc-card-title,.mat-mdc-card-avatar~.mat-mdc-card-header-text .mat-mdc-card-subtitle{padding:16px 16px 0}.mat-mdc-card-header{display:flex;padding:16px 16px 0}.mat-mdc-card-content{display:block;padding:0 16px}.mat-mdc-card-content:first-child{padding-top:16px}.mat-mdc-card-content:last-child{padding-bottom:16px}.mat-mdc-card-title-group{display:flex;justify-content:space-between;width:100%}.mat-mdc-card-avatar{height:40px;width:40px;border-radius:50%;flex-shrink:0;margin-bottom:16px;object-fit:cover}.mat-mdc-card-avatar~.mat-mdc-card-header-text .mat-mdc-card-subtitle,.mat-mdc-card-avatar~.mat-mdc-card-header-text .mat-mdc-card-title{line-height:normal}.mat-mdc-card-sm-image{width:80px;height:80px}.mat-mdc-card-md-image{width:112px;height:112px}.mat-mdc-card-lg-image{width:152px;height:152px}.mat-mdc-card-xl-image{width:240px;height:240px}.mat-mdc-card-subtitle~.mat-mdc-card-title,.mat-mdc-card-title~.mat-mdc-card-subtitle,.mat-mdc-card-header .mat-mdc-card-header-text .mat-mdc-card-title,.mat-mdc-card-header .mat-mdc-card-header-text .mat-mdc-card-subtitle,.mat-mdc-card-title-group .mat-mdc-card-title,.mat-mdc-card-title-group .mat-mdc-card-subtitle{padding-top:0}.mat-mdc-card-content>:last-child:not(.mat-mdc-card-footer){margin-bottom:0}.mat-mdc-card-actions-align-end{justify-content:flex-end}"]
+    }]
+  }], function () {
+    return [{
+      type: undefined,
+      decorators: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Inject,
+        args: [MAT_CARD_CONFIG]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Optional
+      }]
+    }];
+  }, {
+    appearance: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
+    }]
+  });
+})();
+// TODO(jelbourn): add `MatActionCard`, which is a card that acts like a button (and has a ripple).
+// Supported in MDC with `.mdc-card__primary-action`. Will require additional a11y docs for users.
+/**
+ * Title of a card, intended for use within `<mat-card>`. This component is an optional
+ * convenience for one variety of card title; any custom title element may be used in its place.
+ *
+ * MatCardTitle provides no behaviors, instead serving as a purely visual treatment.
+ */
+class MatCardTitle {}
+_class2 = MatCardTitle;
+_class2.ɵfac = function _class2_Factory(t) {
+  return new (t || _class2)();
+};
+_class2.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class2,
+  selectors: [["mat-card-title"], ["", "mat-card-title", ""], ["", "matCardTitle", ""]],
+  hostAttrs: [1, "mat-mdc-card-title"]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCardTitle, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: `mat-card-title, [mat-card-title], [matCardTitle]`,
+      host: {
+        'class': 'mat-mdc-card-title'
+      }
+    }]
+  }], null, null);
+})();
+/**
+ * Container intended to be used within the `<mat-card>` component. Can contain exactly one
+ * `<mat-card-title>`, one `<mat-card-subtitle>` and one content image of any size
+ * (e.g. `<img matCardLgImage>`).
+ */
+class MatCardTitleGroup {}
+_class3 = MatCardTitleGroup;
+_class3.ɵfac = function _class3_Factory(t) {
+  return new (t || _class3)();
+};
+_class3.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+  type: _class3,
+  selectors: [["mat-card-title-group"]],
+  hostAttrs: [1, "mat-mdc-card-title-group"],
+  ngContentSelectors: _c2,
+  decls: 4,
+  vars: 0,
+  template: function _class3_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojectionDef"](_c1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](2, 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](3, 2);
+    }
+  },
+  encapsulation: 2,
+  changeDetection: 0
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCardTitleGroup, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
+    args: [{
+      selector: 'mat-card-title-group',
+      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
+      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
+      host: {
+        'class': 'mat-mdc-card-title-group'
+      },
+      template: "<div>\n  <ng-content\n      select=\"mat-card-title, mat-card-subtitle,\n      [mat-card-title], [mat-card-subtitle],\n      [matCardTitle], [matCardSubtitle]\"></ng-content>\n</div>\n<ng-content select=\"[mat-card-image], [matCardImage],\n                    [mat-card-sm-image], [matCardImageSmall],\n                    [mat-card-md-image], [matCardImageMedium],\n                    [mat-card-lg-image], [matCardImageLarge],\n                    [mat-card-xl-image], [matCardImageXLarge]\"></ng-content>\n<ng-content></ng-content>\n"
+    }]
+  }], null, null);
+})();
+/**
+ * Content of a card, intended for use within `<mat-card>`. This component is an optional
+ * convenience for use with other convenience elements, such as `<mat-card-title>`; any custom
+ * content block element may be used in its place.
+ *
+ * MatCardContent provides no behaviors, instead serving as a purely visual treatment.
+ */
+class MatCardContent {}
+_class4 = MatCardContent;
+_class4.ɵfac = function _class4_Factory(t) {
+  return new (t || _class4)();
+};
+_class4.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class4,
+  selectors: [["mat-card-content"]],
+  hostAttrs: [1, "mat-mdc-card-content"]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCardContent, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: 'mat-card-content',
+      host: {
+        'class': 'mat-mdc-card-content'
+      }
+    }]
+  }], null, null);
+})();
+/**
+ * Sub-title of a card, intended for use within `<mat-card>` beneath a `<mat-card-title>`. This
+ * component is an optional convenience for use with other convenience elements, such as
+ * `<mat-card-title>`.
+ *
+ * MatCardSubtitle provides no behaviors, instead serving as a purely visual treatment.
+ */
+class MatCardSubtitle {}
+_class5 = MatCardSubtitle;
+_class5.ɵfac = function _class5_Factory(t) {
+  return new (t || _class5)();
+};
+_class5.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class5,
+  selectors: [["mat-card-subtitle"], ["", "mat-card-subtitle", ""], ["", "matCardSubtitle", ""]],
+  hostAttrs: [1, "mat-mdc-card-subtitle"]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCardSubtitle, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: `mat-card-subtitle, [mat-card-subtitle], [matCardSubtitle]`,
+      host: {
+        'class': 'mat-mdc-card-subtitle'
+      }
+    }]
+  }], null, null);
+})();
+/**
+ * Bottom area of a card that contains action buttons, intended for use within `<mat-card>`.
+ * This component is an optional convenience for use with other convenience elements, such as
+ * `<mat-card-content>`; any custom action block element may be used in its place.
+ *
+ * MatCardActions provides no behaviors, instead serving as a purely visual treatment.
+ */
+class MatCardActions {
+  constructor() {
+    // TODO(jelbourn): deprecate `align` in favor of `actionPosition` or `actionAlignment`
+    // as to not conflict with the native `align` attribute.
+    /** Position of the actions inside the card. */
+    this.align = 'start';
+  }
+}
+_class6 = MatCardActions;
+_class6.ɵfac = function _class6_Factory(t) {
+  return new (t || _class6)();
+};
+_class6.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class6,
+  selectors: [["mat-card-actions"]],
+  hostAttrs: [1, "mat-mdc-card-actions", "mdc-card__actions"],
+  hostVars: 2,
+  hostBindings: function _class6_HostBindings(rf, ctx) {
+    if (rf & 2) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("mat-mdc-card-actions-align-end", ctx.align === "end");
+    }
+  },
+  inputs: {
+    align: "align"
+  },
+  exportAs: ["matCardActions"]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCardActions, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: 'mat-card-actions',
+      exportAs: 'matCardActions',
+      host: {
+        'class': 'mat-mdc-card-actions mdc-card__actions',
+        '[class.mat-mdc-card-actions-align-end]': 'align === "end"'
+      }
+    }]
+  }], null, {
+    align: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
+    }]
+  });
+})();
+/**
+ * Header region of a card, intended for use within `<mat-card>`. This header captures
+ * a card title, subtitle, and avatar.  This component is an optional convenience for use with
+ * other convenience elements, such as `<mat-card-footer>`; any custom header block element may be
+ * used in its place.
+ *
+ * MatCardHeader provides no behaviors, instead serving as a purely visual treatment.
+ */
+class MatCardHeader {}
+_class7 = MatCardHeader;
+_class7.ɵfac = function _class7_Factory(t) {
+  return new (t || _class7)();
+};
+_class7.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+  type: _class7,
+  selectors: [["mat-card-header"]],
+  hostAttrs: [1, "mat-mdc-card-header"],
+  ngContentSelectors: _c4,
+  decls: 4,
+  vars: 0,
+  consts: [[1, "mat-mdc-card-header-text"]],
+  template: function _class7_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojectionDef"](_c3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](0);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 0);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](2, 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](3, 2);
+    }
+  },
+  encapsulation: 2,
+  changeDetection: 0
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCardHeader, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
+    args: [{
+      selector: 'mat-card-header',
+      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
+      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
+      host: {
+        'class': 'mat-mdc-card-header'
+      },
+      template: "<ng-content select=\"[mat-card-avatar], [matCardAvatar]\"></ng-content>\n<div class=\"mat-mdc-card-header-text\">\n  <ng-content\n      select=\"mat-card-title, mat-card-subtitle,\n      [mat-card-title], [mat-card-subtitle],\n      [matCardTitle], [matCardSubtitle]\"></ng-content>\n</div>\n<ng-content></ng-content>\n"
+    }]
+  }], null, null);
+})();
+/**
+ * Footer area a card, intended for use within `<mat-card>`.
+ * This component is an optional convenience for use with other convenience elements, such as
+ * `<mat-card-content>`; any custom footer block element may be used in its place.
+ *
+ * MatCardFooter provides no behaviors, instead serving as a purely visual treatment.
+ */
+class MatCardFooter {}
+_class8 = MatCardFooter;
+_class8.ɵfac = function _class8_Factory(t) {
+  return new (t || _class8)();
+};
+_class8.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class8,
+  selectors: [["mat-card-footer"]],
+  hostAttrs: [1, "mat-mdc-card-footer"]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCardFooter, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: 'mat-card-footer',
+      host: {
+        'class': 'mat-mdc-card-footer'
+      }
+    }]
+  }], null, null);
+})();
+// TODO(jelbourn): deprecate the "image" selectors to replace with "media".
+// TODO(jelbourn): support `.mdc-card__media-content`.
+/**
+ * Primary image content for a card, intended for use within `<mat-card>`. Can be applied to
+ * any media element, such as `<img>` or `<picture>`.
+ *
+ * This component is an optional convenience for use with other convenience elements, such as
+ * `<mat-card-content>`; any custom media element may be used in its place.
+ *
+ * MatCardImage provides no behaviors, instead serving as a purely visual treatment.
+ */
+class MatCardImage {}
+_class9 = MatCardImage;
+_class9.ɵfac = function _class9_Factory(t) {
+  return new (t || _class9)();
+};
+_class9.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class9,
+  selectors: [["", "mat-card-image", ""], ["", "matCardImage", ""]],
+  hostAttrs: [1, "mat-mdc-card-image", "mdc-card__media"]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCardImage, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: '[mat-card-image], [matCardImage]',
+      host: {
+        'class': 'mat-mdc-card-image mdc-card__media'
+      }
+    }]
+  }], null, null);
+})();
+/** Same as `MatCardImage`, but small. */
+class MatCardSmImage {}
+_class10 = MatCardSmImage;
+_class10.ɵfac = function _class10_Factory(t) {
+  return new (t || _class10)();
+};
+_class10.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class10,
+  selectors: [["", "mat-card-sm-image", ""], ["", "matCardImageSmall", ""]],
+  hostAttrs: [1, "mat-mdc-card-sm-image", "mdc-card__media"]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCardSmImage, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: '[mat-card-sm-image], [matCardImageSmall]',
+      host: {
+        'class': 'mat-mdc-card-sm-image mdc-card__media'
+      }
+    }]
+  }], null, null);
+})();
+/** Same as `MatCardImage`, but medium. */
+class MatCardMdImage {}
+_class11 = MatCardMdImage;
+_class11.ɵfac = function _class11_Factory(t) {
+  return new (t || _class11)();
+};
+_class11.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class11,
+  selectors: [["", "mat-card-md-image", ""], ["", "matCardImageMedium", ""]],
+  hostAttrs: [1, "mat-mdc-card-md-image", "mdc-card__media"]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCardMdImage, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: '[mat-card-md-image], [matCardImageMedium]',
+      host: {
+        'class': 'mat-mdc-card-md-image mdc-card__media'
+      }
+    }]
+  }], null, null);
+})();
+/** Same as `MatCardImage`, but large. */
+class MatCardLgImage {}
+_class12 = MatCardLgImage;
+_class12.ɵfac = function _class12_Factory(t) {
+  return new (t || _class12)();
+};
+_class12.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class12,
+  selectors: [["", "mat-card-lg-image", ""], ["", "matCardImageLarge", ""]],
+  hostAttrs: [1, "mat-mdc-card-lg-image", "mdc-card__media"]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCardLgImage, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: '[mat-card-lg-image], [matCardImageLarge]',
+      host: {
+        'class': 'mat-mdc-card-lg-image mdc-card__media'
+      }
+    }]
+  }], null, null);
+})();
+/** Same as `MatCardImage`, but extra-large. */
+class MatCardXlImage {}
+_class13 = MatCardXlImage;
+_class13.ɵfac = function _class13_Factory(t) {
+  return new (t || _class13)();
+};
+_class13.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class13,
+  selectors: [["", "mat-card-xl-image", ""], ["", "matCardImageXLarge", ""]],
+  hostAttrs: [1, "mat-mdc-card-xl-image", "mdc-card__media"]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCardXlImage, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: '[mat-card-xl-image], [matCardImageXLarge]',
+      host: {
+        'class': 'mat-mdc-card-xl-image mdc-card__media'
+      }
+    }]
+  }], null, null);
+})();
+/**
+ * Avatar image content for a card, intended for use within `<mat-card>`. Can be applied to
+ * any media element, such as `<img>` or `<picture>`.
+ *
+ * This component is an optional convenience for use with other convenience elements, such as
+ * `<mat-card-title>`; any custom media element may be used in its place.
+ *
+ * MatCardAvatar provides no behaviors, instead serving as a purely visual treatment.
+ */
+class MatCardAvatar {}
+_class14 = MatCardAvatar;
+_class14.ɵfac = function _class14_Factory(t) {
+  return new (t || _class14)();
+};
+_class14.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class14,
+  selectors: [["", "mat-card-avatar", ""], ["", "matCardAvatar", ""]],
+  hostAttrs: [1, "mat-mdc-card-avatar"]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCardAvatar, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: '[mat-card-avatar], [matCardAvatar]',
+      host: {
+        'class': 'mat-mdc-card-avatar'
+      }
+    }]
+  }], null, null);
+})();
+const CARD_DIRECTIVES = [MatCard, MatCardActions, MatCardAvatar, MatCardContent, MatCardFooter, MatCardHeader, MatCardImage, MatCardLgImage, MatCardMdImage, MatCardSmImage, MatCardSubtitle, MatCardTitle, MatCardTitleGroup, MatCardXlImage];
+class MatCardModule {}
+_class15 = MatCardModule;
+_class15.ɵfac = function _class15_Factory(t) {
+  return new (t || _class15)();
+};
+_class15.ɵmod = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+  type: _class15
+});
+_class15.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+  imports: [_angular_material_core__WEBPACK_IMPORTED_MODULE_1__.MatCommonModule, _angular_common__WEBPACK_IMPORTED_MODULE_2__.CommonModule, _angular_material_core__WEBPACK_IMPORTED_MODULE_1__.MatCommonModule]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCardModule, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.NgModule,
+    args: [{
+      imports: [_angular_material_core__WEBPACK_IMPORTED_MODULE_1__.MatCommonModule, _angular_common__WEBPACK_IMPORTED_MODULE_2__.CommonModule],
+      exports: [CARD_DIRECTIVES, _angular_material_core__WEBPACK_IMPORTED_MODULE_1__.MatCommonModule],
+      declarations: CARD_DIRECTIVES
+    }]
+  }], null, null);
+})();
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
 
 /***/ }),
 
@@ -1055,4 +1607,4 @@ const ɵTileCoordinator = TileCoordinator;
 /***/ })
 
 }]);
-//# sourceMappingURL=dashboard_feature_src_index_ts.js.map
+//# sourceMappingURL=tools_feature_src_index_ts.js.map
