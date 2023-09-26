@@ -68,7 +68,8 @@
           "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
-          "namedChunks": true
+          "namedChunks": true,
+          "baseHref": "./"
         },
         "testing": {
           "buildOptimizer": false,
@@ -77,7 +78,7 @@
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true,
-          "baseHref": "dev",
+          "baseHref": "./",
           "fileReplacements": [
             {
               "replace": "app/src/envs/env.ts",
