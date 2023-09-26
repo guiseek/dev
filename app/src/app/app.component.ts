@@ -34,69 +34,6 @@ import {
           [routerLinkActiveOptions]="{exact: true}"
           >Home</a
         >
-
-        <!--  -->
-
-        <button
-          mat-button
-          menuItemsLinkActive="active"
-          menuItemsBaseLink="/content"
-          [matMenuTriggerFor]="contentMenu"
-        >
-          Conteúdo
-        </button>
-        <mat-menu #contentMenu="matMenu" xPosition="before">
-          <a mat-menu-item routerLink="/content">
-            <mat-icon>sticky_note_2</mat-icon>
-            <span>Anotações</span>
-          </a>
-          <a mat-menu-item routerLink="/content/books">
-            <mat-icon>menu_book</mat-icon>
-            <span>Livros</span>
-          </a>
-          <button mat-menu-item disabled>
-            <mat-icon>article</mat-icon>
-            <span>Artigos</span>
-          </button>
-        </mat-menu>
-
-        <!--  -->
-
-        <a routerLink="/learning" routerLinkActive="active" mat-button>
-          Aprendizado
-        </a>
-
-        <!--  -->
-
-        <button
-          mat-icon-button
-          menuItemsLinkActive="active"
-          menuItemsBaseLink="/account"
-          [matMenuTriggerFor]="beforeMenu"
-        >
-          <mat-icon>account_circle</mat-icon>
-        </button>
-        <mat-menu #beforeMenu="matMenu" xPosition="before">
-          <button mat-menu-item disabled>
-            <small>logado como</small>
-            <br />
-            email@guiseek.dev
-          </button>
-          <mat-divider></mat-divider>
-          <a mat-menu-item routerLink="/account">
-            <mat-icon>source</mat-icon>
-            <span>Meu conteúdo</span>
-          </a>
-          <a mat-menu-item routerLink="/account">
-            <mat-icon>settings</mat-icon>
-            <span>Configurações</span>
-          </a>
-          <mat-divider></mat-divider>
-          <button mat-menu-item>
-            <mat-icon>logout</mat-icon>
-            <span>Logout</span>
-          </button>
-        </mat-menu>
       </mat-toolbar>
 
       <mat-sidenav-container

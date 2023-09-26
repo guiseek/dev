@@ -1,32 +1,22 @@
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {provideHttp, provideLoader} from '@dev/shared-data-access'
+import {UiBaseModule} from '@dev/shared-ui-base'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {BrowserModule} from '@angular/platform-browser'
 import {registerLocaleData} from '@angular/common'
 import {LOCALE_ID, NgModule} from '@angular/core'
+import {RouterModule} from '@angular/router'
 import BR from '@angular/common/locales/extra/br'
 import pt from '@angular/common/locales/pt'
-import {RouterModule} from '@angular/router'
-import {MatSidenavModule} from '@angular/material/sidenav'
-import {MatMenuModule} from '@angular/material/menu'
-import {MatDividerModule} from '@angular/material/divider'
-import {MatToolbarModule} from '@angular/material/toolbar'
-import {MatButtonModule} from '@angular/material/button'
-import {MatIconModule} from '@angular/material/icon'
-import {LayoutModule} from '@angular/cdk/layout'
 import {
   HttpClient,
   HttpClientModule,
   HTTP_INTERCEPTORS,
 } from '@angular/common/http'
-import {provideUser} from '@dev/account-data-access'
-import {provideRail} from '@dev/learning-data-access'
-import {provideBook, provideContent} from '@dev/content-data-access'
-import {LoaderComponent} from './loader/loader.component'
 import {AppInterceptor} from './app.interceptor'
 import {AppComponent} from './app.component'
+import {LoaderComponent} from './loader'
+import {SharedMaterial} from './shared'
 import {appRoutes} from './app.routes'
-import {env} from '../envs/env'
-import {UiBaseModule} from '@dev/shared-ui-base'
 
 registerLocaleData(pt, 'pt-BR', BR)
 
@@ -34,15 +24,9 @@ registerLocaleData(pt, 'pt-BR', BR)
   declarations: [AppComponent, LoaderComponent],
   imports: [
     UiBaseModule,
-    LayoutModule,
     BrowserModule,
     HttpClientModule,
-    MatDividerModule,
-    MatSidenavModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
+    SharedMaterial.forApp(),
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, {
       useHash: true,
@@ -51,10 +35,6 @@ registerLocaleData(pt, 'pt-BR', BR)
   ],
   providers: [
     provideHttp(HttpClient),
-    provideUser(env.production, env.api.account),
-    provideRail(env.production, env.api.learning),
-    provideContent(env.production, env.api.content),
-    provideBook(env.production, env.api.book),
     provideLoader(),
     {
       provide: LOCALE_ID,
