@@ -20834,6 +20834,2845 @@ _class11.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵ
 
 /***/ }),
 
+/***/ 4110:
+/*!******************************************************!*\
+  !*** ./node_modules/@angular/cdk/fesm2022/table.mjs ***!
+  \******************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   BaseCdkCell: () => (/* binding */ BaseCdkCell),
+/* harmony export */   BaseRowDef: () => (/* binding */ BaseRowDef),
+/* harmony export */   CDK_ROW_TEMPLATE: () => (/* binding */ CDK_ROW_TEMPLATE),
+/* harmony export */   CDK_TABLE: () => (/* binding */ CDK_TABLE),
+/* harmony export */   CDK_TABLE_TEMPLATE: () => (/* binding */ CDK_TABLE_TEMPLATE),
+/* harmony export */   CdkCell: () => (/* binding */ CdkCell),
+/* harmony export */   CdkCellDef: () => (/* binding */ CdkCellDef),
+/* harmony export */   CdkCellOutlet: () => (/* binding */ CdkCellOutlet),
+/* harmony export */   CdkColumnDef: () => (/* binding */ CdkColumnDef),
+/* harmony export */   CdkFooterCell: () => (/* binding */ CdkFooterCell),
+/* harmony export */   CdkFooterCellDef: () => (/* binding */ CdkFooterCellDef),
+/* harmony export */   CdkFooterRow: () => (/* binding */ CdkFooterRow),
+/* harmony export */   CdkFooterRowDef: () => (/* binding */ CdkFooterRowDef),
+/* harmony export */   CdkHeaderCell: () => (/* binding */ CdkHeaderCell),
+/* harmony export */   CdkHeaderCellDef: () => (/* binding */ CdkHeaderCellDef),
+/* harmony export */   CdkHeaderRow: () => (/* binding */ CdkHeaderRow),
+/* harmony export */   CdkHeaderRowDef: () => (/* binding */ CdkHeaderRowDef),
+/* harmony export */   CdkNoDataRow: () => (/* binding */ CdkNoDataRow),
+/* harmony export */   CdkRecycleRows: () => (/* binding */ CdkRecycleRows),
+/* harmony export */   CdkRow: () => (/* binding */ CdkRow),
+/* harmony export */   CdkRowDef: () => (/* binding */ CdkRowDef),
+/* harmony export */   CdkTable: () => (/* binding */ CdkTable),
+/* harmony export */   CdkTableModule: () => (/* binding */ CdkTableModule),
+/* harmony export */   CdkTextColumn: () => (/* binding */ CdkTextColumn),
+/* harmony export */   DataRowOutlet: () => (/* binding */ DataRowOutlet),
+/* harmony export */   DataSource: () => (/* reexport safe */ _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_0__.DataSource),
+/* harmony export */   FooterRowOutlet: () => (/* binding */ FooterRowOutlet),
+/* harmony export */   HeaderRowOutlet: () => (/* binding */ HeaderRowOutlet),
+/* harmony export */   NoDataRowOutlet: () => (/* binding */ NoDataRowOutlet),
+/* harmony export */   STICKY_DIRECTIONS: () => (/* binding */ STICKY_DIRECTIONS),
+/* harmony export */   STICKY_POSITIONING_LISTENER: () => (/* binding */ STICKY_POSITIONING_LISTENER),
+/* harmony export */   StickyStyler: () => (/* binding */ StickyStyler),
+/* harmony export */   TEXT_COLUMN_OPTIONS: () => (/* binding */ TEXT_COLUMN_OPTIONS),
+/* harmony export */   _COALESCED_STYLE_SCHEDULER: () => (/* binding */ _COALESCED_STYLE_SCHEDULER),
+/* harmony export */   _CoalescedStyleScheduler: () => (/* binding */ _CoalescedStyleScheduler),
+/* harmony export */   _Schedule: () => (/* binding */ _Schedule),
+/* harmony export */   mixinHasStickyInput: () => (/* binding */ mixinHasStickyInput)
+/* harmony export */ });
+/* harmony import */ var _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/cdk/bidi */ 8247);
+/* harmony import */ var _angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/coercion */ 6680);
+/* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/cdk/collections */ 7377);
+/* harmony import */ var _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/cdk/platform */ 6398);
+/* harmony import */ var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/cdk/scrolling */ 1641);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common */ 4849);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 9058);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 6990);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ 5411);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs */ 3846);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs */ 3783);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs */ 5761);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 7390);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ 3040);
+var _class, _class2, _class3, _class4, _class5, _class6, _class7, _class8, _class9, _class10, _class11, _class12, _class13, _class14, _class15, _class16, _class17, _class18, _class19, _class20, _class21, _class22, _class23, _class24, _class25;
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Mixin to provide a directive with a function that checks if the sticky input has been
+ * changed since the last time the function was called. Essentially adds a dirty-check to the
+ * sticky value.
+ * @docs-private
+ */
+const _c0 = [[["caption"]], [["colgroup"], ["col"]]];
+const _c1 = ["caption", "colgroup, col"];
+function _class24_th_1_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "th", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵstyleProp"]("text-align", ctx_r0.justify);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx_r0.headerText, " ");
+  }
+}
+function _class24_td_2_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "td", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const data_r2 = ctx.$implicit;
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵstyleProp"]("text-align", ctx_r1.justify);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx_r1.dataAccessor(data_r2, ctx_r1.name), " ");
+  }
+}
+function mixinHasStickyInput(base) {
+  return class extends base {
+    /** Whether sticky positioning should be applied. */
+    get sticky() {
+      return this._sticky;
+    }
+    set sticky(v) {
+      const prevValue = this._sticky;
+      this._sticky = (0,_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_2__.coerceBooleanProperty)(v);
+      this._hasStickyChanged = prevValue !== this._sticky;
+    }
+    /** Whether the sticky value has changed since this was last called. */
+    hasStickyChanged() {
+      const hasStickyChanged = this._hasStickyChanged;
+      this._hasStickyChanged = false;
+      return hasStickyChanged;
+    }
+    /** Resets the dirty check for cases where the sticky state has been used without checking. */
+    resetStickyChanged() {
+      this._hasStickyChanged = false;
+    }
+    constructor(...args) {
+      super(...args);
+      this._sticky = false;
+      /** Whether the sticky input has changed since it was last checked. */
+      this._hasStickyChanged = false;
+    }
+  };
+}
+
+/**
+ * Used to provide a table to some of the sub-components without causing a circular dependency.
+ * @docs-private
+ */
+const CDK_TABLE = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.InjectionToken('CDK_TABLE');
+/** Injection token that can be used to specify the text column options. */
+const TEXT_COLUMN_OPTIONS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.InjectionToken('text-column-options');
+
+/**
+ * Cell definition for a CDK table.
+ * Captures the template of a column's data row cell as well as cell-specific properties.
+ */
+class CdkCellDef {
+  constructor( /** @docs-private */template) {
+    this.template = template;
+  }
+}
+_class = CdkCellDef;
+_class.ɵfac = function _class_Factory(t) {
+  return new (t || _class)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.TemplateRef));
+};
+_class.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class,
+  selectors: [["", "cdkCellDef", ""]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkCellDef, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: '[cdkCellDef]'
+    }]
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.TemplateRef
+    }];
+  }, null);
+})();
+/**
+ * Header cell definition for a CDK table.
+ * Captures the template of a column's header cell and as well as cell-specific properties.
+ */
+class CdkHeaderCellDef {
+  constructor( /** @docs-private */template) {
+    this.template = template;
+  }
+}
+_class2 = CdkHeaderCellDef;
+_class2.ɵfac = function _class2_Factory(t) {
+  return new (t || _class2)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.TemplateRef));
+};
+_class2.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class2,
+  selectors: [["", "cdkHeaderCellDef", ""]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkHeaderCellDef, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: '[cdkHeaderCellDef]'
+    }]
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.TemplateRef
+    }];
+  }, null);
+})();
+/**
+ * Footer cell definition for a CDK table.
+ * Captures the template of a column's footer cell and as well as cell-specific properties.
+ */
+class CdkFooterCellDef {
+  constructor( /** @docs-private */template) {
+    this.template = template;
+  }
+}
+_class3 = CdkFooterCellDef;
+_class3.ɵfac = function _class3_Factory(t) {
+  return new (t || _class3)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.TemplateRef));
+};
+_class3.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class3,
+  selectors: [["", "cdkFooterCellDef", ""]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkFooterCellDef, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: '[cdkFooterCellDef]'
+    }]
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.TemplateRef
+    }];
+  }, null);
+})();
+// Boilerplate for applying mixins to CdkColumnDef.
+/** @docs-private */
+class CdkColumnDefBase {}
+const _CdkColumnDefBase = mixinHasStickyInput(CdkColumnDefBase);
+/**
+ * Column definition for the CDK table.
+ * Defines a set of cells available for a table column.
+ */
+class CdkColumnDef extends _CdkColumnDefBase {
+  /** Unique name for this column. */
+  get name() {
+    return this._name;
+  }
+  set name(name) {
+    this._setNameInput(name);
+  }
+  /**
+   * Whether this column should be sticky positioned on the end of the row. Should make sure
+   * that it mimics the `CanStick` mixin such that `_hasStickyChanged` is set to true if the value
+   * has been changed.
+   */
+  get stickyEnd() {
+    return this._stickyEnd;
+  }
+  set stickyEnd(v) {
+    const prevValue = this._stickyEnd;
+    this._stickyEnd = (0,_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_2__.coerceBooleanProperty)(v);
+    this._hasStickyChanged = prevValue !== this._stickyEnd;
+  }
+  constructor(_table) {
+    super();
+    this._table = _table;
+    this._stickyEnd = false;
+  }
+  /**
+   * Overridable method that sets the css classes that will be added to every cell in this
+   * column.
+   * In the future, columnCssClassName will change from type string[] to string and this
+   * will set a single string value.
+   * @docs-private
+   */
+  _updateColumnCssClassName() {
+    this._columnCssClassName = [`cdk-column-${this.cssClassFriendlyName}`];
+  }
+  /**
+   * This has been extracted to a util because of TS 4 and VE.
+   * View Engine doesn't support property rename inheritance.
+   * TS 4.0 doesn't allow properties to override accessors or vice-versa.
+   * @docs-private
+   */
+  _setNameInput(value) {
+    // If the directive is set without a name (updated programmatically), then this setter will
+    // trigger with an empty string and should not overwrite the programmatically set value.
+    if (value) {
+      this._name = value;
+      this.cssClassFriendlyName = value.replace(/[^a-z0-9_-]/gi, '-');
+      this._updateColumnCssClassName();
+    }
+  }
+}
+_class4 = CdkColumnDef;
+_class4.ɵfac = function _class4_Factory(t) {
+  return new (t || _class4)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](CDK_TABLE, 8));
+};
+_class4.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class4,
+  selectors: [["", "cdkColumnDef", ""]],
+  contentQueries: function _class4_ContentQueries(rf, ctx, dirIndex) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵcontentQuery"](dirIndex, CdkCellDef, 5);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵcontentQuery"](dirIndex, CdkHeaderCellDef, 5);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵcontentQuery"](dirIndex, CdkFooterCellDef, 5);
+    }
+    if (rf & 2) {
+      let _t;
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.cell = _t.first);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.headerCell = _t.first);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.footerCell = _t.first);
+    }
+  },
+  inputs: {
+    sticky: "sticky",
+    name: ["cdkColumnDef", "name"],
+    stickyEnd: "stickyEnd"
+  },
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵProvidersFeature"]([{
+    provide: 'MAT_SORT_HEADER_COLUMN_DEF',
+    useExisting: _class4
+  }]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵInheritDefinitionFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkColumnDef, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: '[cdkColumnDef]',
+      inputs: ['sticky'],
+      providers: [{
+        provide: 'MAT_SORT_HEADER_COLUMN_DEF',
+        useExisting: CdkColumnDef
+      }]
+    }]
+  }], function () {
+    return [{
+      type: undefined,
+      decorators: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Inject,
+        args: [CDK_TABLE]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Optional
+      }]
+    }];
+  }, {
+    name: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input,
+      args: ['cdkColumnDef']
+    }],
+    stickyEnd: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input,
+      args: ['stickyEnd']
+    }],
+    cell: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ContentChild,
+      args: [CdkCellDef]
+    }],
+    headerCell: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ContentChild,
+      args: [CdkHeaderCellDef]
+    }],
+    footerCell: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ContentChild,
+      args: [CdkFooterCellDef]
+    }]
+  });
+})();
+/** Base class for the cells. Adds a CSS classname that identifies the column it renders in. */
+class BaseCdkCell {
+  constructor(columnDef, elementRef) {
+    elementRef.nativeElement.classList.add(...columnDef._columnCssClassName);
+  }
+}
+/** Header cell template container that adds the right classes and role. */
+class CdkHeaderCell extends BaseCdkCell {
+  constructor(columnDef, elementRef) {
+    super(columnDef, elementRef);
+  }
+}
+_class5 = CdkHeaderCell;
+_class5.ɵfac = function _class5_Factory(t) {
+  return new (t || _class5)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](CdkColumnDef), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef));
+};
+_class5.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class5,
+  selectors: [["cdk-header-cell"], ["th", "cdk-header-cell", ""]],
+  hostAttrs: ["role", "columnheader", 1, "cdk-header-cell"],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵInheritDefinitionFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkHeaderCell, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: 'cdk-header-cell, th[cdk-header-cell]',
+      host: {
+        'class': 'cdk-header-cell',
+        'role': 'columnheader'
+      }
+    }]
+  }], function () {
+    return [{
+      type: CdkColumnDef
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef
+    }];
+  }, null);
+})();
+/** Footer cell template container that adds the right classes and role. */
+class CdkFooterCell extends BaseCdkCell {
+  constructor(columnDef, elementRef) {
+    super(columnDef, elementRef);
+    if (columnDef._table?._elementRef.nativeElement.nodeType === 1) {
+      const tableRole = columnDef._table._elementRef.nativeElement.getAttribute('role');
+      const role = tableRole === 'grid' || tableRole === 'treegrid' ? 'gridcell' : 'cell';
+      elementRef.nativeElement.setAttribute('role', role);
+    }
+  }
+}
+_class6 = CdkFooterCell;
+_class6.ɵfac = function _class6_Factory(t) {
+  return new (t || _class6)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](CdkColumnDef), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef));
+};
+_class6.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class6,
+  selectors: [["cdk-footer-cell"], ["td", "cdk-footer-cell", ""]],
+  hostAttrs: [1, "cdk-footer-cell"],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵInheritDefinitionFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkFooterCell, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: 'cdk-footer-cell, td[cdk-footer-cell]',
+      host: {
+        'class': 'cdk-footer-cell'
+      }
+    }]
+  }], function () {
+    return [{
+      type: CdkColumnDef
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef
+    }];
+  }, null);
+})();
+/** Cell template container that adds the right classes and role. */
+class CdkCell extends BaseCdkCell {
+  constructor(columnDef, elementRef) {
+    super(columnDef, elementRef);
+    if (columnDef._table?._elementRef.nativeElement.nodeType === 1) {
+      const tableRole = columnDef._table._elementRef.nativeElement.getAttribute('role');
+      const role = tableRole === 'grid' || tableRole === 'treegrid' ? 'gridcell' : 'cell';
+      elementRef.nativeElement.setAttribute('role', role);
+    }
+  }
+}
+_class7 = CdkCell;
+_class7.ɵfac = function _class7_Factory(t) {
+  return new (t || _class7)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](CdkColumnDef), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef));
+};
+_class7.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class7,
+  selectors: [["cdk-cell"], ["td", "cdk-cell", ""]],
+  hostAttrs: [1, "cdk-cell"],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵInheritDefinitionFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkCell, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: 'cdk-cell, td[cdk-cell]',
+      host: {
+        'class': 'cdk-cell'
+      }
+    }]
+  }], function () {
+    return [{
+      type: CdkColumnDef
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef
+    }];
+  }, null);
+})();
+
+/**
+ * @docs-private
+ */
+class _Schedule {
+  constructor() {
+    this.tasks = [];
+    this.endTasks = [];
+  }
+}
+/** Injection token used to provide a coalesced style scheduler. */
+const _COALESCED_STYLE_SCHEDULER = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.InjectionToken('_COALESCED_STYLE_SCHEDULER');
+/**
+ * Allows grouping up CSSDom mutations after the current execution context.
+ * This can significantly improve performance when separate consecutive functions are
+ * reading from the CSSDom and then mutating it.
+ *
+ * @docs-private
+ */
+class _CoalescedStyleScheduler {
+  constructor(_ngZone) {
+    this._ngZone = _ngZone;
+    this._currentSchedule = null;
+    this._destroyed = new rxjs__WEBPACK_IMPORTED_MODULE_3__.Subject();
+  }
+  /**
+   * Schedules the specified task to run at the end of the current VM turn.
+   */
+  schedule(task) {
+    this._createScheduleIfNeeded();
+    this._currentSchedule.tasks.push(task);
+  }
+  /**
+   * Schedules the specified task to run after other scheduled tasks at the end of the current
+   * VM turn.
+   */
+  scheduleEnd(task) {
+    this._createScheduleIfNeeded();
+    this._currentSchedule.endTasks.push(task);
+  }
+  /** Prevent any further tasks from running. */
+  ngOnDestroy() {
+    this._destroyed.next();
+    this._destroyed.complete();
+  }
+  _createScheduleIfNeeded() {
+    if (this._currentSchedule) {
+      return;
+    }
+    this._currentSchedule = new _Schedule();
+    this._getScheduleObservable().pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.takeUntil)(this._destroyed)).subscribe(() => {
+      while (this._currentSchedule.tasks.length || this._currentSchedule.endTasks.length) {
+        const schedule = this._currentSchedule;
+        // Capture new tasks scheduled by the current set of tasks.
+        this._currentSchedule = new _Schedule();
+        for (const task of schedule.tasks) {
+          task();
+        }
+        for (const task of schedule.endTasks) {
+          task();
+        }
+      }
+      this._currentSchedule = null;
+    });
+  }
+  _getScheduleObservable() {
+    // Use onStable when in the context of an ongoing change detection cycle so that we
+    // do not accidentally trigger additional cycles.
+    return this._ngZone.isStable ? (0,rxjs__WEBPACK_IMPORTED_MODULE_5__.from)(Promise.resolve(undefined)) : this._ngZone.onStable.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.take)(1));
+  }
+}
+_class8 = _CoalescedStyleScheduler;
+_class8.ɵfac = function _class8_Factory(t) {
+  return new (t || _class8)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.NgZone));
+};
+_class8.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
+  token: _class8,
+  factory: _class8.ɵfac
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](_CoalescedStyleScheduler, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Injectable
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.NgZone
+    }];
+  }, null);
+})();
+
+/**
+ * The row template that can be used by the mat-table. Should not be used outside of the
+ * material library.
+ */
+const CDK_ROW_TEMPLATE = `<ng-container cdkCellOutlet></ng-container>`;
+/**
+ * Base class for the CdkHeaderRowDef and CdkRowDef that handles checking their columns inputs
+ * for changes and notifying the table.
+ */
+class BaseRowDef {
+  constructor( /** @docs-private */template, _differs) {
+    this.template = template;
+    this._differs = _differs;
+  }
+  ngOnChanges(changes) {
+    // Create a new columns differ if one does not yet exist. Initialize it based on initial value
+    // of the columns property or an empty array if none is provided.
+    if (!this._columnsDiffer) {
+      const columns = changes['columns'] && changes['columns'].currentValue || [];
+      this._columnsDiffer = this._differs.find(columns).create();
+      this._columnsDiffer.diff(columns);
+    }
+  }
+  /**
+   * Returns the difference between the current columns and the columns from the last diff, or null
+   * if there is no difference.
+   */
+  getColumnsDiff() {
+    return this._columnsDiffer.diff(this.columns);
+  }
+  /** Gets this row def's relevant cell template from the provided column def. */
+  extractCellTemplate(column) {
+    if (this instanceof CdkHeaderRowDef) {
+      return column.headerCell.template;
+    }
+    if (this instanceof CdkFooterRowDef) {
+      return column.footerCell.template;
+    } else {
+      return column.cell.template;
+    }
+  }
+}
+_class9 = BaseRowDef;
+_class9.ɵfac = function _class9_Factory(t) {
+  return new (t || _class9)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.TemplateRef), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.IterableDiffers));
+};
+_class9.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class9,
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](BaseRowDef, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.TemplateRef
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.IterableDiffers
+    }];
+  }, null);
+})();
+// Boilerplate for applying mixins to CdkHeaderRowDef.
+/** @docs-private */
+class CdkHeaderRowDefBase extends BaseRowDef {}
+const _CdkHeaderRowDefBase = mixinHasStickyInput(CdkHeaderRowDefBase);
+/**
+ * Header row definition for the CDK table.
+ * Captures the header row's template and other header properties such as the columns to display.
+ */
+class CdkHeaderRowDef extends _CdkHeaderRowDefBase {
+  constructor(template, _differs, _table) {
+    super(template, _differs);
+    this._table = _table;
+  }
+  // Prerender fails to recognize that ngOnChanges in a part of this class through inheritance.
+  // Explicitly define it so that the method is called as part of the Angular lifecycle.
+  ngOnChanges(changes) {
+    super.ngOnChanges(changes);
+  }
+}
+_class10 = CdkHeaderRowDef;
+_class10.ɵfac = function _class10_Factory(t) {
+  return new (t || _class10)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.TemplateRef), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.IterableDiffers), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](CDK_TABLE, 8));
+};
+_class10.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class10,
+  selectors: [["", "cdkHeaderRowDef", ""]],
+  inputs: {
+    columns: ["cdkHeaderRowDef", "columns"],
+    sticky: ["cdkHeaderRowDefSticky", "sticky"]
+  },
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵInheritDefinitionFeature"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkHeaderRowDef, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: '[cdkHeaderRowDef]',
+      inputs: ['columns: cdkHeaderRowDef', 'sticky: cdkHeaderRowDefSticky']
+    }]
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.TemplateRef
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.IterableDiffers
+    }, {
+      type: undefined,
+      decorators: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Inject,
+        args: [CDK_TABLE]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Optional
+      }]
+    }];
+  }, null);
+})();
+// Boilerplate for applying mixins to CdkFooterRowDef.
+/** @docs-private */
+class CdkFooterRowDefBase extends BaseRowDef {}
+const _CdkFooterRowDefBase = mixinHasStickyInput(CdkFooterRowDefBase);
+/**
+ * Footer row definition for the CDK table.
+ * Captures the footer row's template and other footer properties such as the columns to display.
+ */
+class CdkFooterRowDef extends _CdkFooterRowDefBase {
+  constructor(template, _differs, _table) {
+    super(template, _differs);
+    this._table = _table;
+  }
+  // Prerender fails to recognize that ngOnChanges in a part of this class through inheritance.
+  // Explicitly define it so that the method is called as part of the Angular lifecycle.
+  ngOnChanges(changes) {
+    super.ngOnChanges(changes);
+  }
+}
+_class11 = CdkFooterRowDef;
+_class11.ɵfac = function _class11_Factory(t) {
+  return new (t || _class11)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.TemplateRef), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.IterableDiffers), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](CDK_TABLE, 8));
+};
+_class11.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class11,
+  selectors: [["", "cdkFooterRowDef", ""]],
+  inputs: {
+    columns: ["cdkFooterRowDef", "columns"],
+    sticky: ["cdkFooterRowDefSticky", "sticky"]
+  },
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵInheritDefinitionFeature"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkFooterRowDef, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: '[cdkFooterRowDef]',
+      inputs: ['columns: cdkFooterRowDef', 'sticky: cdkFooterRowDefSticky']
+    }]
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.TemplateRef
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.IterableDiffers
+    }, {
+      type: undefined,
+      decorators: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Inject,
+        args: [CDK_TABLE]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Optional
+      }]
+    }];
+  }, null);
+})();
+/**
+ * Data row definition for the CDK table.
+ * Captures the header row's template and other row properties such as the columns to display and
+ * a when predicate that describes when this row should be used.
+ */
+class CdkRowDef extends BaseRowDef {
+  // TODO(andrewseguin): Add an input for providing a switch function to determine
+  //   if this template should be used.
+  constructor(template, _differs, _table) {
+    super(template, _differs);
+    this._table = _table;
+  }
+}
+_class12 = CdkRowDef;
+_class12.ɵfac = function _class12_Factory(t) {
+  return new (t || _class12)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.TemplateRef), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.IterableDiffers), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](CDK_TABLE, 8));
+};
+_class12.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class12,
+  selectors: [["", "cdkRowDef", ""]],
+  inputs: {
+    columns: ["cdkRowDefColumns", "columns"],
+    when: ["cdkRowDefWhen", "when"]
+  },
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵInheritDefinitionFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkRowDef, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: '[cdkRowDef]',
+      inputs: ['columns: cdkRowDefColumns', 'when: cdkRowDefWhen']
+    }]
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.TemplateRef
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.IterableDiffers
+    }, {
+      type: undefined,
+      decorators: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Inject,
+        args: [CDK_TABLE]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Optional
+      }]
+    }];
+  }, null);
+})();
+/**
+ * Outlet for rendering cells inside of a row or header row.
+ * @docs-private
+ */
+class CdkCellOutlet {
+  constructor(_viewContainer) {
+    this._viewContainer = _viewContainer;
+    CdkCellOutlet.mostRecentCellOutlet = this;
+  }
+  ngOnDestroy() {
+    // If this was the last outlet being rendered in the view, remove the reference
+    // from the static property after it has been destroyed to avoid leaking memory.
+    if (CdkCellOutlet.mostRecentCellOutlet === this) {
+      CdkCellOutlet.mostRecentCellOutlet = null;
+    }
+  }
+}
+_class13 = CdkCellOutlet;
+/**
+ * Static property containing the latest constructed instance of this class.
+ * Used by the CDK table when each CdkHeaderRow and CdkRow component is created using
+ * createEmbeddedView. After one of these components are created, this property will provide
+ * a handle to provide that component's cells and context. After init, the CdkCellOutlet will
+ * construct the cells with the provided context.
+ */
+_class13.mostRecentCellOutlet = null;
+_class13.ɵfac = function _class13_Factory(t) {
+  return new (t || _class13)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewContainerRef));
+};
+_class13.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class13,
+  selectors: [["", "cdkCellOutlet", ""]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkCellOutlet, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: '[cdkCellOutlet]'
+    }]
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewContainerRef
+    }];
+  }, null);
+})();
+/** Header template container that contains the cell outlet. Adds the right class and role. */
+class CdkHeaderRow {}
+_class14 = CdkHeaderRow;
+_class14.ɵfac = function _class14_Factory(t) {
+  return new (t || _class14)();
+};
+_class14.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+  type: _class14,
+  selectors: [["cdk-header-row"], ["tr", "cdk-header-row", ""]],
+  hostAttrs: ["role", "row", 1, "cdk-header-row"],
+  decls: 1,
+  vars: 0,
+  consts: [["cdkCellOutlet", ""]],
+  template: function _class14_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementContainer"](0, 0);
+    }
+  },
+  dependencies: [CdkCellOutlet],
+  encapsulation: 2
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkHeaderRow, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Component,
+    args: [{
+      selector: 'cdk-header-row, tr[cdk-header-row]',
+      template: CDK_ROW_TEMPLATE,
+      host: {
+        'class': 'cdk-header-row',
+        'role': 'row'
+      },
+      // See note on CdkTable for explanation on why this uses the default change detection strategy.
+      // tslint:disable-next-line:validate-decorators
+      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ChangeDetectionStrategy.Default,
+      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewEncapsulation.None
+    }]
+  }], null, null);
+})();
+/** Footer template container that contains the cell outlet. Adds the right class and role. */
+class CdkFooterRow {}
+_class15 = CdkFooterRow;
+_class15.ɵfac = function _class15_Factory(t) {
+  return new (t || _class15)();
+};
+_class15.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+  type: _class15,
+  selectors: [["cdk-footer-row"], ["tr", "cdk-footer-row", ""]],
+  hostAttrs: ["role", "row", 1, "cdk-footer-row"],
+  decls: 1,
+  vars: 0,
+  consts: [["cdkCellOutlet", ""]],
+  template: function _class15_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementContainer"](0, 0);
+    }
+  },
+  dependencies: [CdkCellOutlet],
+  encapsulation: 2
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkFooterRow, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Component,
+    args: [{
+      selector: 'cdk-footer-row, tr[cdk-footer-row]',
+      template: CDK_ROW_TEMPLATE,
+      host: {
+        'class': 'cdk-footer-row',
+        'role': 'row'
+      },
+      // See note on CdkTable for explanation on why this uses the default change detection strategy.
+      // tslint:disable-next-line:validate-decorators
+      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ChangeDetectionStrategy.Default,
+      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewEncapsulation.None
+    }]
+  }], null, null);
+})();
+/** Data row template container that contains the cell outlet. Adds the right class and role. */
+class CdkRow {}
+_class16 = CdkRow;
+_class16.ɵfac = function _class16_Factory(t) {
+  return new (t || _class16)();
+};
+_class16.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+  type: _class16,
+  selectors: [["cdk-row"], ["tr", "cdk-row", ""]],
+  hostAttrs: ["role", "row", 1, "cdk-row"],
+  decls: 1,
+  vars: 0,
+  consts: [["cdkCellOutlet", ""]],
+  template: function _class16_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementContainer"](0, 0);
+    }
+  },
+  dependencies: [CdkCellOutlet],
+  encapsulation: 2
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkRow, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Component,
+    args: [{
+      selector: 'cdk-row, tr[cdk-row]',
+      template: CDK_ROW_TEMPLATE,
+      host: {
+        'class': 'cdk-row',
+        'role': 'row'
+      },
+      // See note on CdkTable for explanation on why this uses the default change detection strategy.
+      // tslint:disable-next-line:validate-decorators
+      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ChangeDetectionStrategy.Default,
+      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewEncapsulation.None
+    }]
+  }], null, null);
+})();
+/** Row that can be used to display a message when no data is shown in the table. */
+class CdkNoDataRow {
+  constructor(templateRef) {
+    this.templateRef = templateRef;
+    this._contentClassName = 'cdk-no-data-row';
+  }
+}
+_class17 = CdkNoDataRow;
+_class17.ɵfac = function _class17_Factory(t) {
+  return new (t || _class17)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.TemplateRef));
+};
+_class17.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class17,
+  selectors: [["ng-template", "cdkNoDataRow", ""]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkNoDataRow, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: 'ng-template[cdkNoDataRow]'
+    }]
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.TemplateRef
+    }];
+  }, null);
+})();
+
+/**
+ * List of all possible directions that can be used for sticky positioning.
+ * @docs-private
+ */
+const STICKY_DIRECTIONS = ['top', 'bottom', 'left', 'right'];
+/**
+ * Applies and removes sticky positioning styles to the `CdkTable` rows and columns cells.
+ * @docs-private
+ */
+class StickyStyler {
+  /**
+   * @param _isNativeHtmlTable Whether the sticky logic should be based on a table
+   *     that uses the native `<table>` element.
+   * @param _stickCellCss The CSS class that will be applied to every row/cell that has
+   *     sticky positioning applied.
+   * @param direction The directionality context of the table (ltr/rtl); affects column positioning
+   *     by reversing left/right positions.
+   * @param _isBrowser Whether the table is currently being rendered on the server or the client.
+   * @param _needsPositionStickyOnElement Whether we need to specify position: sticky on cells
+   *     using inline styles. If false, it is assumed that position: sticky is included in
+   *     the component stylesheet for _stickCellCss.
+   * @param _positionListener A listener that is notified of changes to sticky rows/columns
+   *     and their dimensions.
+   */
+  constructor(_isNativeHtmlTable, _stickCellCss, direction, _coalescedStyleScheduler, _isBrowser = true, _needsPositionStickyOnElement = true, _positionListener) {
+    this._isNativeHtmlTable = _isNativeHtmlTable;
+    this._stickCellCss = _stickCellCss;
+    this.direction = direction;
+    this._coalescedStyleScheduler = _coalescedStyleScheduler;
+    this._isBrowser = _isBrowser;
+    this._needsPositionStickyOnElement = _needsPositionStickyOnElement;
+    this._positionListener = _positionListener;
+    this._cachedCellWidths = [];
+    this._borderCellCss = {
+      'top': `${_stickCellCss}-border-elem-top`,
+      'bottom': `${_stickCellCss}-border-elem-bottom`,
+      'left': `${_stickCellCss}-border-elem-left`,
+      'right': `${_stickCellCss}-border-elem-right`
+    };
+  }
+  /**
+   * Clears the sticky positioning styles from the row and its cells by resetting the `position`
+   * style, setting the zIndex to 0, and unsetting each provided sticky direction.
+   * @param rows The list of rows that should be cleared from sticking in the provided directions
+   * @param stickyDirections The directions that should no longer be set as sticky on the rows.
+   */
+  clearStickyPositioning(rows, stickyDirections) {
+    const elementsToClear = [];
+    for (const row of rows) {
+      // If the row isn't an element (e.g. if it's an `ng-container`),
+      // it won't have inline styles or `children` so we skip it.
+      if (row.nodeType !== row.ELEMENT_NODE) {
+        continue;
+      }
+      elementsToClear.push(row);
+      for (let i = 0; i < row.children.length; i++) {
+        elementsToClear.push(row.children[i]);
+      }
+    }
+    // Coalesce with sticky row/column updates (and potentially other changes like column resize).
+    this._coalescedStyleScheduler.schedule(() => {
+      for (const element of elementsToClear) {
+        this._removeStickyStyle(element, stickyDirections);
+      }
+    });
+  }
+  /**
+   * Applies sticky left and right positions to the cells of each row according to the sticky
+   * states of the rendered column definitions.
+   * @param rows The rows that should have its set of cells stuck according to the sticky states.
+   * @param stickyStartStates A list of boolean states where each state represents whether the cell
+   *     in this index position should be stuck to the start of the row.
+   * @param stickyEndStates A list of boolean states where each state represents whether the cell
+   *     in this index position should be stuck to the end of the row.
+   * @param recalculateCellWidths Whether the sticky styler should recalculate the width of each
+   *     column cell. If `false` cached widths will be used instead.
+   */
+  updateStickyColumns(rows, stickyStartStates, stickyEndStates, recalculateCellWidths = true) {
+    if (!rows.length || !this._isBrowser || !(stickyStartStates.some(state => state) || stickyEndStates.some(state => state))) {
+      if (this._positionListener) {
+        this._positionListener.stickyColumnsUpdated({
+          sizes: []
+        });
+        this._positionListener.stickyEndColumnsUpdated({
+          sizes: []
+        });
+      }
+      return;
+    }
+    const firstRow = rows[0];
+    const numCells = firstRow.children.length;
+    const cellWidths = this._getCellWidths(firstRow, recalculateCellWidths);
+    const startPositions = this._getStickyStartColumnPositions(cellWidths, stickyStartStates);
+    const endPositions = this._getStickyEndColumnPositions(cellWidths, stickyEndStates);
+    const lastStickyStart = stickyStartStates.lastIndexOf(true);
+    const firstStickyEnd = stickyEndStates.indexOf(true);
+    // Coalesce with sticky row updates (and potentially other changes like column resize).
+    this._coalescedStyleScheduler.schedule(() => {
+      const isRtl = this.direction === 'rtl';
+      const start = isRtl ? 'right' : 'left';
+      const end = isRtl ? 'left' : 'right';
+      for (const row of rows) {
+        for (let i = 0; i < numCells; i++) {
+          const cell = row.children[i];
+          if (stickyStartStates[i]) {
+            this._addStickyStyle(cell, start, startPositions[i], i === lastStickyStart);
+          }
+          if (stickyEndStates[i]) {
+            this._addStickyStyle(cell, end, endPositions[i], i === firstStickyEnd);
+          }
+        }
+      }
+      if (this._positionListener) {
+        this._positionListener.stickyColumnsUpdated({
+          sizes: lastStickyStart === -1 ? [] : cellWidths.slice(0, lastStickyStart + 1).map((width, index) => stickyStartStates[index] ? width : null)
+        });
+        this._positionListener.stickyEndColumnsUpdated({
+          sizes: firstStickyEnd === -1 ? [] : cellWidths.slice(firstStickyEnd).map((width, index) => stickyEndStates[index + firstStickyEnd] ? width : null).reverse()
+        });
+      }
+    });
+  }
+  /**
+   * Applies sticky positioning to the row's cells if using the native table layout, and to the
+   * row itself otherwise.
+   * @param rowsToStick The list of rows that should be stuck according to their corresponding
+   *     sticky state and to the provided top or bottom position.
+   * @param stickyStates A list of boolean states where each state represents whether the row
+   *     should be stuck in the particular top or bottom position.
+   * @param position The position direction in which the row should be stuck if that row should be
+   *     sticky.
+   *
+   */
+  stickRows(rowsToStick, stickyStates, position) {
+    // Since we can't measure the rows on the server, we can't stick the rows properly.
+    if (!this._isBrowser) {
+      return;
+    }
+    // If positioning the rows to the bottom, reverse their order when evaluating the sticky
+    // position such that the last row stuck will be "bottom: 0px" and so on. Note that the
+    // sticky states need to be reversed as well.
+    const rows = position === 'bottom' ? rowsToStick.slice().reverse() : rowsToStick;
+    const states = position === 'bottom' ? stickyStates.slice().reverse() : stickyStates;
+    // Measure row heights all at once before adding sticky styles to reduce layout thrashing.
+    const stickyOffsets = [];
+    const stickyCellHeights = [];
+    const elementsToStick = [];
+    for (let rowIndex = 0, stickyOffset = 0; rowIndex < rows.length; rowIndex++) {
+      if (!states[rowIndex]) {
+        continue;
+      }
+      stickyOffsets[rowIndex] = stickyOffset;
+      const row = rows[rowIndex];
+      elementsToStick[rowIndex] = this._isNativeHtmlTable ? Array.from(row.children) : [row];
+      const height = row.getBoundingClientRect().height;
+      stickyOffset += height;
+      stickyCellHeights[rowIndex] = height;
+    }
+    const borderedRowIndex = states.lastIndexOf(true);
+    // Coalesce with other sticky row updates (top/bottom), sticky columns updates
+    // (and potentially other changes like column resize).
+    this._coalescedStyleScheduler.schedule(() => {
+      for (let rowIndex = 0; rowIndex < rows.length; rowIndex++) {
+        if (!states[rowIndex]) {
+          continue;
+        }
+        const offset = stickyOffsets[rowIndex];
+        const isBorderedRowIndex = rowIndex === borderedRowIndex;
+        for (const element of elementsToStick[rowIndex]) {
+          this._addStickyStyle(element, position, offset, isBorderedRowIndex);
+        }
+      }
+      if (position === 'top') {
+        this._positionListener?.stickyHeaderRowsUpdated({
+          sizes: stickyCellHeights,
+          offsets: stickyOffsets,
+          elements: elementsToStick
+        });
+      } else {
+        this._positionListener?.stickyFooterRowsUpdated({
+          sizes: stickyCellHeights,
+          offsets: stickyOffsets,
+          elements: elementsToStick
+        });
+      }
+    });
+  }
+  /**
+   * When using the native table in Safari, sticky footer cells do not stick. The only way to stick
+   * footer rows is to apply sticky styling to the tfoot container. This should only be done if
+   * all footer rows are sticky. If not all footer rows are sticky, remove sticky positioning from
+   * the tfoot element.
+   */
+  updateStickyFooterContainer(tableElement, stickyStates) {
+    if (!this._isNativeHtmlTable) {
+      return;
+    }
+    const tfoot = tableElement.querySelector('tfoot');
+    // Coalesce with other sticky updates (and potentially other changes like column resize).
+    this._coalescedStyleScheduler.schedule(() => {
+      if (stickyStates.some(state => !state)) {
+        this._removeStickyStyle(tfoot, ['bottom']);
+      } else {
+        this._addStickyStyle(tfoot, 'bottom', 0, false);
+      }
+    });
+  }
+  /**
+   * Removes the sticky style on the element by removing the sticky cell CSS class, re-evaluating
+   * the zIndex, removing each of the provided sticky directions, and removing the
+   * sticky position if there are no more directions.
+   */
+  _removeStickyStyle(element, stickyDirections) {
+    for (const dir of stickyDirections) {
+      element.style[dir] = '';
+      element.classList.remove(this._borderCellCss[dir]);
+    }
+    // If the element no longer has any more sticky directions, remove sticky positioning and
+    // the sticky CSS class.
+    // Short-circuit checking element.style[dir] for stickyDirections as they
+    // were already removed above.
+    const hasDirection = STICKY_DIRECTIONS.some(dir => stickyDirections.indexOf(dir) === -1 && element.style[dir]);
+    if (hasDirection) {
+      element.style.zIndex = this._getCalculatedZIndex(element);
+    } else {
+      // When not hasDirection, _getCalculatedZIndex will always return ''.
+      element.style.zIndex = '';
+      if (this._needsPositionStickyOnElement) {
+        element.style.position = '';
+      }
+      element.classList.remove(this._stickCellCss);
+    }
+  }
+  /**
+   * Adds the sticky styling to the element by adding the sticky style class, changing position
+   * to be sticky (and -webkit-sticky), setting the appropriate zIndex, and adding a sticky
+   * direction and value.
+   */
+  _addStickyStyle(element, dir, dirValue, isBorderElement) {
+    element.classList.add(this._stickCellCss);
+    if (isBorderElement) {
+      element.classList.add(this._borderCellCss[dir]);
+    }
+    element.style[dir] = `${dirValue}px`;
+    element.style.zIndex = this._getCalculatedZIndex(element);
+    if (this._needsPositionStickyOnElement) {
+      element.style.cssText += 'position: -webkit-sticky; position: sticky; ';
+    }
+  }
+  /**
+   * Calculate what the z-index should be for the element, depending on what directions (top,
+   * bottom, left, right) have been set. It should be true that elements with a top direction
+   * should have the highest index since these are elements like a table header. If any of those
+   * elements are also sticky in another direction, then they should appear above other elements
+   * that are only sticky top (e.g. a sticky column on a sticky header). Bottom-sticky elements
+   * (e.g. footer rows) should then be next in the ordering such that they are below the header
+   * but above any non-sticky elements. Finally, left/right sticky elements (e.g. sticky columns)
+   * should minimally increment so that they are above non-sticky elements but below top and bottom
+   * elements.
+   */
+  _getCalculatedZIndex(element) {
+    const zIndexIncrements = {
+      top: 100,
+      bottom: 10,
+      left: 1,
+      right: 1
+    };
+    let zIndex = 0;
+    // Use `Iterable` instead of `Array` because TypeScript, as of 3.6.3,
+    // loses the array generic type in the `for of`. But we *also* have to use `Array` because
+    // typescript won't iterate over an `Iterable` unless you compile with `--downlevelIteration`
+    for (const dir of STICKY_DIRECTIONS) {
+      if (element.style[dir]) {
+        zIndex += zIndexIncrements[dir];
+      }
+    }
+    return zIndex ? `${zIndex}` : '';
+  }
+  /** Gets the widths for each cell in the provided row. */
+  _getCellWidths(row, recalculateCellWidths = true) {
+    if (!recalculateCellWidths && this._cachedCellWidths.length) {
+      return this._cachedCellWidths;
+    }
+    const cellWidths = [];
+    const firstRowCells = row.children;
+    for (let i = 0; i < firstRowCells.length; i++) {
+      let cell = firstRowCells[i];
+      cellWidths.push(cell.getBoundingClientRect().width);
+    }
+    this._cachedCellWidths = cellWidths;
+    return cellWidths;
+  }
+  /**
+   * Determines the left and right positions of each sticky column cell, which will be the
+   * accumulation of all sticky column cell widths to the left and right, respectively.
+   * Non-sticky cells do not need to have a value set since their positions will not be applied.
+   */
+  _getStickyStartColumnPositions(widths, stickyStates) {
+    const positions = [];
+    let nextPosition = 0;
+    for (let i = 0; i < widths.length; i++) {
+      if (stickyStates[i]) {
+        positions[i] = nextPosition;
+        nextPosition += widths[i];
+      }
+    }
+    return positions;
+  }
+  /**
+   * Determines the left and right positions of each sticky column cell, which will be the
+   * accumulation of all sticky column cell widths to the left and right, respectively.
+   * Non-sticky cells do not need to have a value set since their positions will not be applied.
+   */
+  _getStickyEndColumnPositions(widths, stickyStates) {
+    const positions = [];
+    let nextPosition = 0;
+    for (let i = widths.length; i > 0; i--) {
+      if (stickyStates[i]) {
+        positions[i] = nextPosition;
+        nextPosition += widths[i];
+      }
+    }
+    return positions;
+  }
+}
+
+/**
+ * Returns an error to be thrown when attempting to find an nonexistent column.
+ * @param id Id whose lookup failed.
+ * @docs-private
+ */
+function getTableUnknownColumnError(id) {
+  return Error(`Could not find column with id "${id}".`);
+}
+/**
+ * Returns an error to be thrown when two column definitions have the same name.
+ * @docs-private
+ */
+function getTableDuplicateColumnNameError(name) {
+  return Error(`Duplicate column definition name provided: "${name}".`);
+}
+/**
+ * Returns an error to be thrown when there are multiple rows that are missing a when function.
+ * @docs-private
+ */
+function getTableMultipleDefaultRowDefsError() {
+  return Error(`There can only be one default row without a when predicate function.`);
+}
+/**
+ * Returns an error to be thrown when there are no matching row defs for a particular set of data.
+ * @docs-private
+ */
+function getTableMissingMatchingRowDefError(data) {
+  return Error(`Could not find a matching row definition for the` + `provided row data: ${JSON.stringify(data)}`);
+}
+/**
+ * Returns an error to be thrown when there is no row definitions present in the content.
+ * @docs-private
+ */
+function getTableMissingRowDefsError() {
+  return Error('Missing definitions for header, footer, and row; ' + 'cannot determine which columns should be rendered.');
+}
+/**
+ * Returns an error to be thrown when the data source does not match the compatible types.
+ * @docs-private
+ */
+function getTableUnknownDataSourceError() {
+  return Error(`Provided data source did not match an array, Observable, or DataSource`);
+}
+/**
+ * Returns an error to be thrown when the text column cannot find a parent table to inject.
+ * @docs-private
+ */
+function getTableTextColumnMissingParentTableError() {
+  return Error(`Text column could not find a parent table for registration.`);
+}
+/**
+ * Returns an error to be thrown when a table text column doesn't have a name.
+ * @docs-private
+ */
+function getTableTextColumnMissingNameError() {
+  return Error(`Table text column must have a name.`);
+}
+
+/** The injection token used to specify the StickyPositioningListener. */
+const STICKY_POSITIONING_LISTENER = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.InjectionToken('CDK_SPL');
+
+/**
+ * Enables the recycle view repeater strategy, which reduces rendering latency. Not compatible with
+ * tables that animate rows.
+ */
+class CdkRecycleRows {}
+_class18 = CdkRecycleRows;
+_class18.ɵfac = function _class18_Factory(t) {
+  return new (t || _class18)();
+};
+_class18.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class18,
+  selectors: [["cdk-table", "recycleRows", ""], ["table", "cdk-table", "", "recycleRows", ""]],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵProvidersFeature"]([{
+    provide: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_0__._VIEW_REPEATER_STRATEGY,
+    useClass: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_0__._RecycleViewRepeaterStrategy
+  }])]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkRecycleRows, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: 'cdk-table[recycleRows], table[cdk-table][recycleRows]',
+      providers: [{
+        provide: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_0__._VIEW_REPEATER_STRATEGY,
+        useClass: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_0__._RecycleViewRepeaterStrategy
+      }]
+    }]
+  }], null, null);
+})();
+/**
+ * Provides a handle for the table to grab the view container's ng-container to insert data rows.
+ * @docs-private
+ */
+class DataRowOutlet {
+  constructor(viewContainer, elementRef) {
+    this.viewContainer = viewContainer;
+    this.elementRef = elementRef;
+  }
+}
+_class19 = DataRowOutlet;
+_class19.ɵfac = function _class19_Factory(t) {
+  return new (t || _class19)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewContainerRef), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef));
+};
+_class19.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class19,
+  selectors: [["", "rowOutlet", ""]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](DataRowOutlet, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: '[rowOutlet]'
+    }]
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewContainerRef
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef
+    }];
+  }, null);
+})();
+/**
+ * Provides a handle for the table to grab the view container's ng-container to insert the header.
+ * @docs-private
+ */
+class HeaderRowOutlet {
+  constructor(viewContainer, elementRef) {
+    this.viewContainer = viewContainer;
+    this.elementRef = elementRef;
+  }
+}
+_class20 = HeaderRowOutlet;
+_class20.ɵfac = function _class20_Factory(t) {
+  return new (t || _class20)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewContainerRef), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef));
+};
+_class20.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class20,
+  selectors: [["", "headerRowOutlet", ""]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](HeaderRowOutlet, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: '[headerRowOutlet]'
+    }]
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewContainerRef
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef
+    }];
+  }, null);
+})();
+/**
+ * Provides a handle for the table to grab the view container's ng-container to insert the footer.
+ * @docs-private
+ */
+class FooterRowOutlet {
+  constructor(viewContainer, elementRef) {
+    this.viewContainer = viewContainer;
+    this.elementRef = elementRef;
+  }
+}
+_class21 = FooterRowOutlet;
+_class21.ɵfac = function _class21_Factory(t) {
+  return new (t || _class21)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewContainerRef), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef));
+};
+_class21.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class21,
+  selectors: [["", "footerRowOutlet", ""]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](FooterRowOutlet, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: '[footerRowOutlet]'
+    }]
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewContainerRef
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef
+    }];
+  }, null);
+})();
+/**
+ * Provides a handle for the table to grab the view
+ * container's ng-container to insert the no data row.
+ * @docs-private
+ */
+class NoDataRowOutlet {
+  constructor(viewContainer, elementRef) {
+    this.viewContainer = viewContainer;
+    this.elementRef = elementRef;
+  }
+}
+_class22 = NoDataRowOutlet;
+_class22.ɵfac = function _class22_Factory(t) {
+  return new (t || _class22)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewContainerRef), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef));
+};
+_class22.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+  type: _class22,
+  selectors: [["", "noDataRowOutlet", ""]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](NoDataRowOutlet, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Directive,
+    args: [{
+      selector: '[noDataRowOutlet]'
+    }]
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewContainerRef
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef
+    }];
+  }, null);
+})();
+/**
+ * The table template that can be used by the mat-table. Should not be used outside of the
+ * material library.
+ * @docs-private
+ */
+const CDK_TABLE_TEMPLATE =
+// Note that according to MDN, the `caption` element has to be projected as the **first**
+// element in the table. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption
+`
+  <ng-content select="caption"></ng-content>
+  <ng-content select="colgroup, col"></ng-content>
+  <ng-container headerRowOutlet></ng-container>
+  <ng-container rowOutlet></ng-container>
+  <ng-container noDataRowOutlet></ng-container>
+  <ng-container footerRowOutlet></ng-container>
+`;
+/**
+ * Class used to conveniently type the embedded view ref for rows with a context.
+ * @docs-private
+ */
+class RowViewRef extends _angular_core__WEBPACK_IMPORTED_MODULE_1__.EmbeddedViewRef {}
+/**
+ * A data table that can render a header row, data rows, and a footer row.
+ * Uses the dataSource input to determine the data to be rendered. The data can be provided either
+ * as a data array, an Observable stream that emits the data array to render, or a DataSource with a
+ * connect function that will return an Observable stream that emits the data array to render.
+ */
+class CdkTable {
+  /**
+   * Tracking function that will be used to check the differences in data changes. Used similarly
+   * to `ngFor` `trackBy` function. Optimize row operations by identifying a row based on its data
+   * relative to the function to know if a row should be added/removed/moved.
+   * Accepts a function that takes two parameters, `index` and `item`.
+   */
+  get trackBy() {
+    return this._trackByFn;
+  }
+  set trackBy(fn) {
+    if ((typeof ngDevMode === 'undefined' || ngDevMode) && fn != null && typeof fn !== 'function') {
+      console.warn(`trackBy must be a function, but received ${JSON.stringify(fn)}.`);
+    }
+    this._trackByFn = fn;
+  }
+  /**
+   * The table's source of data, which can be provided in three ways (in order of complexity):
+   *   - Simple data array (each object represents one table row)
+   *   - Stream that emits a data array each time the array changes
+   *   - `DataSource` object that implements the connect/disconnect interface.
+   *
+   * If a data array is provided, the table must be notified when the array's objects are
+   * added, removed, or moved. This can be done by calling the `renderRows()` function which will
+   * render the diff since the last table render. If the data array reference is changed, the table
+   * will automatically trigger an update to the rows.
+   *
+   * When providing an Observable stream, the table will trigger an update automatically when the
+   * stream emits a new array of data.
+   *
+   * Finally, when providing a `DataSource` object, the table will use the Observable stream
+   * provided by the connect function and trigger updates when that stream emits new data array
+   * values. During the table's ngOnDestroy or when the data source is removed from the table, the
+   * table will call the DataSource's `disconnect` function (may be useful for cleaning up any
+   * subscriptions registered during the connect process).
+   */
+  get dataSource() {
+    return this._dataSource;
+  }
+  set dataSource(dataSource) {
+    if (this._dataSource !== dataSource) {
+      this._switchDataSource(dataSource);
+    }
+  }
+  /**
+   * Whether to allow multiple rows per data object by evaluating which rows evaluate their 'when'
+   * predicate to true. If `multiTemplateDataRows` is false, which is the default value, then each
+   * dataobject will render the first row that evaluates its when predicate to true, in the order
+   * defined in the table, or otherwise the default row which does not have a when predicate.
+   */
+  get multiTemplateDataRows() {
+    return this._multiTemplateDataRows;
+  }
+  set multiTemplateDataRows(v) {
+    this._multiTemplateDataRows = (0,_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_2__.coerceBooleanProperty)(v);
+    // In Ivy if this value is set via a static attribute (e.g. <table multiTemplateDataRows>),
+    // this setter will be invoked before the row outlet has been defined hence the null check.
+    if (this._rowOutlet && this._rowOutlet.viewContainer.length) {
+      this._forceRenderDataRows();
+      this.updateStickyColumnStyles();
+    }
+  }
+  /**
+   * Whether to use a fixed table layout. Enabling this option will enforce consistent column widths
+   * and optimize rendering sticky styles for native tables. No-op for flex tables.
+   */
+  get fixedLayout() {
+    return this._fixedLayout;
+  }
+  set fixedLayout(v) {
+    this._fixedLayout = (0,_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_2__.coerceBooleanProperty)(v);
+    // Toggling `fixedLayout` may change column widths. Sticky column styles should be recalculated.
+    this._forceRecalculateCellWidths = true;
+    this._stickyColumnStylesNeedReset = true;
+  }
+  constructor(_differs, _changeDetectorRef, _elementRef, role, _dir, _document, _platform, _viewRepeater, _coalescedStyleScheduler, _viewportRuler,
+  /**
+   * @deprecated `_stickyPositioningListener` parameter to become required.
+   * @breaking-change 13.0.0
+   */
+  _stickyPositioningListener,
+  /**
+   * @deprecated `_ngZone` parameter to become required.
+   * @breaking-change 14.0.0
+   */
+  _ngZone) {
+    this._differs = _differs;
+    this._changeDetectorRef = _changeDetectorRef;
+    this._elementRef = _elementRef;
+    this._dir = _dir;
+    this._platform = _platform;
+    this._viewRepeater = _viewRepeater;
+    this._coalescedStyleScheduler = _coalescedStyleScheduler;
+    this._viewportRuler = _viewportRuler;
+    this._stickyPositioningListener = _stickyPositioningListener;
+    this._ngZone = _ngZone;
+    /** Subject that emits when the component has been destroyed. */
+    this._onDestroy = new rxjs__WEBPACK_IMPORTED_MODULE_3__.Subject();
+    /**
+     * Map of all the user's defined columns (header, data, and footer cell template) identified by
+     * name. Collection populated by the column definitions gathered by `ContentChildren` as well as
+     * any custom column definitions added to `_customColumnDefs`.
+     */
+    this._columnDefsByName = new Map();
+    /**
+     * Column definitions that were defined outside of the direct content children of the table.
+     * These will be defined when, e.g., creating a wrapper around the cdkTable that has
+     * column definitions as *its* content child.
+     */
+    this._customColumnDefs = new Set();
+    /**
+     * Data row definitions that were defined outside of the direct content children of the table.
+     * These will be defined when, e.g., creating a wrapper around the cdkTable that has
+     * built-in data rows as *its* content child.
+     */
+    this._customRowDefs = new Set();
+    /**
+     * Header row definitions that were defined outside of the direct content children of the table.
+     * These will be defined when, e.g., creating a wrapper around the cdkTable that has
+     * built-in header rows as *its* content child.
+     */
+    this._customHeaderRowDefs = new Set();
+    /**
+     * Footer row definitions that were defined outside of the direct content children of the table.
+     * These will be defined when, e.g., creating a wrapper around the cdkTable that has a
+     * built-in footer row as *its* content child.
+     */
+    this._customFooterRowDefs = new Set();
+    /**
+     * Whether the header row definition has been changed. Triggers an update to the header row after
+     * content is checked. Initialized as true so that the table renders the initial set of rows.
+     */
+    this._headerRowDefChanged = true;
+    /**
+     * Whether the footer row definition has been changed. Triggers an update to the footer row after
+     * content is checked. Initialized as true so that the table renders the initial set of rows.
+     */
+    this._footerRowDefChanged = true;
+    /**
+     * Whether the sticky column styles need to be updated. Set to `true` when the visible columns
+     * change.
+     */
+    this._stickyColumnStylesNeedReset = true;
+    /**
+     * Whether the sticky styler should recalculate cell widths when applying sticky styles. If
+     * `false`, cached values will be used instead. This is only applicable to tables with
+     * {@link fixedLayout} enabled. For other tables, cell widths will always be recalculated.
+     */
+    this._forceRecalculateCellWidths = true;
+    /**
+     * Cache of the latest rendered `RenderRow` objects as a map for easy retrieval when constructing
+     * a new list of `RenderRow` objects for rendering rows. Since the new list is constructed with
+     * the cached `RenderRow` objects when possible, the row identity is preserved when the data
+     * and row template matches, which allows the `IterableDiffer` to check rows by reference
+     * and understand which rows are added/moved/removed.
+     *
+     * Implemented as a map of maps where the first key is the `data: T` object and the second is the
+     * `CdkRowDef<T>` object. With the two keys, the cache points to a `RenderRow<T>` object that
+     * contains an array of created pairs. The array is necessary to handle cases where the data
+     * array contains multiple duplicate data objects and each instantiated `RenderRow` must be
+     * stored.
+     */
+    this._cachedRenderRowsMap = new Map();
+    /**
+     * CSS class added to any row or cell that has sticky positioning applied. May be overridden by
+     * table subclasses.
+     */
+    this.stickyCssClass = 'cdk-table-sticky';
+    /**
+     * Whether to manually add position: sticky to all sticky cell elements. Not needed if
+     * the position is set in a selector associated with the value of stickyCssClass. May be
+     * overridden by table subclasses
+     */
+    this.needsPositionStickyOnElement = true;
+    /** Whether the no data row is currently showing anything. */
+    this._isShowingNoDataRow = false;
+    this._multiTemplateDataRows = false;
+    this._fixedLayout = false;
+    /**
+     * Emits when the table completes rendering a set of data rows based on the latest data from the
+     * data source, even if the set of rows is empty.
+     */
+    this.contentChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.EventEmitter();
+    // TODO(andrewseguin): Remove max value as the end index
+    //   and instead calculate the view on init and scroll.
+    /**
+     * Stream containing the latest information on what rows are being displayed on screen.
+     * Can be used by the data source to as a heuristic of what data should be provided.
+     *
+     * @docs-private
+     */
+    this.viewChange = new rxjs__WEBPACK_IMPORTED_MODULE_7__.BehaviorSubject({
+      start: 0,
+      end: Number.MAX_VALUE
+    });
+    if (!role) {
+      this._elementRef.nativeElement.setAttribute('role', 'table');
+    }
+    this._document = _document;
+    this._isNativeHtmlTable = this._elementRef.nativeElement.nodeName === 'TABLE';
+  }
+  ngOnInit() {
+    this._setupStickyStyler();
+    if (this._isNativeHtmlTable) {
+      this._applyNativeTableSections();
+    }
+    // Set up the trackBy function so that it uses the `RenderRow` as its identity by default. If
+    // the user has provided a custom trackBy, return the result of that function as evaluated
+    // with the values of the `RenderRow`'s data and index.
+    this._dataDiffer = this._differs.find([]).create((_i, dataRow) => {
+      return this.trackBy ? this.trackBy(dataRow.dataIndex, dataRow.data) : dataRow;
+    });
+    this._viewportRuler.change().pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.takeUntil)(this._onDestroy)).subscribe(() => {
+      this._forceRecalculateCellWidths = true;
+    });
+  }
+  ngAfterContentChecked() {
+    // Cache the row and column definitions gathered by ContentChildren and programmatic injection.
+    this._cacheRowDefs();
+    this._cacheColumnDefs();
+    // Make sure that the user has at least added header, footer, or data row def.
+    if (!this._headerRowDefs.length && !this._footerRowDefs.length && !this._rowDefs.length && (typeof ngDevMode === 'undefined' || ngDevMode)) {
+      throw getTableMissingRowDefsError();
+    }
+    // Render updates if the list of columns have been changed for the header, row, or footer defs.
+    const columnsChanged = this._renderUpdatedColumns();
+    const rowDefsChanged = columnsChanged || this._headerRowDefChanged || this._footerRowDefChanged;
+    // Ensure sticky column styles are reset if set to `true` elsewhere.
+    this._stickyColumnStylesNeedReset = this._stickyColumnStylesNeedReset || rowDefsChanged;
+    this._forceRecalculateCellWidths = rowDefsChanged;
+    // If the header row definition has been changed, trigger a render to the header row.
+    if (this._headerRowDefChanged) {
+      this._forceRenderHeaderRows();
+      this._headerRowDefChanged = false;
+    }
+    // If the footer row definition has been changed, trigger a render to the footer row.
+    if (this._footerRowDefChanged) {
+      this._forceRenderFooterRows();
+      this._footerRowDefChanged = false;
+    }
+    // If there is a data source and row definitions, connect to the data source unless a
+    // connection has already been made.
+    if (this.dataSource && this._rowDefs.length > 0 && !this._renderChangeSubscription) {
+      this._observeRenderChanges();
+    } else if (this._stickyColumnStylesNeedReset) {
+      // In the above case, _observeRenderChanges will result in updateStickyColumnStyles being
+      // called when it row data arrives. Otherwise, we need to call it proactively.
+      this.updateStickyColumnStyles();
+    }
+    this._checkStickyStates();
+  }
+  ngOnDestroy() {
+    [this._rowOutlet.viewContainer, this._headerRowOutlet.viewContainer, this._footerRowOutlet.viewContainer, this._cachedRenderRowsMap, this._customColumnDefs, this._customRowDefs, this._customHeaderRowDefs, this._customFooterRowDefs, this._columnDefsByName].forEach(def => {
+      def.clear();
+    });
+    this._headerRowDefs = [];
+    this._footerRowDefs = [];
+    this._defaultRowDef = null;
+    this._onDestroy.next();
+    this._onDestroy.complete();
+    if ((0,_angular_cdk_collections__WEBPACK_IMPORTED_MODULE_0__.isDataSource)(this.dataSource)) {
+      this.dataSource.disconnect(this);
+    }
+  }
+  /**
+   * Renders rows based on the table's latest set of data, which was either provided directly as an
+   * input or retrieved through an Observable stream (directly or from a DataSource).
+   * Checks for differences in the data since the last diff to perform only the necessary
+   * changes (add/remove/move rows).
+   *
+   * If the table's data source is a DataSource or Observable, this will be invoked automatically
+   * each time the provided Observable stream emits a new data array. Otherwise if your data is
+   * an array, this function will need to be called to render any changes.
+   */
+  renderRows() {
+    this._renderRows = this._getAllRenderRows();
+    const changes = this._dataDiffer.diff(this._renderRows);
+    if (!changes) {
+      this._updateNoDataRow();
+      this.contentChanged.next();
+      return;
+    }
+    const viewContainer = this._rowOutlet.viewContainer;
+    this._viewRepeater.applyChanges(changes, viewContainer, (record, _adjustedPreviousIndex, currentIndex) => this._getEmbeddedViewArgs(record.item, currentIndex), record => record.item.data, change => {
+      if (change.operation === 1 /* _ViewRepeaterOperation.INSERTED */ && change.context) {
+        this._renderCellTemplateForItem(change.record.item.rowDef, change.context);
+      }
+    });
+    // Update the meta context of a row's context data (index, count, first, last, ...)
+    this._updateRowIndexContext();
+    // Update rows that did not get added/removed/moved but may have had their identity changed,
+    // e.g. if trackBy matched data on some property but the actual data reference changed.
+    changes.forEachIdentityChange(record => {
+      const rowView = viewContainer.get(record.currentIndex);
+      rowView.context.$implicit = record.item.data;
+    });
+    this._updateNoDataRow();
+    // Allow the new row data to render before measuring it.
+    // @breaking-change 14.0.0 Remove undefined check once _ngZone is required.
+    if (this._ngZone && _angular_core__WEBPACK_IMPORTED_MODULE_1__.NgZone.isInAngularZone()) {
+      this._ngZone.onStable.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.take)(1), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.takeUntil)(this._onDestroy)).subscribe(() => {
+        this.updateStickyColumnStyles();
+      });
+    } else {
+      this.updateStickyColumnStyles();
+    }
+    this.contentChanged.next();
+  }
+  /** Adds a column definition that was not included as part of the content children. */
+  addColumnDef(columnDef) {
+    this._customColumnDefs.add(columnDef);
+  }
+  /** Removes a column definition that was not included as part of the content children. */
+  removeColumnDef(columnDef) {
+    this._customColumnDefs.delete(columnDef);
+  }
+  /** Adds a row definition that was not included as part of the content children. */
+  addRowDef(rowDef) {
+    this._customRowDefs.add(rowDef);
+  }
+  /** Removes a row definition that was not included as part of the content children. */
+  removeRowDef(rowDef) {
+    this._customRowDefs.delete(rowDef);
+  }
+  /** Adds a header row definition that was not included as part of the content children. */
+  addHeaderRowDef(headerRowDef) {
+    this._customHeaderRowDefs.add(headerRowDef);
+    this._headerRowDefChanged = true;
+  }
+  /** Removes a header row definition that was not included as part of the content children. */
+  removeHeaderRowDef(headerRowDef) {
+    this._customHeaderRowDefs.delete(headerRowDef);
+    this._headerRowDefChanged = true;
+  }
+  /** Adds a footer row definition that was not included as part of the content children. */
+  addFooterRowDef(footerRowDef) {
+    this._customFooterRowDefs.add(footerRowDef);
+    this._footerRowDefChanged = true;
+  }
+  /** Removes a footer row definition that was not included as part of the content children. */
+  removeFooterRowDef(footerRowDef) {
+    this._customFooterRowDefs.delete(footerRowDef);
+    this._footerRowDefChanged = true;
+  }
+  /** Sets a no data row definition that was not included as a part of the content children. */
+  setNoDataRow(noDataRow) {
+    this._customNoDataRow = noDataRow;
+  }
+  /**
+   * Updates the header sticky styles. First resets all applied styles with respect to the cells
+   * sticking to the top. Then, evaluating which cells need to be stuck to the top. This is
+   * automatically called when the header row changes its displayed set of columns, or if its
+   * sticky input changes. May be called manually for cases where the cell content changes outside
+   * of these events.
+   */
+  updateStickyHeaderRowStyles() {
+    const headerRows = this._getRenderedRows(this._headerRowOutlet);
+    const tableElement = this._elementRef.nativeElement;
+    // Hide the thead element if there are no header rows. This is necessary to satisfy
+    // overzealous a11y checkers that fail because the `rowgroup` element does not contain
+    // required child `row`.
+    const thead = tableElement.querySelector('thead');
+    if (thead) {
+      thead.style.display = headerRows.length ? '' : 'none';
+    }
+    const stickyStates = this._headerRowDefs.map(def => def.sticky);
+    this._stickyStyler.clearStickyPositioning(headerRows, ['top']);
+    this._stickyStyler.stickRows(headerRows, stickyStates, 'top');
+    // Reset the dirty state of the sticky input change since it has been used.
+    this._headerRowDefs.forEach(def => def.resetStickyChanged());
+  }
+  /**
+   * Updates the footer sticky styles. First resets all applied styles with respect to the cells
+   * sticking to the bottom. Then, evaluating which cells need to be stuck to the bottom. This is
+   * automatically called when the footer row changes its displayed set of columns, or if its
+   * sticky input changes. May be called manually for cases where the cell content changes outside
+   * of these events.
+   */
+  updateStickyFooterRowStyles() {
+    const footerRows = this._getRenderedRows(this._footerRowOutlet);
+    const tableElement = this._elementRef.nativeElement;
+    // Hide the tfoot element if there are no footer rows. This is necessary to satisfy
+    // overzealous a11y checkers that fail because the `rowgroup` element does not contain
+    // required child `row`.
+    const tfoot = tableElement.querySelector('tfoot');
+    if (tfoot) {
+      tfoot.style.display = footerRows.length ? '' : 'none';
+    }
+    const stickyStates = this._footerRowDefs.map(def => def.sticky);
+    this._stickyStyler.clearStickyPositioning(footerRows, ['bottom']);
+    this._stickyStyler.stickRows(footerRows, stickyStates, 'bottom');
+    this._stickyStyler.updateStickyFooterContainer(this._elementRef.nativeElement, stickyStates);
+    // Reset the dirty state of the sticky input change since it has been used.
+    this._footerRowDefs.forEach(def => def.resetStickyChanged());
+  }
+  /**
+   * Updates the column sticky styles. First resets all applied styles with respect to the cells
+   * sticking to the left and right. Then sticky styles are added for the left and right according
+   * to the column definitions for each cell in each row. This is automatically called when
+   * the data source provides a new set of data or when a column definition changes its sticky
+   * input. May be called manually for cases where the cell content changes outside of these events.
+   */
+  updateStickyColumnStyles() {
+    const headerRows = this._getRenderedRows(this._headerRowOutlet);
+    const dataRows = this._getRenderedRows(this._rowOutlet);
+    const footerRows = this._getRenderedRows(this._footerRowOutlet);
+    // For tables not using a fixed layout, the column widths may change when new rows are rendered.
+    // In a table using a fixed layout, row content won't affect column width, so sticky styles
+    // don't need to be cleared unless either the sticky column config changes or one of the row
+    // defs change.
+    if (this._isNativeHtmlTable && !this._fixedLayout || this._stickyColumnStylesNeedReset) {
+      // Clear the left and right positioning from all columns in the table across all rows since
+      // sticky columns span across all table sections (header, data, footer)
+      this._stickyStyler.clearStickyPositioning([...headerRows, ...dataRows, ...footerRows], ['left', 'right']);
+      this._stickyColumnStylesNeedReset = false;
+    }
+    // Update the sticky styles for each header row depending on the def's sticky state
+    headerRows.forEach((headerRow, i) => {
+      this._addStickyColumnStyles([headerRow], this._headerRowDefs[i]);
+    });
+    // Update the sticky styles for each data row depending on its def's sticky state
+    this._rowDefs.forEach(rowDef => {
+      // Collect all the rows rendered with this row definition.
+      const rows = [];
+      for (let i = 0; i < dataRows.length; i++) {
+        if (this._renderRows[i].rowDef === rowDef) {
+          rows.push(dataRows[i]);
+        }
+      }
+      this._addStickyColumnStyles(rows, rowDef);
+    });
+    // Update the sticky styles for each footer row depending on the def's sticky state
+    footerRows.forEach((footerRow, i) => {
+      this._addStickyColumnStyles([footerRow], this._footerRowDefs[i]);
+    });
+    // Reset the dirty state of the sticky input change since it has been used.
+    Array.from(this._columnDefsByName.values()).forEach(def => def.resetStickyChanged());
+  }
+  /**
+   * Get the list of RenderRow objects to render according to the current list of data and defined
+   * row definitions. If the previous list already contained a particular pair, it should be reused
+   * so that the differ equates their references.
+   */
+  _getAllRenderRows() {
+    const renderRows = [];
+    // Store the cache and create a new one. Any re-used RenderRow objects will be moved into the
+    // new cache while unused ones can be picked up by garbage collection.
+    const prevCachedRenderRows = this._cachedRenderRowsMap;
+    this._cachedRenderRowsMap = new Map();
+    // For each data object, get the list of rows that should be rendered, represented by the
+    // respective `RenderRow` object which is the pair of `data` and `CdkRowDef`.
+    for (let i = 0; i < this._data.length; i++) {
+      let data = this._data[i];
+      const renderRowsForData = this._getRenderRowsForData(data, i, prevCachedRenderRows.get(data));
+      if (!this._cachedRenderRowsMap.has(data)) {
+        this._cachedRenderRowsMap.set(data, new WeakMap());
+      }
+      for (let j = 0; j < renderRowsForData.length; j++) {
+        let renderRow = renderRowsForData[j];
+        const cache = this._cachedRenderRowsMap.get(renderRow.data);
+        if (cache.has(renderRow.rowDef)) {
+          cache.get(renderRow.rowDef).push(renderRow);
+        } else {
+          cache.set(renderRow.rowDef, [renderRow]);
+        }
+        renderRows.push(renderRow);
+      }
+    }
+    return renderRows;
+  }
+  /**
+   * Gets a list of `RenderRow<T>` for the provided data object and any `CdkRowDef` objects that
+   * should be rendered for this data. Reuses the cached RenderRow objects if they match the same
+   * `(T, CdkRowDef)` pair.
+   */
+  _getRenderRowsForData(data, dataIndex, cache) {
+    const rowDefs = this._getRowDefs(data, dataIndex);
+    return rowDefs.map(rowDef => {
+      const cachedRenderRows = cache && cache.has(rowDef) ? cache.get(rowDef) : [];
+      if (cachedRenderRows.length) {
+        const dataRow = cachedRenderRows.shift();
+        dataRow.dataIndex = dataIndex;
+        return dataRow;
+      } else {
+        return {
+          data,
+          rowDef,
+          dataIndex
+        };
+      }
+    });
+  }
+  /** Update the map containing the content's column definitions. */
+  _cacheColumnDefs() {
+    this._columnDefsByName.clear();
+    const columnDefs = mergeArrayAndSet(this._getOwnDefs(this._contentColumnDefs), this._customColumnDefs);
+    columnDefs.forEach(columnDef => {
+      if (this._columnDefsByName.has(columnDef.name) && (typeof ngDevMode === 'undefined' || ngDevMode)) {
+        throw getTableDuplicateColumnNameError(columnDef.name);
+      }
+      this._columnDefsByName.set(columnDef.name, columnDef);
+    });
+  }
+  /** Update the list of all available row definitions that can be used. */
+  _cacheRowDefs() {
+    this._headerRowDefs = mergeArrayAndSet(this._getOwnDefs(this._contentHeaderRowDefs), this._customHeaderRowDefs);
+    this._footerRowDefs = mergeArrayAndSet(this._getOwnDefs(this._contentFooterRowDefs), this._customFooterRowDefs);
+    this._rowDefs = mergeArrayAndSet(this._getOwnDefs(this._contentRowDefs), this._customRowDefs);
+    // After all row definitions are determined, find the row definition to be considered default.
+    const defaultRowDefs = this._rowDefs.filter(def => !def.when);
+    if (!this.multiTemplateDataRows && defaultRowDefs.length > 1 && (typeof ngDevMode === 'undefined' || ngDevMode)) {
+      throw getTableMultipleDefaultRowDefsError();
+    }
+    this._defaultRowDef = defaultRowDefs[0];
+  }
+  /**
+   * Check if the header, data, or footer rows have changed what columns they want to display or
+   * whether the sticky states have changed for the header or footer. If there is a diff, then
+   * re-render that section.
+   */
+  _renderUpdatedColumns() {
+    const columnsDiffReducer = (acc, def) => acc || !!def.getColumnsDiff();
+    // Force re-render data rows if the list of column definitions have changed.
+    const dataColumnsChanged = this._rowDefs.reduce(columnsDiffReducer, false);
+    if (dataColumnsChanged) {
+      this._forceRenderDataRows();
+    }
+    // Force re-render header/footer rows if the list of column definitions have changed.
+    const headerColumnsChanged = this._headerRowDefs.reduce(columnsDiffReducer, false);
+    if (headerColumnsChanged) {
+      this._forceRenderHeaderRows();
+    }
+    const footerColumnsChanged = this._footerRowDefs.reduce(columnsDiffReducer, false);
+    if (footerColumnsChanged) {
+      this._forceRenderFooterRows();
+    }
+    return dataColumnsChanged || headerColumnsChanged || footerColumnsChanged;
+  }
+  /**
+   * Switch to the provided data source by resetting the data and unsubscribing from the current
+   * render change subscription if one exists. If the data source is null, interpret this by
+   * clearing the row outlet. Otherwise start listening for new data.
+   */
+  _switchDataSource(dataSource) {
+    this._data = [];
+    if ((0,_angular_cdk_collections__WEBPACK_IMPORTED_MODULE_0__.isDataSource)(this.dataSource)) {
+      this.dataSource.disconnect(this);
+    }
+    // Stop listening for data from the previous data source.
+    if (this._renderChangeSubscription) {
+      this._renderChangeSubscription.unsubscribe();
+      this._renderChangeSubscription = null;
+    }
+    if (!dataSource) {
+      if (this._dataDiffer) {
+        this._dataDiffer.diff([]);
+      }
+      this._rowOutlet.viewContainer.clear();
+    }
+    this._dataSource = dataSource;
+  }
+  /** Set up a subscription for the data provided by the data source. */
+  _observeRenderChanges() {
+    // If no data source has been set, there is nothing to observe for changes.
+    if (!this.dataSource) {
+      return;
+    }
+    let dataStream;
+    if ((0,_angular_cdk_collections__WEBPACK_IMPORTED_MODULE_0__.isDataSource)(this.dataSource)) {
+      dataStream = this.dataSource.connect(this);
+    } else if ((0,rxjs__WEBPACK_IMPORTED_MODULE_8__.isObservable)(this.dataSource)) {
+      dataStream = this.dataSource;
+    } else if (Array.isArray(this.dataSource)) {
+      dataStream = (0,rxjs__WEBPACK_IMPORTED_MODULE_9__.of)(this.dataSource);
+    }
+    if (dataStream === undefined && (typeof ngDevMode === 'undefined' || ngDevMode)) {
+      throw getTableUnknownDataSourceError();
+    }
+    this._renderChangeSubscription = dataStream.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.takeUntil)(this._onDestroy)).subscribe(data => {
+      this._data = data || [];
+      this.renderRows();
+    });
+  }
+  /**
+   * Clears any existing content in the header row outlet and creates a new embedded view
+   * in the outlet using the header row definition.
+   */
+  _forceRenderHeaderRows() {
+    // Clear the header row outlet if any content exists.
+    if (this._headerRowOutlet.viewContainer.length > 0) {
+      this._headerRowOutlet.viewContainer.clear();
+    }
+    this._headerRowDefs.forEach((def, i) => this._renderRow(this._headerRowOutlet, def, i));
+    this.updateStickyHeaderRowStyles();
+  }
+  /**
+   * Clears any existing content in the footer row outlet and creates a new embedded view
+   * in the outlet using the footer row definition.
+   */
+  _forceRenderFooterRows() {
+    // Clear the footer row outlet if any content exists.
+    if (this._footerRowOutlet.viewContainer.length > 0) {
+      this._footerRowOutlet.viewContainer.clear();
+    }
+    this._footerRowDefs.forEach((def, i) => this._renderRow(this._footerRowOutlet, def, i));
+    this.updateStickyFooterRowStyles();
+  }
+  /** Adds the sticky column styles for the rows according to the columns' stick states. */
+  _addStickyColumnStyles(rows, rowDef) {
+    const columnDefs = Array.from(rowDef.columns || []).map(columnName => {
+      const columnDef = this._columnDefsByName.get(columnName);
+      if (!columnDef && (typeof ngDevMode === 'undefined' || ngDevMode)) {
+        throw getTableUnknownColumnError(columnName);
+      }
+      return columnDef;
+    });
+    const stickyStartStates = columnDefs.map(columnDef => columnDef.sticky);
+    const stickyEndStates = columnDefs.map(columnDef => columnDef.stickyEnd);
+    this._stickyStyler.updateStickyColumns(rows, stickyStartStates, stickyEndStates, !this._fixedLayout || this._forceRecalculateCellWidths);
+  }
+  /** Gets the list of rows that have been rendered in the row outlet. */
+  _getRenderedRows(rowOutlet) {
+    const renderedRows = [];
+    for (let i = 0; i < rowOutlet.viewContainer.length; i++) {
+      const viewRef = rowOutlet.viewContainer.get(i);
+      renderedRows.push(viewRef.rootNodes[0]);
+    }
+    return renderedRows;
+  }
+  /**
+   * Get the matching row definitions that should be used for this row data. If there is only
+   * one row definition, it is returned. Otherwise, find the row definitions that has a when
+   * predicate that returns true with the data. If none return true, return the default row
+   * definition.
+   */
+  _getRowDefs(data, dataIndex) {
+    if (this._rowDefs.length == 1) {
+      return [this._rowDefs[0]];
+    }
+    let rowDefs = [];
+    if (this.multiTemplateDataRows) {
+      rowDefs = this._rowDefs.filter(def => !def.when || def.when(dataIndex, data));
+    } else {
+      let rowDef = this._rowDefs.find(def => def.when && def.when(dataIndex, data)) || this._defaultRowDef;
+      if (rowDef) {
+        rowDefs.push(rowDef);
+      }
+    }
+    if (!rowDefs.length && (typeof ngDevMode === 'undefined' || ngDevMode)) {
+      throw getTableMissingMatchingRowDefError(data);
+    }
+    return rowDefs;
+  }
+  _getEmbeddedViewArgs(renderRow, index) {
+    const rowDef = renderRow.rowDef;
+    const context = {
+      $implicit: renderRow.data
+    };
+    return {
+      templateRef: rowDef.template,
+      context,
+      index
+    };
+  }
+  /**
+   * Creates a new row template in the outlet and fills it with the set of cell templates.
+   * Optionally takes a context to provide to the row and cells, as well as an optional index
+   * of where to place the new row template in the outlet.
+   */
+  _renderRow(outlet, rowDef, index, context = {}) {
+    // TODO(andrewseguin): enforce that one outlet was instantiated from createEmbeddedView
+    const view = outlet.viewContainer.createEmbeddedView(rowDef.template, context, index);
+    this._renderCellTemplateForItem(rowDef, context);
+    return view;
+  }
+  _renderCellTemplateForItem(rowDef, context) {
+    for (let cellTemplate of this._getCellTemplates(rowDef)) {
+      if (CdkCellOutlet.mostRecentCellOutlet) {
+        CdkCellOutlet.mostRecentCellOutlet._viewContainer.createEmbeddedView(cellTemplate, context);
+      }
+    }
+    this._changeDetectorRef.markForCheck();
+  }
+  /**
+   * Updates the index-related context for each row to reflect any changes in the index of the rows,
+   * e.g. first/last/even/odd.
+   */
+  _updateRowIndexContext() {
+    const viewContainer = this._rowOutlet.viewContainer;
+    for (let renderIndex = 0, count = viewContainer.length; renderIndex < count; renderIndex++) {
+      const viewRef = viewContainer.get(renderIndex);
+      const context = viewRef.context;
+      context.count = count;
+      context.first = renderIndex === 0;
+      context.last = renderIndex === count - 1;
+      context.even = renderIndex % 2 === 0;
+      context.odd = !context.even;
+      if (this.multiTemplateDataRows) {
+        context.dataIndex = this._renderRows[renderIndex].dataIndex;
+        context.renderIndex = renderIndex;
+      } else {
+        context.index = this._renderRows[renderIndex].dataIndex;
+      }
+    }
+  }
+  /** Gets the column definitions for the provided row def. */
+  _getCellTemplates(rowDef) {
+    if (!rowDef || !rowDef.columns) {
+      return [];
+    }
+    return Array.from(rowDef.columns, columnId => {
+      const column = this._columnDefsByName.get(columnId);
+      if (!column && (typeof ngDevMode === 'undefined' || ngDevMode)) {
+        throw getTableUnknownColumnError(columnId);
+      }
+      return rowDef.extractCellTemplate(column);
+    });
+  }
+  /** Adds native table sections (e.g. tbody) and moves the row outlets into them. */
+  _applyNativeTableSections() {
+    const documentFragment = this._document.createDocumentFragment();
+    const sections = [{
+      tag: 'thead',
+      outlets: [this._headerRowOutlet]
+    }, {
+      tag: 'tbody',
+      outlets: [this._rowOutlet, this._noDataRowOutlet]
+    }, {
+      tag: 'tfoot',
+      outlets: [this._footerRowOutlet]
+    }];
+    for (const section of sections) {
+      const element = this._document.createElement(section.tag);
+      element.setAttribute('role', 'rowgroup');
+      for (const outlet of section.outlets) {
+        element.appendChild(outlet.elementRef.nativeElement);
+      }
+      documentFragment.appendChild(element);
+    }
+    // Use a DocumentFragment so we don't hit the DOM on each iteration.
+    this._elementRef.nativeElement.appendChild(documentFragment);
+  }
+  /**
+   * Forces a re-render of the data rows. Should be called in cases where there has been an input
+   * change that affects the evaluation of which rows should be rendered, e.g. toggling
+   * `multiTemplateDataRows` or adding/removing row definitions.
+   */
+  _forceRenderDataRows() {
+    this._dataDiffer.diff([]);
+    this._rowOutlet.viewContainer.clear();
+    this.renderRows();
+  }
+  /**
+   * Checks if there has been a change in sticky states since last check and applies the correct
+   * sticky styles. Since checking resets the "dirty" state, this should only be performed once
+   * during a change detection and after the inputs are settled (after content check).
+   */
+  _checkStickyStates() {
+    const stickyCheckReducer = (acc, d) => {
+      return acc || d.hasStickyChanged();
+    };
+    // Note that the check needs to occur for every definition since it notifies the definition
+    // that it can reset its dirty state. Using another operator like `some` may short-circuit
+    // remaining definitions and leave them in an unchecked state.
+    if (this._headerRowDefs.reduce(stickyCheckReducer, false)) {
+      this.updateStickyHeaderRowStyles();
+    }
+    if (this._footerRowDefs.reduce(stickyCheckReducer, false)) {
+      this.updateStickyFooterRowStyles();
+    }
+    if (Array.from(this._columnDefsByName.values()).reduce(stickyCheckReducer, false)) {
+      this._stickyColumnStylesNeedReset = true;
+      this.updateStickyColumnStyles();
+    }
+  }
+  /**
+   * Creates the sticky styler that will be used for sticky rows and columns. Listens
+   * for directionality changes and provides the latest direction to the styler. Re-applies column
+   * stickiness when directionality changes.
+   */
+  _setupStickyStyler() {
+    const direction = this._dir ? this._dir.value : 'ltr';
+    this._stickyStyler = new StickyStyler(this._isNativeHtmlTable, this.stickyCssClass, direction, this._coalescedStyleScheduler, this._platform.isBrowser, this.needsPositionStickyOnElement, this._stickyPositioningListener);
+    (this._dir ? this._dir.change : (0,rxjs__WEBPACK_IMPORTED_MODULE_9__.of)()).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.takeUntil)(this._onDestroy)).subscribe(value => {
+      this._stickyStyler.direction = value;
+      this.updateStickyColumnStyles();
+    });
+  }
+  /** Filters definitions that belong to this table from a QueryList. */
+  _getOwnDefs(items) {
+    return items.filter(item => !item._table || item._table === this);
+  }
+  /** Creates or removes the no data row, depending on whether any data is being shown. */
+  _updateNoDataRow() {
+    const noDataRow = this._customNoDataRow || this._noDataRow;
+    if (!noDataRow) {
+      return;
+    }
+    const shouldShow = this._rowOutlet.viewContainer.length === 0;
+    if (shouldShow === this._isShowingNoDataRow) {
+      return;
+    }
+    const container = this._noDataRowOutlet.viewContainer;
+    if (shouldShow) {
+      const view = container.createEmbeddedView(noDataRow.templateRef);
+      const rootNode = view.rootNodes[0];
+      // Only add the attributes if we have a single root node since it's hard
+      // to figure out which one to add it to when there are multiple.
+      if (view.rootNodes.length === 1 && rootNode?.nodeType === this._document.ELEMENT_NODE) {
+        rootNode.setAttribute('role', 'row');
+        rootNode.classList.add(noDataRow._contentClassName);
+      }
+    } else {
+      container.clear();
+    }
+    this._isShowingNoDataRow = shouldShow;
+    this._changeDetectorRef.markForCheck();
+  }
+}
+_class23 = CdkTable;
+_class23.ɵfac = function _class23_Factory(t) {
+  return new (t || _class23)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.IterableDiffers), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ChangeDetectorRef), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinjectAttribute"]('role'), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_10__.Directionality, 8), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_11__.DOCUMENT), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_12__.Platform), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_cdk_collections__WEBPACK_IMPORTED_MODULE_0__._VIEW_REPEATER_STRATEGY), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_COALESCED_STYLE_SCHEDULER), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_13__.ViewportRuler), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](STICKY_POSITIONING_LISTENER, 12), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.NgZone, 8));
+};
+_class23.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+  type: _class23,
+  selectors: [["cdk-table"], ["table", "cdk-table", ""]],
+  contentQueries: function _class23_ContentQueries(rf, ctx, dirIndex) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵcontentQuery"](dirIndex, CdkNoDataRow, 5);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵcontentQuery"](dirIndex, CdkColumnDef, 5);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵcontentQuery"](dirIndex, CdkRowDef, 5);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵcontentQuery"](dirIndex, CdkHeaderRowDef, 5);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵcontentQuery"](dirIndex, CdkFooterRowDef, 5);
+    }
+    if (rf & 2) {
+      let _t;
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx._noDataRow = _t.first);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx._contentColumnDefs = _t);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx._contentRowDefs = _t);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx._contentHeaderRowDefs = _t);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx._contentFooterRowDefs = _t);
+    }
+  },
+  viewQuery: function _class23_Query(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵviewQuery"](DataRowOutlet, 7);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵviewQuery"](HeaderRowOutlet, 7);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵviewQuery"](FooterRowOutlet, 7);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵviewQuery"](NoDataRowOutlet, 7);
+    }
+    if (rf & 2) {
+      let _t;
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx._rowOutlet = _t.first);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx._headerRowOutlet = _t.first);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx._footerRowOutlet = _t.first);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx._noDataRowOutlet = _t.first);
+    }
+  },
+  hostAttrs: ["ngSkipHydration", "", 1, "cdk-table"],
+  hostVars: 2,
+  hostBindings: function _class23_HostBindings(rf, ctx) {
+    if (rf & 2) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵclassProp"]("cdk-table-fixed-layout", ctx.fixedLayout);
+    }
+  },
+  inputs: {
+    trackBy: "trackBy",
+    dataSource: "dataSource",
+    multiTemplateDataRows: "multiTemplateDataRows",
+    fixedLayout: "fixedLayout"
+  },
+  outputs: {
+    contentChanged: "contentChanged"
+  },
+  exportAs: ["cdkTable"],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵProvidersFeature"]([{
+    provide: CDK_TABLE,
+    useExisting: _class23
+  }, {
+    provide: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_0__._VIEW_REPEATER_STRATEGY,
+    useClass: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_0__._DisposeViewRepeaterStrategy
+  }, {
+    provide: _COALESCED_STYLE_SCHEDULER,
+    useClass: _CoalescedStyleScheduler
+  },
+  // Prevent nested tables from seeing this table's StickyPositioningListener.
+  {
+    provide: STICKY_POSITIONING_LISTENER,
+    useValue: null
+  }])],
+  ngContentSelectors: _c1,
+  decls: 6,
+  vars: 0,
+  consts: [["headerRowOutlet", ""], ["rowOutlet", ""], ["noDataRowOutlet", ""], ["footerRowOutlet", ""]],
+  template: function _class23_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵprojectionDef"](_c0);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵprojection"](0);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵprojection"](1, 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementContainer"](2, 0)(3, 1)(4, 2)(5, 3);
+    }
+  },
+  dependencies: [DataRowOutlet, HeaderRowOutlet, FooterRowOutlet, NoDataRowOutlet],
+  styles: [".cdk-table-fixed-layout{table-layout:fixed}"],
+  encapsulation: 2
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkTable, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Component,
+    args: [{
+      selector: 'cdk-table, table[cdk-table]',
+      exportAs: 'cdkTable',
+      template: CDK_TABLE_TEMPLATE,
+      host: {
+        'class': 'cdk-table',
+        '[class.cdk-table-fixed-layout]': 'fixedLayout',
+        'ngSkipHydration': ''
+      },
+      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewEncapsulation.None,
+      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ChangeDetectionStrategy.Default,
+      providers: [{
+        provide: CDK_TABLE,
+        useExisting: CdkTable
+      }, {
+        provide: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_0__._VIEW_REPEATER_STRATEGY,
+        useClass: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_0__._DisposeViewRepeaterStrategy
+      }, {
+        provide: _COALESCED_STYLE_SCHEDULER,
+        useClass: _CoalescedStyleScheduler
+      },
+      // Prevent nested tables from seeing this table's StickyPositioningListener.
+      {
+        provide: STICKY_POSITIONING_LISTENER,
+        useValue: null
+      }],
+      styles: [".cdk-table-fixed-layout{table-layout:fixed}"]
+    }]
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.IterableDiffers
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ChangeDetectorRef
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef
+    }, {
+      type: undefined,
+      decorators: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Attribute,
+        args: ['role']
+      }]
+    }, {
+      type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_10__.Directionality,
+      decorators: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Optional
+      }]
+    }, {
+      type: undefined,
+      decorators: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Inject,
+        args: [_angular_common__WEBPACK_IMPORTED_MODULE_11__.DOCUMENT]
+      }]
+    }, {
+      type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_12__.Platform
+    }, {
+      type: undefined,
+      decorators: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Inject,
+        args: [_angular_cdk_collections__WEBPACK_IMPORTED_MODULE_0__._VIEW_REPEATER_STRATEGY]
+      }]
+    }, {
+      type: _CoalescedStyleScheduler,
+      decorators: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Inject,
+        args: [_COALESCED_STYLE_SCHEDULER]
+      }]
+    }, {
+      type: _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_13__.ViewportRuler
+    }, {
+      type: undefined,
+      decorators: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Optional
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.SkipSelf
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Inject,
+        args: [STICKY_POSITIONING_LISTENER]
+      }]
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.NgZone,
+      decorators: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Optional
+      }]
+    }];
+  }, {
+    trackBy: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    dataSource: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    multiTemplateDataRows: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    fixedLayout: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    contentChanged: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Output
+    }],
+    _rowOutlet: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewChild,
+      args: [DataRowOutlet, {
+        static: true
+      }]
+    }],
+    _headerRowOutlet: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewChild,
+      args: [HeaderRowOutlet, {
+        static: true
+      }]
+    }],
+    _footerRowOutlet: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewChild,
+      args: [FooterRowOutlet, {
+        static: true
+      }]
+    }],
+    _noDataRowOutlet: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewChild,
+      args: [NoDataRowOutlet, {
+        static: true
+      }]
+    }],
+    _contentColumnDefs: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ContentChildren,
+      args: [CdkColumnDef, {
+        descendants: true
+      }]
+    }],
+    _contentRowDefs: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ContentChildren,
+      args: [CdkRowDef, {
+        descendants: true
+      }]
+    }],
+    _contentHeaderRowDefs: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ContentChildren,
+      args: [CdkHeaderRowDef, {
+        descendants: true
+      }]
+    }],
+    _contentFooterRowDefs: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ContentChildren,
+      args: [CdkFooterRowDef, {
+        descendants: true
+      }]
+    }],
+    _noDataRow: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ContentChild,
+      args: [CdkNoDataRow]
+    }]
+  });
+})();
+/** Utility function that gets a merged list of the entries in an array and values of a Set. */
+function mergeArrayAndSet(array, set) {
+  return array.concat(Array.from(set));
+}
+
+/**
+ * Column that simply shows text content for the header and row cells. Assumes that the table
+ * is using the native table implementation (`<table>`).
+ *
+ * By default, the name of this column will be the header text and data property accessor.
+ * The header text can be overridden with the `headerText` input. Cell values can be overridden with
+ * the `dataAccessor` input. Change the text justification to the start or end using the `justify`
+ * input.
+ */
+class CdkTextColumn {
+  /** Column name that should be used to reference this column. */
+  get name() {
+    return this._name;
+  }
+  set name(name) {
+    this._name = name;
+    // With Ivy, inputs can be initialized before static query results are
+    // available. In that case, we defer the synchronization until "ngOnInit" fires.
+    this._syncColumnDefName();
+  }
+  constructor(
+  // `CdkTextColumn` is always requiring a table, but we just assert it manually
+  // for better error reporting.
+  // tslint:disable-next-line: lightweight-tokens
+  _table, _options) {
+    this._table = _table;
+    this._options = _options;
+    /** Alignment of the cell values. */
+    this.justify = 'start';
+    this._options = _options || {};
+  }
+  ngOnInit() {
+    this._syncColumnDefName();
+    if (this.headerText === undefined) {
+      this.headerText = this._createDefaultHeaderText();
+    }
+    if (!this.dataAccessor) {
+      this.dataAccessor = this._options.defaultDataAccessor || ((data, name) => data[name]);
+    }
+    if (this._table) {
+      // Provide the cell and headerCell directly to the table with the static `ViewChild` query,
+      // since the columnDef will not pick up its content by the time the table finishes checking
+      // its content and initializing the rows.
+      this.columnDef.cell = this.cell;
+      this.columnDef.headerCell = this.headerCell;
+      this._table.addColumnDef(this.columnDef);
+    } else if (typeof ngDevMode === 'undefined' || ngDevMode) {
+      throw getTableTextColumnMissingParentTableError();
+    }
+  }
+  ngOnDestroy() {
+    if (this._table) {
+      this._table.removeColumnDef(this.columnDef);
+    }
+  }
+  /**
+   * Creates a default header text. Use the options' header text transformation function if one
+   * has been provided. Otherwise simply capitalize the column name.
+   */
+  _createDefaultHeaderText() {
+    const name = this.name;
+    if (!name && (typeof ngDevMode === 'undefined' || ngDevMode)) {
+      throw getTableTextColumnMissingNameError();
+    }
+    if (this._options && this._options.defaultHeaderTextTransform) {
+      return this._options.defaultHeaderTextTransform(name);
+    }
+    return name[0].toUpperCase() + name.slice(1);
+  }
+  /** Synchronizes the column definition name with the text column name. */
+  _syncColumnDefName() {
+    if (this.columnDef) {
+      this.columnDef.name = this.name;
+    }
+  }
+}
+_class24 = CdkTextColumn;
+_class24.ɵfac = function _class24_Factory(t) {
+  return new (t || _class24)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](CdkTable, 8), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](TEXT_COLUMN_OPTIONS, 8));
+};
+_class24.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+  type: _class24,
+  selectors: [["cdk-text-column"]],
+  viewQuery: function _class24_Query(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵviewQuery"](CdkColumnDef, 7);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵviewQuery"](CdkCellDef, 7);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵviewQuery"](CdkHeaderCellDef, 7);
+    }
+    if (rf & 2) {
+      let _t;
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.columnDef = _t.first);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.cell = _t.first);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.headerCell = _t.first);
+    }
+  },
+  inputs: {
+    name: "name",
+    headerText: "headerText",
+    dataAccessor: "dataAccessor",
+    justify: "justify"
+  },
+  decls: 3,
+  vars: 0,
+  consts: [["cdkColumnDef", ""], ["cdk-header-cell", "", 3, "text-align", 4, "cdkHeaderCellDef"], ["cdk-cell", "", 3, "text-align", 4, "cdkCellDef"], ["cdk-header-cell", ""], ["cdk-cell", ""]],
+  template: function _class24_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementContainerStart"](0, 0);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, _class24_th_1_Template, 2, 3, "th", 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](2, _class24_td_2_Template, 2, 3, "td", 2);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementContainerEnd"]();
+    }
+  },
+  dependencies: [CdkCellDef, CdkHeaderCellDef, CdkColumnDef, CdkCell, CdkHeaderCell],
+  encapsulation: 2
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkTextColumn, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Component,
+    args: [{
+      selector: 'cdk-text-column',
+      template: `
+    <ng-container cdkColumnDef>
+      <th cdk-header-cell *cdkHeaderCellDef [style.text-align]="justify">
+        {{headerText}}
+      </th>
+      <td cdk-cell *cdkCellDef="let data" [style.text-align]="justify">
+        {{dataAccessor(data, name)}}
+      </td>
+    </ng-container>
+  `,
+      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewEncapsulation.None,
+      // Change detection is intentionally not set to OnPush. This component's template will be provided
+      // to the table to be inserted into its view. This is problematic when change detection runs since
+      // the bindings in this template will be evaluated _after_ the table's view is evaluated, which
+      // mean's the template in the table's view will not have the updated value (and in fact will cause
+      // an ExpressionChangedAfterItHasBeenCheckedError).
+      // tslint:disable-next-line:validate-decorators
+      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ChangeDetectionStrategy.Default
+    }]
+  }], function () {
+    return [{
+      type: CdkTable,
+      decorators: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Optional
+      }]
+    }, {
+      type: undefined,
+      decorators: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Optional
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Inject,
+        args: [TEXT_COLUMN_OPTIONS]
+      }]
+    }];
+  }, {
+    name: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    headerText: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    dataAccessor: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    justify: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    columnDef: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewChild,
+      args: [CdkColumnDef, {
+        static: true
+      }]
+    }],
+    cell: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewChild,
+      args: [CdkCellDef, {
+        static: true
+      }]
+    }],
+    headerCell: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewChild,
+      args: [CdkHeaderCellDef, {
+        static: true
+      }]
+    }]
+  });
+})();
+const EXPORTED_DECLARATIONS = [CdkTable, CdkRowDef, CdkCellDef, CdkCellOutlet, CdkHeaderCellDef, CdkFooterCellDef, CdkColumnDef, CdkCell, CdkRow, CdkHeaderCell, CdkFooterCell, CdkHeaderRow, CdkHeaderRowDef, CdkFooterRow, CdkFooterRowDef, DataRowOutlet, HeaderRowOutlet, FooterRowOutlet, CdkTextColumn, CdkNoDataRow, CdkRecycleRows, NoDataRowOutlet];
+class CdkTableModule {}
+_class25 = CdkTableModule;
+_class25.ɵfac = function _class25_Factory(t) {
+  return new (t || _class25)();
+};
+_class25.ɵmod = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
+  type: _class25
+});
+_class25.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
+  imports: [_angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_13__.ScrollingModule]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CdkTableModule, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.NgModule,
+    args: [{
+      exports: EXPORTED_DECLARATIONS,
+      declarations: EXPORTED_DECLARATIONS,
+      imports: [_angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_13__.ScrollingModule]
+    }]
+  }], null, null);
+})();
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+
+/***/ }),
+
 /***/ 4849:
 /*!**********************************************************!*\
   !*** ./node_modules/@angular/common/fesm2022/common.mjs ***!
@@ -62733,6 +65572,793 @@ if (typeof ngDevMode !== 'undefined' && ngDevMode) {
 
 /***/ }),
 
+/***/ 525:
+/*!**************************************************************!*\
+  !*** ./node_modules/@angular/core/fesm2022/rxjs-interop.mjs ***!
+  \**************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   takeUntilDestroyed: () => (/* binding */ takeUntilDestroyed),
+/* harmony export */   toObservable: () => (/* binding */ toObservable),
+/* harmony export */   toSignal: () => (/* binding */ toSignal)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 9058);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 2108);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 6407);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 7390);
+/**
+ * @license Angular v16.2.4
+ * (c) 2010-2022 Google LLC. https://angular.io/
+ * License: MIT
+ */
+
+
+
+
+
+/**
+ * Operator which completes the Observable when the calling context (component, directive, service,
+ * etc) is destroyed.
+ *
+ * @param destroyRef optionally, the `DestroyRef` representing the current context. This can be
+ *     passed explicitly to use `takeUntilDestroyed` outside of an [injection
+ * context](guide/dependency-injection-context). Otherwise, the current `DestroyRef` is injected.
+ *
+ * @developerPreview
+ */
+function takeUntilDestroyed(destroyRef) {
+  if (!destroyRef) {
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.assertInInjectionContext)(takeUntilDestroyed);
+    destroyRef = (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.inject)(_angular_core__WEBPACK_IMPORTED_MODULE_0__.DestroyRef);
+  }
+  const destroyed$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__.Observable(observer => {
+    const unregisterFn = destroyRef.onDestroy(observer.next.bind(observer));
+    return unregisterFn;
+  });
+  return source => {
+    return source.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.takeUntil)(destroyed$));
+  };
+}
+
+/**
+ * Exposes the value of an Angular `Signal` as an RxJS `Observable`.
+ *
+ * The signal's value will be propagated into the `Observable`'s subscribers using an `effect`.
+ *
+ * `toObservable` must be called in an injection context unless an injector is provided via options.
+ *
+ * @developerPreview
+ */
+function toObservable(source, options) {
+  !options?.injector && (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.assertInInjectionContext)(toObservable);
+  const injector = options?.injector ?? (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.inject)(_angular_core__WEBPACK_IMPORTED_MODULE_0__.Injector);
+  const subject = new rxjs__WEBPACK_IMPORTED_MODULE_3__.ReplaySubject(1);
+  const watcher = (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.effect)(() => {
+    let value;
+    try {
+      value = source();
+    } catch (err) {
+      (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.untracked)(() => subject.error(err));
+      return;
+    }
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.untracked)(() => subject.next(value));
+  }, {
+    injector,
+    manualCleanup: true
+  });
+  injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_0__.DestroyRef).onDestroy(() => {
+    watcher.destroy();
+    subject.complete();
+  });
+  return subject.asObservable();
+}
+
+/**
+ * Base URL for the error details page.
+ *
+ * Keep this constant in sync across:
+ *  - packages/compiler-cli/src/ngtsc/diagnostics/src/error_details_base_url.ts
+ *  - packages/core/src/error_details_base_url.ts
+ */
+const ERROR_DETAILS_PAGE_BASE_URL = 'https://angular.io/errors';
+/**
+ * URL for the XSS security documentation.
+ */
+const XSS_SECURITY_URL = 'https://g.co/ng/security#xss';
+
+/**
+ * Class that represents a runtime error.
+ * Formats and outputs the error message in a consistent way.
+ *
+ * Example:
+ * ```
+ *  throw new RuntimeError(
+ *    RuntimeErrorCode.INJECTOR_ALREADY_DESTROYED,
+ *    ngDevMode && 'Injector has already been destroyed.');
+ * ```
+ *
+ * Note: the `message` argument contains a descriptive error message as a string in development
+ * mode (when the `ngDevMode` is defined). In production mode (after tree-shaking pass), the
+ * `message` argument becomes `false`, thus we account for it in the typings and the runtime
+ * logic.
+ */
+class RuntimeError extends Error {
+  constructor(code, message) {
+    super(formatRuntimeError(code, message));
+    this.code = code;
+  }
+}
+/**
+ * Called to format a runtime error.
+ * See additional info on the `message` argument type in the `RuntimeError` class description.
+ */
+function formatRuntimeError(code, message) {
+  // Error code might be a negative number, which is a special marker that instructs the logic to
+  // generate a link to the error details page on angular.io.
+  // We also prepend `0` to non-compile-time errors.
+  const fullCode = `NG0${Math.abs(code)}`;
+  let errorMessage = `${fullCode}${message ? ': ' + message : ''}`;
+  if (ngDevMode && code < 0) {
+    const addPeriodSeparator = !errorMessage.match(/[.,;!?\n]$/);
+    const separator = addPeriodSeparator ? '.' : '';
+    errorMessage = `${errorMessage}${separator} Find more at ${ERROR_DETAILS_PAGE_BASE_URL}/${fullCode}`;
+  }
+  return errorMessage;
+}
+
+/**
+ * Symbol used to tell `Signal`s apart from other functions.
+ *
+ * This can be used to auto-unwrap signals in various cases, or to auto-wrap non-signal values.
+ */
+const SIGNAL = Symbol('SIGNAL');
+/**
+ * Checks if the given `value` is a reactive `Signal`.
+ *
+ * @developerPreview
+ */
+function isSignal(value) {
+  return typeof value === 'function' && value[SIGNAL] !== undefined;
+}
+/**
+ * The default equality function used for `signal` and `computed`, which treats objects and arrays
+ * as never equal, and all other primitive values using identity semantics.
+ *
+ * This allows signals to hold non-primitive values (arrays, objects, other collections) and still
+ * propagate change notification upon explicit mutation without identity change.
+ *
+ * @developerPreview
+ */
+function defaultEquals(a, b) {
+  // `Object.is` compares two values using identity semantics which is desired behavior for
+  // primitive values. If `Object.is` determines two values to be equal we need to make sure that
+  // those don't represent objects (we want to make sure that 2 objects are always considered
+  // "unequal"). The null check is needed for the special case of JavaScript reporting null values
+  // as objects (`typeof null === 'object'`).
+  return (a === null || typeof a !== 'object') && Object.is(a, b);
+}
+const _global = globalThis;
+function ngDevModeResetPerfCounters() {
+  const locationString = typeof location !== 'undefined' ? location.toString() : '';
+  const newCounters = {
+    namedConstructors: locationString.indexOf('ngDevMode=namedConstructors') != -1,
+    firstCreatePass: 0,
+    tNode: 0,
+    tView: 0,
+    rendererCreateTextNode: 0,
+    rendererSetText: 0,
+    rendererCreateElement: 0,
+    rendererAddEventListener: 0,
+    rendererSetAttribute: 0,
+    rendererRemoveAttribute: 0,
+    rendererSetProperty: 0,
+    rendererSetClassName: 0,
+    rendererAddClass: 0,
+    rendererRemoveClass: 0,
+    rendererSetStyle: 0,
+    rendererRemoveStyle: 0,
+    rendererDestroy: 0,
+    rendererDestroyNode: 0,
+    rendererMoveNode: 0,
+    rendererRemoveNode: 0,
+    rendererAppendChild: 0,
+    rendererInsertBefore: 0,
+    rendererCreateComment: 0,
+    hydratedNodes: 0,
+    hydratedComponents: 0,
+    dehydratedViewsRemoved: 0,
+    dehydratedViewsCleanupRuns: 0,
+    componentsSkippedHydration: 0
+  };
+  // Make sure to refer to ngDevMode as ['ngDevMode'] for closure.
+  const allowNgDevModeTrue = locationString.indexOf('ngDevMode=false') === -1;
+  _global['ngDevMode'] = allowNgDevModeTrue && newCounters;
+  return newCounters;
+}
+/**
+ * This function checks to see if the `ngDevMode` has been set. If yes,
+ * then we honor it, otherwise we default to dev mode with additional checks.
+ *
+ * The idea is that unless we are doing production build where we explicitly
+ * set `ngDevMode == false` we should be helping the developer by providing
+ * as much early warning and errors as possible.
+ *
+ * `ɵɵdefineComponent` is guaranteed to have been called before any component template functions
+ * (and thus Ivy instructions), so a single initialization there is sufficient to ensure ngDevMode
+ * is defined for the entire instruction set.
+ *
+ * When checking `ngDevMode` on toplevel, always init it before referencing it
+ * (e.g. `((typeof ngDevMode === 'undefined' || ngDevMode) && initNgDevMode())`), otherwise you can
+ *  get a `ReferenceError` like in https://github.com/angular/angular/issues/31595.
+ *
+ * Details on possible values for `ngDevMode` can be found on its docstring.
+ *
+ * NOTE:
+ * - changes to the `ngDevMode` name must be synced with `compiler-cli/src/tooling.ts`.
+ */
+function initNgDevMode() {
+  // The below checks are to ensure that calling `initNgDevMode` multiple times does not
+  // reset the counters.
+  // If the `ngDevMode` is not an object, then it means we have not created the perf counters
+  // yet.
+  if (typeof ngDevMode === 'undefined' || ngDevMode) {
+    if (typeof ngDevMode !== 'object') {
+      ngDevModeResetPerfCounters();
+    }
+    return typeof ngDevMode !== 'undefined' && !!ngDevMode;
+  }
+  return false;
+}
+
+// Required as the signals library is in a separate package, so we need to explicitly ensure the
+/**
+ * The currently active consumer `ReactiveNode`, if running code in a reactive context.
+ *
+ * Change this via `setActiveConsumer`.
+ */
+let activeConsumer = null;
+let inNotificationPhase = false;
+function setActiveConsumer(consumer) {
+  const prev = activeConsumer;
+  activeConsumer = consumer;
+  return prev;
+}
+const REACTIVE_NODE = {
+  version: 0,
+  dirty: false,
+  producerNode: undefined,
+  producerLastReadVersion: undefined,
+  producerIndexOfThis: undefined,
+  nextProducerIndex: 0,
+  liveConsumerNode: undefined,
+  liveConsumerIndexOfThis: undefined,
+  consumerAllowSignalWrites: false,
+  consumerIsAlwaysLive: false,
+  producerMustRecompute: () => false,
+  producerRecomputeValue: () => {},
+  consumerMarkedDirty: () => {}
+};
+/**
+ * Called by implementations when a producer's signal is read.
+ */
+function producerAccessed(node) {
+  if (inNotificationPhase) {
+    throw new Error(typeof ngDevMode !== 'undefined' && ngDevMode ? `Assertion error: signal read during notification phase` : '');
+  }
+  if (activeConsumer === null) {
+    // Accessed outside of a reactive context, so nothing to record.
+    return;
+  }
+  // This producer is the `idx`th dependency of `activeConsumer`.
+  const idx = activeConsumer.nextProducerIndex++;
+  assertConsumerNode(activeConsumer);
+  if (idx < activeConsumer.producerNode.length && activeConsumer.producerNode[idx] !== node) {
+    // There's been a change in producers since the last execution of `activeConsumer`.
+    // `activeConsumer.producerNode[idx]` holds a stale dependency which will be be removed and
+    // replaced with `this`.
+    //
+    // If `activeConsumer` isn't live, then this is a no-op, since we can replace the producer in
+    // `activeConsumer.producerNode` directly. However, if `activeConsumer` is live, then we need
+    // to remove it from the stale producer's `liveConsumer`s.
+    if (consumerIsLive(activeConsumer)) {
+      const staleProducer = activeConsumer.producerNode[idx];
+      producerRemoveLiveConsumerAtIndex(staleProducer, activeConsumer.producerIndexOfThis[idx]);
+      // At this point, the only record of `staleProducer` is the reference at
+      // `activeConsumer.producerNode[idx]` which will be overwritten below.
+    }
+  }
+
+  if (activeConsumer.producerNode[idx] !== node) {
+    // We're a new dependency of the consumer (at `idx`).
+    activeConsumer.producerNode[idx] = node;
+    // If the active consumer is live, then add it as a live consumer. If not, then use 0 as a
+    // placeholder value.
+    activeConsumer.producerIndexOfThis[idx] = consumerIsLive(activeConsumer) ? producerAddLiveConsumer(node, activeConsumer, idx) : 0;
+  }
+  activeConsumer.producerLastReadVersion[idx] = node.version;
+}
+/**
+ * Ensure this producer's `version` is up-to-date.
+ */
+function producerUpdateValueVersion(node) {
+  if (consumerIsLive(node) && !node.dirty) {
+    // A live consumer will be marked dirty by producers, so a clean state means that its version
+    // is guaranteed to be up-to-date.
+    return;
+  }
+  if (!node.producerMustRecompute(node) && !consumerPollProducersForChange(node)) {
+    // None of our producers report a change since the last time they were read, so no
+    // recomputation of our value is necessary, and we can consider ourselves clean.
+    node.dirty = false;
+    return;
+  }
+  node.producerRecomputeValue(node);
+  // After recomputing the value, we're no longer dirty.
+  node.dirty = false;
+}
+/**
+ * Propagate a dirty notification to live consumers of this producer.
+ */
+function producerNotifyConsumers(node) {
+  if (node.liveConsumerNode === undefined) {
+    return;
+  }
+  // Prevent signal reads when we're updating the graph
+  const prev = inNotificationPhase;
+  inNotificationPhase = true;
+  try {
+    for (const consumer of node.liveConsumerNode) {
+      if (!consumer.dirty) {
+        consumerMarkDirty(consumer);
+      }
+    }
+  } finally {
+    inNotificationPhase = prev;
+  }
+}
+/**
+ * Whether this `ReactiveNode` in its producer capacity is currently allowed to initiate updates,
+ * based on the current consumer context.
+ */
+function producerUpdatesAllowed() {
+  return activeConsumer?.consumerAllowSignalWrites !== false;
+}
+function consumerMarkDirty(node) {
+  node.dirty = true;
+  producerNotifyConsumers(node);
+  node.consumerMarkedDirty?.(node);
+}
+/**
+ * Prepare this consumer to run a computation in its reactive context.
+ *
+ * Must be called by subclasses which represent reactive computations, before those computations
+ * begin.
+ */
+function consumerBeforeComputation(node) {
+  node && (node.nextProducerIndex = 0);
+  return setActiveConsumer(node);
+}
+/**
+ * Finalize this consumer's state after a reactive computation has run.
+ *
+ * Must be called by subclasses which represent reactive computations, after those computations
+ * have finished.
+ */
+function consumerAfterComputation(node, prevConsumer) {
+  setActiveConsumer(prevConsumer);
+  if (!node || node.producerNode === undefined || node.producerIndexOfThis === undefined || node.producerLastReadVersion === undefined) {
+    return;
+  }
+  if (consumerIsLive(node)) {
+    // For live consumers, we need to remove the producer -> consumer edge for any stale producers
+    // which weren't dependencies after the recomputation.
+    for (let i = node.nextProducerIndex; i < node.producerNode.length; i++) {
+      producerRemoveLiveConsumerAtIndex(node.producerNode[i], node.producerIndexOfThis[i]);
+    }
+  }
+  // Truncate the producer tracking arrays.
+  for (let i = node.nextProducerIndex; i < node.producerNode.length; i++) {
+    node.producerNode.pop();
+    node.producerLastReadVersion.pop();
+    node.producerIndexOfThis.pop();
+  }
+}
+/**
+ * Determine whether this consumer has any dependencies which have changed since the last time
+ * they were read.
+ */
+function consumerPollProducersForChange(node) {
+  assertConsumerNode(node);
+  // Poll producers for change.
+  for (let i = 0; i < node.producerNode.length; i++) {
+    const producer = node.producerNode[i];
+    const seenVersion = node.producerLastReadVersion[i];
+    // First check the versions. A mismatch means that the producer's value is known to have
+    // changed since the last time we read it.
+    if (seenVersion !== producer.version) {
+      return true;
+    }
+    // The producer's version is the same as the last time we read it, but it might itself be
+    // stale. Force the producer to recompute its version (calculating a new value if necessary).
+    producerUpdateValueVersion(producer);
+    // Now when we do this check, `producer.version` is guaranteed to be up to date, so if the
+    // versions still match then it has not changed since the last time we read it.
+    if (seenVersion !== producer.version) {
+      return true;
+    }
+  }
+  return false;
+}
+/**
+ * Disconnect this consumer from the graph.
+ */
+function consumerDestroy(node) {
+  assertConsumerNode(node);
+  if (consumerIsLive(node)) {
+    // Drop all connections from the graph to this node.
+    for (let i = 0; i < node.producerNode.length; i++) {
+      producerRemoveLiveConsumerAtIndex(node.producerNode[i], node.producerIndexOfThis[i]);
+    }
+  }
+  // Truncate all the arrays to drop all connection from this node to the graph.
+  node.producerNode.length = node.producerLastReadVersion.length = node.producerIndexOfThis.length = 0;
+  if (node.liveConsumerNode) {
+    node.liveConsumerNode.length = node.liveConsumerIndexOfThis.length = 0;
+  }
+}
+/**
+ * Add `consumer` as a live consumer of this node.
+ *
+ * Note that this operation is potentially transitive. If this node becomes live, then it becomes
+ * a live consumer of all of its current producers.
+ */
+function producerAddLiveConsumer(node, consumer, indexOfThis) {
+  assertProducerNode(node);
+  assertConsumerNode(node);
+  if (node.liveConsumerNode.length === 0) {
+    // When going from 0 to 1 live consumers, we become a live consumer to our producers.
+    for (let i = 0; i < node.producerNode.length; i++) {
+      node.producerIndexOfThis[i] = producerAddLiveConsumer(node.producerNode[i], node, i);
+    }
+  }
+  node.liveConsumerIndexOfThis.push(indexOfThis);
+  return node.liveConsumerNode.push(consumer) - 1;
+}
+/**
+ * Remove the live consumer at `idx`.
+ */
+function producerRemoveLiveConsumerAtIndex(node, idx) {
+  assertProducerNode(node);
+  assertConsumerNode(node);
+  if (node.liveConsumerNode.length === 1) {
+    // When removing the last live consumer, we will no longer be live. We need to remove
+    // ourselves from our producers' tracking (which may cause consumer-producers to lose
+    // liveness as well).
+    for (let i = 0; i < node.producerNode.length; i++) {
+      producerRemoveLiveConsumerAtIndex(node.producerNode[i], node.producerIndexOfThis[i]);
+    }
+  }
+  // Move the last value of `liveConsumers` into `idx`. Note that if there's only a single
+  // live consumer, this is a no-op.
+  const lastIdx = node.liveConsumerNode.length - 1;
+  node.liveConsumerNode[idx] = node.liveConsumerNode[lastIdx];
+  node.liveConsumerIndexOfThis[idx] = node.liveConsumerIndexOfThis[lastIdx];
+  // Truncate the array.
+  node.liveConsumerNode.length--;
+  node.liveConsumerIndexOfThis.length--;
+  // If the index is still valid, then we need to fix the index pointer from the producer to this
+  // consumer, and update it from `lastIdx` to `idx` (accounting for the move above).
+  if (idx < node.liveConsumerNode.length) {
+    const idxProducer = node.liveConsumerIndexOfThis[idx];
+    const consumer = node.liveConsumerNode[idx];
+    assertConsumerNode(consumer);
+    consumer.producerIndexOfThis[idxProducer] = idx;
+  }
+}
+function consumerIsLive(node) {
+  return node.consumerIsAlwaysLive || (node?.liveConsumerNode?.length ?? 0) > 0;
+}
+function assertConsumerNode(node) {
+  node.producerNode ??= [];
+  node.producerIndexOfThis ??= [];
+  node.producerLastReadVersion ??= [];
+}
+function assertProducerNode(node) {
+  node.liveConsumerNode ??= [];
+  node.liveConsumerIndexOfThis ??= [];
+}
+
+/**
+ * Create a computed `Signal` which derives a reactive value from an expression.
+ *
+ * @developerPreview
+ */
+function computed(computation, options) {
+  const node = Object.create(COMPUTED_NODE);
+  node.computation = computation;
+  options?.equal && (node.equal = options.equal);
+  const computed = () => {
+    // Check if the value needs updating before returning it.
+    producerUpdateValueVersion(node);
+    // Record that someone looked at this signal.
+    producerAccessed(node);
+    if (node.value === ERRORED) {
+      throw node.error;
+    }
+    return node.value;
+  };
+  computed[SIGNAL] = node;
+  return computed;
+}
+/**
+ * A dedicated symbol used before a computed value has been calculated for the first time.
+ * Explicitly typed as `any` so we can use it as signal's value.
+ */
+const UNSET = Symbol('UNSET');
+/**
+ * A dedicated symbol used in place of a computed signal value to indicate that a given computation
+ * is in progress. Used to detect cycles in computation chains.
+ * Explicitly typed as `any` so we can use it as signal's value.
+ */
+const COMPUTING = Symbol('COMPUTING');
+/**
+ * A dedicated symbol used in place of a computed signal value to indicate that a given computation
+ * failed. The thrown error is cached until the computation gets dirty again.
+ * Explicitly typed as `any` so we can use it as signal's value.
+ */
+const ERRORED = Symbol('ERRORED');
+const COMPUTED_NODE = {
+  ...REACTIVE_NODE,
+  value: UNSET,
+  dirty: true,
+  error: null,
+  equal: defaultEquals,
+  producerMustRecompute(node) {
+    // Force a recomputation if there's no current value, or if the current value is in the process
+    // of being calculated (which should throw an error).
+    return node.value === UNSET || node.value === COMPUTING;
+  },
+  producerRecomputeValue(node) {
+    if (node.value === COMPUTING) {
+      // Our computation somehow led to a cyclic read of itself.
+      throw new Error('Detected cycle in computations.');
+    }
+    const oldValue = node.value;
+    node.value = COMPUTING;
+    const prevConsumer = consumerBeforeComputation(node);
+    let newValue;
+    try {
+      newValue = node.computation();
+    } catch (err) {
+      newValue = ERRORED;
+      node.error = err;
+    } finally {
+      consumerAfterComputation(node, prevConsumer);
+    }
+    if (oldValue !== UNSET && oldValue !== ERRORED && newValue !== ERRORED && node.equal(oldValue, newValue)) {
+      // No change to `valueVersion` - old and new values are
+      // semantically equivalent.
+      node.value = oldValue;
+      return;
+    }
+    node.value = newValue;
+    node.version++;
+  }
+};
+function defaultThrowError() {
+  throw new Error();
+}
+let throwInvalidWriteToSignalErrorFn = defaultThrowError;
+function throwInvalidWriteToSignalError() {
+  throwInvalidWriteToSignalErrorFn();
+}
+function setThrowInvalidWriteToSignalError(fn) {
+  throwInvalidWriteToSignalErrorFn = fn;
+}
+
+/**
+ * If set, called after `WritableSignal`s are updated.
+ *
+ * This hook can be used to achieve various effects, such as running effects synchronously as part
+ * of setting a signal.
+ */
+let postSignalSetFn = null;
+/**
+ * Create a `Signal` that can be set or updated directly.
+ *
+ * @developerPreview
+ */
+function signal(initialValue, options) {
+  const node = Object.create(SIGNAL_NODE);
+  node.value = initialValue;
+  options?.equal && (node.equal = options.equal);
+  function signalFn() {
+    producerAccessed(node);
+    return node.value;
+  }
+  signalFn.set = signalSetFn;
+  signalFn.update = signalUpdateFn;
+  signalFn.mutate = signalMutateFn;
+  signalFn.asReadonly = signalAsReadonlyFn;
+  signalFn[SIGNAL] = node;
+  return signalFn;
+}
+function setPostSignalSetFn(fn) {
+  const prev = postSignalSetFn;
+  postSignalSetFn = fn;
+  return prev;
+}
+const SIGNAL_NODE = {
+  ...REACTIVE_NODE,
+  equal: defaultEquals,
+  readonlyFn: undefined
+};
+function signalValueChanged(node) {
+  node.version++;
+  producerNotifyConsumers(node);
+  postSignalSetFn?.();
+}
+function signalSetFn(newValue) {
+  const node = this[SIGNAL];
+  if (!producerUpdatesAllowed()) {
+    throwInvalidWriteToSignalError();
+  }
+  if (!node.equal(node.value, newValue)) {
+    node.value = newValue;
+    signalValueChanged(node);
+  }
+}
+function signalUpdateFn(updater) {
+  if (!producerUpdatesAllowed()) {
+    throwInvalidWriteToSignalError();
+  }
+  signalSetFn.call(this, updater(this[SIGNAL].value));
+}
+function signalMutateFn(mutator) {
+  const node = this[SIGNAL];
+  if (!producerUpdatesAllowed()) {
+    throwInvalidWriteToSignalError();
+  }
+  // Mutate bypasses equality checks as it's by definition changing the value.
+  mutator(node.value);
+  signalValueChanged(node);
+}
+function signalAsReadonlyFn() {
+  const node = this[SIGNAL];
+  if (node.readonlyFn === undefined) {
+    const readonlyFn = () => this();
+    readonlyFn[SIGNAL] = node;
+    node.readonlyFn = readonlyFn;
+  }
+  return node.readonlyFn;
+}
+
+/**
+ * Execute an arbitrary function in a non-reactive (non-tracking) context. The executed function
+ * can, optionally, return a value.
+ *
+ * @developerPreview
+ */
+function untracked(nonReactiveReadsFn) {
+  const prevConsumer = setActiveConsumer(null);
+  // We are not trying to catch any particular errors here, just making sure that the consumers
+  // stack is restored in case of errors.
+  try {
+    return nonReactiveReadsFn();
+  } finally {
+    setActiveConsumer(prevConsumer);
+  }
+}
+function watch(fn, schedule, allowSignalWrites) {
+  const node = Object.create(WATCH_NODE);
+  if (allowSignalWrites) {
+    node.consumerAllowSignalWrites = true;
+  }
+  node.fn = fn;
+  node.schedule = schedule;
+  const registerOnCleanup = cleanupFn => {
+    node.cleanupFn = cleanupFn;
+  };
+  const run = () => {
+    node.dirty = false;
+    if (node.hasRun && !consumerPollProducersForChange(node)) {
+      return;
+    }
+    node.hasRun = true;
+    const prevConsumer = consumerBeforeComputation(node);
+    try {
+      node.cleanupFn();
+      node.cleanupFn = NOOP_CLEANUP_FN;
+      node.fn(registerOnCleanup);
+    } finally {
+      consumerAfterComputation(node, prevConsumer);
+    }
+  };
+  node.ref = {
+    notify: () => consumerMarkDirty(node),
+    run,
+    cleanup: () => node.cleanupFn()
+  };
+  return node.ref;
+}
+const NOOP_CLEANUP_FN = () => {};
+const WATCH_NODE = {
+  ...REACTIVE_NODE,
+  consumerIsAlwaysLive: true,
+  consumerAllowSignalWrites: false,
+  consumerMarkedDirty: node => {
+    node.schedule(node.ref);
+  },
+  hasRun: false,
+  cleanupFn: NOOP_CLEANUP_FN
+};
+function setAlternateWeakRefImpl(impl) {
+  // TODO: remove this function
+}
+function toSignal(source, options) {
+  const requiresCleanup = !options?.manualCleanup;
+  requiresCleanup && !options?.injector && (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.assertInInjectionContext)(toSignal);
+  const cleanupRef = requiresCleanup ? options?.injector?.get(_angular_core__WEBPACK_IMPORTED_MODULE_0__.DestroyRef) ?? (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.inject)(_angular_core__WEBPACK_IMPORTED_MODULE_0__.DestroyRef) : null;
+  // Note: T is the Observable value type, and U is the initial value type. They don't have to be
+  // the same - the returned signal gives values of type `T`.
+  let state;
+  if (options?.requireSync) {
+    // Initially the signal is in a `NoValue` state.
+    state = (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.signal)({
+      kind: 0 /* StateKind.NoValue */
+    });
+  } else {
+    // If an initial value was passed, use it. Otherwise, use `undefined` as the initial value.
+    state = (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.signal)({
+      kind: 1 /* StateKind.Value */,
+      value: options?.initialValue
+    });
+  }
+  const sub = source.subscribe({
+    next: value => state.set({
+      kind: 1 /* StateKind.Value */,
+      value
+    }),
+    error: error => state.set({
+      kind: 2 /* StateKind.Error */,
+      error
+    })
+    // Completion of the Observable is meaningless to the signal. Signals don't have a concept of
+    // "complete".
+  });
+
+  if (ngDevMode && options?.requireSync && untracked(state).kind === 0 /* StateKind.NoValue */) {
+    throw new RuntimeError(601 /* RuntimeErrorCode.REQUIRE_SYNC_WITHOUT_SYNC_EMIT */, '`toSignal()` called with `requireSync` but `Observable` did not emit synchronously.');
+  }
+  // Unsubscribe when the current context is destroyed, if requested.
+  cleanupRef?.onDestroy(sub.unsubscribe.bind(sub));
+  // The actual returned signal is a `computed` of the `State` signal, which maps the various states
+  // to either values or errors.
+  return (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
+    const current = state();
+    switch (current.kind) {
+      case 1 /* StateKind.Value */:
+        return current.value;
+      case 2 /* StateKind.Error */:
+        throw current.error;
+      case 0 /* StateKind.NoValue */:
+        // This shouldn't really happen because the error is thrown on creation.
+        // TODO(alxhub): use a RuntimeError when we finalize the error semantics
+        throw new RuntimeError(601 /* RuntimeErrorCode.REQUIRE_SYNC_WITHOUT_SYNC_EMIT */, '`toSignal()` called with `requireSync` but `Observable` did not emit synchronously.');
+    }
+  });
+}
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+
+/***/ }),
+
 /***/ 8433:
 /*!************************************************************!*\
   !*** ./node_modules/@angular/material/fesm2022/button.mjs ***!
@@ -70605,6 +74231,1176 @@ _class7.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵd
     }]
   }], null, null);
 })();
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+
+/***/ }),
+
+/***/ 1515:
+/*!***********************************************************!*\
+  !*** ./node_modules/@angular/material/fesm2022/table.mjs ***!
+  \***********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MatCell: () => (/* binding */ MatCell),
+/* harmony export */   MatCellDef: () => (/* binding */ MatCellDef),
+/* harmony export */   MatColumnDef: () => (/* binding */ MatColumnDef),
+/* harmony export */   MatFooterCell: () => (/* binding */ MatFooterCell),
+/* harmony export */   MatFooterCellDef: () => (/* binding */ MatFooterCellDef),
+/* harmony export */   MatFooterRow: () => (/* binding */ MatFooterRow),
+/* harmony export */   MatFooterRowDef: () => (/* binding */ MatFooterRowDef),
+/* harmony export */   MatHeaderCell: () => (/* binding */ MatHeaderCell),
+/* harmony export */   MatHeaderCellDef: () => (/* binding */ MatHeaderCellDef),
+/* harmony export */   MatHeaderRow: () => (/* binding */ MatHeaderRow),
+/* harmony export */   MatHeaderRowDef: () => (/* binding */ MatHeaderRowDef),
+/* harmony export */   MatNoDataRow: () => (/* binding */ MatNoDataRow),
+/* harmony export */   MatRecycleRows: () => (/* binding */ MatRecycleRows),
+/* harmony export */   MatRow: () => (/* binding */ MatRow),
+/* harmony export */   MatRowDef: () => (/* binding */ MatRowDef),
+/* harmony export */   MatTable: () => (/* binding */ MatTable),
+/* harmony export */   MatTableDataSource: () => (/* binding */ MatTableDataSource),
+/* harmony export */   MatTableModule: () => (/* binding */ MatTableModule),
+/* harmony export */   MatTextColumn: () => (/* binding */ MatTextColumn),
+/* harmony export */   _MatTableDataSource: () => (/* binding */ _MatTableDataSource)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 9058);
+/* harmony import */ var _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/table */ 4110);
+/* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/cdk/collections */ 7377);
+/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/core */ 3102);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ 3846);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ 6990);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs */ 9030);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs */ 5761);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs */ 658);
+/* harmony import */ var _angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/cdk/coercion */ 6680);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ 2631);
+var _class, _class2, _class3, _class4, _class5, _class6, _class7, _class8, _class9, _class10, _class11, _class12, _class13, _class14, _class15, _class16, _class17, _class18;
+
+
+
+
+
+
+
+
+
+
+/**
+ * Enables the recycle view repeater strategy, which reduces rendering latency. Not compatible with
+ * tables that animate rows.
+ */
+const _c0 = [[["caption"]], [["colgroup"], ["col"]]];
+const _c1 = ["caption", "colgroup, col"];
+function _class17_th_1_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("text-align", ctx_r0.justify);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r0.headerText, " ");
+  }
+}
+function _class17_td_2_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const data_r2 = ctx.$implicit;
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("text-align", ctx_r1.justify);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r1.dataAccessor(data_r2, ctx_r1.name), " ");
+  }
+}
+class MatRecycleRows {}
+_class = MatRecycleRows;
+_class.ɵfac = function _class_Factory(t) {
+  return new (t || _class)();
+};
+_class.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class,
+  selectors: [["mat-table", "recycleRows", ""], ["table", "mat-table", "", "recycleRows", ""]],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
+    provide: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_1__._VIEW_REPEATER_STRATEGY,
+    useClass: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_1__._RecycleViewRepeaterStrategy
+  }])]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatRecycleRows, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: 'mat-table[recycleRows], table[mat-table][recycleRows]',
+      providers: [{
+        provide: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_1__._VIEW_REPEATER_STRATEGY,
+        useClass: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_1__._RecycleViewRepeaterStrategy
+      }]
+    }]
+  }], null, null);
+})();
+class MatTable extends _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkTable {
+  constructor() {
+    super(...arguments);
+    /** Overrides the sticky CSS class set by the `CdkTable`. */
+    this.stickyCssClass = 'mat-mdc-table-sticky';
+    /** Overrides the need to add position: sticky on every sticky cell element in `CdkTable`. */
+    this.needsPositionStickyOnElement = false;
+  }
+  ngOnInit() {
+    super.ngOnInit();
+    // After ngOnInit, the `CdkTable` has created and inserted the table sections (thead, tbody,
+    // tfoot). MDC requires the `mdc-data-table__content` class to be added to the body. Note that
+    // this only applies to native tables, because we don't wrap the content of flexbox-based ones.
+    if (this._isNativeHtmlTable) {
+      const tbody = this._elementRef.nativeElement.querySelector('tbody');
+      tbody.classList.add('mdc-data-table__content');
+    }
+  }
+}
+_class2 = MatTable;
+_class2.ɵfac = /* @__PURE__ */function () {
+  let ɵ_class2_BaseFactory;
+  return function _class2_Factory(t) {
+    return (ɵ_class2_BaseFactory || (ɵ_class2_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](_class2)))(t || _class2);
+  };
+}();
+_class2.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+  type: _class2,
+  selectors: [["mat-table"], ["table", "mat-table", ""]],
+  hostAttrs: ["ngSkipHydration", "", 1, "mat-mdc-table", "mdc-data-table__table"],
+  hostVars: 2,
+  hostBindings: function _class2_HostBindings(rf, ctx) {
+    if (rf & 2) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("mdc-table-fixed-layout", ctx.fixedLayout);
+    }
+  },
+  exportAs: ["matTable"],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
+    provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkTable,
+    useExisting: _class2
+  }, {
+    provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CDK_TABLE,
+    useExisting: _class2
+  }, {
+    provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__._COALESCED_STYLE_SCHEDULER,
+    useClass: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__._CoalescedStyleScheduler
+  },
+  // TODO(michaeljamesparsons) Abstract the view repeater strategy to a directive API so this code
+  //  is only included in the build if used.
+  {
+    provide: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_1__._VIEW_REPEATER_STRATEGY,
+    useClass: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_1__._DisposeViewRepeaterStrategy
+  },
+  // Prevent nested tables from seeing this table's StickyPositioningListener.
+  {
+    provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.STICKY_POSITIONING_LISTENER,
+    useValue: null
+  }]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]],
+  ngContentSelectors: _c1,
+  decls: 6,
+  vars: 0,
+  consts: [["headerRowOutlet", ""], ["rowOutlet", ""], ["noDataRowOutlet", ""], ["footerRowOutlet", ""]],
+  template: function _class2_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojectionDef"](_c0);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](0);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](1, 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainer"](2, 0)(3, 1)(4, 2)(5, 3);
+    }
+  },
+  dependencies: [_angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.DataRowOutlet, _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.HeaderRowOutlet, _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.FooterRowOutlet, _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.NoDataRowOutlet],
+  styles: [".mat-mdc-table-sticky{position:sticky !important}.mdc-data-table{-webkit-overflow-scrolling:touch;display:inline-flex;flex-direction:column;box-sizing:border-box;position:relative}.mdc-data-table__table-container{-webkit-overflow-scrolling:touch;overflow-x:auto;width:100%}.mdc-data-table__table{min-width:100%;border:0;white-space:nowrap;border-spacing:0;table-layout:fixed}.mdc-data-table__cell{box-sizing:border-box;overflow:hidden;text-align:left;text-overflow:ellipsis}[dir=rtl] .mdc-data-table__cell,.mdc-data-table__cell[dir=rtl]{text-align:right}.mdc-data-table__cell--numeric{text-align:right}[dir=rtl] .mdc-data-table__cell--numeric,.mdc-data-table__cell--numeric[dir=rtl]{text-align:left}.mdc-data-table__header-cell{box-sizing:border-box;text-overflow:ellipsis;overflow:hidden;outline:none;text-align:left}[dir=rtl] .mdc-data-table__header-cell,.mdc-data-table__header-cell[dir=rtl]{text-align:right}.mdc-data-table__header-cell--numeric{text-align:right}[dir=rtl] .mdc-data-table__header-cell--numeric,.mdc-data-table__header-cell--numeric[dir=rtl]{text-align:left}.mdc-data-table__header-cell-wrapper{align-items:center;display:inline-flex;vertical-align:middle}.mdc-data-table__cell,.mdc-data-table__header-cell{padding:0 16px 0 16px}.mdc-data-table__header-cell--checkbox,.mdc-data-table__cell--checkbox{padding-left:4px;padding-right:0}[dir=rtl] .mdc-data-table__header-cell--checkbox,[dir=rtl] .mdc-data-table__cell--checkbox,.mdc-data-table__header-cell--checkbox[dir=rtl],.mdc-data-table__cell--checkbox[dir=rtl]{padding-left:0;padding-right:4px}mat-table{display:block}mat-header-row{min-height:56px}mat-row,mat-footer-row{min-height:48px}mat-row,mat-header-row,mat-footer-row{display:flex;border-width:0;border-bottom-width:1px;border-style:solid;align-items:center;box-sizing:border-box}mat-cell:first-of-type,mat-header-cell:first-of-type,mat-footer-cell:first-of-type{padding-left:24px}[dir=rtl] mat-cell:first-of-type:not(:only-of-type),[dir=rtl] mat-header-cell:first-of-type:not(:only-of-type),[dir=rtl] mat-footer-cell:first-of-type:not(:only-of-type){padding-left:0;padding-right:24px}mat-cell:last-of-type,mat-header-cell:last-of-type,mat-footer-cell:last-of-type{padding-right:24px}[dir=rtl] mat-cell:last-of-type:not(:only-of-type),[dir=rtl] mat-header-cell:last-of-type:not(:only-of-type),[dir=rtl] mat-footer-cell:last-of-type:not(:only-of-type){padding-right:0;padding-left:24px}mat-cell,mat-header-cell,mat-footer-cell{flex:1;display:flex;align-items:center;overflow:hidden;word-wrap:break-word;min-height:inherit}.mat-mdc-table{--mat-table-row-item-outline-width:1px;table-layout:auto;white-space:normal;background-color:var(--mat-table-background-color)}.mat-mdc-header-row{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mat-table-header-container-height, 56px);color:var(--mat-table-header-headline-color, rgba(0, 0, 0, 0.87));font-family:var(--mat-table-header-headline-font, Roboto, sans-serif);line-height:var(--mat-table-header-headline-line-height);font-size:var(--mat-table-header-headline-size, 14px);font-weight:var(--mat-table-header-headline-weight, 500)}.mat-mdc-row{height:var(--mat-table-row-item-container-height, 52px);color:var(--mat-table-row-item-label-text-color, rgba(0, 0, 0, 0.87))}.mat-mdc-row,.mdc-data-table__content{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:var(--mat-table-row-item-label-text-font, Roboto, sans-serif);line-height:var(--mat-table-row-item-label-text-line-height);font-size:var(--mat-table-row-item-label-text-size, 14px);font-weight:var(--mat-table-row-item-label-text-weight)}.mat-mdc-footer-row{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mat-table-footer-container-height, 52px);color:var(--mat-table-row-item-label-text-color, rgba(0, 0, 0, 0.87));font-family:var(--mat-table-footer-supporting-text-font, Roboto, sans-serif);line-height:var(--mat-table-footer-supporting-text-line-height);font-size:var(--mat-table-footer-supporting-text-size, 14px);font-weight:var(--mat-table-footer-supporting-text-weight);letter-spacing:var(--mat-table-footer-supporting-text-tracking)}.mat-mdc-header-cell{border-bottom-color:var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));border-bottom-width:var(--mat-table-row-item-outline-width, 1px);border-bottom-style:solid;letter-spacing:var(--mat-table-header-headline-tracking);font-weight:inherit;line-height:inherit}.mat-mdc-cell{border-bottom-color:var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));border-bottom-width:var(--mat-table-row-item-outline-width, 1px);border-bottom-style:solid;letter-spacing:var(--mat-table-row-item-label-text-tracking);line-height:inherit}.mdc-data-table__row:last-child .mat-mdc-cell{border-bottom:none}.mat-mdc-footer-cell{letter-spacing:var(--mat-table-row-item-label-text-tracking)}mat-row.mat-mdc-row,mat-header-row.mat-mdc-header-row,mat-footer-row.mat-mdc-footer-row{border-bottom:none}.mat-mdc-table tbody,.mat-mdc-table tfoot,.mat-mdc-table thead,.mat-mdc-cell,.mat-mdc-footer-cell,.mat-mdc-header-row,.mat-mdc-row,.mat-mdc-footer-row,.mat-mdc-table .mat-mdc-header-cell{background:inherit}.mat-mdc-table mat-header-row.mat-mdc-header-row,.mat-mdc-table mat-row.mat-mdc-row,.mat-mdc-table mat-footer-row.mat-mdc-footer-cell{height:unset}mat-header-cell.mat-mdc-header-cell,mat-cell.mat-mdc-cell,mat-footer-cell.mat-mdc-footer-cell{align-self:stretch}"],
+  encapsulation: 2
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatTable, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
+    args: [{
+      selector: 'mat-table, table[mat-table]',
+      exportAs: 'matTable',
+      template: `
+    <ng-content select="caption"></ng-content>
+    <ng-content select="colgroup, col"></ng-content>
+    <ng-container headerRowOutlet></ng-container>
+    <ng-container rowOutlet></ng-container>
+    <ng-container noDataRowOutlet></ng-container>
+    <ng-container footerRowOutlet></ng-container>
+  `,
+      host: {
+        'class': 'mat-mdc-table mdc-data-table__table',
+        '[class.mdc-table-fixed-layout]': 'fixedLayout',
+        'ngSkipHydration': ''
+      },
+      providers: [{
+        provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkTable,
+        useExisting: MatTable
+      }, {
+        provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CDK_TABLE,
+        useExisting: MatTable
+      }, {
+        provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__._COALESCED_STYLE_SCHEDULER,
+        useClass: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__._CoalescedStyleScheduler
+      },
+      // TODO(michaeljamesparsons) Abstract the view repeater strategy to a directive API so this code
+      //  is only included in the build if used.
+      {
+        provide: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_1__._VIEW_REPEATER_STRATEGY,
+        useClass: _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_1__._DisposeViewRepeaterStrategy
+      },
+      // Prevent nested tables from seeing this table's StickyPositioningListener.
+      {
+        provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.STICKY_POSITIONING_LISTENER,
+        useValue: null
+      }],
+      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
+      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.Default,
+      styles: [".mat-mdc-table-sticky{position:sticky !important}.mdc-data-table{-webkit-overflow-scrolling:touch;display:inline-flex;flex-direction:column;box-sizing:border-box;position:relative}.mdc-data-table__table-container{-webkit-overflow-scrolling:touch;overflow-x:auto;width:100%}.mdc-data-table__table{min-width:100%;border:0;white-space:nowrap;border-spacing:0;table-layout:fixed}.mdc-data-table__cell{box-sizing:border-box;overflow:hidden;text-align:left;text-overflow:ellipsis}[dir=rtl] .mdc-data-table__cell,.mdc-data-table__cell[dir=rtl]{text-align:right}.mdc-data-table__cell--numeric{text-align:right}[dir=rtl] .mdc-data-table__cell--numeric,.mdc-data-table__cell--numeric[dir=rtl]{text-align:left}.mdc-data-table__header-cell{box-sizing:border-box;text-overflow:ellipsis;overflow:hidden;outline:none;text-align:left}[dir=rtl] .mdc-data-table__header-cell,.mdc-data-table__header-cell[dir=rtl]{text-align:right}.mdc-data-table__header-cell--numeric{text-align:right}[dir=rtl] .mdc-data-table__header-cell--numeric,.mdc-data-table__header-cell--numeric[dir=rtl]{text-align:left}.mdc-data-table__header-cell-wrapper{align-items:center;display:inline-flex;vertical-align:middle}.mdc-data-table__cell,.mdc-data-table__header-cell{padding:0 16px 0 16px}.mdc-data-table__header-cell--checkbox,.mdc-data-table__cell--checkbox{padding-left:4px;padding-right:0}[dir=rtl] .mdc-data-table__header-cell--checkbox,[dir=rtl] .mdc-data-table__cell--checkbox,.mdc-data-table__header-cell--checkbox[dir=rtl],.mdc-data-table__cell--checkbox[dir=rtl]{padding-left:0;padding-right:4px}mat-table{display:block}mat-header-row{min-height:56px}mat-row,mat-footer-row{min-height:48px}mat-row,mat-header-row,mat-footer-row{display:flex;border-width:0;border-bottom-width:1px;border-style:solid;align-items:center;box-sizing:border-box}mat-cell:first-of-type,mat-header-cell:first-of-type,mat-footer-cell:first-of-type{padding-left:24px}[dir=rtl] mat-cell:first-of-type:not(:only-of-type),[dir=rtl] mat-header-cell:first-of-type:not(:only-of-type),[dir=rtl] mat-footer-cell:first-of-type:not(:only-of-type){padding-left:0;padding-right:24px}mat-cell:last-of-type,mat-header-cell:last-of-type,mat-footer-cell:last-of-type{padding-right:24px}[dir=rtl] mat-cell:last-of-type:not(:only-of-type),[dir=rtl] mat-header-cell:last-of-type:not(:only-of-type),[dir=rtl] mat-footer-cell:last-of-type:not(:only-of-type){padding-right:0;padding-left:24px}mat-cell,mat-header-cell,mat-footer-cell{flex:1;display:flex;align-items:center;overflow:hidden;word-wrap:break-word;min-height:inherit}.mat-mdc-table{--mat-table-row-item-outline-width:1px;table-layout:auto;white-space:normal;background-color:var(--mat-table-background-color)}.mat-mdc-header-row{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mat-table-header-container-height, 56px);color:var(--mat-table-header-headline-color, rgba(0, 0, 0, 0.87));font-family:var(--mat-table-header-headline-font, Roboto, sans-serif);line-height:var(--mat-table-header-headline-line-height);font-size:var(--mat-table-header-headline-size, 14px);font-weight:var(--mat-table-header-headline-weight, 500)}.mat-mdc-row{height:var(--mat-table-row-item-container-height, 52px);color:var(--mat-table-row-item-label-text-color, rgba(0, 0, 0, 0.87))}.mat-mdc-row,.mdc-data-table__content{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:var(--mat-table-row-item-label-text-font, Roboto, sans-serif);line-height:var(--mat-table-row-item-label-text-line-height);font-size:var(--mat-table-row-item-label-text-size, 14px);font-weight:var(--mat-table-row-item-label-text-weight)}.mat-mdc-footer-row{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mat-table-footer-container-height, 52px);color:var(--mat-table-row-item-label-text-color, rgba(0, 0, 0, 0.87));font-family:var(--mat-table-footer-supporting-text-font, Roboto, sans-serif);line-height:var(--mat-table-footer-supporting-text-line-height);font-size:var(--mat-table-footer-supporting-text-size, 14px);font-weight:var(--mat-table-footer-supporting-text-weight);letter-spacing:var(--mat-table-footer-supporting-text-tracking)}.mat-mdc-header-cell{border-bottom-color:var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));border-bottom-width:var(--mat-table-row-item-outline-width, 1px);border-bottom-style:solid;letter-spacing:var(--mat-table-header-headline-tracking);font-weight:inherit;line-height:inherit}.mat-mdc-cell{border-bottom-color:var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));border-bottom-width:var(--mat-table-row-item-outline-width, 1px);border-bottom-style:solid;letter-spacing:var(--mat-table-row-item-label-text-tracking);line-height:inherit}.mdc-data-table__row:last-child .mat-mdc-cell{border-bottom:none}.mat-mdc-footer-cell{letter-spacing:var(--mat-table-row-item-label-text-tracking)}mat-row.mat-mdc-row,mat-header-row.mat-mdc-header-row,mat-footer-row.mat-mdc-footer-row{border-bottom:none}.mat-mdc-table tbody,.mat-mdc-table tfoot,.mat-mdc-table thead,.mat-mdc-cell,.mat-mdc-footer-cell,.mat-mdc-header-row,.mat-mdc-row,.mat-mdc-footer-row,.mat-mdc-table .mat-mdc-header-cell{background:inherit}.mat-mdc-table mat-header-row.mat-mdc-header-row,.mat-mdc-table mat-row.mat-mdc-row,.mat-mdc-table mat-footer-row.mat-mdc-footer-cell{height:unset}mat-header-cell.mat-mdc-header-cell,mat-cell.mat-mdc-cell,mat-footer-cell.mat-mdc-footer-cell{align-self:stretch}"]
+    }]
+  }], null, null);
+})();
+
+/**
+ * Cell definition for the mat-table.
+ * Captures the template of a column's data row cell as well as cell-specific properties.
+ */
+class MatCellDef extends _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkCellDef {}
+_class3 = MatCellDef;
+_class3.ɵfac = /* @__PURE__ */function () {
+  let ɵ_class3_BaseFactory;
+  return function _class3_Factory(t) {
+    return (ɵ_class3_BaseFactory || (ɵ_class3_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](_class3)))(t || _class3);
+  };
+}();
+_class3.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class3,
+  selectors: [["", "matCellDef", ""]],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
+    provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkCellDef,
+    useExisting: _class3
+  }]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCellDef, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: '[matCellDef]',
+      providers: [{
+        provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkCellDef,
+        useExisting: MatCellDef
+      }]
+    }]
+  }], null, null);
+})();
+/**
+ * Header cell definition for the mat-table.
+ * Captures the template of a column's header cell and as well as cell-specific properties.
+ */
+class MatHeaderCellDef extends _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkHeaderCellDef {}
+_class4 = MatHeaderCellDef;
+_class4.ɵfac = /* @__PURE__ */function () {
+  let ɵ_class4_BaseFactory;
+  return function _class4_Factory(t) {
+    return (ɵ_class4_BaseFactory || (ɵ_class4_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](_class4)))(t || _class4);
+  };
+}();
+_class4.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class4,
+  selectors: [["", "matHeaderCellDef", ""]],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
+    provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkHeaderCellDef,
+    useExisting: _class4
+  }]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatHeaderCellDef, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: '[matHeaderCellDef]',
+      providers: [{
+        provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkHeaderCellDef,
+        useExisting: MatHeaderCellDef
+      }]
+    }]
+  }], null, null);
+})();
+/**
+ * Footer cell definition for the mat-table.
+ * Captures the template of a column's footer cell and as well as cell-specific properties.
+ */
+class MatFooterCellDef extends _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkFooterCellDef {}
+_class5 = MatFooterCellDef;
+_class5.ɵfac = /* @__PURE__ */function () {
+  let ɵ_class5_BaseFactory;
+  return function _class5_Factory(t) {
+    return (ɵ_class5_BaseFactory || (ɵ_class5_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](_class5)))(t || _class5);
+  };
+}();
+_class5.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class5,
+  selectors: [["", "matFooterCellDef", ""]],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
+    provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkFooterCellDef,
+    useExisting: _class5
+  }]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatFooterCellDef, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: '[matFooterCellDef]',
+      providers: [{
+        provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkFooterCellDef,
+        useExisting: MatFooterCellDef
+      }]
+    }]
+  }], null, null);
+})();
+/**
+ * Column definition for the mat-table.
+ * Defines a set of cells available for a table column.
+ */
+class MatColumnDef extends _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkColumnDef {
+  /** Unique name for this column. */
+  get name() {
+    return this._name;
+  }
+  set name(name) {
+    this._setNameInput(name);
+  }
+  /**
+   * Add "mat-column-" prefix in addition to "cdk-column-" prefix.
+   * In the future, this will only add "mat-column-" and columnCssClassName
+   * will change from type string[] to string.
+   * @docs-private
+   */
+  _updateColumnCssClassName() {
+    super._updateColumnCssClassName();
+    this._columnCssClassName.push(`mat-column-${this.cssClassFriendlyName}`);
+  }
+}
+_class6 = MatColumnDef;
+_class6.ɵfac = /* @__PURE__ */function () {
+  let ɵ_class6_BaseFactory;
+  return function _class6_Factory(t) {
+    return (ɵ_class6_BaseFactory || (ɵ_class6_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](_class6)))(t || _class6);
+  };
+}();
+_class6.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class6,
+  selectors: [["", "matColumnDef", ""]],
+  inputs: {
+    sticky: "sticky",
+    name: ["matColumnDef", "name"]
+  },
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
+    provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkColumnDef,
+    useExisting: _class6
+  }, {
+    provide: 'MAT_SORT_HEADER_COLUMN_DEF',
+    useExisting: _class6
+  }]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatColumnDef, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: '[matColumnDef]',
+      inputs: ['sticky'],
+      providers: [{
+        provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkColumnDef,
+        useExisting: MatColumnDef
+      }, {
+        provide: 'MAT_SORT_HEADER_COLUMN_DEF',
+        useExisting: MatColumnDef
+      }]
+    }]
+  }], null, {
+    name: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input,
+      args: ['matColumnDef']
+    }]
+  });
+})();
+/** Header cell template container that adds the right classes and role. */
+class MatHeaderCell extends _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkHeaderCell {}
+_class7 = MatHeaderCell;
+_class7.ɵfac = /* @__PURE__ */function () {
+  let ɵ_class7_BaseFactory;
+  return function _class7_Factory(t) {
+    return (ɵ_class7_BaseFactory || (ɵ_class7_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](_class7)))(t || _class7);
+  };
+}();
+_class7.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class7,
+  selectors: [["mat-header-cell"], ["th", "mat-header-cell", ""]],
+  hostAttrs: ["role", "columnheader", 1, "mat-mdc-header-cell", "mdc-data-table__header-cell"],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatHeaderCell, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: 'mat-header-cell, th[mat-header-cell]',
+      host: {
+        'class': 'mat-mdc-header-cell mdc-data-table__header-cell',
+        'role': 'columnheader'
+      }
+    }]
+  }], null, null);
+})();
+/** Footer cell template container that adds the right classes and role. */
+class MatFooterCell extends _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkFooterCell {}
+_class8 = MatFooterCell;
+_class8.ɵfac = /* @__PURE__ */function () {
+  let ɵ_class8_BaseFactory;
+  return function _class8_Factory(t) {
+    return (ɵ_class8_BaseFactory || (ɵ_class8_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](_class8)))(t || _class8);
+  };
+}();
+_class8.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class8,
+  selectors: [["mat-footer-cell"], ["td", "mat-footer-cell", ""]],
+  hostAttrs: [1, "mat-mdc-footer-cell", "mdc-data-table__cell"],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatFooterCell, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: 'mat-footer-cell, td[mat-footer-cell]',
+      host: {
+        'class': 'mat-mdc-footer-cell mdc-data-table__cell'
+      }
+    }]
+  }], null, null);
+})();
+/** Cell template container that adds the right classes and role. */
+class MatCell extends _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkCell {}
+_class9 = MatCell;
+_class9.ɵfac = /* @__PURE__ */function () {
+  let ɵ_class9_BaseFactory;
+  return function _class9_Factory(t) {
+    return (ɵ_class9_BaseFactory || (ɵ_class9_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](_class9)))(t || _class9);
+  };
+}();
+_class9.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class9,
+  selectors: [["mat-cell"], ["td", "mat-cell", ""]],
+  hostAttrs: [1, "mat-mdc-cell", "mdc-data-table__cell"],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatCell, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: 'mat-cell, td[mat-cell]',
+      host: {
+        'class': 'mat-mdc-cell mdc-data-table__cell'
+      }
+    }]
+  }], null, null);
+})();
+
+// We can't reuse `CDK_ROW_TEMPLATE` because it's incompatible with local compilation mode.
+const ROW_TEMPLATE = `<ng-container cdkCellOutlet></ng-container>`;
+/**
+ * Header row definition for the mat-table.
+ * Captures the header row's template and other header properties such as the columns to display.
+ */
+class MatHeaderRowDef extends _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkHeaderRowDef {}
+_class10 = MatHeaderRowDef;
+_class10.ɵfac = /* @__PURE__ */function () {
+  let ɵ_class10_BaseFactory;
+  return function _class10_Factory(t) {
+    return (ɵ_class10_BaseFactory || (ɵ_class10_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](_class10)))(t || _class10);
+  };
+}();
+_class10.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class10,
+  selectors: [["", "matHeaderRowDef", ""]],
+  inputs: {
+    columns: ["matHeaderRowDef", "columns"],
+    sticky: ["matHeaderRowDefSticky", "sticky"]
+  },
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
+    provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkHeaderRowDef,
+    useExisting: _class10
+  }]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatHeaderRowDef, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: '[matHeaderRowDef]',
+      providers: [{
+        provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkHeaderRowDef,
+        useExisting: MatHeaderRowDef
+      }],
+      inputs: ['columns: matHeaderRowDef', 'sticky: matHeaderRowDefSticky']
+    }]
+  }], null, null);
+})();
+/**
+ * Footer row definition for the mat-table.
+ * Captures the footer row's template and other footer properties such as the columns to display.
+ */
+class MatFooterRowDef extends _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkFooterRowDef {}
+_class11 = MatFooterRowDef;
+_class11.ɵfac = /* @__PURE__ */function () {
+  let ɵ_class11_BaseFactory;
+  return function _class11_Factory(t) {
+    return (ɵ_class11_BaseFactory || (ɵ_class11_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](_class11)))(t || _class11);
+  };
+}();
+_class11.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class11,
+  selectors: [["", "matFooterRowDef", ""]],
+  inputs: {
+    columns: ["matFooterRowDef", "columns"],
+    sticky: ["matFooterRowDefSticky", "sticky"]
+  },
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
+    provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkFooterRowDef,
+    useExisting: _class11
+  }]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatFooterRowDef, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: '[matFooterRowDef]',
+      providers: [{
+        provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkFooterRowDef,
+        useExisting: MatFooterRowDef
+      }],
+      inputs: ['columns: matFooterRowDef', 'sticky: matFooterRowDefSticky']
+    }]
+  }], null, null);
+})();
+/**
+ * Data row definition for the mat-table.
+ * Captures the data row's template and other properties such as the columns to display and
+ * a when predicate that describes when this row should be used.
+ */
+class MatRowDef extends _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkRowDef {}
+_class12 = MatRowDef;
+_class12.ɵfac = /* @__PURE__ */function () {
+  let ɵ_class12_BaseFactory;
+  return function _class12_Factory(t) {
+    return (ɵ_class12_BaseFactory || (ɵ_class12_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](_class12)))(t || _class12);
+  };
+}();
+_class12.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class12,
+  selectors: [["", "matRowDef", ""]],
+  inputs: {
+    columns: ["matRowDefColumns", "columns"],
+    when: ["matRowDefWhen", "when"]
+  },
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
+    provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkRowDef,
+    useExisting: _class12
+  }]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatRowDef, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: '[matRowDef]',
+      providers: [{
+        provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkRowDef,
+        useExisting: MatRowDef
+      }],
+      inputs: ['columns: matRowDefColumns', 'when: matRowDefWhen']
+    }]
+  }], null, null);
+})();
+/** Header template container that contains the cell outlet. Adds the right class and role. */
+class MatHeaderRow extends _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkHeaderRow {}
+_class13 = MatHeaderRow;
+_class13.ɵfac = /* @__PURE__ */function () {
+  let ɵ_class13_BaseFactory;
+  return function _class13_Factory(t) {
+    return (ɵ_class13_BaseFactory || (ɵ_class13_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](_class13)))(t || _class13);
+  };
+}();
+_class13.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+  type: _class13,
+  selectors: [["mat-header-row"], ["tr", "mat-header-row", ""]],
+  hostAttrs: ["role", "row", 1, "mat-mdc-header-row", "mdc-data-table__header-row"],
+  exportAs: ["matHeaderRow"],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
+    provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkHeaderRow,
+    useExisting: _class13
+  }]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]],
+  decls: 1,
+  vars: 0,
+  consts: [["cdkCellOutlet", ""]],
+  template: function _class13_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainer"](0, 0);
+    }
+  },
+  dependencies: [_angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkCellOutlet],
+  encapsulation: 2
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatHeaderRow, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
+    args: [{
+      selector: 'mat-header-row, tr[mat-header-row]',
+      template: ROW_TEMPLATE,
+      host: {
+        'class': 'mat-mdc-header-row mdc-data-table__header-row',
+        'role': 'row'
+      },
+      // See note on CdkTable for explanation on why this uses the default change detection strategy.
+      // tslint:disable-next-line:validate-decorators
+      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.Default,
+      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
+      exportAs: 'matHeaderRow',
+      providers: [{
+        provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkHeaderRow,
+        useExisting: MatHeaderRow
+      }]
+    }]
+  }], null, null);
+})();
+/** Footer template container that contains the cell outlet. Adds the right class and role. */
+class MatFooterRow extends _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkFooterRow {}
+_class14 = MatFooterRow;
+_class14.ɵfac = /* @__PURE__ */function () {
+  let ɵ_class14_BaseFactory;
+  return function _class14_Factory(t) {
+    return (ɵ_class14_BaseFactory || (ɵ_class14_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](_class14)))(t || _class14);
+  };
+}();
+_class14.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+  type: _class14,
+  selectors: [["mat-footer-row"], ["tr", "mat-footer-row", ""]],
+  hostAttrs: ["role", "row", 1, "mat-mdc-footer-row", "mdc-data-table__row"],
+  exportAs: ["matFooterRow"],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
+    provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkFooterRow,
+    useExisting: _class14
+  }]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]],
+  decls: 1,
+  vars: 0,
+  consts: [["cdkCellOutlet", ""]],
+  template: function _class14_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainer"](0, 0);
+    }
+  },
+  dependencies: [_angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkCellOutlet],
+  encapsulation: 2
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatFooterRow, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
+    args: [{
+      selector: 'mat-footer-row, tr[mat-footer-row]',
+      template: ROW_TEMPLATE,
+      host: {
+        'class': 'mat-mdc-footer-row mdc-data-table__row',
+        'role': 'row'
+      },
+      // See note on CdkTable for explanation on why this uses the default change detection strategy.
+      // tslint:disable-next-line:validate-decorators
+      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.Default,
+      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
+      exportAs: 'matFooterRow',
+      providers: [{
+        provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkFooterRow,
+        useExisting: MatFooterRow
+      }]
+    }]
+  }], null, null);
+})();
+/** Data row template container that contains the cell outlet. Adds the right class and role. */
+class MatRow extends _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkRow {}
+_class15 = MatRow;
+_class15.ɵfac = /* @__PURE__ */function () {
+  let ɵ_class15_BaseFactory;
+  return function _class15_Factory(t) {
+    return (ɵ_class15_BaseFactory || (ɵ_class15_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](_class15)))(t || _class15);
+  };
+}();
+_class15.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+  type: _class15,
+  selectors: [["mat-row"], ["tr", "mat-row", ""]],
+  hostAttrs: ["role", "row", 1, "mat-mdc-row", "mdc-data-table__row"],
+  exportAs: ["matRow"],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
+    provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkRow,
+    useExisting: _class15
+  }]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]],
+  decls: 1,
+  vars: 0,
+  consts: [["cdkCellOutlet", ""]],
+  template: function _class15_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainer"](0, 0);
+    }
+  },
+  dependencies: [_angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkCellOutlet],
+  encapsulation: 2
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatRow, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
+    args: [{
+      selector: 'mat-row, tr[mat-row]',
+      template: ROW_TEMPLATE,
+      host: {
+        'class': 'mat-mdc-row mdc-data-table__row',
+        'role': 'row'
+      },
+      // See note on CdkTable for explanation on why this uses the default change detection strategy.
+      // tslint:disable-next-line:validate-decorators
+      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.Default,
+      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
+      exportAs: 'matRow',
+      providers: [{
+        provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkRow,
+        useExisting: MatRow
+      }]
+    }]
+  }], null, null);
+})();
+/** Row that can be used to display a message when no data is shown in the table. */
+class MatNoDataRow extends _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkNoDataRow {
+  constructor() {
+    super(...arguments);
+    this._contentClassName = 'mat-mdc-no-data-row';
+  }
+}
+_class16 = MatNoDataRow;
+_class16.ɵfac = /* @__PURE__ */function () {
+  let ɵ_class16_BaseFactory;
+  return function _class16_Factory(t) {
+    return (ɵ_class16_BaseFactory || (ɵ_class16_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](_class16)))(t || _class16);
+  };
+}();
+_class16.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
+  type: _class16,
+  selectors: [["ng-template", "matNoDataRow", ""]],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
+    provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkNoDataRow,
+    useExisting: _class16
+  }]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatNoDataRow, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+    args: [{
+      selector: 'ng-template[matNoDataRow]',
+      providers: [{
+        provide: _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkNoDataRow,
+        useExisting: MatNoDataRow
+      }]
+    }]
+  }], null, null);
+})();
+
+/**
+ * Column that simply shows text content for the header and row cells. Assumes that the table
+ * is using the native table implementation (`<table>`).
+ *
+ * By default, the name of this column will be the header text and data property accessor.
+ * The header text can be overridden with the `headerText` input. Cell values can be overridden with
+ * the `dataAccessor` input. Change the text justification to the start or end using the `justify`
+ * input.
+ */
+class MatTextColumn extends _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkTextColumn {}
+_class17 = MatTextColumn;
+_class17.ɵfac = /* @__PURE__ */function () {
+  let ɵ_class17_BaseFactory;
+  return function _class17_Factory(t) {
+    return (ɵ_class17_BaseFactory || (ɵ_class17_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetInheritedFactory"](_class17)))(t || _class17);
+  };
+}();
+_class17.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+  type: _class17,
+  selectors: [["mat-text-column"]],
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]],
+  decls: 3,
+  vars: 0,
+  consts: [["matColumnDef", ""], ["mat-header-cell", "", 3, "text-align", 4, "matHeaderCellDef"], ["mat-cell", "", 3, "text-align", 4, "matCellDef"], ["mat-header-cell", ""], ["mat-cell", ""]],
+  template: function _class17_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0, 0);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, _class17_th_1_Template, 2, 3, "th", 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, _class17_td_2_Template, 2, 3, "td", 2);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
+    }
+  },
+  dependencies: [MatHeaderCellDef, MatColumnDef, MatCellDef, MatHeaderCell, MatCell],
+  encapsulation: 2
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatTextColumn, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
+    args: [{
+      selector: 'mat-text-column',
+      template: `
+    <ng-container matColumnDef>
+      <th mat-header-cell *matHeaderCellDef [style.text-align]="justify">
+        {{headerText}}
+      </th>
+      <td mat-cell *matCellDef="let data" [style.text-align]="justify">
+        {{dataAccessor(data, name)}}
+      </td>
+    </ng-container>
+  `,
+      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
+      // Change detection is intentionally not set to OnPush. This component's template will be provided
+      // to the table to be inserted into its view. This is problematic when change detection runs since
+      // the bindings in this template will be evaluated _after_ the table's view is evaluated, which
+      // mean's the template in the table's view will not have the updated value (and in fact will cause
+      // an ExpressionChangedAfterItHasBeenCheckedError).
+      // tslint:disable-next-line:validate-decorators
+      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.Default
+    }]
+  }], null, null);
+})();
+const EXPORTED_DECLARATIONS = [
+// Table
+MatTable, MatRecycleRows,
+// Template defs
+MatHeaderCellDef, MatHeaderRowDef, MatColumnDef, MatCellDef, MatRowDef, MatFooterCellDef, MatFooterRowDef,
+// Cell directives
+MatHeaderCell, MatCell, MatFooterCell,
+// Row directives
+MatHeaderRow, MatRow, MatFooterRow, MatNoDataRow, MatTextColumn];
+class MatTableModule {}
+_class18 = MatTableModule;
+_class18.ɵfac = function _class18_Factory(t) {
+  return new (t || _class18)();
+};
+_class18.ɵmod = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+  type: _class18
+});
+_class18.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+  imports: [_angular_material_core__WEBPACK_IMPORTED_MODULE_3__.MatCommonModule, _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkTableModule, _angular_material_core__WEBPACK_IMPORTED_MODULE_3__.MatCommonModule]
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MatTableModule, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.NgModule,
+    args: [{
+      imports: [_angular_material_core__WEBPACK_IMPORTED_MODULE_3__.MatCommonModule, _angular_cdk_table__WEBPACK_IMPORTED_MODULE_2__.CdkTableModule],
+      exports: [_angular_material_core__WEBPACK_IMPORTED_MODULE_3__.MatCommonModule, EXPORTED_DECLARATIONS],
+      declarations: EXPORTED_DECLARATIONS
+    }]
+  }], null, null);
+})();
+
+/**
+ * Corresponds to `Number.MAX_SAFE_INTEGER`. Moved out into a variable here due to
+ * flaky browser support and the value not being defined in Closure's typings.
+ */
+const MAX_SAFE_INTEGER = 9007199254740991;
+/** Shared base class with MDC-based implementation. */
+class _MatTableDataSource extends _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_1__.DataSource {
+  /** Array of data that should be rendered by the table, where each object represents one row. */
+  get data() {
+    return this._data.value;
+  }
+  set data(data) {
+    data = Array.isArray(data) ? data : [];
+    this._data.next(data);
+    // Normally the `filteredData` is updated by the re-render
+    // subscription, but that won't happen if it's inactive.
+    if (!this._renderChangesSubscription) {
+      this._filterData(data);
+    }
+  }
+  /**
+   * Filter term that should be used to filter out objects from the data array. To override how
+   * data objects match to this filter string, provide a custom function for filterPredicate.
+   */
+  get filter() {
+    return this._filter.value;
+  }
+  set filter(filter) {
+    this._filter.next(filter);
+    // Normally the `filteredData` is updated by the re-render
+    // subscription, but that won't happen if it's inactive.
+    if (!this._renderChangesSubscription) {
+      this._filterData(this.data);
+    }
+  }
+  /**
+   * Instance of the MatSort directive used by the table to control its sorting. Sort changes
+   * emitted by the MatSort will trigger an update to the table's rendered data.
+   */
+  get sort() {
+    return this._sort;
+  }
+  set sort(sort) {
+    this._sort = sort;
+    this._updateChangeSubscription();
+  }
+  /**
+   * Instance of the paginator component used by the table to control what page of the data is
+   * displayed. Page changes emitted by the paginator will trigger an update to the
+   * table's rendered data.
+   *
+   * Note that the data source uses the paginator's properties to calculate which page of data
+   * should be displayed. If the paginator receives its properties as template inputs,
+   * e.g. `[pageLength]=100` or `[pageIndex]=1`, then be sure that the paginator's view has been
+   * initialized before assigning it to this data source.
+   */
+  get paginator() {
+    return this._paginator;
+  }
+  set paginator(paginator) {
+    this._paginator = paginator;
+    this._updateChangeSubscription();
+  }
+  constructor(initialData = []) {
+    super();
+    /** Stream emitting render data to the table (depends on ordered data changes). */
+    this._renderData = new rxjs__WEBPACK_IMPORTED_MODULE_4__.BehaviorSubject([]);
+    /** Stream that emits when a new filter string is set on the data source. */
+    this._filter = new rxjs__WEBPACK_IMPORTED_MODULE_4__.BehaviorSubject('');
+    /** Used to react to internal changes of the paginator that are made by the data source itself. */
+    this._internalPageChanges = new rxjs__WEBPACK_IMPORTED_MODULE_5__.Subject();
+    /**
+     * Subscription to the changes that should trigger an update to the table's rendered rows, such
+     * as filtering, sorting, pagination, or base data changes.
+     */
+    this._renderChangesSubscription = null;
+    /**
+     * Data accessor function that is used for accessing data properties for sorting through
+     * the default sortData function.
+     * This default function assumes that the sort header IDs (which defaults to the column name)
+     * matches the data's properties (e.g. column Xyz represents data['Xyz']).
+     * May be set to a custom function for different behavior.
+     * @param data Data object that is being accessed.
+     * @param sortHeaderId The name of the column that represents the data.
+     */
+    this.sortingDataAccessor = (data, sortHeaderId) => {
+      const value = data[sortHeaderId];
+      if ((0,_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_6__._isNumberValue)(value)) {
+        const numberValue = Number(value);
+        // Numbers beyond `MAX_SAFE_INTEGER` can't be compared reliably so we
+        // leave them as strings. For more info: https://goo.gl/y5vbSg
+        return numberValue < MAX_SAFE_INTEGER ? numberValue : value;
+      }
+      return value;
+    };
+    /**
+     * Gets a sorted copy of the data array based on the state of the MatSort. Called
+     * after changes are made to the filtered data or when sort changes are emitted from MatSort.
+     * By default, the function retrieves the active sort and its direction and compares data
+     * by retrieving data using the sortingDataAccessor. May be overridden for a custom implementation
+     * of data ordering.
+     * @param data The array of data that should be sorted.
+     * @param sort The connected MatSort that holds the current sort state.
+     */
+    this.sortData = (data, sort) => {
+      const active = sort.active;
+      const direction = sort.direction;
+      if (!active || direction == '') {
+        return data;
+      }
+      return data.sort((a, b) => {
+        let valueA = this.sortingDataAccessor(a, active);
+        let valueB = this.sortingDataAccessor(b, active);
+        // If there are data in the column that can be converted to a number,
+        // it must be ensured that the rest of the data
+        // is of the same type so as not to order incorrectly.
+        const valueAType = typeof valueA;
+        const valueBType = typeof valueB;
+        if (valueAType !== valueBType) {
+          if (valueAType === 'number') {
+            valueA += '';
+          }
+          if (valueBType === 'number') {
+            valueB += '';
+          }
+        }
+        // If both valueA and valueB exist (truthy), then compare the two. Otherwise, check if
+        // one value exists while the other doesn't. In this case, existing value should come last.
+        // This avoids inconsistent results when comparing values to undefined/null.
+        // If neither value exists, return 0 (equal).
+        let comparatorResult = 0;
+        if (valueA != null && valueB != null) {
+          // Check if one value is greater than the other; if equal, comparatorResult should remain 0.
+          if (valueA > valueB) {
+            comparatorResult = 1;
+          } else if (valueA < valueB) {
+            comparatorResult = -1;
+          }
+        } else if (valueA != null) {
+          comparatorResult = 1;
+        } else if (valueB != null) {
+          comparatorResult = -1;
+        }
+        return comparatorResult * (direction == 'asc' ? 1 : -1);
+      });
+    };
+    /**
+     * Checks if a data object matches the data source's filter string. By default, each data object
+     * is converted to a string of its properties and returns true if the filter has
+     * at least one occurrence in that string. By default, the filter string has its whitespace
+     * trimmed and the match is case-insensitive. May be overridden for a custom implementation of
+     * filter matching.
+     * @param data Data object used to check against the filter.
+     * @param filter Filter string that has been set on the data source.
+     * @returns Whether the filter matches against the data
+     */
+    this.filterPredicate = (data, filter) => {
+      // Transform the data into a lowercase string of all property values.
+      const dataStr = Object.keys(data).reduce((currentTerm, key) => {
+        // Use an obscure Unicode character to delimit the words in the concatenated string.
+        // This avoids matches where the values of two columns combined will match the user's query
+        // (e.g. `Flute` and `Stop` will match `Test`). The character is intended to be something
+        // that has a very low chance of being typed in by somebody in a text field. This one in
+        // particular is "White up-pointing triangle with dot" from
+        // https://en.wikipedia.org/wiki/List_of_Unicode_characters
+        return currentTerm + data[key] + '◬';
+      }, '').toLowerCase();
+      // Transform the filter by converting it to lowercase and removing whitespace.
+      const transformedFilter = filter.trim().toLowerCase();
+      return dataStr.indexOf(transformedFilter) != -1;
+    };
+    this._data = new rxjs__WEBPACK_IMPORTED_MODULE_4__.BehaviorSubject(initialData);
+    this._updateChangeSubscription();
+  }
+  /**
+   * Subscribe to changes that should trigger an update to the table's rendered rows. When the
+   * changes occur, process the current state of the filter, sort, and pagination along with
+   * the provided base data and send it to the table for rendering.
+   */
+  _updateChangeSubscription() {
+    // Sorting and/or pagination should be watched if sort and/or paginator are provided.
+    // The events should emit whenever the component emits a change or initializes, or if no
+    // component is provided, a stream with just a null event should be provided.
+    // The `sortChange` and `pageChange` acts as a signal to the combineLatests below so that the
+    // pipeline can progress to the next step. Note that the value from these streams are not used,
+    // they purely act as a signal to progress in the pipeline.
+    const sortChange = this._sort ? (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.merge)(this._sort.sortChange, this._sort.initialized) : (0,rxjs__WEBPACK_IMPORTED_MODULE_8__.of)(null);
+    const pageChange = this._paginator ? (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.merge)(this._paginator.page, this._internalPageChanges, this._paginator.initialized) : (0,rxjs__WEBPACK_IMPORTED_MODULE_8__.of)(null);
+    const dataStream = this._data;
+    // Watch for base data or filter changes to provide a filtered set of data.
+    const filteredData = (0,rxjs__WEBPACK_IMPORTED_MODULE_9__.combineLatest)([dataStream, this._filter]).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_10__.map)(([data]) => this._filterData(data)));
+    // Watch for filtered data or sort changes to provide an ordered set of data.
+    const orderedData = (0,rxjs__WEBPACK_IMPORTED_MODULE_9__.combineLatest)([filteredData, sortChange]).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_10__.map)(([data]) => this._orderData(data)));
+    // Watch for ordered data or page changes to provide a paged set of data.
+    const paginatedData = (0,rxjs__WEBPACK_IMPORTED_MODULE_9__.combineLatest)([orderedData, pageChange]).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_10__.map)(([data]) => this._pageData(data)));
+    // Watched for paged data changes and send the result to the table to render.
+    this._renderChangesSubscription?.unsubscribe();
+    this._renderChangesSubscription = paginatedData.subscribe(data => this._renderData.next(data));
+  }
+  /**
+   * Returns a filtered data array where each filter object contains the filter string within
+   * the result of the filterPredicate function. If no filter is set, returns the data array
+   * as provided.
+   */
+  _filterData(data) {
+    // If there is a filter string, filter out data that does not contain it.
+    // Each data object is converted to a string using the function defined by filterPredicate.
+    // May be overridden for customization.
+    this.filteredData = this.filter == null || this.filter === '' ? data : data.filter(obj => this.filterPredicate(obj, this.filter));
+    if (this.paginator) {
+      this._updatePaginator(this.filteredData.length);
+    }
+    return this.filteredData;
+  }
+  /**
+   * Returns a sorted copy of the data if MatSort has a sort applied, otherwise just returns the
+   * data array as provided. Uses the default data accessor for data lookup, unless a
+   * sortDataAccessor function is defined.
+   */
+  _orderData(data) {
+    // If there is no active sort or direction, return the data without trying to sort.
+    if (!this.sort) {
+      return data;
+    }
+    return this.sortData(data.slice(), this.sort);
+  }
+  /**
+   * Returns a paged slice of the provided data array according to the provided paginator's page
+   * index and length. If there is no paginator provided, returns the data array as provided.
+   */
+  _pageData(data) {
+    if (!this.paginator) {
+      return data;
+    }
+    const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
+    return data.slice(startIndex, startIndex + this.paginator.pageSize);
+  }
+  /**
+   * Updates the paginator to reflect the length of the filtered data, and makes sure that the page
+   * index does not exceed the paginator's last page. Values are changed in a resolved promise to
+   * guard against making property changes within a round of change detection.
+   */
+  _updatePaginator(filteredDataLength) {
+    Promise.resolve().then(() => {
+      const paginator = this.paginator;
+      if (!paginator) {
+        return;
+      }
+      paginator.length = filteredDataLength;
+      // If the page index is set beyond the page, reduce it to the last page.
+      if (paginator.pageIndex > 0) {
+        const lastPageIndex = Math.ceil(paginator.length / paginator.pageSize) - 1 || 0;
+        const newPageIndex = Math.min(paginator.pageIndex, lastPageIndex);
+        if (newPageIndex !== paginator.pageIndex) {
+          paginator.pageIndex = newPageIndex;
+          // Since the paginator only emits after user-generated changes,
+          // we need our own stream so we know to should re-render the data.
+          this._internalPageChanges.next();
+        }
+      }
+    });
+  }
+  /**
+   * Used by the MatTable. Called when it connects to the data source.
+   * @docs-private
+   */
+  connect() {
+    if (!this._renderChangesSubscription) {
+      this._updateChangeSubscription();
+    }
+    return this._renderData;
+  }
+  /**
+   * Used by the MatTable. Called when it disconnects from the data source.
+   * @docs-private
+   */
+  disconnect() {
+    this._renderChangesSubscription?.unsubscribe();
+    this._renderChangesSubscription = null;
+  }
+}
+/**
+ * Data source that accepts a client-side data array and includes native support of filtering,
+ * sorting (using MatSort), and pagination (using MatPaginator).
+ *
+ * Allows for sort customization by overriding sortingDataAccessor, which defines how data
+ * properties are accessed. Also allows for filter customization by overriding filterPredicate,
+ * which defines how row data is converted to a string for filter matching.
+ *
+ * **Note:** This class is meant to be a simple data source to help you get started. As such
+ * it isn't equipped to handle some more advanced cases like robust i18n support or server-side
+ * interactions. If your app needs to support more advanced use cases, consider implementing your
+ * own `DataSource`.
+ */
+class MatTableDataSource extends _MatTableDataSource {}
 
 /**
  * Generated bundle index. Do not edit.
