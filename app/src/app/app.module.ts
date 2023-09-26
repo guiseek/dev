@@ -20,7 +20,7 @@ import {
 } from '@angular/common/http'
 import {provideUser} from '@dev/account-data-access'
 import {provideRail} from '@dev/learning-data-access'
-import {provideContent} from '@dev/content-data-access'
+import {provideBook, provideContent} from '@dev/content-data-access'
 import {LoaderComponent} from './loader/loader.component'
 import {AppInterceptor} from './app.interceptor'
 import {AppComponent} from './app.component'
@@ -52,6 +52,7 @@ registerLocaleData(pt, 'pt-BR', BR)
     provideUser(env.production, env.api.account),
     provideRail(env.production, env.api.learning),
     provideContent(env.production, env.api.content),
+    provideBook(env.production, env.api.book),
     provideLoader(),
     {
       provide: LOCALE_ID,

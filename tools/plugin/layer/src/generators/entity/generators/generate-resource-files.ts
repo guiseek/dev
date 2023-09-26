@@ -1,4 +1,4 @@
-import {getExtrasTo, pathShift} from '../../../utilities'
+import {getExtrasTo, pathShift, pluralize} from '../../../utilities'
 import {Name} from '../../../interfaces'
 import {join} from 'path'
 import {
@@ -15,15 +15,14 @@ export async function generateResourceFiles(
   dataSource: string
 ) {
   const scope = pathShift(project.sourceRoot)
-  const extras = getExtrasTo(`${scope}-${name.name}`, 'controller')
+  const extras = {
+    ...getExtrasTo(`${scope}-${name.name}`, 'controller'),
+    ...getExtrasTo(pluralize(name.name, 2), 'plural'),
+  }
   const sourceFolder = join(__dirname, '..', 'files', 'resource')
 
-  generateFiles(tree, sourceFolder, project.sourceRoot, {
-    ...name,
-    ...extras,
-    dataSource,
-    scope,
-  })
+  const options = {...name, ...extras, dataSource, scope}
+  generateFiles(tree, sourceFolder, project.sourceRoot, options)
 
   return await formatFiles(tree)
 }

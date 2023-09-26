@@ -42,7 +42,7 @@ export async function entityGenerator(
 
   await generateDomainFiles(tree, project.domain, name)
   await generateDataSourceFiles(tree, project.dataSource, name, scope.domain)
-  await generateDataAccessFiles(tree, project.dataSource, name, scope.domain)
+  await generateDataAccessFiles(tree, project.dataAccess, name, scope.domain)
   await generateResourceFiles(tree, project.resource, name, scope.dataSource)
   await generateFeatureFiles(tree, project.feature, name, scope.dataAccess)
 }

@@ -1,6 +1,6 @@
 import {Route} from '@angular/router'
 import {ContentFeatureContainer} from './content-feature.container'
-import {ContentsContainer} from './containers'
+import {BooksContainer, ContentsContainer} from './containers'
 
 export const contentFeatureRoutes: Route[] = [
   {
@@ -10,6 +10,10 @@ export const contentFeatureRoutes: Route[] = [
       {
         path: '',
         component: ContentsContainer,
+      },
+      {
+        path: 'books',
+        component: BooksContainer,
       },
     ],
   },

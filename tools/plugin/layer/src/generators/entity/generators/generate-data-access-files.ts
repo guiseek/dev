@@ -52,7 +52,10 @@ export async function generateDataAccessFiles(
       'infrastructure',
       'index.ts'
     )
-    const files = [`./${name.fileName}.service.impl`]
+    const files = [
+      `./${name.fileName}.service.impl`,
+      `./${name.fileName}.service.mock`,
+    ]
     addExport(tree, sourceFile, ...files)
   }
 

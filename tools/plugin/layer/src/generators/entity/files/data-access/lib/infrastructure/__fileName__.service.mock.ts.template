@@ -1,0 +1,19 @@
+import {<%=className%>, <%=className%>Service} from '<%= domain %>'
+import {MockService} from '@dev/shared-data-access'
+import {Observable, of} from 'rxjs'
+
+export class <%=className%>ServiceMock
+  extends MockService<<%=className%>>
+  implements <%=className%>Service
+{
+  create(value: Partial<<%=className%>>): Observable<<%=className%>> {
+    const entity = {
+      ...value,
+      id: crypto.randomUUID(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    } as <%=className%>
+    this.collection.push(entity)
+    return of(entity)
+  }
+}

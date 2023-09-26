@@ -47,8 +47,13 @@
     z-index: 2;
   }
 
-  h1.app-app-name {
+  a.app-name {
     margin-left: 8px;
+    color: #ffffff85;
+    transition: color 300ms ease-in-out;
+    &:hover {
+      color: #ffffff;
+    }
   }
 
   .app-sidenav-container {

@@ -1,1 +1,2 @@
 export * from './<%=fileName%>.service.impl'
+export * from './<%=fileName%>.service.mock'

@@ -1,3 +1,0 @@
-export * from './<%= fileName %>'
-export * from './create-<%= fileName %>'
-export * from './update-<%= fileName %>'
