@@ -667,7 +667,7 @@ class BooksContainer extends _dev_shared_ui_base__WEBPACK_IMPORTED_MODULE_2__.Fe
     super(...arguments);
     this.columns = new _angular_forms__WEBPACK_IMPORTED_MODULE_7__.FormControl(['select', 'name', 'createdAt', 'actions']);
     this.columnList = [{
-      text: 'Nome',
+      text: 'nome',
       value: 'name',
       type: 'text'
     }];
