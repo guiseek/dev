@@ -7,8 +7,8 @@ export const configSwagger = (
   prefix = 'api'
 ) => {
   const config = new DocumentBuilder()
-    .setTitle(`${name} API`)
-    .setDescription(`Helps devs use the ${name} API in their applications`)
+    .setTitle(`${name}`)
+    .setDescription(`${name} API docs`)
     .setVersion('1.0')
     .build()
 

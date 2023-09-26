@@ -1,18 +1,13 @@
-import {Module} from '@nestjs/common'
-
-import {LearningResourceModule} from '@dev/learning-resource'
-import {ContentResourceModule} from '@dev/content-resource'
-import {AccountResourceModule} from '@dev/account-resource'
+import {ToolsResourceModule} from '@dev/tools-resource'
 import {SharedResourceModule} from '@dev/shared-resource'
 import {getAllEntities} from '@dev/shared-data-source'
+import {Module} from '@nestjs/common'
 import {env} from './envs/env'
 
 @Module({
   imports: [
     SharedResourceModule.forRoot(env(getAllEntities())),
-    ContentResourceModule.register(),
-    AccountResourceModule.register(),
-    LearningResourceModule.register(),
+    ToolsResourceModule.register(),
   ],
 })
 export class AppModule {}
