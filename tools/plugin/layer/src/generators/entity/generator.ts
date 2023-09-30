@@ -8,6 +8,7 @@ import {
   generateFeatureFiles,
   generateResourceFiles,
 } from './generators'
+import {readEntity} from './utilities'
 
 function normalizeSchema(
   tree: Tree,
@@ -29,7 +30,9 @@ function normalizeSchema(
     feature: getProjectImportPath(project.feature),
   }
 
-  return {project, scope}
+  const entity = readEntity(tree, options.entity)
+
+  return {project, entity, scope}
 }
 
 export async function entityGenerator(
@@ -38,13 +41,30 @@ export async function entityGenerator(
 ) {
   const name = names(options.name)
 
-  const {project, scope} = normalizeSchema(tree, options)
-
-  await generateDomainFiles(tree, project.domain, name)
-  await generateDataSourceFiles(tree, project.dataSource, name, scope.domain)
-  await generateDataAccessFiles(tree, project.dataAccess, name, scope.domain)
+  const {project, entity, scope} = normalizeSchema(tree, options)
+  await generateDomainFiles(tree, project.domain, name, entity)
+  await generateDataSourceFiles(
+    tree,
+    project.dataSource,
+    name,
+    scope.domain,
+    entity
+  )
+  await generateDataAccessFiles(
+    tree,
+    project.dataAccess,
+    name,
+    scope.domain,
+    entity
+  )
   await generateResourceFiles(tree, project.resource, name, scope.dataSource)
-  await generateFeatureFiles(tree, project.feature, name, scope.dataAccess)
+  await generateFeatureFiles(
+    tree,
+    project.feature,
+    name,
+    scope.dataAccess,
+    entity
+  )
 }
 
 export default entityGenerator

@@ -1,3 +1,7 @@
 export interface Create<%= className %> {
-  name: string
+<% for(let prop of entity.props) { %>
+  <% if (!['id','createdAt','updatedAt'].includes(prop.name)) { %>
+  <%= prop.name %>: <%= prop.type %>
+  <% } %>
+<% } %>
 }

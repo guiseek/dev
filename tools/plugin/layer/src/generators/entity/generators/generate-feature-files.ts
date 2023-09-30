@@ -1,3 +1,4 @@
+import {addRoute} from '@nx/angular/src/utils/nx-devkit/route-utils'
 import {addExport, getExtrasTo, pluralize} from '../../../utilities'
 import {componentGenerator} from '@nx/angular/generators'
 import {Name} from '../../../interfaces'
@@ -8,12 +9,14 @@ import {
   generateFiles,
   ProjectConfiguration,
 } from '@nx/devkit'
+import {NormalizedEntity} from '../schema'
 
 export async function generateFeatureFiles(
   tree: Tree,
   project: ProjectConfiguration,
   name: Name,
-  dataAccess: string
+  dataAccess: string,
+  entity: NormalizedEntity
 ) {
   const extras = {
     ...getExtrasTo(name.name, 'feature'),
@@ -49,6 +52,7 @@ export async function generateFeatureFiles(
     ...name,
     ...extras,
     dataAccess,
+    entity,
   })
 
   /* Components */
@@ -73,6 +77,14 @@ export async function generateFeatureFiles(
     const sourceFile = join(project.sourceRoot, 'lib', 'forms', 'index.ts')
     const files = [`./create-${name.fileName}`, `./update-${name.fileName}`]
     addExport(tree, sourceFile, ...files)
+  }
+
+  {
+    const route = extras.plural
+    const importPath = './containers'
+    const routesFile = `${project.name}.routes`
+    const component = extras.pluralClass + 'Container'
+    addRoute(tree, routesFile, route, false, component, importPath)
   }
 
   return await formatFiles(tree)

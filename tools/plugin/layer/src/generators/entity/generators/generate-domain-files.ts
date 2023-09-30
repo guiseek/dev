@@ -7,19 +7,16 @@ import {
   generateFiles,
   ProjectConfiguration,
 } from '@nx/devkit'
+import {NormalizedEntity} from '../schema'
 
 export async function generateDomainFiles(
   tree: Tree,
   project: ProjectConfiguration,
-  name: Name
+  name: Name,
+  entity: NormalizedEntity
 ) {
   const sourceFolder = join(__dirname, '..', 'files', 'domain')
-  generateFiles(tree, sourceFolder, project.sourceRoot, name)
-
-  {
-    const sourceFile = join(project.sourceRoot, 'lib', 'entities', 'index.ts')
-    addExport(tree, sourceFile, `./${name.fileName}`)
-  }
+  generateFiles(tree, sourceFolder, project.sourceRoot, {...name, entity})
 
   {
     const sourceFile = join(project.sourceRoot, 'lib', 'dtos', 'index.ts')

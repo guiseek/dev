@@ -1,4 +1,5 @@
 import {addExport, pathShift} from '../../../utilities'
+import {NormalizedEntity} from '../schema'
 import {Name} from '../../../interfaces'
 import {join} from 'path'
 import {
@@ -12,7 +13,8 @@ export async function generateDataAccessFiles(
   tree: Tree,
   project: ProjectConfiguration,
   name: Name,
-  domain: string
+  domain: string,
+  entity: NormalizedEntity
 ) {
   const sourceFolder = join(__dirname, '..', 'files', 'data-access')
   const scope = pathShift(project.sourceRoot)
@@ -20,6 +22,7 @@ export async function generateDataAccessFiles(
     ...name,
     scope,
     domain,
+    entity,
   })
 
   /* Application */

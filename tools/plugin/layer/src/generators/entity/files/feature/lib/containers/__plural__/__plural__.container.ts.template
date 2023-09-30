@@ -27,13 +27,25 @@ export class <%=pluralClass%>Container
 {
   columns = new FormControl<Columns<<%=className%>>>([
     'select',
-    'name',
-    'createdAt',
+    <% for (let prop of entity.props) { %>
+    '<%= prop.name %>',
+    <% } %>
     'actions',
   ])
 
   columnList: FilterByFieldOption[] = [
-    {text: 'nome', value: 'name', type: 'text'},
+    <% for(let prop of entity.props) { %>
+    {
+      text: '<%= prop.name %>',
+      value: '<%= prop.name %>',
+      type:
+      <% if (prop.type === 'string') { %>'text'<% } %> 
+      <% if (prop.type === 'boolean') { %>'bool'<% } %> 
+      <% if (prop.type === 'number') { %>'number'<% } %> 
+      <% if (prop.type === 'Date') { %>'date'<% } %> 
+      <% if (!['string','boolean','number', 'Date'].includes(prop.type)) { %>'text'<% } %>
+    },
+    <% } %>
   ]
 
   readonly destroyRef = inject(DestroyRef)
