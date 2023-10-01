@@ -2,7 +2,11 @@
   "name": "@dev/account-data-access",
   "version": "0.0.1",
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "@dev/account-domain": "*",
+    "@dev/shared-data-access": "*",
+    "rxjs": "^7.8.0",
+    "@dev/shared-util-data": "*"
   },
   "type": "commonjs",
   "main": "./src/index.js",
