@@ -6,7 +6,7 @@ import {findLike} from '../utilities'
 export abstract class BaseRepository<T extends Entity> {
   abstract name: string
 
-  constructor(private readonly repository: Repository<T>) {}
+  constructor(protected readonly repository: Repository<T>) {}
 
   async find({where, options = {}}: FindParams<T>) {
     const {skip, take, sort, order} = options
@@ -54,7 +54,9 @@ export abstract class BaseRepository<T extends Entity> {
   }
 
   findOne<K extends keyof T>(key: K, value: T[K]) {
-    const options = {[key]: value} as FindOptionsWhere<T>
-    return this.repository.findOneBy(options)
+    const where = {[key]: value} as FindOptionsWhere<T>
+    console.log(where)
+
+    return this.repository.findOne({where})
   }
 }

@@ -11,9 +11,9 @@ import {
   ViewContainerRef,
   ChangeDetectionStrategy,
 } from '@angular/core'
-import {TemplatePortal} from '@angular/cdk/portal'
 import {FieldType, FilterByFieldOption} from '../../interfaces'
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop'
+import {TemplatePortal} from '@angular/cdk/portal'
 import {BehaviorSubject, debounceTime} from 'rxjs'
 import {FilterByForm} from './filter-by.form'
 

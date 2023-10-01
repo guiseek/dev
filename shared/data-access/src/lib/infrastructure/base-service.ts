@@ -8,7 +8,7 @@ import {
 import {Http} from '../ports'
 
 export abstract class BaseService<T extends object> implements Service<T> {
-  constructor(private readonly http: Http<T>, readonly url: string) {}
+  constructor(protected readonly http: Http<T>, readonly url: string) {}
 
   find({options}: FindParams<T> = {options: {}}) {
     return this.http.get<Paged<T>>(this.url, {params: options})

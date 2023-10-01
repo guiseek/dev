@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+
+  form section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}

@@ -8,6 +8,10 @@ export class TypedFormGroup<T extends object> extends FormGroup<
   #submitted = new Subject<T>()
   submitted$ = this.#submitted.asObservable()
 
+  getValue() {
+    return this.value as Required<T>
+  }
+
   submit() {
     if (this.valid) {
       this.#submitted.next(this.value as T)

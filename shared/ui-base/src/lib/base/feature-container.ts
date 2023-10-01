@@ -3,6 +3,7 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog'
 import {Entity, Facade, Order, Where} from '@dev/shared-util-data'
 import {MatTableDataSource} from '@angular/material/table'
 import {MatPaginator} from '@angular/material/paginator'
+import {MatSnackBar} from '@angular/material/snack-bar'
 import {DestroyRef, Directive} from '@angular/core'
 import {MatSort} from '@angular/material/sort'
 import {FormControl} from '@angular/forms'
@@ -28,6 +29,7 @@ export abstract class FeatureContainer<T extends Entity> {
 
   abstract readonly destroyRef: DestroyRef
   abstract readonly paginator: MatPaginator
+  abstract readonly snackBar: MatSnackBar
   abstract readonly sort: MatSort
 
   list?: ListSelectable<T>
@@ -51,6 +53,10 @@ export abstract class FeatureContainer<T extends Entity> {
 
     const items$ = this.facade.data$.pipe(takeUntilDestroyed(this.destroyRef))
 
+    const warnings$ = this.facade.warning$.pipe(
+      takeUntilDestroyed(this.destroyRef)
+    )
+
     pagination$.subscribe((value) => {
       const order = this.sort.direction ? Order.ASC : Order.DESC
       this.update(this.sort.active, order, value.pageIndex)
@@ -66,6 +72,10 @@ export abstract class FeatureContainer<T extends Entity> {
       this.dataSource.paginator = this.paginator
       this.dataSource.sort = this.sort
       this.dataSource.data = data
+    })
+
+    warnings$.subscribe((warnings) => {
+      if (warnings) this.snackBar.open(warnings, 'OK', {duration: 6000})
     })
 
     this.facade.find()

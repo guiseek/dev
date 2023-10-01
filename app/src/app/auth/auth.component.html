@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-tab-group
+    dynamicHeight
+    [selectedIndex]="tabIndex$ | async"
+    (selectedIndexChange)="onSelectedIndexChange($event)"
+    (animationDone)="onTabChanged()"
+  >
+    <mat-tab label="Login">
+      <dev-sign-in (signIn)="authFacade.login($event)"></dev-sign-in>
+    </mat-tab>
+    <mat-tab label="Nova conta">
+      <dev-sign-up (signUp)="onSignUp($event)"></dev-sign-up>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>
