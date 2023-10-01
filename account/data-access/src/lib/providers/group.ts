@@ -1,5 +1,5 @@
+import {Http, provideByEnv, provideServiceMock} from '@dev/shared-data-access'
 import {GroupServiceImpl, GroupServiceMock} from '../infrastructure'
-import {Env, Http, provideServiceMock} from '@dev/shared-data-access'
 import {Group, GroupService} from '@dev/account-domain'
 import {GroupFacade} from '../application'
 
@@ -24,18 +24,8 @@ export function provideGroupFacade() {
   }
 }
 
-function getServiceByEnv(level: Env | string, api: string | Group[] = []) {
-  switch (level) {
-    case 'staging':
-    case 'production':
-    case 'development':
-      return provideGroupService(api as string)
-    case 'testing':
-    default:
-      return provideGroupServiceMock(api as Group[])
-  }
-}
-
-export function provideGroup(level: Env | string, api: string | Group[] = []) {
-  return [getServiceByEnv(level, api), provideGroupFacade()]
-}
+export const provideGroup = provideByEnv(
+  provideGroupService,
+  provideGroupServiceMock,
+  provideGroupFacade()
+)

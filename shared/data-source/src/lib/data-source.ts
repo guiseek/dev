@@ -1,11 +1,4 @@
-import {
-  Repository,
-  Type,
-  Abstract,
-  UseCase,
-  create,
-  token,
-} from '@dev/shared-util-data'
+import {Type, Abstract, UseCase, create, token} from '@dev/shared-util-data'
 import {DataSource, EntityTarget} from 'typeorm'
 import {DataConfig, JwtConfig, RepoOf} from './types'
 

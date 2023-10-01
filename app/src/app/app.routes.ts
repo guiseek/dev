@@ -5,7 +5,7 @@ import {Route} from '@angular/router'
 export const appRoutes: Route[] = [
   {
     path: 'account',
-    canActivate: [authGuard],
+    canActivateChild: [authGuard],
     loadChildren: () =>
       import('@dev/account-feature').then((m) => m.AccountFeatureModule),
   },

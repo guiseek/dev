@@ -8,6 +8,7 @@
 
     <dev-visible-fields
       class="col-4"
+      id="account-groups-fields"
       [formControl]="columns"
       [fields]="columnList"
       [extra]="['select', 'actions']"
@@ -19,9 +20,9 @@
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="removeBulk()">
           <mat-icon>delete_sweep</mat-icon>
-          <span
-            >Remover <strong>{{selection.selected.length}}</strong> itens</span
-          >
+          <span>
+            Remover <strong>{{selection.selected.length}}</strong> itens
+          </span>
         </button>
       </mat-menu>
     </dev-selection-menu>

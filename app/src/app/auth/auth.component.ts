@@ -1,4 +1,4 @@
-import {BehaviorSubject, Subject, filter, takeUntil} from 'rxjs'
+import {BehaviorSubject, Subject, debounceTime, filter, takeUntil} from 'rxjs'
 import {AuthFacade, CreateUser} from '@dev/account-data-access'
 import {SignInComponent, SignUpComponent} from '@dev/account-ui-auth'
 import {Router} from '@angular/router'
@@ -35,6 +35,7 @@ export class AuthComponent implements OnInit {
   ngOnInit() {
     this.authFacade.authUser$
       .pipe(
+        debounceTime(600),
         takeUntil(this.#destroy),
         filter((authUser) => !!authUser)
       )

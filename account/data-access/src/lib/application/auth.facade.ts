@@ -17,6 +17,8 @@ export class AuthFacade extends Store<AuthState> {
   }
 
   constructor(private authService: AuthService) {
+    console.log(authService)
+
     super({authUser: null, warning: null, loading: false})
   }
 
