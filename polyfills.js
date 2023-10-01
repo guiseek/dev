@@ -1,7 +1,7 @@
 "use strict";
 (self["webpackChunkapp"] = self["webpackChunkapp"] || []).push([["polyfills"],{
 
-/***/ 2518:
+/***/ 6657:
 /*!***********************************************!*\
   !*** ./node_modules/zone.js/fesm2015/zone.js ***!
   \***********************************************/
@@ -14,7 +14,7 @@
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
-(function (global, _class) {
+(function (global) {
   const performance = global['performance'];
   function mark(name) {
     performance && performance['mark'] && performance['mark'](name);
@@ -48,6 +48,8 @@
     }
   }
   class Zone {
+    // tslint:disable-next-line:require-internal-with-underscore
+    static #_ = this.__symbol__ = __symbol__;
     static assertZonePatched() {
       if (global['Promise'] !== patches['ZoneAwarePromise']) {
         throw new Error('Zone.js has detected that ZoneAwarePromise `(window|global).Promise` ' + 'has been overwritten.\n' + 'Most likely cause is that a Promise polyfill has been loaded ' + 'after Zone.js (Polyfilling Promise api is not necessary when zone.js is loaded. ' + 'If you must load one, do so before loading zone.js.)');
@@ -269,9 +271,6 @@
       }
     }
   }
-  _class = Zone;
-  // tslint:disable-next-line:require-internal-with-underscore
-  _class.__symbol__ = __symbol__;
   const DELEGATE_ZS = {
     name: '',
     onHasTask: (delegate, _, target, hasTaskState) => delegate.hasTask(target, hasTaskState),
@@ -2669,7 +2668,7 @@ Zone.__load_patch('queueMicrotask', (global, Zone, api) => {
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ var __webpack_exports__ = (__webpack_exec__(2518));
+/******/ var __webpack_exports__ = (__webpack_exec__(6657));
 /******/ }
 ]);
 //# sourceMappingURL=polyfills.js.map
