@@ -866,11 +866,11 @@ function GroupsContainer_mat_card_content_4_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](6, "delete_sweep");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](7, "span");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](8, "Remover ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](8, " Remover ");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](9, "strong");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](10);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](11, " itens");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](11, " itens ");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]()()()()();
   }
   if (rf & 2) {
@@ -1148,7 +1148,7 @@ class GroupsContainer extends _dev_shared_ui_base__WEBPACK_IMPORTED_MODULE_2__.F
     features: [_angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵInheritDefinitionFeature"]],
     decls: 38,
     vars: 15,
-    consts: [[1, "row"], [1, "col-12", 3, "fields", "filterByChange"], [1, "col-4", 3, "formControl", "fields", "extra"], [4, "ngIf"], ["mat-table", "", "matSort", "", "matSortActive", "createdAt", "matSortDirection", "desc", 3, "dataSource"], ["matColumnDef", "select"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "id"], ["matColumnDef", "name"], ["matColumnDef", "label"], ["matColumnDef", "permission"], ["matColumnDef", "createdAt"], ["matColumnDef", "updatedAt"], ["matColumnDef", "actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "length", "pageSize"], ["type", "button", "mat-fab", "", 1, "fixed", "b20", "r20", 3, "click"], [3, "selection"], ["menu", "matMenu"], ["mat-menu-item", "", 3, "click"], ["mat-header-cell", ""], [3, "checked", "indeterminate", "change"], ["mat-cell", ""], [3, "checked", "click", "change"], ["type", "button", "mat-icon-button", "", 3, "click"], ["mat-header-row", ""], ["mat-row", ""]],
+    consts: [[1, "row"], [1, "col-12", 3, "fields", "filterByChange"], ["id", "account-groups-fields", 1, "col-4", 3, "formControl", "fields", "extra"], [4, "ngIf"], ["mat-table", "", "matSort", "", "matSortActive", "createdAt", "matSortDirection", "desc", 3, "dataSource"], ["matColumnDef", "select"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "id"], ["matColumnDef", "name"], ["matColumnDef", "label"], ["matColumnDef", "permission"], ["matColumnDef", "createdAt"], ["matColumnDef", "updatedAt"], ["matColumnDef", "actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "length", "pageSize"], ["type", "button", "mat-fab", "", 1, "fixed", "b20", "r20", 3, "click"], [3, "selection"], ["menu", "matMenu"], ["mat-menu-item", "", 3, "click"], ["mat-header-cell", ""], [3, "checked", "indeterminate", "change"], ["mat-cell", ""], [3, "checked", "click", "change"], ["type", "button", "mat-icon-button", "", 3, "click"], ["mat-header-row", ""], ["mat-row", ""]],
     template: function GroupsContainer_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "mat-card")(1, "header", 0)(2, "dev-filter-by", 1);
@@ -1566,7 +1566,7 @@ class UsersContainer extends _dev_shared_ui_base__WEBPACK_IMPORTED_MODULE_2__.Fe
     features: [_angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵInheritDefinitionFeature"]],
     decls: 32,
     vars: 15,
-    consts: [[1, "row"], [1, "col-12", 3, "fields", "filterByChange"], [1, "col-4", 3, "formControl", "fields", "extra"], [4, "ngIf"], ["mat-table", "", "matSort", "", "matSortActive", "createdAt", "matSortDirection", "desc", 3, "dataSource"], ["matColumnDef", "select"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "id"], ["matColumnDef", "name"], ["matColumnDef", "createdAt"], ["mat-header-cell", "", "mat-sort-header", "", "disableClear", "", 4, "matHeaderCellDef"], ["matColumnDef", "updatedAt"], ["matColumnDef", "actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "length", "pageSize"], ["type", "button", "mat-fab", "", 1, "fixed", "b20", "r20", 3, "click"], [3, "selection"], ["menu", "matMenu"], ["mat-menu-item", "", 3, "click"], ["mat-header-cell", ""], [3, "checked", "indeterminate", "change"], ["mat-cell", ""], [3, "checked", "click", "change"], ["mat-header-cell", "", "mat-sort-header", "", "disableClear", ""], ["type", "button", "mat-icon-button", "", 3, "click"], ["mat-header-row", ""], ["mat-row", ""]],
+    consts: [[1, "row"], [1, "col-12", 3, "fields", "filterByChange"], ["id", "account-users-fields", 1, "col-4", 3, "formControl", "fields", "extra"], [4, "ngIf"], ["mat-table", "", "matSort", "", "matSortActive", "createdAt", "matSortDirection", "desc", 3, "dataSource"], ["matColumnDef", "select"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "id"], ["matColumnDef", "name"], ["matColumnDef", "createdAt"], ["mat-header-cell", "", "mat-sort-header", "", "disableClear", "", 4, "matHeaderCellDef"], ["matColumnDef", "updatedAt"], ["matColumnDef", "actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "length", "pageSize"], ["type", "button", "mat-fab", "", 1, "fixed", "b20", "r20", 3, "click"], [3, "selection"], ["menu", "matMenu"], ["mat-menu-item", "", 3, "click"], ["mat-header-cell", ""], [3, "checked", "indeterminate", "change"], ["mat-cell", ""], [3, "checked", "click", "change"], ["mat-header-cell", "", "mat-sort-header", "", "disableClear", ""], ["type", "button", "mat-icon-button", "", 3, "click"], ["mat-header-row", ""], ["mat-row", ""]],
     template: function UsersContainer_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "mat-card")(1, "header", 0)(2, "dev-filter-by", 1);
