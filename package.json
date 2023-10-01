@@ -45,6 +45,7 @@
     "jest-environment-node": "^29.4.1",
     "jest-preset-angular": "~13.1.0",
     "jsonc-eslint-parser": "^2.1.0",
+    "lint-staged": "^14.0.1",
     "nx": "16.9.1",
     "prettier": "^2.6.2",
     "ts-jest": "^29.1.0",
@@ -79,5 +80,12 @@
     "tslib": "^2.3.0",
     "typeorm": "^0.3.17",
     "zone.js": "~0.13.0"
+  },
+  "lint-staged": {
+    "*.{ts,js,scss,html,json,svg}": [
+      "nx affected:lint",
+      "nx affected:test",
+      "nx format --all"
+    ]
   }
 }
