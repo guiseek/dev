@@ -2,9 +2,12 @@
   "name": "@dev/plugin-layer",
   "version": "0.0.1",
   "dependencies": {
-    "@nx/devkit": "16.8.1",
+    "@nx/devkit": "16.9.1",
     "tslib": "^2.3.0",
-    "typescript": "~5.1.3"
+    "typescript": "~5.1.3",
+    "@nx/js": "16.9.1",
+    "@nx/angular": "16.9.1",
+    "@nx/nest": "16.9.1"
   },
   "devDependencies": {
     "@nx/angular": "^16.8.1",
