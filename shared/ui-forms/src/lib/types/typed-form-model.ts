@@ -8,6 +8,10 @@ type GetTypedForm<T> =
       ? FormControl<string>
       : U extends number
       ? FormControl<number>
+      : U extends boolean
+      ? FormControl<boolean>
+      : U extends Date
+      ? FormControl<Date>
       : FormArray<
           // e U seja um objeto
           U extends object
@@ -17,9 +21,9 @@ type GetTypedForm<T> =
               FormControl<U>
         >
     : // caso seja objeto
-    T extends object
-    ? // inicie a verificação para T
-      FormGroup<TypedFormModel<T>>
+    T extends Date
+    ? // retorne Date
+      FormControl<Date | null>
     : // caso seja boleano
     T extends boolean
     ? // retorne boolean
@@ -32,6 +36,9 @@ type GetTypedForm<T> =
     T extends number
     ? // retorne número
       FormControl<number>
+    : T extends object
+    ? // inicie a verificação para T
+      FormGroup<TypedFormModel<T>>
     : // ou retorne T
       FormControl<T>
 

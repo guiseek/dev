@@ -1,10 +1,11 @@
 import {Create<%=className%>} from '<%=domain%>'
 import {ApiProperty} from '@nestjs/swagger'
-import {IsNotEmpty, IsString} from 'class-validator'
+import {IsNotEmpty} from 'class-validator'
 
 export class Create<%=className%>Dto implements Create<%=className%> {
+<% for(let prop of entity.props) if (!['id','createdAt','updatedAt'].includes(prop.name)) { %>
   @ApiProperty()
-  @IsString({message: 'o nome deve ser uma string'})
-  @IsNotEmpty({message: 'por favor, preencha o nome'})
-  name: string
+  @IsNotEmpty({message: 'por favor, preencha o <%= prop.name %>'})
+  <%= prop.name %>: <%= prop.type %>
+<% } %>
 }

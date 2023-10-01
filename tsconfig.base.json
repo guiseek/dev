@@ -16,6 +16,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@dev/account-data-access": ["account/data-access/src/index.ts"],
+      "@dev/account-data-source": ["account/data-source/src/index.ts"],
+      "@dev/account-domain": ["account/domain/src/index.ts"],
+      "@dev/account-feature": ["account/feature/src/index.ts"],
+      "@dev/account-resource": ["account/resource/src/index.ts"],
+      "@dev/account-ui-auth": ["account/ui-auth/src/index.ts"],
       "@dev/plugin-layer": ["tools/plugin/layer/src/index.ts"],
       "@dev/shared-data-access": ["shared/data-access/src/index.ts"],
       "@dev/shared-data-source": ["shared/data-source/src/index.ts"],

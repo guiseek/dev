@@ -1,4 +1,17 @@
 body {
+  .cdk-table td,
+  .cdk-table th {
+    font-size: 1rem;
+  }
+
+  .mat-mdc-button-base {
+    font-size: 0.8rem;
+  }
+  .mat-mdc-menu-item {
+    padding: 16px 20px;
+    line-height: 120%;
+  }
+
   .cdk-column-select {
     width: 60px;
   }
@@ -15,5 +28,24 @@ body {
   .cdk-column-id {
     max-width: 120px;
     white-space: nowrap;
+  }
+
+  .mat-mdc-form-field-error {
+    font-size: 0.9rem;
+  }
+
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+
+  .cdk-overlay-container {
+    .mat-mdc-menu-content {
+      padding: 0;
+      min-width: 180px;
+    }
+    .mat-mdc-menu-panel {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+    }
   }
 }

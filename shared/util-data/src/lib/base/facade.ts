@@ -11,7 +11,10 @@ interface FacadeState<T> extends Paged<T> {
   count: number
 }
 
-export abstract class Facade<T extends object> extends Store<FacadeState<T>> {
+export abstract class Facade<
+  T extends object,
+  S extends Service<T> = Service<T>
+> extends Store<FacadeState<T>> {
   selected$ = this.select((state) => state.selected)
   loading$ = this.select((state) => state.loading)
   warning$ = this.select((state) => state.warning)
@@ -19,7 +22,7 @@ export abstract class Facade<T extends object> extends Store<FacadeState<T>> {
   data$ = this.select((state) => state.data)
   meta$ = this.select((state) => state.meta)
 
-  constructor(protected readonly service: Service<T>) {
+  constructor(protected readonly service: S) {
     super({
       data: [],
       meta: {

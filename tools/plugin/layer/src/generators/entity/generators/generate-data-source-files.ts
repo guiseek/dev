@@ -1,4 +1,5 @@
 import {addExport} from '../../../utilities'
+import {NormalizedEntity} from '../schema'
 import {Name} from '../../../interfaces'
 import {join} from 'path'
 import {
@@ -12,11 +13,16 @@ export async function generateDataSourceFiles(
   tree: Tree,
   project: ProjectConfiguration,
   name: Name,
-  domain: string
+  domain: string,
+  entity: NormalizedEntity
 ) {
   const sourceFolder = join(__dirname, '..', 'files', 'data-source')
 
-  generateFiles(tree, sourceFolder, project.sourceRoot, {...name, domain})
+  generateFiles(tree, sourceFolder, project.sourceRoot, {
+    ...name,
+    entity,
+    domain,
+  })
 
   {
     const sourceFile = join(

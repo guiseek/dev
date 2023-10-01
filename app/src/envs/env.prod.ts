@@ -1,9 +1,9 @@
 export const env = {
   production: true,
+  level: 'production',
   api: {
-    content: 'https://api.queroser.dev/content',
     account: 'https://api.queroser.dev/account',
-    learning: 'https://api.queroser.dev/learning',
-    book: 'https://api.queroser.dev/content/books',
+    accountAuth: 'https://api.queroser.dev/account/auth',
+    accountGroups: 'https://api.queroser.dev/account/groups',
   },
 }

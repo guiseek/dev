@@ -1,0 +1,59 @@
+<h2 mat-dialog-title>Criar usuário</h2>
+
+<form
+  mat-dialog-content
+  autocomplete="on"
+  [formGroup]="form"
+  (submit)="form.submit()"
+>
+  <mat-form-field>
+    <mat-label> Nome </mat-label>
+    <input matInput id="name" autocomplete="name" formControlName="name" />
+    <mat-error> Obrigatório </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> E-mail </mat-label>
+    <input
+      matInput
+      type="email"
+      id="email"
+      autocomplete="email"
+      formControlName="email"
+    />
+    <mat-error> Obrigatório </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Usuário </mat-label>
+    <input
+      matInput
+      id="username"
+      autocomplete="username"
+      formControlName="username"
+    />
+    <mat-error> Obrigatório </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Senha </mat-label>
+    <input
+      matInput
+      type="password"
+      id="password"
+      autocomplete="new-password"
+      formControlName="password"
+    />
+    <mat-error> Mínimo 6 caracteres </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Nascimento </mat-label>
+    <input matInput formControlName="birthdate" [matDatepicker]="picker" />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <p>{{message$ | async}}</p>
+
+  <footer class="row-reverse">
+    <button mat-stroked-button color="primary">Enviar</button>
+    <button type="button" mat-button mat-dialog-close>Cancelar</button>
+  </footer>
+</form>

@@ -12,7 +12,9 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  // font-size: 1rem;
+  font-weight: 400;
+  font-family: 'Lexend Deca', sans-serif;
 
   @include grid.colSizes(16);
 
@@ -34,19 +36,5 @@ body {
 
   .r20 {
     right: 20px;
-  }
-
-  .mat-mdc-form-field {
-    width: 100%;
-  }
-
-  .cdk-overlay-container {
-    .mat-mdc-menu-content {
-      padding: 0;
-    }
-    .mat-mdc-menu-panel {
-      border-top-right-radius: 0;
-      border-top-left-radius: 0;
-    }
   }
 }

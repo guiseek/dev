@@ -89,6 +89,8 @@ export abstract class MockService<
   }
 
   findOne(id: string) {
-    return of(this.collection.find((item) => item.id === id) ?? null)
+    const user = this.collection.find((item) => item.id === id)
+    if (!user) throw new Error('not found')
+    return of(user ?? null)
   }
 }

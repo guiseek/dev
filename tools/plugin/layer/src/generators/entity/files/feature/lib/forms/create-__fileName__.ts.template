@@ -5,10 +5,16 @@ import {TypedFormGroup} from '@dev/shared-ui-forms'
 export class Create<%=className%>Form extends TypedFormGroup<Create<%=className%>> {
   constructor() {
     super({
-      name: new FormControl('', {
+      <% for(let prop of entity.props) if (!['id','createdAt','updatedAt'].includes(prop.name)) { %>
+      <%= prop.name %>: new FormControl(<% if (prop.type === 'string') { %>''<% } %> 
+      <% if (prop.type === 'boolean') { %>false<% } %> 
+      <% if (prop.type === 'number') { %>0<% } %> 
+      <% if (prop.type === 'Date') { %>''<% } %> 
+      <% if (!['string','boolean','number', 'Date'].includes(prop.type)) { %>''<% } %>, {
         nonNullable: true,
         validators: [Validators.required],
       }),
+      <% } %>
     })
   }
 }

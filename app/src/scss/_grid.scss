@@ -12,6 +12,10 @@
   flex-flow: row wrap;
   margin-bottom: 8px;
   gap: 16px;
+
+  &-reverse {
+    flex-direction: row-reverse;
+  }
 }
 
 .col {

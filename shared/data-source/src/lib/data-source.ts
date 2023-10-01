@@ -1,6 +1,13 @@
-import {Type, create, token} from '@dev/shared-util-data'
+import {
+  Repository,
+  Type,
+  Abstract,
+  UseCase,
+  create,
+  token,
+} from '@dev/shared-util-data'
 import {DataSource, EntityTarget} from 'typeorm'
-import {DataConfig, RepoOf} from './types'
+import {DataConfig, JwtConfig, RepoOf} from './types'
 
 export const {
   container,
@@ -73,6 +80,43 @@ export function provideRepository<E extends object, B>(
   }
 }
 
+export function provideUseCase<U extends UseCase<unknown, unknown>>(
+  useCase: Type<U>,
+  ...inject: unknown[]
+) {
+  return {
+    provide: useCase,
+    useFactory(...deps: unknown[]) {
+      return new useCase(...deps)
+    },
+    inject,
+  }
+}
+
+export function provideDeps<T>(provide: Type<T>, ...inject: unknown[]) {
+  return {
+    provide,
+    useFactory(...deps: Type[]) {
+      return new provide(...deps)
+    },
+    inject,
+  }
+}
+
+export function provideImpl<T>(
+  provide: Abstract<T>,
+  impl: Type<T>,
+  ...deps: Type[]
+) {
+  return {
+    provide,
+    useFactory(...deps: Type[]) {
+      return new impl(...deps)
+    },
+    inject: [...deps],
+  }
+}
+
 export function provideFacade<F, T>(provide: F, ...inject: T[]) {
   return {
     provide,
@@ -80,5 +124,16 @@ export function provideFacade<F, T>(provide: F, ...inject: T[]) {
       return new (provide as Type<T>)(repo)
     },
     inject,
+  }
+}
+
+const JWT_CONFIG_TOKEN = token('jwt-config')
+export function getJwtConfigToken() {
+  return JWT_CONFIG_TOKEN
+}
+export function provideJwtConfig(config: JwtConfig) {
+  return {
+    provide: getJwtConfigToken(),
+    useValue: config,
   }
 }

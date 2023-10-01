@@ -1,9 +1,9 @@
 export const env = {
   production: false,
+  level: 'development',
   api: {
-    content: [],
-    account: [],
-    learning: [],
-    book: [],
+    account: '/api/account',
+    accountAuth: '/api/account/auth',
+    accountGroups: '/api/account/groups',
   },
 }

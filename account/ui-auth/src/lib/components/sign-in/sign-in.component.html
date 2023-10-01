@@ -1,0 +1,36 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+  <section>
+    <mat-form-field>
+      <mat-label> Usuário </mat-label>
+      <input
+        matInput
+        name="username"
+        id="username"
+        autocomplete="username"
+        formControlName="username"
+        #username
+        autofocus
+      />
+      <mat-error> Obrigatório </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Palavra-chave </mat-label>
+      <input
+        matInput
+        type="password"
+        name="password"
+        id="password"
+        autocomplete="current-password"
+        formControlName="password"
+      />
+      <mat-error> Mínimo 6 caracteres </mat-error>
+    </mat-form-field>
+  </section>
+
+  <p>{{ message$ | async }}</p>
+
+  <footer class="row-reverse">
+    <button mat-stroked-button color="primary">Enviar</button>
+    <button mat-button disabled>Esqueci a senha</button>
+  </footer>
+</form>

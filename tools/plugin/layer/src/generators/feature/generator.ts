@@ -4,9 +4,10 @@ import {
   generateFiles,
   readProjectConfiguration,
 } from '@nx/devkit'
-import {join} from 'node:path'
+import {addRoute} from '@nx/angular/src/utils/nx-devkit/route-utils'
 import {libraryGenerator} from '@nx/angular/generators'
 import {FeatureGeneratorSchema} from './schema'
+import {join} from 'node:path'
 import {
   getProjectImportPath,
   getTemplateExtras,
@@ -62,6 +63,18 @@ export async function featureGenerator(
     }
 
     tree.write(eslintPath, JSON.stringify(eslint))
+  }
+
+  if (normalized.parent) {
+    const importPath = getProjectImportPath(project)
+    addRoute(
+      tree,
+      normalized.parent,
+      extras.plural,
+      true,
+      normalized.constantName,
+      importPath
+    )
   }
 
   await formatFiles(tree)

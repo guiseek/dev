@@ -6,6 +6,8 @@ import {
   ChangeDetectorRef,
   ChangeDetectionStrategy,
 } from '@angular/core'
+import {AuthFacade} from '@dev/account-data-access'
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'dev-root',
@@ -34,6 +36,52 @@ import {
           [routerLinkActiveOptions]="{exact: true}"
           >Home</a
         >
+        <button
+          mat-button
+          menuItemsLinkActive="active"
+          menuItemsBaseLink="/account"
+          [matMenuTriggerFor]="beforeMenu"
+        >
+          Conta
+        </button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <a
+            mat-menu-item
+            routerLink="/account"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+          >
+            <mat-icon>people_alt</mat-icon>
+            <span>Usuários</span>
+          </a>
+          <a
+            mat-menu-item
+            routerLink="/account/groups"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+          >
+            <mat-icon>groups</mat-icon>
+            <span>Grupos</span>
+          </a>
+        </mat-menu>
+
+        <ng-container *ngIf="authFacade.authUser$ | async as auth">
+          <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+            <mat-icon>account_circle</mat-icon>
+          </button>
+          <mat-menu #accountMenu="matMenu" xPosition="before">
+            <button mat-menu-item disabled>
+              <small>logado como</small>
+              <br />
+              {{ auth.email }}
+            </button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>logout</mat-icon>
+              <span>Logout</span>
+            </button>
+          </mat-menu>
+        </ng-container>
       </mat-toolbar>
 
       <mat-sidenav-container
@@ -56,11 +104,19 @@ export class AppComponent {
   media = inject(MediaMatcher)
   changeDetectorRef = inject(ChangeDetectorRef)
 
+  authFacade = inject(AuthFacade)
+  router = inject(Router)
+
   mobileQuery
 
   constructor() {
     this.mobileQuery = this.media.matchMedia('(max-width: 600px)')
     const _mobileQueryListener = () => this.changeDetectorRef.detectChanges()
     this.mobileQuery.addListener(_mobileQueryListener)
+  }
+
+  logout() {
+    this.authFacade.logout()
+    this.router.navigate(['/auth'])
   }
 }

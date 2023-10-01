@@ -1,11 +1,13 @@
 <h2 mat-dialog-title>Criar <%=fileName%></h2>
 
 <form mat-dialog-content [formGroup]="form" (submit)="form.submit()">
+  <% for(let prop of entity.props) if (!['id','createdAt','updatedAt'].includes(prop.name)) { %>
   <mat-form-field>
-    <mat-label> Nome </mat-label>
-    <input matInput formControlName="name" />
+    <mat-label> <%= prop.name %> </mat-label>
+    <input matInput formControlName="<%= prop.name %>" />
     <mat-error> Obrigatório </mat-error>
   </mat-form-field>
+  <% } %>
 
   <p>{{message$ | async}}</p>
 

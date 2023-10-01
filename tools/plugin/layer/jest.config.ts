@@ -7,4 +7,8 @@ export default {
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../../coverage/tools/plugin/layer',
+  moduleNameMapper: {
+    '@nx/angular/src/utils/nx-devkit/route-utils':
+      '<rootDir>/src/mocks/add-route.ts',
+  },
 }

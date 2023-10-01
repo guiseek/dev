@@ -61,8 +61,7 @@
           "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
-          "namedChunks": true,
-          "baseHref": "./"
+          "namedChunks": true
         },
         "testing": {
           "buildOptimizer": false,
@@ -95,7 +94,7 @@
           "browserTarget": "app:build:staging"
         }
       },
-      "defaultConfiguration": "staging",
+      "defaultConfiguration": "development",
       "options": {
         "proxyConfig": "app/proxy.conf.json"
       }

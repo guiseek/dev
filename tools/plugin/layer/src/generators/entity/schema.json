@@ -13,6 +13,11 @@
       },
       "x-prompt": "What name would you like to use?"
     },
+    "entity": {
+      "type": "string",
+      "description": "Path to the entity interface file.",
+      "x-priority": "important"
+    },
     "domain": {
       "type": "string",
       "description": "The domain related to the project.",
@@ -56,6 +61,7 @@
   },
   "required": [
     "name",
+    "entity",
     "domain",
     "dataSource",
     "dataAccess",
