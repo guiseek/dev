@@ -1,5 +1,9 @@
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop'
 import {
   Input,
+  OnInit,
+  inject,
+  DestroyRef,
   Component,
   Renderer2,
   ElementRef,
@@ -26,9 +30,14 @@ type ExtraVisibleFields = 'select' | 'actions'
     `,
   ],
 })
-export class VisibleFieldsComponent extends SelectControlValueAccessor {
+export class VisibleFieldsComponent
+  extends SelectControlValueAccessor
+  implements OnInit
+{
   @Input({required: true})
   fields: FieldOption[] = []
+
+  @Input() id?: string
 
   @Input() extra: ExtraVisibleFields[] = []
 
@@ -52,5 +61,28 @@ export class VisibleFieldsComponent extends SelectControlValueAccessor {
     super(renderer2, elementRef)
 
     ngControl.valueAccessor = this
+  }
+
+  destroyRef = inject(DestroyRef)
+
+  ngOnInit() {
+    const idForStoreOnStorage = this.id
+
+    if (idForStoreOnStorage) {
+      const value = this.getStore(idForStoreOnStorage)
+      if (value) this.control.setValue(value)
+
+      this.control.valueChanges
+        .pipe(takeUntilDestroyed(this.destroyRef))
+        .subscribe(this.setStore(idForStoreOnStorage))
+    }
+  }
+
+  getStore = (id: string) => {
+    return JSON.parse(localStorage.getItem(id) ?? 'null')
+  }
+
+  setStore = (id: string) => (value: string[]) => {
+    localStorage.setItem(id, JSON.stringify(value))
   }
 }

@@ -1,7 +1,7 @@
 import {provideAuth, provideGroup, provideUser} from '@dev/account-data-access'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
-import {BrowserModule} from '@angular/platform-browser'
 import {provideHttp, provideLoader} from '@dev/shared-data-access'
+import {BrowserModule} from '@angular/platform-browser'
 import {AccountUiAuthModule} from '@dev/account-ui-auth'
 import {registerLocaleData} from '@angular/common'
 import {LOCALE_ID, NgModule} from '@angular/core'
@@ -36,7 +36,8 @@ registerLocaleData(pt, 'pt-BR', BR)
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, {
       useHash: true,
-      enableTracing: !env.production,
+      anchorScrolling: 'enabled',
+      // enableTracing: !env.production,
       initialNavigation: 'enabledBlocking',
     }),
   ],

@@ -29,20 +29,13 @@ import {Router} from '@angular/router'
 
         <!--  -->
 
-        <a
-          mat-button
-          routerLink="/"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{exact: true}"
-          >Home</a
-        >
         <button
           mat-button
           menuItemsLinkActive="active"
           menuItemsBaseLink="/account"
           [matMenuTriggerFor]="beforeMenu"
         >
-          Conta
+          Contas
         </button>
         <mat-menu #beforeMenu="matMenu" xPosition="before">
           <a

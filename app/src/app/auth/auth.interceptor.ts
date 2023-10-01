@@ -13,6 +13,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<unknown>, next: HttpHandler) {
     if (!this.authFacade.accessToken) {
       this.router.navigate(['/', 'auth'])
+      this.authFacade.logout()
     }
 
     const bearerToken = `Bearer ${this.authFacade.accessToken}`
