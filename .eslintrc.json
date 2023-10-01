@@ -18,8 +18,40 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "type:util",
+                "onlyDependOnLibsWithTags": ["type:util"]
+              },
+              {
+                "sourceTag": "type:domain",
+                "onlyDependOnLibsWithTags": ["type:util"]
+              },
+              {
+                "sourceTag": "type:data-source",
+                "onlyDependOnLibsWithTags": ["type:util", "type:domain", "type:data-source"]
+              },
+              {
+                "sourceTag": "type:data-access",
+                "onlyDependOnLibsWithTags": ["type:util", "type:domain", "type:data-access"]
+              },
+              {
+                "sourceTag": "type:resource",
+                "onlyDependOnLibsWithTags": ["type:util", "type:data-source", "type:resource"]
+              },
+              {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": ["type:util", "type:data-access", "type:feature", "type:ui"]
+              },
+              {
+                "sourceTag": "type:app",
+                "onlyDependOnLibsWithTags": ["type:util", "type:data-source", "type:data-access", "type:resource", "type:feature", "type:ui"]
+              },
+              {
+                "sourceTag": "side:server",
+                "onlyDependOnLibsWithTags": ["side:server", "side:both"]
+              },
+              {
+                "sourceTag": "side:client",
+                "onlyDependOnLibsWithTags": ["side:client", "side:both"]
               }
             ]
           }

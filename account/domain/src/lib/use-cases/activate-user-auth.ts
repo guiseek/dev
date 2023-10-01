@@ -1,4 +1,3 @@
-import {JwtConfig} from '@dev/shared-data-source'
 import {UseCase} from '@dev/shared-util-data'
 import {JwtService} from '../ports'
 import {AuthUser} from '../dtos'
@@ -6,7 +5,7 @@ import {AuthUser} from '../dtos'
 export class ActivateUserAuthUseCase implements UseCase<string, AuthUser> {
   constructor(
     private jwtService: JwtService,
-    private readonly jwtConfig: JwtConfig
+    private readonly jwtConfig: {secret: string}
   ) {}
 
   execute(input: string) {

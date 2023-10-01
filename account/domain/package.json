@@ -4,8 +4,7 @@
   "dependencies": {
     "tslib": "^2.3.0",
     "rxjs": "^7.8.0",
-    "@dev/shared-util-data": "*",
-    "@dev/shared-data-source": "*"
+    "@dev/shared-util-data": "*"
   },
   "type": "commonjs",
   "main": "./src/index.js",

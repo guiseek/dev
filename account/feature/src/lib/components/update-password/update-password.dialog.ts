@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Inject} from '@angular/core'
 import {MAT_DIALOG_DATA} from '@angular/material/dialog'
 import {UpdatePasswordForm} from '../../forms'
-import {User} from '@dev/account-domain'
+import {User} from '@dev/account-data-access'
 import {of} from 'rxjs'
 
 @Component({
