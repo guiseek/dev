@@ -27,23 +27,47 @@
               },
               {
                 "sourceTag": "type:data-source",
-                "onlyDependOnLibsWithTags": ["type:util", "type:domain", "type:data-source"]
+                "onlyDependOnLibsWithTags": [
+                  "type:util",
+                  "type:domain",
+                  "type:data-source"
+                ]
               },
               {
                 "sourceTag": "type:data-access",
-                "onlyDependOnLibsWithTags": ["type:util", "type:domain", "type:data-access"]
+                "onlyDependOnLibsWithTags": [
+                  "type:util",
+                  "type:domain",
+                  "type:data-access"
+                ]
               },
               {
                 "sourceTag": "type:resource",
-                "onlyDependOnLibsWithTags": ["type:util", "type:data-source", "type:resource"]
+                "onlyDependOnLibsWithTags": [
+                  "type:util",
+                  "type:data-source",
+                  "type:resource"
+                ]
               },
               {
                 "sourceTag": "type:feature",
-                "onlyDependOnLibsWithTags": ["type:util", "type:data-access", "type:feature", "type:ui"]
+                "onlyDependOnLibsWithTags": [
+                  "type:util",
+                  "type:data-access",
+                  "type:feature",
+                  "type:ui"
+                ]
               },
               {
                 "sourceTag": "type:app",
-                "onlyDependOnLibsWithTags": ["type:util", "type:data-source", "type:data-access", "type:resource", "type:feature", "type:ui"]
+                "onlyDependOnLibsWithTags": [
+                  "type:util",
+                  "type:data-source",
+                  "type:data-access",
+                  "type:resource",
+                  "type:feature",
+                  "type:ui"
+                ]
               },
               {
                 "sourceTag": "side:server",
