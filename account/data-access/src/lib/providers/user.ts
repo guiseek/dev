@@ -1,5 +1,5 @@
 import {UserServiceImpl, UserServiceMock} from '../infrastructure'
-import {Http, provideServiceMock} from '@dev/shared-data-access'
+import {Env, Http, provideServiceMock} from '@dev/shared-data-access'
 import {User, UserService} from '@dev/account-domain'
 import {UserFacade} from '../application'
 
@@ -24,14 +24,18 @@ export function provideUserFacade() {
   }
 }
 
-export function provideUser(production = false, api: string | User[] = []) {
-  const providers = []
-  providers.push(
-    production
-      ? provideUserService(api as string)
-      : provideUserServiceMock(api as User[])
-  )
+function getServiceByEnv(level: Env | string, api: string | User[] = []) {
+  switch (level) {
+    case 'staging':
+    case 'production':
+    case 'development':
+      return provideUserService(api as string)
+    case 'testing':
+    default:
+      return provideUserServiceMock(api as User[])
+  }
+}
 
-  providers.push(provideUserFacade())
-  return providers
+export function provideUser(level: Env | string, api: string | User[] = []) {
+  return [getServiceByEnv(level, api), provideUserFacade()]
 }

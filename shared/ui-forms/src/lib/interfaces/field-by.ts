@@ -8,5 +8,5 @@ export interface FilterByFieldOption extends FieldOption {
 
 export interface FilterBy<T extends FieldType> {
   field: FilterByFieldOption | string
-  value: T | null
+  value: T | string
 }

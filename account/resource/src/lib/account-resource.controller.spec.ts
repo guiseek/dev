@@ -1,6 +1,10 @@
 import {Test} from '@nestjs/testing'
 import {AccountResourceController} from './account-resource.controller'
 import {
+  provideCreateUserUseCases,
+  provideCryptoService,
+  provideGroupFacade,
+  provideGroupRepositoryMock,
   provideUserFacade,
   provideUserRepositoryMock,
 } from '@dev/account-data-source'
@@ -24,7 +28,15 @@ describe('AccountResourceController', () => {
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
-      providers: [provideUserRepositoryMock(), provideUserFacade()],
+      providers: [
+        provideUserRepositoryMock(),
+        provideGroupRepositoryMock(),
+        provideUserFacade(),
+        provideCreateUserUseCases(),
+        provideUserFacade(),
+        provideGroupFacade(),
+        provideCryptoService(),
+      ],
       controllers: [AccountResourceController],
     }).compile()
 

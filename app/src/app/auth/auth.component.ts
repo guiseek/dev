@@ -35,7 +35,6 @@ export class AuthComponent implements OnInit {
   ngOnInit() {
     this.authFacade.authUser$
       .pipe(
-        debounceTime(600),
         takeUntil(this.#destroy),
         filter((authUser) => !!authUser)
       )

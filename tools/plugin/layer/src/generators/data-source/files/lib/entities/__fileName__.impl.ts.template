@@ -9,18 +9,15 @@ import {
 
 @Entity({name: '<%=fileName%>'})
 export class <%=className%>Impl implements <%=className%> {
-<% for(let prop of entity.props) { %>
-  <% if (prop.name === 'id') { %>
   @PrimaryGeneratedColumn('uuid')
-  <% } %>
-  <% if (prop.name === 'createdAt') { %>
-  @CreateDateColumn()
-  <% } %>
-  <% if (prop.name === 'updatedAt') { %>
-  @UpdateDateColumn()
-  <% } else { %>
+  id: string
+
   @Column()
-  <% } %>
-  <%= prop.name %>: <%= prop.type %>
-<% } %>
+  name: string
+
+  @CreateDateColumn()
+  createdAt: Date
+
+  @UpdateDateColumn()
+  updatedAt: Date
 }

@@ -10,5 +10,5 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
 
   @Exclude()
   @ApiHideProperty()
-  password: string
+  override password: string
 }

@@ -43,9 +43,9 @@ registerLocaleData(pt, 'pt-BR', BR)
   providers: [
     provideHttp(HttpClient),
     provideLoader(),
-    provideUser(env.production, env.api.account),
-    provideGroup(env.production, env.api.accountGroups),
-    provideAuth(env.api.accountAuth),
+    provideUser(env.level, env.api.account),
+    provideGroup(env.level, env.api.accountGroups),
+    provideAuth(env.level, env.api.accountAuth),
     {
       provide: LOCALE_ID,
       useValue: 'pt-BR',

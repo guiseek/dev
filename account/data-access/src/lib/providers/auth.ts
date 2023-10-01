@@ -1,15 +1,11 @@
+import {AuthServiceImpl, AuthServiceMock} from '../infrastructure'
 import {AuthService} from '@dev/account-domain'
-import {AuthServiceImpl} from '../infrastructure'
-import {Http} from '@dev/shared-data-access'
+import {Env, Http} from '@dev/shared-data-access'
 import {AuthFacade} from '../application'
-
-export function getAuthService() {
-  return AuthService
-}
 
 export function provideAuthService(url: string) {
   return {
-    provide: getAuthService(),
+    provide: AuthService,
     useFactory(http: Http) {
       return new AuthServiceImpl(http, url)
     },
@@ -17,13 +13,32 @@ export function provideAuthService(url: string) {
   }
 }
 
-export function provideAuthFacade() {
+export function provideAuthServiceMock() {
   return {
-    provide: AuthFacade,
-    deps: [getAuthService()],
+    provide: AuthService,
+    useClass: AuthServiceMock,
   }
 }
 
-export function provideAuth(url: string) {
-  return [provideAuthService(url), provideAuthFacade()]
+export function provideAuthFacade() {
+  return {
+    provide: AuthFacade,
+    deps: [AuthService],
+  }
+}
+
+function getServiceByEnv(level: Env | string, api?: string) {
+  switch (level) {
+    case 'staging':
+    case 'production':
+    case 'development':
+      return provideAuthService(api as string)
+    case 'testing':
+    default:
+      return provideAuthServiceMock()
+  }
+}
+
+export function provideAuth(level: Env | string, api?: string) {
+  return [getServiceByEnv(level, api), provideAuthFacade()]
 }

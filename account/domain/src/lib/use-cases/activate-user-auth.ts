@@ -7,9 +7,7 @@ export class ActivateUserAuthUseCase implements UseCase<string, AuthUser> {
   constructor(
     private jwtService: JwtService,
     private readonly jwtConfig: JwtConfig
-  ) {
-    console.log(jwtConfig)
-  }
+  ) {}
 
   execute(input: string) {
     try {

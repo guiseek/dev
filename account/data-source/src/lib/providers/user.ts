@@ -2,7 +2,6 @@ import {
   addEntity,
   provideImpl,
   provideDeps,
-  provideFacade,
   provideRepository,
   provideRepositoryMock,
 } from '@dev/shared-data-source'
