@@ -1,4 +1,5 @@
 export * from './entity'
+export * from './env-config'
 export * from './facade'
 export * from './page-meta'
 export * from './paged'

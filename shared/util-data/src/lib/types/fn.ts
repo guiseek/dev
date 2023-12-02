@@ -1,1 +1,1 @@
-export type Fn<T = void> = (...params: any[]) => T
+export type Fn<T = void> = (...params: unknown[]) => T

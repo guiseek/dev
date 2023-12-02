@@ -9,16 +9,16 @@ import {
 import {User, UserFacade, UpdateUser} from '@dev/account-data-access'
 import {
   CreateUserDialog,
-  UpdatePasswordDialog,
   UpdateUserDialog,
+  UpdatePasswordDialog,
 } from '../../components'
 import {Columns, FeatureContainer} from '@dev/shared-ui-base'
 import {FilterByFieldOption} from '@dev/shared-ui-forms'
 import {MatPaginator} from '@angular/material/paginator'
+import {MatSnackBar} from '@angular/material/snack-bar'
 import {MatDialog} from '@angular/material/dialog'
 import {MatSort} from '@angular/material/sort'
 import {FormControl} from '@angular/forms'
-import {MatSnackBar} from '@angular/material/snack-bar'
 
 @Component({
   selector: 'dev-users',

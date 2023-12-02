@@ -7,16 +7,16 @@ import {
 import {EnvConfig} from '@dev/shared-util-data'
 
 export const env: EnvConfig<AccountInject> = {
-  production: true,
-  level: 'production',
+  production: false,
+  level: 'development',
   inject: {
     auth: AuthServiceImpl,
     user: UserServiceImpl,
     group: GroupServiceImpl,
   },
   api: {
-    account: 'https://api.queroser.dev/account',
-    accountAuth: 'https://api.queroser.dev/account/auth',
-    accountGroups: 'https://api.queroser.dev/account/groups',
+    account: '/api/account',
+    accountAuth: '/api/account/auth',
+    accountGroups: '/api/account/groups',
   },
 }

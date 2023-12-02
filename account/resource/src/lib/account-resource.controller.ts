@@ -1,4 +1,4 @@
-import {PageOptionsDto} from '@dev/shared-data-source'
+import {PageOptionsDto, castTo} from '@dev/shared-data-source'
 import {ApiPagedResponse} from '@dev/shared-resource'
 import {
   UserDto,
@@ -22,7 +22,6 @@ import {
   NotFoundException,
   BadRequestException,
 } from '@nestjs/common'
-import {plainToClass} from 'class-transformer'
 
 @ApiTags('account')
 @Controller('account')
@@ -35,7 +34,7 @@ export class AccountResourceController {
     return this.userFacade.find({options}).then(({meta, data}) => {
       return {
         meta,
-        data: data.map((item) => plainToClass(UserDto, item)),
+        data: data.map(castTo(UserDto)),
       }
     })
   }
@@ -43,7 +42,7 @@ export class AccountResourceController {
   @Get(':id')
   async findOne(@Param('id') id: string) {
     try {
-      return await this.userFacade.findOne(id)
+      return await this.userFacade.findOne(id).then(castTo(UserDto))
     } catch {
       throw new NotFoundException('Usuário não existe')
     }

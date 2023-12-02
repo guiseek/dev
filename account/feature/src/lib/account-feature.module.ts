@@ -7,15 +7,14 @@ import {ReactiveFormsModule} from '@angular/forms'
 import {accountFeatureRoutes} from './account-feature.routes'
 import {AccountFeatureContainer} from './account-feature.container'
 import {UsersContainer, GroupsContainer} from './containers'
-import {provideUserFacade, provideUserService} from '@dev/account-data-access'
 import {
   CreateUserDialog,
   UpdateUserDialog,
   CreateGroupDialog,
   UpdateGroupDialog,
   UpdatePasswordDialog,
+  PermissionComponent,
 } from './components'
-import {PermissionComponent} from './components/permission/permission.component'
 
 @NgModule({
   imports: [
@@ -38,6 +37,5 @@ import {PermissionComponent} from './components/permission/permission.component'
     UpdateGroupDialog,
     PermissionComponent,
   ],
-  providers: [provideUserService(), provideUserFacade()],
 })
 export class AccountFeatureModule {}

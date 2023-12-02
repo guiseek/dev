@@ -1,4 +1,4 @@
-import {CreateQueryParams, RequestQueryBuilderOptions} from './interfaces'
+import {RequestQueryBuilderOptions} from './interfaces'
 // import {
 //   QueryFields,
 //   QueryFilter,

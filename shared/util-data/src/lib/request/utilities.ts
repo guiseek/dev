@@ -11,9 +11,11 @@ export const isNil = <T>(val: T): boolean => isUndefined(val) || isNull(val)
 
 export const isString = <T>(val: T): boolean => typeof val === 'string'
 
-export const hasLength = <T>(val: T | any): boolean => val.length > 0
+export const hasLength = <T extends string>(
+  val: T | (T | unknown)[]
+): boolean => val.length > 0
 
-export const isStringFull = <T>(val: T): boolean =>
+export const isStringFull = <T extends string>(val: T | T[]): boolean =>
   isString(val) && hasLength(val)
 
 export const isArrayFull = <T>(val: T): boolean =>
@@ -53,10 +55,10 @@ export const isDateString = <T extends string>(val: T): boolean =>
 
 export const isDate = (val: unknown): val is Date => val instanceof Date
 
-export const isValue = <T>(val: T): boolean =>
+export const isValue = <T extends string>(val: T | T[]): boolean =>
   isStringFull(val) || isNumber(val) || isBoolean(val) || isDate(val)
 
-export const hasValue = <T>(val: T): boolean =>
+export const hasValue = <T extends string>(val: T | T[]): boolean =>
   isArrayFull(val) ? (val as T[]).every((o) => isValue(o)) : isValue(val)
 
 export const isFunction = <T>(val: T): boolean => typeof val === 'function'

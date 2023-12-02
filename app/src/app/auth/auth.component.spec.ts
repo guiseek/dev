@@ -1,4 +1,3 @@
-import {provideAuth, provideGroup, provideUser} from '@dev/account-data-access'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {HttpClientTestingModule} from '@angular/common/http/testing'
 import {HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http'
@@ -13,7 +12,8 @@ import {AuthComponent} from './auth.component'
 import {AppInterceptor} from '../app.interceptor'
 import {AuthInterceptor} from './auth.interceptor'
 
-import {env} from '../../envs/env'
+import {env} from '../../envs/env.development'
+import { provideAccount } from '@dev/account-data-access'
 
 describe('AuthComponent', () => {
   beforeEach(async () => {
@@ -30,9 +30,7 @@ describe('AuthComponent', () => {
       providers: [
         provideHttp(HttpClient),
         provideLoader(),
-        provideUser(env.level, env.api.account),
-        provideGroup(env.level, env.api.accountGroups),
-        provideAuth(env.level, env.api.accountAuth),
+        provideAccount(env),
         {
           provide: LOCALE_ID,
           useValue: 'pt-BR',

@@ -5,10 +5,10 @@ export type QueryFields = string[]
 export type QueryFilter = {
   field: string
   operator: ComparisonOperator
-  value?: any
+  value?: unknown
 }
 
-export type QueryFilterArr = [string, ComparisonOperator, any?]
+export type QueryFilterArr = [string, ComparisonOperator, unknown?]
 
 export type QueryJoin = {
   field: string
@@ -122,5 +122,5 @@ export type SConditionKey = '$and' | '$or'
 export type SCondition = SFields | SConditionAND
 
 export type ObjectLiteral = {
-  [key: string]: any
+  [key: string]: unknown
 }

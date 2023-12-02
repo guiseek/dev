@@ -16,7 +16,7 @@ export class CreateUserAccountUseCase
     private readonly cryptoService: CryptoService
   ) {}
 
-  async execute(input: CreateUser): Promise<User> {
+  async execute(input: CreateUser) {
     const groups = []
 
     const group = await this.groupRepository.findOne('permission', 1)

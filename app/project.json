@@ -33,13 +33,7 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all",
-          "fileReplacements": [
-            {
-              "replace": "app/src/envs/env.ts",
-              "with": "app/src/envs/env.prod.ts"
-            }
-          ]
+          "outputHashing": "all"
         },
         "staging": {
           "buildOptimizer": false,
@@ -61,7 +55,13 @@
           "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
-          "namedChunks": true
+          "namedChunks": true,
+          "fileReplacements": [
+            {
+              "replace": "app/src/envs/env.ts",
+              "with": "app/src/envs/env.development.ts"
+            }
+          ]
         },
         "testing": {
           "buildOptimizer": false,
@@ -85,13 +85,13 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "app:build:production"
+          "buildTarget": "app:build:production"
         },
         "development": {
-          "browserTarget": "app:build:development"
+          "buildTarget": "app:build:development"
         },
         "staging": {
-          "browserTarget": "app:build:staging"
+          "buildTarget": "app:build:staging"
         }
       },
       "defaultConfiguration": "development",
@@ -102,11 +102,11 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "app:build"
+        "buildTarget": "app:build"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["app/**/*.ts", "app/**/*.html"]
@@ -116,14 +116,9 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "app/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "app/jest.config.ts"
       },
       "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        },
         "defaultConfiguration": {
           "fileReplacements": [
             {

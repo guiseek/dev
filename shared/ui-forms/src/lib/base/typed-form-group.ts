@@ -2,9 +2,7 @@ import {FormGroup} from '@angular/forms'
 import {TypedFormModel} from '../types'
 import {Subject} from 'rxjs'
 
-export class TypedFormGroup<T extends object> extends FormGroup<
-  TypedFormModel<T>
-> {
+export class TypedFormGroup<T = unknown> extends FormGroup<TypedFormModel<T>> {
   #submitted = new Subject<T>()
   submitted$ = this.#submitted.asObservable()
 

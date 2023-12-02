@@ -1,6 +1,6 @@
-import {provideAuth, provideGroup, provideUser} from '@dev/account-data-access'
+import {provideAccount} from '@dev/account-data-access'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
-import {provideHttp, provideLoader} from '@dev/shared-data-access'
+import {provideEnv, provideHttp, provideLoader} from '@dev/shared-data-access'
 import {BrowserModule} from '@angular/platform-browser'
 import {AccountUiAuthModule} from '@dev/account-ui-auth'
 import {registerLocaleData} from '@angular/common'
@@ -21,7 +21,7 @@ import {AppComponent} from './app.component'
 import {LoaderComponent} from './loader'
 import {SharedMaterial} from './shared'
 import {appRoutes} from './app.routes'
-import {env} from '../envs/env'
+import {env} from '../envs/env.development'
 
 registerLocaleData(pt, 'pt-BR', BR)
 
@@ -44,9 +44,8 @@ registerLocaleData(pt, 'pt-BR', BR)
   providers: [
     provideHttp(HttpClient),
     provideLoader(),
-    provideUser(env.level, env.api.account),
-    provideGroup(env.level, env.api.accountGroups),
-    provideAuth(env.level, env.api.accountAuth),
+    provideEnv(env),
+    provideAccount(env),
     {
       provide: LOCALE_ID,
       useValue: 'pt-BR',

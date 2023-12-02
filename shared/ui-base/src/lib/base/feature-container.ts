@@ -1,6 +1,6 @@
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop'
 import {MatDialog, MatDialogRef} from '@angular/material/dialog'
-import {Entity, Facade, Order, Where} from '@dev/shared-util-data'
+import {Entity, Any, Facade, Order, Where} from '@dev/shared-util-data'
 import {MatTableDataSource} from '@angular/material/table'
 import {MatPaginator} from '@angular/material/paginator'
 import {MatSnackBar} from '@angular/material/snack-bar'
@@ -101,8 +101,8 @@ export abstract class FeatureContainer<T extends Entity> {
     this.selection.select(...this.dataSource.data)
   }
 
-  abstract openCreateDialog(): MatDialogRef<FormDialog<any>>
-  abstract openUpdateDialog(data: T): MatDialogRef<FormDialog<any>>
+  abstract openCreateDialog(): MatDialogRef<FormDialog<Any>>
+  abstract openUpdateDialog(data: T): MatDialogRef<FormDialog<Any>>
 
   onCreate() {
     const ref = this.openCreateDialog()
